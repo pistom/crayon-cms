@@ -1,0 +1,53 @@
+@import "colors";
+
+@mixin icon($file, $width, $height, $hasHover) {
+	width:$width;
+	height:$height;
+	display:block;
+	$imageUrl: "../images/sprites/#{$file}.svg";
+	$imageUrl_hover: "../images/sprites/#{$file}_hover.svg";
+	background-image: inline-image($imageUrl, "image/svg+xml;charset=utf8");
+
+	background-repeat: no-repeat;
+	@if ($hasHover){
+		&:hover {
+			background-position: 0 (0 - $height);
+		}
+	}
+	.no-svg & {
+		@include sprites-sprite($file);
+		@if ($hasHover){
+			&:hover {
+				$x: nth(sprite-position($sprites, $file), 1);
+				$y: nth(sprite-position($sprites, $file), 2);
+				background-position:$x ($y - $height);
+			}
+		}
+	}
+}
+
+@mixin block($bgColor:$cl-bg, $bgOpacity:.25, $borderColor:lighten($cl-secondary,15), $padding:15px) {
+    //box-shadow: 0 0 5px lighten($cl-secondary,15);
+	padding: $padding;
+    @include border-radius(1px);
+    background:transparentize($bgColor, $bgOpacity);
+    border:1px solid $borderColor;
+    box-sizing:border-box;
+}
+
+@mixin afterHeaderBg($page, $name,$nextClassName:""){
+	$nextSelector: "";
+	$file: $name;
+	@if $nextClassName != "" {
+		$nextSelector: "." + $nextClassName;
+		$file: $nextClassName;
+	}
+	&.#{$name} {
+		.afterHeader#{$nextSelector} {
+			background-image:url("/images/pages/" + $page + "/" + $file +"_m.jpg");
+			@include breakpoint($tablet) {
+				background-image:url("/images/pages/" + $page + "/" + $file +".jpg");
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+{% set pageTitle = pageTitle is not defined ? '' : ' | '~pageTitle %}
+{% set pageDescription = pageDescription is not defined ? 'My site' : pageDescription %}
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My site{{ pageTitle }}</title>
+    <meta name="description" content="{{ pageTitle }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#561A09">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/5ec.min.css">
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/css/5ec-ie8.css">
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="/js/vendor/html5shiv.min.js"><\/script>')</script>
+    <![endif]-->
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<h1>5eC CMS</h1>
+<section class="lang">
+    <a href="{{ routes['home'].path }}">Eng</a> | <a href="{{ routes['home_pl'].path }}">Pol</a>
+</section>
+<hr>
+<section class="mainNavigation">
+{% include 'navigation.html.twig' with {'menu':menu} %}
+</section>
+<hr>
+<section class="mainContent">
+{% block content %}
+{% endblock %}
+</section>
+
+
+<script src="/js/5ec.js"></script>
+
+</body>
+</html>

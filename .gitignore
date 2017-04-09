@@ -1,0 +1,12 @@
+/vendor
+/node_modules
+/cache/*
+.sass-cache
+.vscode
+.idea
+
+/_bo/node_modules
+/_bo/.sass-cache
+/_bo/.vscode
+/_bo/.idea
+/_bo/cache/*

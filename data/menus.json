@@ -1,0 +1,4 @@
+{
+  "menu_en": ["home","about",{"offer":["offer1","offer2"]},"contact"],
+  "menu_pl": ["home_pl","about_pl",{"offer_pl":["offer1_pl","offer2_pl"]},"contact_pl"]
+}

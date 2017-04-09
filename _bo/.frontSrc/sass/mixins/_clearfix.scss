@@ -1,0 +1,14 @@
+@mixin clearfix {
+	clear:both;
+}
+
+@mixin clearfix2 {
+	&:after {
+    	content: "";
+    	display: table;
+    	clear: both;
+	}
+}
+
+.clearfix {@include clearfix;}
+.clearfix2 {@include clearfix2;}

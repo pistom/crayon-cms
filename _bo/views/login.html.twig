@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <form action="/_bo/login.php" method="post" name="loginForm" id="loginForm">
+        <label for="inputEmail" class="col-sm-2 control-label">Login</label>
+        <input name="username" type="text" id="inputEmail">
+        <label for="inputPassword" class="col-sm-2 control-label">Hasło</label>
+        <input name="password" type="password" class="Input form-control" id="inputPassword">
+        <input name="submit" type="submit" value="Zaloguj się">
+    </form>
+{% endblock %}

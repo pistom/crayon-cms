@@ -1,0 +1,20 @@
+{
+    "name": "pistom/5ec",
+    "type": "project",
+    "minimum-stability": "RC",
+    "require": {
+        "phpmailer/phpmailer": "^5.2",
+        "altorouter/altorouter": "^1.2",
+        "twig/twig": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {"Crayon\\": "app/"}
+    },
+    "license": "CC",
+    "authors": [
+        {
+            "name": "Tomasz Pisarek",
+            "email": "tomasz.pisarek@gmail.com"
+        }
+    ]
+}

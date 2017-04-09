@@ -1,0 +1,13 @@
+{% extends template %}
+{% block content %}
+
+    <h1>Offer</h1>
+    <p>Ab beatae optio sit unde veritatis. Culpa saepe
+        sapiente similique. Accusantium ad aperiam blanditiis consequatur corporis dolorem dolores dolorum incidunt
+        laborum necessitatibus perspiciatis praesentium, quibusdam recusandae repellat reprehenderit saepe similique
+        vero voluptate!</p>
+    <p>
+        <a href="{{ routes['offer1'].path }}" data-ajax="true" title="{{ routes['offer1'].name }}">{{ routes['offer1'].name }}</a>, <a href="{{ routes['offer2'].path }}" data-ajax="true">{{ routes['offer2'].name }}</a>
+    </p>
+
+{% endblock %}
