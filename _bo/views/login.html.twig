@@ -1,10 +1,33 @@
-{% extends "base.html.twig" %}
-{% block content %}
-    <form action="/_bo/login.php" method="post" name="loginForm" id="loginForm">
-        <label for="inputEmail" class="col-sm-2 control-label">Login</label>
-        <input name="username" type="text" id="inputEmail">
-        <label for="inputPassword" class="col-sm-2 control-label">Hasło</label>
-        <input name="password" type="password" class="Input form-control" id="inputPassword">
-        <input name="submit" type="submit" value="Zaloguj się">
-    </form>
-{% endblock %}
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Crayon - Back Office</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#561A09">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/_bo/css/5ec.min.css">
+</head>
+<body>
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<h1>Back Office</h1>
+
+<form action="/_bo/login.php" method="post" name="loginForm" id="loginForm">
+    <label for="inputEmail" class="col-sm-2 control-label">Login</label>
+    <input name="username" type="text" id="inputEmail">
+    <label for="inputPassword" class="col-sm-2 control-label">Hasło</label>
+    <input name="password" type="password" class="Input form-control" id="inputPassword">
+    <input name="submit" type="submit" value="Zaloguj się">
+</form>
+
+<div class="msgWindow"><span class="msgWindowClose"></span><div class="msgWindowTitle"></div><div class="msgWindowContent"></div></div>
+<script src="/_bo/js/5ec.min.js"></script>
+
+</body>
+</html>

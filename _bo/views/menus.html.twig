@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Menus</h1>
+
+    {% for key,menu in menus %}
+        <p><a href="menu.edit.php?menu={{ key }}">{{ key }}</a></p>
+    {% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

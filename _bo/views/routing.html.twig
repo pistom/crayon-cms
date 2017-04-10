@@ -1,0 +1,101 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Routing</h1>
+
+    <form action="" id="routesForm">
+        <table>
+            <thead>
+                <tr>
+                    <th>Route</th>
+                    <th>Type</th>
+                    <th>Path</th>
+                    <th>Controller</th>
+                    <th>Function</th>
+                    <th>Variables</th>
+                    <th>Name</th>
+                    <th>Enabled</th>
+                    <th>Blind</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="routingTableBody">
+            {% for key,route in routes %}
+                <tr data-index="{{ loop.index }}">
+                    <td><input title="Route" type="text" name="r{{ loop.index }}-route" value="{{ key }}"></td>
+                    <td>
+                        <select title="Type" name="r{{ loop.index }}-type">
+                            <option value="GET" {{ route.type == 'GET' ? 'selected' : '' }}>GET</option>
+                            <option value="POST" {{ route.type == 'POST' ? 'selected' : '' }}>POST</option>
+                            <option value="PATCH" {{ route.type == 'PATCH' ? 'selected' : '' }}>PATCH</option>
+                            <option value="DELETE" {{ route.type == 'DELETE' ? 'selected' : '' }}>DELETE</option>
+                        </select>
+                    </td>
+                    <td><input title="Path" type="text" name="r{{ loop.index }}-path" value="{{ route.path }}"></td>
+                    <td>
+                        <select class="controllers" data-loopindex="{{ loop.index }}" title="Controller" name="r{{ loop.index }}-controller">
+                            <option value="" disabled="disabled">-- Select --</option>
+                            {% for key,controller in controllers %}
+                                <option value="{{ key }}" {{ route.controller == key ? 'selected' : '' }}>{{ key }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <select class="functions" id="functions{{ loop.index }}" title="Function" name="r{{ loop.index }}-function">
+                            <option value="" disabled="disabled">-- Select --</option>
+                            {% for key,controller in controllers %}
+                                <optgroup label="{{ key }}" data-optgroup="{{ key }}">
+                                    {% for function in controller %}
+                                        <option value="{{ function }}" {{ route.function == function ? 'selected' : '' }}>{{ function }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><input title="Variables" type="text" name="r{{ loop.index }}-variables" value="{{ route.variables }}"></td>
+                    <td><input title="Name" type="text" name="r{{ loop.index }}-name" value="{{ route.name }}"></td>
+                    <td><input title="Enabled" type="checkbox" name="r{{ loop.index }}-enabled" value="true" {{ route.enabled == 'true' ? 'checked' : '' }}></td>
+                    <td><input title="Blind" type="checkbox" name="r{{ loop.index }}-blind" value="true" {{ route.blind == 'true' ? 'checked' : '' }}></td>
+                    <td><a href="" data-action="delete">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9"></td>
+                    <td><a href="" data-action="add">Add</a></td>
+                </tr>
+                <tr>
+                    <td colspan="9"></td>
+                    <td><a href="" data-action="save">Save</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var saveData = function(e){
+            if(e.target.dataset.action == 'save'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('routesForm'));
+                atomic.post('routing.save.php',data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+            }
+        };
+        document.body.addEventListener("click",saveData,false);
+    </script>
+{% endblock %}

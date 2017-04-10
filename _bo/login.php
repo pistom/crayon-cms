@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $res = array();
     if (isset($logins[$username]) && $logins[$username]['pwd'] === $password){
         $_SESSION['UserData']['username']=$_POST['username'];
+        $_SESSION['UserData']['role']=$logins[$username]['role'];
         $res['status'] = 'success';
     } else {
         $res['status'] = 'error';

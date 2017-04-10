@@ -1,0 +1,155 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Menu</h1>
+    <form action="" id="menuForm">
+    <input name="menu-name" type="text" value="{{ menuName }}">
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Parent</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if menu is null %}
+            <tr data-index="1">
+                <td>
+                    <select name="r1-item" id="">
+                        <option value="--" disabled selected>-- select --</option>
+                        {% for key,route in routes %}
+                            <option value="{{ key }}">{{ key }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <select name="r1-parent" id="">
+                        <option value="--" selected>-- main --</option>
+                        {% for key,route in routes %}
+                            <option value="{{ key }}">{{ key }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <a href="" data-action="delete">Delete</a>
+                </td>
+            </tr>
+        {% else %}
+            {% set iterator = 1 %}
+            {% for key,item in menu %}
+                {% if item is iterable %}
+                    {% for k,i in item %}
+                        <tr data-index="{{ iterator }}">
+                            <td>
+                                <select name="r{{ iterator }}-item" id="">
+                                    <option value="--" disabled>-- select --</option>
+                                    {% for key,route in routes %}
+                                        <option value="{{ key }}" {{ key==k ? 'selected' : '' }}>{{ key }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td>
+                                <select name="r{{ iterator }}-parent" id="">
+                                    <option value="--" selected>-- main --</option>
+                                    {% for key,route in routes %}
+                                        <option value="{{ key }}">{{ key }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td>
+                                <a href="" data-action="delete">Delete</a>
+                            </td>
+                        </tr>
+                        {% set iterator = iterator+1 %}
+                        {% for j in i %}
+                            <tr data-index="{{ iterator }}">
+                                <td>
+                                    <select name="r{{ iterator }}-item" id="">
+                                        <option value="--" disabled>-- select --</option>
+                                        {% for key,route in routes %}
+                                            <option value="{{ key }}" {{ key==j ? 'selected' : '' }}>{{ key }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="r{{ iterator }}-parent" id="">
+                                        <option value="--">-- main --</option>
+                                        {% for key,route in routes %}
+                                            <option value="{{ key }}" {{ key==k ? 'selected' : '' }}>{{ key }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <a href="" data-action="delete">Delete</a>
+                                </td>
+                            </tr>
+                            {% set iterator = iterator+1 %}
+                        {% endfor %}
+                    {% endfor %}
+
+                {% else %}
+                <tr data-index="{{ iterator }}">
+                    <td>
+                        <select name="r{{ iterator }}-item" id="">
+                            <option value="--" disabled>-- select --</option>
+                            {% for key,route in routes %}
+                                <option value="{{ key }}" {{ key==item ? 'selected' : '' }}>{{ key }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <select name="r{{ iterator }}-parent" id="">
+                            <option value="--" selected>-- main --</option>
+                            {% for key,route in routes %}
+                                <option value="{{ key }}">{{ key }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <a href="" data-action="delete">Delete</a>
+                    </td>
+                </tr>
+                {% set iterator = iterator+1 %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"></td>
+                <td><a href="" data-action="add">Add</a></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td><a href="" data-action="save">Save</a></td>
+            </tr>
+        </tfoot>
+    </table>
+    </form>
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var saveData = function(e){
+            if(e.target.dataset.action == 'save'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('menuForm'));
+                console.log(data);
+                atomic.post('menu.save.php',data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+            }
+        };
+        document.body.addEventListener("click",saveData,false);
+    </script>
+{% endblock %}
