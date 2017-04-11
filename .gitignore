@@ -4,6 +4,7 @@
 .sass-cache
 .vscode
 .idea
+settings.php
 
 /_bo/node_modules
 /_bo/.sass-cache

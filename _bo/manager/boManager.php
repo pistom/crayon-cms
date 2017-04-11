@@ -31,10 +31,18 @@ class boManager {
         $results = array();
         $pages = glob('../data/pages/*.json');
         foreach ($pages as $p) {
+            $pageName = basename($p, ".json");
             $json_data = file_get_contents($p);
-            $results[$p] = json_decode($json_data, true);
+            $results[$pageName] = json_decode($json_data, true);
         }
         return $results;
+    }
+
+    public function getPage($p){
+        $json_data = file_get_contents('../data/pages/'.$p.'.json');
+        $page = json_decode($json_data, true);
+        $page['content'] = file_get_contents('../views/pages/'.$p.'.html.twig');
+        return $page;
     }
 
     public function getControllersList(){

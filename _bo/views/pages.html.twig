@@ -12,7 +12,7 @@
         <tbody>
         {% for key,page in pages %}
             <tr>
-                <td><a href="page.edit.php?page={{ key }}">{{ key }}</a></td>
+                <td><a href="page.edit.php?page={{ key }}">{{ page.title }}</a></td>
                 <td><a href="" data-action="delete" data-item="{{ key }}">Delete</a></td>
             </tr>
         {% endfor %}

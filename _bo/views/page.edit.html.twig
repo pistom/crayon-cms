@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Page</h1>
+
+
+    <div>
+        <label for="pageTitle">Title</label>
+        <input type="text" name="pageTitle" value="{{ page.title }}" id="pageTitle">
+    </div>
+    <div>
+        <label for="pageDescription">Description</label>
+        <input type="text" name="pageDescription" value="{{ page.description }}" id="pageDescription">
+    </div>
+    <div>
+        <label for="pageMenu">Menu</label>
+        <select name="pageMenu" id="pageMenu">
+            <option value="">-- select --</option>
+            {% for key,menu in menus %}
+                <option value="{{ key }}" {{ key==page.menu ? 'selected' : '' }}>{{ key }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="pageContent">Content</label>
+        <textarea name="pageContent" id="pageContent">
+            {{ page.content }}
+        </textarea>
+    </div>
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

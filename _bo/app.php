@@ -2,6 +2,11 @@
 session_start();
 include_once 'verification.php';
 include_once '../settings.php';
+$twigDebug = false;
+if($dev_mode){
+    $twigCache = false;
+    $twigDebug = true;
+}
 require_once '../vendor/autoload.php';
 require_once 'manager/boManager.php';
 $manager = new boManager();
