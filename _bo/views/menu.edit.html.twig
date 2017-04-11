@@ -8,6 +8,7 @@
             <tr>
                 <th>Item</th>
                 <th>Parent</th>
+                <th>Order</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -30,6 +31,7 @@
                         {% endfor %}
                     </select>
                 </td>
+                <td><input name="r1-order" type="number" value=""></td>
                 <td>
                     <a href="" data-action="delete">Delete</a>
                 </td>
@@ -37,91 +39,71 @@
         {% else %}
             {% set iterator = 1 %}
             {% for key,item in menu %}
-                {% if item is iterable %}
-                    {% for k,i in item %}
+
+
                         <tr data-index="{{ iterator }}">
                             <td>
                                 <select name="r{{ iterator }}-item" id="">
-                                    <option value="--" disabled>-- select --</option>
-                                    {% for key,route in routes %}
-                                        <option value="{{ key }}" {{ key==k ? 'selected' : '' }}>{{ key }}</option>
+                                    <option value="--" disabled selected>-- select --</option>
+                                    {% for k,r in routes %}
+                                        <option value="{{ k }}" {{ k==key ? 'selected' : '' }}>{{ k }}</option>
                                     {% endfor %}
                                 </select>
                             </td>
                             <td>
                                 <select name="r{{ iterator }}-parent" id="">
-                                    <option value="--" selected>-- main --</option>
-                                    {% for key,route in routes %}
-                                        <option value="{{ key }}">{{ key }}</option>
+                                    <option value="--" selected>--</option>
+                                    {% for k,r in routes %}
+                                        <option value="{{ k }}">{{ k }}</option>
                                     {% endfor %}
                                 </select>
                             </td>
+                            <td><input name="r{{ iterator }}-order" type="number" value="{{ item.order }}"></td>
                             <td>
                                 <a href="" data-action="delete">Delete</a>
                             </td>
                         </tr>
-                        {% set iterator = iterator+1 %}
-                        {% for j in i %}
-                            <tr data-index="{{ iterator }}">
-                                <td>
-                                    <select name="r{{ iterator }}-item" id="">
-                                        <option value="--" disabled>-- select --</option>
-                                        {% for key,route in routes %}
-                                            <option value="{{ key }}" {{ key==j ? 'selected' : '' }}>{{ key }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="r{{ iterator }}-parent" id="">
-                                        <option value="--">-- main --</option>
-                                        {% for key,route in routes %}
-                                            <option value="{{ key }}" {{ key==k ? 'selected' : '' }}>{{ key }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </td>
-                                <td>
-                                    <a href="" data-action="delete">Delete</a>
-                                </td>
-                            </tr>
-                            {% set iterator = iterator+1 %}
-                        {% endfor %}
-                    {% endfor %}
-
-                {% else %}
-                <tr data-index="{{ iterator }}">
-                    <td>
-                        <select name="r{{ iterator }}-item" id="">
-                            <option value="--" disabled>-- select --</option>
-                            {% for key,route in routes %}
-                                <option value="{{ key }}" {{ key==item ? 'selected' : '' }}>{{ key }}</option>
+                        {% if item|length > 1 %}
+                            {% for key2,item2 in item %}
+                                {% if loop.index > 1 %}
+                                    <tr data-index="{{ iterator }}">
+                                        <td>
+                                            <select name="r{{ iterator }}-item" id="">
+                                                <option value="--" disabled selected>-- select --</option>
+                                                {% for k,r in routes %}
+                                                    <option value="{{ k }}" {{ k==key2 ? 'selected' : '' }}>{{ k }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="r{{ iterator }}-parent" id="">
+                                                <option value="--" selected>--</option>
+                                                {% for k,r in routes %}
+                                                    <option value="{{ k }}" {{ k==key ? 'selected' : '' }}>{{ k }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </td>
+                                        <td><input name="r{{ iterator }}-order" type="number" value="{{ item2.order }}"></td>
+                                        <td>
+                                            <a href="" data-action="delete">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% set iterator = iterator+1 %}
                             {% endfor %}
-                        </select>
-                    </td>
-                    <td>
-                        <select name="r{{ iterator }}-parent" id="">
-                            <option value="--" selected>-- main --</option>
-                            {% for key,route in routes %}
-                                <option value="{{ key }}">{{ key }}</option>
-                            {% endfor %}
-                        </select>
-                    </td>
-                    <td>
-                        <a href="" data-action="delete">Delete</a>
-                    </td>
-                </tr>
+                        {% endif %}
                 {% set iterator = iterator+1 %}
-                {% endif %}
             {% endfor %}
         {% endif %}
 
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="2"></td>
+                <td colspan="3"></td>
                 <td><a href="" data-action="add">Add</a></td>
             </tr>
             <tr>
-                <td colspan="2"></td>
+                <td colspan="3"></td>
                 <td><a href="" data-action="save">Save</a></td>
             </tr>
         </tfoot>
@@ -137,8 +119,7 @@
             if(e.target.dataset.action == 'save'){
                 e.preventDefault();
                 var data = serializeFormData(document.getElementById('menuForm'));
-                console.log(data);
-                atomic.post('menu.save.php',data)
+                atomic.post('menu.save.php?menu={{ menuName }}',data)
                     .success(function(data){
                         if(data.status == 'success')
                             showMessage('success','Done','Data has been saved');

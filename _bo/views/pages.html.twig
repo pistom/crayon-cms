@@ -5,14 +5,14 @@
     <table>
         <thead>
         <tr>
-            <th>Menu</th>
+            <th>Page</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        {% for key,menu in menus %}
+        {% for key,page in pages %}
             <tr>
-                <td><a href="menu.edit.php?menu={{ key }}">{{ key }}</a></td>
+                <td><a href="page.edit.php?page={{ key }}">{{ key }}</a></td>
                 <td><a href="" data-action="delete" data-item="{{ key }}">Delete</a></td>
             </tr>
         {% endfor %}
@@ -20,7 +20,7 @@
         <tfood>
             <tr>
                 <td></td>
-                <td><a href="menu.edit.php">Add</a></td>
+                <td><a href="page.edit.php">Add</a></td>
             </tr>
         </tfood>
     </table>

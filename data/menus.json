@@ -1,4 +1,1 @@
-{
-  "menu_en": ["home","about",{"offer":["offer1","offer2"]},"contact"],
-  "menu_pl": ["home_pl","about_pl",{"offer_pl":["offer1_pl","offer2_pl"]},"contact_pl"]
-}
+{"menu_en":{"home":{"order":1},"about":{"order":2},"offer":{"order":3,"offer2":{"order":1},"offer1":{"order":2}},"contact":{"order":4}},"menu_pl":{"home_pl":{"order":1},"about_pl":{"order":2},"offer_pl":{"order":3,"offer1_pl":{"order":1},"offer2_pl":{"order":2}},"contact_pl":{"order":4}}}

@@ -20,6 +20,23 @@ class boManager {
         return $menus;
     }
 
+    public function saveMenusList($menus){
+        copy('../data/menus.json', '../data/menus-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/menus.json', 'w');
+        fwrite($fp, json_encode($menus));
+        fclose($fp);
+    }
+
+    public function getPagesList(){
+        $results = array();
+        $pages = glob('../data/pages/*.json');
+        foreach ($pages as $p) {
+            $json_data = file_get_contents($p);
+            $results[$p] = json_decode($json_data, true);
+        }
+        return $results;
+    }
+
     public function getControllersList(){
         $results = array();
         $controllers = glob('../app/controller/*.php');

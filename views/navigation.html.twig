@@ -1,31 +1,29 @@
 <ul>
-{% for item in menu %}
-    {% if item is iterable %}
-        {% for key,item in item %}
-            <li class="{{ (currentPath == routes[key].path) ? " active" : ""  }}">
-                {% if routes[key].blind == 'true' %}
-                    <span>{{ routes[key].name }}</span>
-                {% else %}
-                    <a href="{{ routes[key].path }}" data-ajax="true" title="{{ routes[key].name }}">{{ routes[key].name }}</a>
-                {% endif %}
-                <ul>
-                {% for item in item %}
-                    <li class="{{ (currentPath == routes[item].path) ? " active" : ""  }}">
-                        <a href="{{ routes[item].path }}" data-ajax="true" title="{{ routes[item].name }}">{{ routes[item].name }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    {% else %}
-        <li class="{{ (currentPath == routes[item].path) ? " active" : ""  }}">
-            {% if routes[item].blind == 'true' %}
-                <span>{{ routes[item].name }}</span>
+    {% set iterator = 1 %}
+    {% for key,item in menu %}
+        <li class="{{ (currentPath == routes[key].path) ? " active" : ""  }}">
+            {% if routes[key].blind == 'true' %}
+                <span>{{ routes[key].name }}</span>
             {% else %}
-                <a href="{{ routes[item].path }}" data-ajax="true" title="{{ routes[item].name }}">{{ routes[item].name }}</a>
+                <a href="{{ routes[key].path }}" data-ajax="true" title="{{ routes[key].name }}">{{ routes[key].name }}</a>
             {% endif %}
+        {% if item|length > 1 %}
+            <ul>
+            {% for key2,item2 in item %}
+                {% if loop.index > 1 %}
+                    <li class="{{ (currentPath == routes[key2].path) ? " active" : ""  }}">
+                        {% if routes[key2].blind == 'true' %}
+                            <span>{{ routes[key2].name }}</span>
+                        {% else %}
+                            <a href="{{ routes[key2].path }}" data-ajax="true" title="{{ routes[key2].name }}">{{ routes[key2].name }}</a>
+                        {% endif %}
+                    </li>
+                {% endif %}
+                {% set iterator = iterator+1 %}
+            {% endfor %}
+            </ul>
+        {% endif %}
         </li>
-    {% endif %}
-    </li>
-{% endfor %}
+        {% set iterator = iterator+1 %}
+    {% endfor %}
 </ul>

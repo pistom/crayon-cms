@@ -4,5 +4,6 @@ $menus = $manager->getMenusList();
 
 
 echo $twig->render('menus.html.twig', array(
-    'menus' => $menus
+    'menus' => $menus,
+    'userRole' => $userRole
 ));
