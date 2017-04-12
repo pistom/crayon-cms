@@ -19,7 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     header('Content-Type: application/json');
     echo json_encode($res);
 else :
+    // SETTINGS
     include_once '../settings.php';
+    $twigDebug = false;
+    if($dev_mode){
+        $twigCache = false;
+        $twigDebug = true;
+    }
+
     require_once '../vendor/autoload.php';
     $loader = new Twig_Loader_Filesystem('views');
     $twig = new Twig_Environment($loader, array('cache' => $twigCache,'debug' => $twigDebug));

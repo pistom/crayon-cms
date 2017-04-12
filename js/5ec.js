@@ -112,7 +112,6 @@ function getURLParameter(name) {
         });
         if(item.tagName === "A"){
             Array.prototype.forEach.call(navigationLinks,function(i){
-                console.log(i.href+" "+item.href);
                 if(i.href == item.href)
                     i.parentNode.classList.add("active");
             });
@@ -138,7 +137,9 @@ function getURLParameter(name) {
     var getContent = function(url){
         atomic.get(url)
             .success(function(data,xhr){
-                mainContent.innerHTML = data;
+                mainContent.innerHTML = data.content;
+                var mainScripts = document.getElementsByClassName('mainScripts')[0];
+                eval(data.scripts);
             })
             .error(function(){
                 mainContent.innerHTML = "Page not found";

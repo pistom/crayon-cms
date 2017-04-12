@@ -34,6 +34,19 @@ var serializeFormData = function(form){
     return data
 };
 
+var copyInput = function(src,dest,prefix,postfix){
+    var newValue = '';
+    if(prefix) newValue += prefix;
+    newValue += src.value;
+    if(postfix) newValue += postfix;
+    dest.value = newValue;
+};
+
+var validateInput = function(input,pattern){
+    var newValue = input.value.replace(/[^\w-]/gi, '');
+    return newValue;
+};
+
 (function(){
     // DYNAMIC TABLES
     var addDeleteTableRow = function(e){

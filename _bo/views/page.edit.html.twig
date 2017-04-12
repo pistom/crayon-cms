@@ -1,14 +1,14 @@
 {% extends "base.html.twig" %}
 {% block head %}
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey={{ settings.tinyMCE_API_key }}"></script>
-    <script>tinymce.init({ selector:'textarea',setup: function (editor) {editor.on('change', function () {tinymce.triggerSave();});}});</script>
+    <script>tinymce.init({ selector:'textarea.tinymce',setup: function (editor) {editor.on('change', function () {tinymce.triggerSave();});}});</script>
 {% endblock %}
 
 {% block content %}
     <h1>Page</h1>
     <form action="" id="pageForm">
         <div>
-            <label for="pageName">Page name</label>
+            <label for="pageName">Alias</label>
             <input type="text" name="pageName" value="{{ pageName }}" id="pageName">
         </div>
         <div>
@@ -30,10 +30,37 @@
         </div>
         <div>
             <label for="pageContent">Content</label>
-            <textarea name="pageContent" id="pageContent">
+            <textarea class="tinymce" name="pageContent" id="pageContent">
                 {{ page.content }}
             </textarea>
         </div>
+        <div>
+            <label for="pageScripts">Scripts</label>
+            <textarea name="pageScripts" id="pageScripts">
+                {{ page.scripts }}
+            </textarea>
+        </div>
+        {% if pageName == '' %}
+        <div id="addRouteBlock">
+            <label for="addRoute"><input id="addRoute" type="checkbox" name="addRoute" value="true" checked>Add route</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Path</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="routeRoute" value=""></td>
+                        <td><input type="text" name="routePath" value=""></td>
+                        <td><input type="text" name="routeName" value=""></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
         <div>
             <button type="submit">Save</button>
         </div>
@@ -44,6 +71,26 @@
 {% block scripts %}
     <script>
         var pageForm = document.getElementById('pageForm');
+        var routeBlock = document.getElementById('addRouteBlock');
+
+        pageForm.pageName.addEventListener('keyup',function(e){
+            e.target.value = validateInput(e.target,/^[a-z]$/i);
+        },false);
+
+        // FILL ROUTING
+        if(routeBlock){
+            pageForm.pageName.addEventListener('keyup',function(e){
+                copyInput(e.target,pageForm.routeRoute);
+            },false);
+            pageForm.pageName.addEventListener('keyup',function(e){
+                copyInput(e.target,pageForm.routePath,'/');
+            },false);
+            pageForm.pageTitle.addEventListener('keyup',function(e){
+                copyInput(e.target,pageForm.routeName);
+            },false);
+        }
+
+        // SEND FORM
         var pageName = '{{ pageName != '' ? '?page='~pageName : '' }}';
         pageForm.addEventListener('submit',function(e){
             e.preventDefault();
@@ -53,6 +100,7 @@
                     if(data.status == 'success'){
                         showMessage('success','Done','Data has been saved');
                         pageName = '?page='+e.target.pageName.value;
+                        routeBlock.parentNode.removeChild(routeBlock);
                     }
                     if(data.status == 'error')
                         showMessage('error','Error','Data not saved');

@@ -6,20 +6,22 @@
         <thead>
         <tr>
             <th>Page</th>
+            <th>Title</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
         {% for key,page in pages %}
             <tr>
-                <td><a href="page.edit.php?page={{ key }}">{{ page.title }}</a></td>
+                <td><a href="page.edit.php?page={{ key }}">{{ key }}</a></td>
+                <td>{{ page.title }}</td>
                 <td><a href="" data-action="delete" data-item="{{ key }}">Delete</a></td>
             </tr>
         {% endfor %}
         </tbody>
         <tfood>
             <tr>
-                <td></td>
+                <td colspan="2"></td>
                 <td><a href="page.edit.php">Add</a></td>
             </tr>
         </tfood>

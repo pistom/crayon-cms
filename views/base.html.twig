@@ -32,12 +32,15 @@
 </section>
 <hr>
 <section class="mainContent">
-{% block content %}
-{% endblock %}
+{% block content %}{% endblock %}
 </section>
 
 
 <script src="/js/5ec.js"></script>
+
+<script class="mainScripts">
+    {% block scripts %}{% endblock %}
+</script>
 
 </body>
 </html>

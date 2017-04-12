@@ -23,13 +23,19 @@ class SiteController
         $menu = json_decode($menu_data, true);
         $this->twig->addGlobal('currentPath',$this->request['currentPath']);
         $template = ($this->request['isAjax']) ? 'ajax.html.twig' : 'base.html.twig';
-
-        echo $this->twig->render('pages/'.$sp[0].'.html.twig', array(
-            'template' => $template,
-            'pageTitle' => $page['title'],
-            'pageDescription' => $page['description'],
-            'menu' => $menu[$page['menu']],
-        ));
+        if($this->request['isAjax']){
+            $res['content'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.content.html.twig'));
+            $res['scripts'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.scripts.html.twig'));
+            header('Content-Type: application/json');
+            echo json_encode($res);
+        } else {
+            echo $this->twig->render('pages/'.$sp[0].'.html.twig', array(
+                'template' => 'base.html.twig',
+                'pageTitle' => $page['title'],
+                'pageDescription' => $page['description'],
+                'menu' => $menu[$page['menu']],
+            ));
+        }
     }
 
     /**

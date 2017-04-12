@@ -14,6 +14,23 @@ class boManager {
         fclose($fp);
     }
 
+    public function addRoute($r){
+        $json_data = file_get_contents('../data/routing.json');
+        $routes = json_decode($json_data, true);
+        $routes[$r['route']] = array(
+            'route' => $r['route'],
+            'path' => $r['path'],
+            'name' => $r['name'],
+            'type' => $r['type'],
+            'controller' => $r['controller'],
+            'function' => $r['function'],
+            'variables' => $r['variables'],
+            'enabled' => $r['enabled'],
+            'blind' => $r['blind']
+        );
+        $this->saveRoutesList($routes);
+    }
+
     public function getMenusList(){
         $json_data = file_get_contents('../data/menus.json');
         $menus = json_decode($json_data, true);
@@ -45,14 +62,18 @@ class boManager {
         $contentStartsAt = strpos($fileContent, "{% block content %}") + strlen("{% block content %}");
         $contentEndsAt = strpos($fileContent, "{% endblock %}{# end content #}", $contentStartsAt);
         $contentResult = substr($fileContent, $contentStartsAt, $contentEndsAt - $contentStartsAt);
+        $scriptsStartsAt = strpos($fileContent, "{% block scripts %}") + strlen("{% block scripts %}");
+        $scriptsEndsAt = strpos($fileContent, "{% endblock %}{# end scripts #}", $scriptsStartsAt);
+        $scriptsResult = substr($fileContent, $scriptsStartsAt, $scriptsEndsAt - $scriptsStartsAt);
         $page['content'] = $contentResult;
+        $page['scripts'] = $scriptsResult;
         return $page;
     }
 
     public function savePage($p){
         if($p['oldPageName']){
-            rename('../data/pages/'.$p['oldPageName'].'.json', '../data/pages/tmp/'.$p['oldPageName'].'-tmp-'.date('YmdHis').'.json');
-            rename('../views/pages/'.$p['oldPageName'].'.html.twig', '../views/pages/tmp/'.$p['oldPageName'].'-tmp-'.date('YmdHis').'.html.twig');
+            rename('../data/pages/'.$p['oldPageName'].'.json', '../data/tmp/pages/'.$p['oldPageName'].'-tmp-'.date('YmdHis').'.json');
+            rename('../views/pages/'.$p['oldPageName'].'.html.twig', '../views/tmp/pages/'.$p['oldPageName'].'-tmp-'.date('YmdHis').'.html.twig');
         }
         $fp = fopen('../data/pages/'.$p['pageName'].'.json', 'w');
         fwrite($fp,json_encode(array(
@@ -63,6 +84,7 @@ class boManager {
         fclose($fp);
         $fp = fopen('../views/pages/'.$p['pageName'].'.html.twig', 'w');
         $fileContent = "{% extends template %}{% block content %}".$p['content']."{% endblock %}{# end content #}";
+        $fileContent .= "{% block scripts %}".$p['scripts']."{% endblock %}{# end scripts #}";
         fwrite($fp,$fileContent);
         fclose($fp);
     }
