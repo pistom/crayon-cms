@@ -8,7 +8,7 @@ class boManager {
     }
 
     public function saveRoutesList($routes){
-        copy('../data/routing.json', '../data/routing-tmp-'.date('YmdHis').'.json');
+        copy('../data/routing.json', '../data/tmp/routing-tmp-'.date('YmdHis').'.json');
         $fp = fopen('../data/routing.json', 'w');
         fwrite($fp, json_encode($routes));
         fclose($fp);
@@ -21,7 +21,7 @@ class boManager {
     }
 
     public function saveMenusList($menus){
-        copy('../data/menus.json', '../data/menus-tmp-'.date('YmdHis').'.json');
+        copy('../data/menus.json', '../data/tmp/menus-tmp-'.date('YmdHis').'.json');
         $fp = fopen('../data/menus.json', 'w');
         fwrite($fp, json_encode($menus));
         fclose($fp);
@@ -41,8 +41,37 @@ class boManager {
     public function getPage($p){
         $json_data = file_get_contents('../data/pages/'.$p.'.json');
         $page = json_decode($json_data, true);
-        $page['content'] = file_get_contents('../views/pages/'.$p.'.html.twig');
+        $fileContent = file_get_contents('../views/pages/'.$p.'.html.twig');
+        $contentStartsAt = strpos($fileContent, "{% block content %}") + strlen("{% block content %}");
+        $contentEndsAt = strpos($fileContent, "{% endblock %}{# end content #}", $contentStartsAt);
+        $contentResult = substr($fileContent, $contentStartsAt, $contentEndsAt - $contentStartsAt);
+        $page['content'] = $contentResult;
         return $page;
+    }
+
+    public function savePage($p){
+        if($p['oldPageName']){
+            rename('../data/pages/'.$p['oldPageName'].'.json', '../data/pages/tmp/'.$p['oldPageName'].'-tmp-'.date('YmdHis').'.json');
+            rename('../views/pages/'.$p['oldPageName'].'.html.twig', '../views/pages/tmp/'.$p['oldPageName'].'-tmp-'.date('YmdHis').'.html.twig');
+        }
+        $fp = fopen('../data/pages/'.$p['pageName'].'.json', 'w');
+        fwrite($fp,json_encode(array(
+            'title'=>$p['title'],
+            'description' => $p['description'],
+            'menu' => $p['menu']
+        )));
+        fclose($fp);
+        $fp = fopen('../views/pages/'.$p['pageName'].'.html.twig', 'w');
+        $fileContent = "{% extends template %}{% block content %}".$p['content']."{% endblock %}{# end content #}";
+        fwrite($fp,$fileContent);
+        fclose($fp);
+    }
+    public function deletePage($p){
+        rename('../data/pages/'.$p.'.json', '../data/pages/tmp/'.$p.'-tmp-'.date('YmdHis').'.json');
+        rename('../views/pages/'.$p.'.html.twig', '../views/pages/tmp/'.$p.'-tmp-'.date('YmdHis').'.html.twig');
+
+        unlink('../views/pages/'.$p.'.html.twig');
+        unlink('../data/pages/'.$p.'.json');
     }
 
     public function getControllersList(){

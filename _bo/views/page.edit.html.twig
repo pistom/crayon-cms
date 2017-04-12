@@ -1,38 +1,65 @@
 {% extends "base.html.twig" %}
+{% block head %}
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey={{ settings.tinyMCE_API_key }}"></script>
+    <script>tinymce.init({ selector:'textarea',setup: function (editor) {editor.on('change', function () {tinymce.triggerSave();});}});</script>
+{% endblock %}
+
 {% block content %}
     <h1>Page</h1>
-
-
-    <div>
-        <label for="pageTitle">Title</label>
-        <input type="text" name="pageTitle" value="{{ page.title }}" id="pageTitle">
-    </div>
-    <div>
-        <label for="pageDescription">Description</label>
-        <input type="text" name="pageDescription" value="{{ page.description }}" id="pageDescription">
-    </div>
-    <div>
-        <label for="pageMenu">Menu</label>
-        <select name="pageMenu" id="pageMenu">
-            <option value="">-- select --</option>
-            {% for key,menu in menus %}
-                <option value="{{ key }}" {{ key==page.menu ? 'selected' : '' }}>{{ key }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div>
-        <label for="pageContent">Content</label>
-        <textarea name="pageContent" id="pageContent">
-            {{ page.content }}
-        </textarea>
-    </div>
-
-
-
-
+    <form action="" id="pageForm">
+        <div>
+            <label for="pageName">Page name</label>
+            <input type="text" name="pageName" value="{{ pageName }}" id="pageName">
+        </div>
+        <div>
+            <label for="pageTitle">Title</label>
+            <input type="text" name="pageTitle" value="{{ page.title }}" id="pageTitle">
+        </div>
+        <div>
+            <label for="pageDescription">Description</label>
+            <input type="text" name="pageDescription" value="{{ page.description }}" id="pageDescription">
+        </div>
+        <div>
+            <label for="pageMenu">Menu</label>
+            <select name="pageMenu" id="pageMenu">
+                <option value="">-- select --</option>
+                {% for key,menu in menus %}
+                    <option value="{{ key }}" {{ key==page.menu ? 'selected' : '' }}>{{ key }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="pageContent">Content</label>
+            <textarea name="pageContent" id="pageContent">
+                {{ page.content }}
+            </textarea>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
 
 {% endblock %}
 
 {% block scripts %}
-
+    <script>
+        var pageForm = document.getElementById('pageForm');
+        var pageName = '{{ pageName != '' ? '?page='~pageName : '' }}';
+        pageForm.addEventListener('submit',function(e){
+            e.preventDefault();
+            var data = serializeFormData(e.target);
+            atomic.post("page.save.php"+pageName ,data)
+                .success(function(data){
+                    if(data.status == 'success'){
+                        showMessage('success','Done','Data has been saved');
+                        pageName = '?page='+e.target.pageName.value;
+                    }
+                    if(data.status == 'error')
+                        showMessage('error','Error','Data not saved');
+                })
+                .error(function(data){
+                    showMessage('error','Error','Server error');
+                })
+        },false);
+    </script>
 {% endblock %}

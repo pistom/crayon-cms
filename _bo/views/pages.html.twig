@@ -35,7 +35,7 @@
     <script>
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
-                atomic.post('menu.delete.php','menu='+e.target.dataset.item)
+                atomic.post('page.delete.php','page='+e.target.dataset.item)
                     .success(function(data){
                         if(data.status == 'success')
                             showMessage('success','Done','Data has been saved');
