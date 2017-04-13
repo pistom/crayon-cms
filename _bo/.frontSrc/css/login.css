@@ -31,8 +31,9 @@
   font-family: "Lora", serif;
   font-size: 3rem;
   line-height: 1.5em;
+  color: #47627d;
 }
-/* line 37, ../sass/login.scss */
+/* line 38, ../sass/login.scss */
 .login__subTitle {
   font-family: "Muli", sans-serif;
   font-size: .6em;
@@ -40,7 +41,7 @@
   letter-spacing: .1rem;
   line-height: 1.5em;
 }
-/* line 44, ../sass/login.scss */
+/* line 45, ../sass/login.scss */
 .login input {
   text-align: center;
 }

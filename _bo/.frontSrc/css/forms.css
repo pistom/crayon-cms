@@ -41,3 +41,20 @@ table input[type="number"],
 table select {
   font-size: 0.9rem;
 }
+
+/* line 46, ../sass/forms.scss */
+textarea {
+  border: 1px solid #e1e8ef;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 5px;
+  font-size: 1rem;
+  margin: 4px 0 8px;
+  height: 100px;
+}
+/* line 55, ../sass/forms.scss */
+textarea.pageContent {
+  height: 500px;
+}

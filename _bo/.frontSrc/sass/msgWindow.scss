@@ -35,18 +35,28 @@ $disable-magic-sprite-selectors: true;
   &.success {
     .msgWindowTitle {
       color: $cl-green;
+      border-color: $cl-green;
+    }
+  }
+  &.info {
+    .msgWindowTitle {
+      color: $cl-azure;
+      border-color: $cl-azure;
     }
   }
   &.error {
     .msgWindowTitle {
       color: $cl-red;
+      border-color: $cl-red;
     }
   }
   &Title {
-    font-weight: 600;
-    font-size: 18px;
-    padding: 20px 20px 0 20px;
-    line-height: 1.4;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    font-family: $font-secondary;
+    border-bottom: 1px solid;
+    padding: 0 0 10px;
+    margin: 15px 30px 15px;
   }
   &Content {
     font-size: 15px;

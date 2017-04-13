@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 {% block content %}
-    <h1>Routing</h1>
+    <h1>Routing <a href="" class="btn btn--right btn--green" data-action="save">Save changes</a></h1>
 
     <form action="" id="routesForm">
         <table>
@@ -62,11 +62,11 @@
             <tfoot>
                 <tr>
                     <td colspan="9"></td>
-                    <td><a href="" class="btn btn--green btn--small" data-action="add">Add</a></td>
+                    <td><a href="" class="btn btn--azure btn--small" data-action="add">Add</a></td>
                 </tr>
                 <tr>
-                    <td colspan="9"></td>
-                    <td><a href="" class="btn" data-action="save">Save</a></td>
+                    <td colspan="6"></td>
+                    <td colspan="4"><a href="" class="btn btn--green" data-action="save">Save changes</a></td>
                 </tr>
             </tfoot>
         </table>
@@ -80,7 +80,7 @@
 
 {% block scripts %}
     <script>
-        var saveData = function(e){
+        var changeData = function(e){
             if(e.target.dataset.action == 'save'){
                 e.preventDefault();
                 var data = serializeFormData(document.getElementById('routesForm'));
@@ -94,8 +94,10 @@
                     .error(function(data){
                         showMessage('error','Error','Server error');
                     })
+            } else if(e.target.dataset.action == 'delete'){
+                showMessage('info','Save changes', 'You need to save the changes!')
             }
         };
-        document.body.addEventListener("click",saveData,false);
+        document.body.addEventListener("click",changeData,false);
     </script>
 {% endblock %}

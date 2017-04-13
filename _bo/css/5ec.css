@@ -14,6 +14,7 @@
 .btn {
   border: 1px solid #e1e8ef;
   color: #47627d;
+  font-family: "Muli", sans-serif;
   line-height: 1.5rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -27,35 +28,50 @@
   cursor: pointer;
   background-color: white;
 }
-/* line 35, ../sass/btns.scss */
+/* line 36, ../sass/btns.scss */
 .btn:hover {
   background-color: #e1e8ef;
 }
-/* line 38, ../sass/btns.scss */
+/* line 39, ../sass/btns.scss */
 .btn--green {
-  border-color: #248f70;
-  background-color: #1a6650;
+  border-color: #0cbb6c;
+  background-color: #098b50;
   color: white;
 }
-/* line 42, ../sass/btns.scss */
+/* line 43, ../sass/btns.scss */
 .btn--green:hover {
-  background-color: #103d30;
+  background-color: #065b34;
 }
-/* line 46, ../sass/btns.scss */
+/* line 47, ../sass/btns.scss */
 .btn--red {
   border-color: #dc726d;
   background-color: #d24a44;
   color: white;
 }
-/* line 50, ../sass/btns.scss */
+/* line 51, ../sass/btns.scss */
 .btn--red:hover {
   background-color: #b7322c;
 }
-/* line 54, ../sass/btns.scss */
+/* line 55, ../sass/btns.scss */
+.btn--azure {
+  border-color: #0197ff;
+  background-color: #0079cd;
+  color: white;
+}
+/* line 59, ../sass/btns.scss */
+.btn--azure:hover {
+  background-color: #005b9a;
+}
+/* line 63, ../sass/btns.scss */
 .btn--small {
   font-size: .75rem;
   padding: 2px 5px;
   line-height: 1.2em;
+}
+/* line 68, ../sass/btns.scss */
+.btn--right {
+  float: right;
+  margin-bottom: 0;
 }
 
 
@@ -104,6 +120,23 @@ table select {
   font-size: 0.9rem;
 }
 
+/* line 46, ../sass/forms.scss */
+textarea {
+  border: 1px solid #e1e8ef;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 5px;
+  font-size: 1rem;
+  margin: 4px 0 8px;
+  height: 100px;
+}
+/* line 55, ../sass/forms.scss */
+textarea.pageContent {
+  height: 500px;
+}
+
 /* line 13, ../sass/mixins/_clearfix.scss */
 .clearfix {
   clear: both;
@@ -137,8 +170,9 @@ table select {
   font-family: "Lora", serif;
   font-size: 3rem;
   line-height: 1.5em;
+  color: #47627d;
 }
-/* line 37, ../sass/login.scss */
+/* line 38, ../sass/login.scss */
 .login__subTitle {
   font-family: "Muli", sans-serif;
   font-size: .6em;
@@ -146,7 +180,7 @@ table select {
   letter-spacing: .1rem;
   line-height: 1.5em;
 }
-/* line 44, ../sass/login.scss */
+/* line 45, ../sass/login.scss */
 .login input {
   text-align: center;
 }
@@ -313,7 +347,7 @@ a {
   bottom: 0;
   left: 0;
   width: 4px;
-  background-color: #1a6650;
+  background-color: #098b50;
 }
 /* line 86, ../sass/main.scss */
 .aside__nav a.active:hover {
@@ -333,13 +367,14 @@ a {
 
 /* line 100, ../sass/main.scss */
 .header {
+  z-index: 1;
   position: fixed;
   padding-left: 240px;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
-  background-color: #e1e8ef;
+  background-color: rgba(225, 232, 239, 0.95);
   border-bottom: 1px solid #9eb5cc;
 }
 /* line 6, ../sass/mixins/_clearfix.scss */
@@ -348,24 +383,30 @@ a {
   display: table;
   clear: both;
 }
-/* line 110, ../sass/main.scss */
+/* line 111, ../sass/main.scss */
 .header__user {
   float: right;
-  padding: 22px 15px;
+  padding: 20px 15px;
 }
-/* line 113, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .header__userRole {
   text-transform: uppercase;
   font-size: .85rem;
   color: #47627d;
   margin-right: 20px;
 }
-
 /* line 121, ../sass/main.scss */
+.header__front {
+  float: right;
+  padding: 20px 15px;
+  border-right: 1px solid #9eb5cc;
+}
+
+/* line 127, ../sass/main.scss */
 .content {
   padding: 95px 15px 15px 255px;
 }
-/* line 123, ../sass/main.scss */
+/* line 129, ../sass/main.scss */
 .content h1 {
   font-family: "Lora", serif;
   font-size: 1.5rem;
@@ -373,6 +414,12 @@ a {
   border-bottom: 1px solid #e1e8ef;
   margin-bottom: 25px;
   color: #47627d;
+}
+/* line 6, ../sass/mixins/_clearfix.scss */
+.content h1:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* line 13, ../sass/mixins/_clearfix.scss */
@@ -427,27 +474,36 @@ a {
 }
 /* line 36, ../sass/msgWindow.scss */
 .msgWindow.success .msgWindowTitle {
-  color: #1a6650;
+  color: #098b50;
+  border-color: #098b50;
 }
-/* line 41, ../sass/msgWindow.scss */
+/* line 42, ../sass/msgWindow.scss */
+.msgWindow.info .msgWindowTitle {
+  color: #0079cd;
+  border-color: #0079cd;
+}
+/* line 48, ../sass/msgWindow.scss */
 .msgWindow.error .msgWindowTitle {
   color: #d24a44;
+  border-color: #d24a44;
 }
-/* line 45, ../sass/msgWindow.scss */
+/* line 53, ../sass/msgWindow.scss */
 .msgWindowTitle {
-  font-weight: 600;
-  font-size: 18px;
-  padding: 20px 20px 0 20px;
-  line-height: 1.4;
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  font-family: "Lora", serif;
+  border-bottom: 1px solid;
+  padding: 0 0 10px;
+  margin: 15px 30px 15px;
 }
-/* line 51, ../sass/msgWindow.scss */
+/* line 61, ../sass/msgWindow.scss */
 .msgWindowContent {
   font-size: 15px;
   line-height: 1.4;
   overflow: auto;
   padding: 0 20px 20px 20px;
 }
-/* line 57, ../sass/msgWindow.scss */
+/* line 67, ../sass/msgWindow.scss */
 .msgWindowClose {
   width: 30px;
   height: 30px;
@@ -476,35 +532,70 @@ a {
   clear: both;
 }
 
+/* line 6, ../sass/mixins/_clearfix.scss */
+.page__block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 24, ../sass/pages.scss */
+.page__blockLabel {
+  float: left;
+  width: 15%;
+  margin-top: 8px;
+}
+/* line 29, ../sass/pages.scss */
+.page__blockInput {
+  float: left;
+  width: 85%;
+}
+
+/* line 13, ../sass/mixins/_clearfix.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.clearfix2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /* line 21, ../sass/tables.scss */
 table {
   width: 100%;
 }
 /* line 24, ../sass/tables.scss */
+table colgroup col:first-child {
+  width: 20px;
+  border-right: 1px solid #ebf0f4;
+}
+/* line 32, ../sass/tables.scss */
 table tr td, table tr th {
   padding: 5px;
 }
-/* line 25, ../sass/tables.scss */
+/* line 33, ../sass/tables.scss */
 table tr td:last-child, table tr th:last-child {
   text-align: right;
 }
-/* line 33, ../sass/tables.scss */
+/* line 41, ../sass/tables.scss */
 table thead tr th {
   font-family: "Lora", serif;
   color: #222f3c;
   border-bottom: 2px solid #9eb5cc;
 }
-/* line 43, ../sass/tables.scss */
+/* line 51, ../sass/tables.scss */
 table tbody tr:hover td {
   background-color: #f2f5f8;
 }
-/* line 47, ../sass/tables.scss */
+/* line 55, ../sass/tables.scss */
 table tbody tr td {
   font-family: "Muli", sans-serif;
   font-size: .9rem;
   border-bottom: 1px solid #e1e8ef;
 }
-/* line 56, ../sass/tables.scss */
+/* line 64, ../sass/tables.scss */
 table tfoot tr td {
   font-family: "Muli", sans-serif;
   border-bottom: none;

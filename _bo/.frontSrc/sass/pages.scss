@@ -18,41 +18,17 @@
 // @include clearfix;				// Set clear to both;
 // @include clearfix2;				// Add :after selector width clear:both;
 
-label {
-  color: $cl-blue-light;
-  font-size: .8rem;
-  line-height:1.5rem;
-}
-input[type="text"],
-input[type="password"],
-input[type="number"],
-select {
-  border: 1px solid $cl-gray;
-  color: $cl-blue-light;
-  line-height:1.5rem;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  font-size: 1rem;
-  margin:4px 0 8px;
-}
-table input[type="text"],
-table input[type="password"],
-table input[type="number"],
-table select {
-  font-size: 0.9rem;
-}
-textarea {
-  border: 1px solid $cl-gray;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  font-size: 1rem;
-  margin:4px 0 8px;
-  height: 100px;
-  &.pageContent{
-    height: 500px;
+.page {
+  &__block {
+    @include clearfix2;
+    &Label {
+      float:left;
+      width:15%;
+      margin-top:8px;
+    }
+    &Input {
+      float: left;
+      width: 85%;
+    }
   }
 }

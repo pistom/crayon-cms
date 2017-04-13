@@ -1,68 +1,82 @@
 {% extends "base.html.twig" %}
 {% block head %}
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey={{ settings.tinyMCE_API_key }}"></script>
-    <script>tinymce.init({ selector:'textarea.tinymce',setup: function (editor) {editor.on('change', function () {tinymce.triggerSave();});}});</script>
 {% endblock %}
 
 {% block content %}
     <h1>Page</h1>
     <form action="" id="pageForm">
-        <div>
-            <label for="pageName">Alias</label>
-            <input type="text" name="pageName" value="{{ pageName }}" id="pageName" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
-        </div>
-        <div>
-            <label for="pageTitle">Title</label>
-            <input type="text" name="pageTitle" value="{{ page.title }}" id="pageTitle">
-        </div>
-        <div>
-            <label for="pageDescription">Description</label>
-            <input type="text" name="pageDescription" value="{{ page.description }}" id="pageDescription">
-        </div>
-        <div>
-            <label for="pageMenu">Menu</label>
-            <select name="pageMenu" id="pageMenu" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
-                <option value="">-- select --</option>
-                {% for key,menu in menus %}
-                    <option value="{{ key }}" {{ key==page.menu ? 'selected' : '' }}>{{ key }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="pageContent">Content</label>
-            <textarea class="tinymce" name="pageContent" id="pageContent">
-                {{ page.content }}
-            </textarea>
-        </div>
-        <div>
-            <label for="pageScripts">Scripts</label>
-            <textarea name="pageScripts" id="pageScripts" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
-                {{ page.scripts }}
-            </textarea>
-        </div>
-        {% if pageName == '' %}
-        <div id="addRouteBlock">
-            <label for="addRoute"><input id="addRoute" type="checkbox" name="addRoute" value="true" checked>Add route</label>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Route</th>
-                        <th>Path</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="text" name="routeRoute" value=""></td>
-                        <td><input type="text" name="routePath" value=""></td>
-                        <td><input type="text" name="routeName" value=""></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        {% endif %}
-        <div>
-            <button type="submit">Save</button>
+        <div class="page">
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageName">Alias</label>
+                <div class="page__blockInput">
+                    <input type="text" name="pageName" value="{{ pageName }}" id="pageName" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageTitle">Title</label>
+                <div class="page__blockInput">
+                    <input type="text" name="pageTitle" value="{{ page.title }}" id="pageTitle">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageDescription">Description</label>
+                <div class="page__blockInput">
+                    <input type="text" name="pageDescription" value="{{ page.description }}" id="pageDescription">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageMenu">Menu</label>
+                <div class="page__blockInput">
+                    <select name="pageMenu" id="pageMenu" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
+                        {% for key,menu in menus %}
+                            <option value="{{ key }}" {{ key==page.menu ? 'selected' : '' }}>{{ key }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageContent">Content</label>
+                <div class="page__blockInput">
+                    <textarea class="tinymce pageContent" name="pageContent" id="pageContent">
+                        {{ page.content }}
+                    </textarea>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageScripts">Scripts</label>
+                <div class="page__blockInput">
+                    <textarea name="pageScripts" id="pageScripts" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
+                        {% spaceless %}{{ page.scripts }}{% endspaceless %}
+                    </textarea>
+                </div>
+            </div>
+            {% if pageName == '' %}
+            <div id="addRouteBlock">
+                <label class="page__blockLabel" for="addRoute"><input id="addRoute" type="checkbox" name="addRoute" value="true" checked>Add route</label>
+                <div class="page__blockInput">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Route</th>
+                                <th>Path</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="routeRoute" value=""></td>
+                                <td><input type="text" name="routePath" value=""></td>
+                                <td><input type="text" name="routeName" value=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+            <div class="page__block">
+                <button type="submit" class="btn btn--green btn--right">Save</button>
+            </div>
         </div>
     </form>
 
@@ -70,6 +84,27 @@
 
 {% block scripts %}
     <script>
+        // TINY MCE
+        var loadTinyMCE = function(){
+            tinymce.init({
+                selector:'textarea.tinymce',
+                force_br_newlines : false,
+                force_p_newlines : true,
+                forced_root_block : '',
+                plugins: "code textcolor",
+                toolbar: "undo redo | bold italic underline alignleft aligncenter alignright | forecolor | styleselect fontsizeselect | bullist numlist outdent indent",
+                textcolor_map: [
+                    "0DC3CA", "Niebieski",
+                    "4D4F4F", "Szary",
+                    "FD0864", "Czerwony",
+                    "8ABE2B", "Zielony"
+                ]
+            });
+        };
+        loadTinyMCE();
+
+
+
         var pageForm = document.getElementById('pageForm');
         var routeBlock = document.getElementById('addRouteBlock');
 

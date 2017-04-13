@@ -4,8 +4,16 @@
     <form action="" id="menuForm">
     <input name="menu-name" type="text" value="{{ menuName }}">
     <table>
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col style="width:60px">
+            <col style="width:100px">
+        </colgroup>
         <thead>
             <tr>
+                <th>#</th>
                 <th>Item</th>
                 <th>Parent</th>
                 <th>Order</th>
@@ -15,6 +23,7 @@
         <tbody>
         {% if menu is null %}
             <tr data-index="1">
+                <td>1.</td>
                 <td>
                     <select name="r1-item" id="">
                         <option value="--" disabled selected>-- select --</option>
@@ -39,9 +48,8 @@
         {% else %}
             {% set iterator = 1 %}
             {% for key,item in menu %}
-
-
                         <tr data-index="{{ iterator }}">
+                            <td>{{ iterator }}.</td>
                             <td>
                                 <select name="r{{ iterator }}-item" id="">
                                     <option value="--" disabled selected>-- select --</option>
@@ -60,13 +68,14 @@
                             </td>
                             <td><input name="r{{ iterator }}-order" type="number" value="{{ item.order }}"></td>
                             <td>
-                                <a href="" data-action="delete">Delete</a>
+                                <a href="" class="btn btn--small btn--red" data-action="delete">Delete</a>
                             </td>
                         </tr>
                         {% if item|length > 1 %}
                             {% for key2,item2 in item %}
                                 {% if loop.index > 1 %}
                                     <tr data-index="{{ iterator }}">
+                                        <td>{{ iterator }}.</td>
                                         <td>
                                             <select name="r{{ iterator }}-item" id="">
                                                 <option value="--" disabled selected>-- select --</option>
@@ -85,7 +94,7 @@
                                         </td>
                                         <td><input name="r{{ iterator }}-order" type="number" value="{{ item2.order }}"></td>
                                         <td>
-                                            <a href="" data-action="delete">Delete</a>
+                                            <a href="" class="btn btn--small btn--red" data-action="delete">Delete</a>
                                         </td>
                                     </tr>
                                 {% endif %}
@@ -99,12 +108,12 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3"></td>
-                <td><a href="" data-action="add">Add</a></td>
+                <td colspan="4"></td>
+                <td><a href="" class="btn btn--small btn--azure" data-action="add">Add</a></td>
             </tr>
             <tr>
-                <td colspan="3"></td>
-                <td><a href="" data-action="save">Save</a></td>
+                <td colspan="4"></td>
+                <td><a href="" class="btn btn--green" data-action="save">Save</a></td>
             </tr>
         </tfoot>
     </table>

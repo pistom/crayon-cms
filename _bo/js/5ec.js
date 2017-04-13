@@ -200,7 +200,7 @@ var validateInput = function(input,pattern){
                         showMessage('success','Great!','You are logged in');
                         setTimeout(function(){
                             window.location = '/_bo/';
-                        },500)
+                        },1000)
                     }
                     else{
                         showMessage('error','Error','Incorrect login data');

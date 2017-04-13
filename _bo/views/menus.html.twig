@@ -3,24 +3,34 @@
     <h1>Menus</h1>
 
     <table>
+        <colgroup>
+            <col style="width: 20px">
+            <col>
+            <col>
+        </colgroup>
         <thead>
-        <tr>
-            <th>Menu</th>
-            <th>Action</th>
-        </tr>
+            <tr>
+                <th>#</th>
+                <th>Menu</th>
+                <th>Action</th>
+            </tr>
         </thead>
         <tbody>
         {% for key,menu in menus %}
             <tr>
+                <td>{{ loop.index }}.</td>
                 <td><a href="menu.edit.php?menu={{ key }}">{{ key }}</a></td>
-                <td><a href="" data-action="delete" data-item="{{ key }}">Delete</a></td>
+                <td>
+                    <a href="menu.edit.php?menu={{ key }}" class="btn btn--green btn--small">Edit</a>
+                    <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
         <tfoot>
             <tr>
-                <td></td>
-                <td><a href="menu.edit.php">Add</a></td>
+                <td colspan="2"></td>
+                <td><a href="menu.edit.php" class="btn btn--azure">Add</a></td>
             </tr>
         </tfoot>
     </table>
@@ -35,16 +45,20 @@
     <script>
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
-                atomic.post('menu.delete.php','menu='+e.target.dataset.item)
-                    .success(function(data){
-                        if(data.status == 'success')
-                            showMessage('success','Done','Data has been saved');
-                        if(data.status == 'error')
-                            showMessage('error','Error','Data not saved');
-                    })
-                    .error(function(data){
-                        showMessage('error','Error','Server error');
-                    });
+                if(confirm("Are you sure?")){
+                    atomic.post('menu.delete.php','menu='+e.target.dataset.item)
+                        .success(function(data){
+                            if(data.status == 'success')
+                                showMessage('success','Done','Data has been saved');
+                            if(data.status == 'error')
+                                showMessage('error','Error','Data not saved');
+                        })
+                        .error(function(data){
+                            showMessage('error','Error','Server error');
+                        });
+                } else {
+                    location.reload();
+                }
             }
         },false);
     </script>

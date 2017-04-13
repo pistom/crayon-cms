@@ -3,6 +3,11 @@
     <h1>Users</h1>
 
     <table>
+        <colgroup>
+            <col style="width: 20px">
+            <col>
+            <col>
+        </colgroup>
         <thead>
         <tr>
             <th>#</th>
@@ -15,14 +20,17 @@
             <tr {{ user.role == 'admin' ? 'class="admin"' : '' }}>
                 <td>{{ loop.index }}.</td>
                 <td><a href="user.edit.php?user={{ key }}">{{ key }}</a></td>
-                <td>{% if user.role != 'admin' %}<a href="" data-action="delete" data-item="{{ key }}">Delete</a>{% endif %}</td>
+                <td>
+                    <a href="user.edit.php?user={{ key }}" class="btn btn--green btn--small">Edit</a>
+                    {% if user.role != 'admin' %}<a href="" class="btn btn--red btn--small" data-action="delete" data-item="{{ key }}">Delete</a>{% endif %}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="2"></td>
-                <td><a href="user.edit.php">Add</a></td>
+                <td><a href="user.edit.php" class="btn btn--azure">Add</a></td>
             </tr>
         </tfoot>
     </table>

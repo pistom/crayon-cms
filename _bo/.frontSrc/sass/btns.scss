@@ -21,6 +21,7 @@
 .btn {
   border: 1px solid $cl-gray;
   color: $cl-blue-light;
+  font-family: $font-primary;
   line-height:1.5rem;
   box-sizing: border-box;
   display: inline-block;
@@ -51,9 +52,21 @@
       background-color: darken($cl-red,10);
     }
   }
+  &--azure {
+    border-color: lighten($cl-azure,10);
+    background-color: $cl-azure;
+    color: $cl-white;
+    &:hover {
+      background-color: darken($cl-azure,10);
+    }
+  }
   &--small {
     font-size: .75rem;
     padding: 2px 5px;
     line-height: 1.2em;
+  }
+  &--right {
+    float:right;
+    margin-bottom:0;
   }
 }

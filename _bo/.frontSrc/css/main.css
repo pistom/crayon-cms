@@ -160,7 +160,7 @@ a {
   bottom: 0;
   left: 0;
   width: 4px;
-  background-color: #1a6650;
+  background-color: #098b50;
 }
 /* line 86, ../sass/main.scss */
 .aside__nav a.active:hover {
@@ -180,13 +180,14 @@ a {
 
 /* line 100, ../sass/main.scss */
 .header {
+  z-index: 1;
   position: fixed;
   padding-left: 240px;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
-  background-color: #e1e8ef;
+  background-color: rgba(225, 232, 239, 0.95);
   border-bottom: 1px solid #9eb5cc;
 }
 /* line 6, ../sass/mixins/_clearfix.scss */
@@ -195,24 +196,30 @@ a {
   display: table;
   clear: both;
 }
-/* line 110, ../sass/main.scss */
+/* line 111, ../sass/main.scss */
 .header__user {
   float: right;
-  padding: 22px 15px;
+  padding: 20px 15px;
 }
-/* line 113, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .header__userRole {
   text-transform: uppercase;
   font-size: .85rem;
   color: #47627d;
   margin-right: 20px;
 }
-
 /* line 121, ../sass/main.scss */
+.header__front {
+  float: right;
+  padding: 20px 15px;
+  border-right: 1px solid #9eb5cc;
+}
+
+/* line 127, ../sass/main.scss */
 .content {
   padding: 95px 15px 15px 255px;
 }
-/* line 123, ../sass/main.scss */
+/* line 129, ../sass/main.scss */
 .content h1 {
   font-family: "Lora", serif;
   font-size: 1.5rem;
@@ -220,4 +227,10 @@ a {
   border-bottom: 1px solid #e1e8ef;
   margin-bottom: 25px;
   color: #47627d;
+}
+/* line 6, ../sass/mixins/_clearfix.scss */
+.content h1:after {
+  content: "";
+  display: table;
+  clear: both;
 }

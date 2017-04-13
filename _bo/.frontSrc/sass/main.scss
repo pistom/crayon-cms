@@ -98,18 +98,19 @@ a {
   box-sizing: border-box;
 }
 .header {
+  z-index: 1;
   position: fixed;
   padding-left: 240px;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
-  background-color: $cl-gray;
+  background-color: transparentize($cl-gray,.05);
   border-bottom: 1px solid $cl-gray-dark;
   @include clearfix2;
   &__user {
     float: right;
-    padding:22px 15px;
+    padding:20px 15px;
     &Role {
       text-transform: uppercase;
       font-size: .85rem;
@@ -117,10 +118,16 @@ a {
       margin-right:20px;
     }
   }
+  &__front {
+    float: right;
+    padding: 20px 15px;
+    border-right: 1px solid $cl-gray-dark;
+  }
 }
 .content {
   padding: 95px 15px 15px 255px;
   h1 {
+    @include clearfix2;
     font-family: $font-secondary;
     font-size: 1.5rem;
     line-height: 1.5em;

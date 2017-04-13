@@ -50,27 +50,36 @@
 }
 /* line 36, ../sass/msgWindow.scss */
 .msgWindow.success .msgWindowTitle {
-  color: #1a6650;
+  color: #098b50;
+  border-color: #098b50;
 }
-/* line 41, ../sass/msgWindow.scss */
+/* line 42, ../sass/msgWindow.scss */
+.msgWindow.info .msgWindowTitle {
+  color: #0079cd;
+  border-color: #0079cd;
+}
+/* line 48, ../sass/msgWindow.scss */
 .msgWindow.error .msgWindowTitle {
   color: #d24a44;
+  border-color: #d24a44;
 }
-/* line 45, ../sass/msgWindow.scss */
+/* line 53, ../sass/msgWindow.scss */
 .msgWindowTitle {
-  font-weight: 600;
-  font-size: 18px;
-  padding: 20px 20px 0 20px;
-  line-height: 1.4;
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  font-family: "Lora", serif;
+  border-bottom: 1px solid;
+  padding: 0 0 10px;
+  margin: 15px 30px 15px;
 }
-/* line 51, ../sass/msgWindow.scss */
+/* line 61, ../sass/msgWindow.scss */
 .msgWindowContent {
   font-size: 15px;
   line-height: 1.4;
   overflow: auto;
   padding: 0 20px 20px 20px;
 }
-/* line 57, ../sass/msgWindow.scss */
+/* line 67, ../sass/msgWindow.scss */
 .msgWindowClose {
   width: 30px;
   height: 30px;

@@ -14,6 +14,7 @@
 .btn {
   border: 1px solid #e1e8ef;
   color: #47627d;
+  font-family: "Muli", sans-serif;
   line-height: 1.5rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -27,33 +28,48 @@
   cursor: pointer;
   background-color: white;
 }
-/* line 35, ../sass/btns.scss */
+/* line 36, ../sass/btns.scss */
 .btn:hover {
   background-color: #e1e8ef;
 }
-/* line 38, ../sass/btns.scss */
+/* line 39, ../sass/btns.scss */
 .btn--green {
-  border-color: #248f70;
-  background-color: #1a6650;
+  border-color: #0cbb6c;
+  background-color: #098b50;
   color: white;
 }
-/* line 42, ../sass/btns.scss */
+/* line 43, ../sass/btns.scss */
 .btn--green:hover {
-  background-color: #103d30;
+  background-color: #065b34;
 }
-/* line 46, ../sass/btns.scss */
+/* line 47, ../sass/btns.scss */
 .btn--red {
   border-color: #dc726d;
   background-color: #d24a44;
   color: white;
 }
-/* line 50, ../sass/btns.scss */
+/* line 51, ../sass/btns.scss */
 .btn--red:hover {
   background-color: #b7322c;
 }
-/* line 54, ../sass/btns.scss */
+/* line 55, ../sass/btns.scss */
+.btn--azure {
+  border-color: #0197ff;
+  background-color: #0079cd;
+  color: white;
+}
+/* line 59, ../sass/btns.scss */
+.btn--azure:hover {
+  background-color: #005b9a;
+}
+/* line 63, ../sass/btns.scss */
 .btn--small {
   font-size: .75rem;
   padding: 2px 5px;
   line-height: 1.2em;
+}
+/* line 68, ../sass/btns.scss */
+.btn--right {
+  float: right;
+  margin-bottom: 0;
 }

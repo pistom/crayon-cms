@@ -19,6 +19,14 @@
 // @include clearfix2;				// Add :after selector width clear:both;
 
 table {
+  colgroup {
+    col {
+      &:first-child {
+        width: 20px;
+        border-right: 1px solid lighten($cl-gray,3);
+      }
+    }
+  }
   width: 100%;
   tr {
     td,th {

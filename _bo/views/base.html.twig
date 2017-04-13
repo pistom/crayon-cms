@@ -31,6 +31,7 @@
             <li><a href="routing.php" class="{{ menuPage == 'routing' ? 'active' : '' }}">Routing</a></li>
             <li><a href="menus.php" class="{{ menuPage == 'menus' ? 'active' : '' }}">Menus</a></li>
             <li><a href="users.php" class="{{ menuPage == 'users' ? 'active' : '' }}">Users</a></li>
+            <li><a href="settings.php" class="{{ menuPage == 'settings' ? 'active' : '' }}">Configuration</a></li>
         {% endif %}
         </ul>
     </nav>
@@ -38,6 +39,9 @@
 <header class="header">
     <div class="header__user">
         <span class="header__userRole">{{ userRole }}</span><a href="logout.php" class="btn btn--red">Logout</a>
+    </div>
+    <div class="header__front">
+        <a href="/" class="btn btn--azure" target="_blank">Go to homepage</a>
     </div>
 </header>
 <section class="content">

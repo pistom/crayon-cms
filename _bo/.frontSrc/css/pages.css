@@ -1,0 +1,29 @@
+/* line 13, ../sass/mixins/_clearfix.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.clearfix2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.page__block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 24, ../sass/pages.scss */
+.page__blockLabel {
+  float: left;
+  width: 15%;
+  margin-top: 8px;
+}
+/* line 29, ../sass/pages.scss */
+.page__blockInput {
+  float: left;
+  width: 85%;
+}
