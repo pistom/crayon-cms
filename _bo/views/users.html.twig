@@ -1,28 +1,28 @@
 {% extends "base.html.twig" %}
 {% block content %}
-    <h1>Menus</h1>
+    <h1>Users</h1>
 
     <table>
         <thead>
         <tr>
-            <th>Page</th>
-            <th>Title</th>
-            <th>Actions</th>
+            <th>#</th>
+            <th>User</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        {% for key,page in pages %}
-            <tr>
-                <td><a href="page.edit.php?page={{ key }}">{{ key }}</a></td>
-                <td>{{ page.title }}</td>
-                <td>{% if userRole == 'admin' %}<a href="" data-action="delete" data-item="{{ key }}">Delete</a>{% endif %}</td>
+        {% for key,user in users %}
+            <tr {{ user.role == 'admin' ? 'class="admin"' : '' }}>
+                <td>{{ loop.index }}.</td>
+                <td><a href="user.edit.php?user={{ key }}">{{ key }}</a></td>
+                <td>{% if user.role != 'admin' %}<a href="" data-action="delete" data-item="{{ key }}">Delete</a>{% endif %}</td>
             </tr>
         {% endfor %}
         </tbody>
         <tfood>
             <tr>
                 <td colspan="2"></td>
-                <td>{% if userRole == 'admin' %}<a href="page.edit.php">Add</a>{% endif %}</td>
+                <td><a href="user.edit.php">Add</a></td>
             </tr>
         </tfood>
     </table>
@@ -37,7 +37,7 @@
     <script>
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
-                atomic.post('page.delete.php','page='+e.target.dataset.item)
+                atomic.post('user.delete.php','user='+e.target.dataset.item)
                     .success(function(data){
                         if(data.status == 'success')
                             showMessage('success','Done','Data has been saved');

@@ -8,7 +8,7 @@
         "twig/twig": "~2.0"
     },
     "autoload": {
-        "psr-4": {"Crayon\\": "app/"}
+        "psr-4": {"Crayon\\": "app/","CrayonBo\\": "_bo/app"}
     },
     "license": "CC",
     "authors": [

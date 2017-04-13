@@ -1,9 +1,10 @@
 <?php
-include_once 'app.php';
-$pages = $manager->getPagesList();
+require_once '../vendor/autoload.php';
+$app = new \CrayonBo\CrayonBo();
+
+$pages = $app->getManager()->getPagesList();
 
 
-echo $twig->render('pages.html.twig', array(
-    'pages' => $pages,
-    'userRole' => $userRole
+echo $app->twig->render('pages.html.twig', array(
+    'pages' => $pages
 ));

@@ -9,7 +9,7 @@
     <form action="" id="pageForm">
         <div>
             <label for="pageName">Alias</label>
-            <input type="text" name="pageName" value="{{ pageName }}" id="pageName">
+            <input type="text" name="pageName" value="{{ pageName }}" id="pageName" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
         </div>
         <div>
             <label for="pageTitle">Title</label>
@@ -21,7 +21,7 @@
         </div>
         <div>
             <label for="pageMenu">Menu</label>
-            <select name="pageMenu" id="pageMenu">
+            <select name="pageMenu" id="pageMenu" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
                 <option value="">-- select --</option>
                 {% for key,menu in menus %}
                     <option value="{{ key }}" {{ key==page.menu ? 'selected' : '' }}>{{ key }}</option>
@@ -36,7 +36,7 @@
         </div>
         <div>
             <label for="pageScripts">Scripts</label>
-            <textarea name="pageScripts" id="pageScripts">
+            <textarea name="pageScripts" id="pageScripts" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
                 {{ page.scripts }}
             </textarea>
         </div>

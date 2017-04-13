@@ -96,6 +96,18 @@ class boManager {
         unlink('../data/pages/'.$p.'.json');
     }
 
+    public function getUsersList(){
+        $json_data = file_get_contents('../data/users.json');
+        $users = json_decode($json_data, true);
+        return $users;
+    }
+    public function saveUsersList($users){
+        copy('../data/users.json', '../data/tmp/users-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/users.json', 'w');
+        fwrite($fp, json_encode($users));
+        fclose($fp);
+    }
+
     public function getControllersList(){
         $results = array();
         $controllers = glob('../app/controller/*.php');

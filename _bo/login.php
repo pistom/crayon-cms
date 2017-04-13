@@ -1,6 +1,5 @@
 <?php session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
-//    $logins = array('admin' => 'admin','test' => 'test');
     $json_data = file_get_contents('../data/users.json');
     $logins = json_decode($json_data, true);
 
@@ -19,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     header('Content-Type: application/json');
     echo json_encode($res);
 else :
+
     // SETTINGS
     include_once '../settings.php';
     $twigDebug = false;

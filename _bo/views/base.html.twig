@@ -21,12 +21,14 @@
 <a href="logout.php">Wyloguj</a>
 <hr>
 <a href="index.php">Home</a>
-<a href="routing.php">Routing</a>
-<a href="menus.php">Menus</a>
 <a href="pages.php">Pages</a>
 {% if userRole == 'admin' %}
-<a href="users.php">Users</a>
+    <a href="routing.php">Routing</a>
+    <a href="menus.php">Menus</a>
+    <a href="users.php">Users</a>
 {% endif %}
+
+
 <hr>
 {% block content %}
 {% endblock %}

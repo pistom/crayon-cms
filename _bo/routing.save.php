@@ -1,7 +1,10 @@
 <?php
-include_once 'app.php';
-$routes = $manager->getRoutesList();
-$controllers = $manager->getControllersList();
+require_once '../vendor/autoload.php';
+$app = new \CrayonBo\CrayonBo();
+$app->dieIfNotAdmin();
+
+$routes = $app->getManager()->getRoutesList();
+$controllers = $app->getManager()->getControllersList();
 
 $routes = array();
 if($_POST){
@@ -9,20 +12,20 @@ if($_POST){
     $r = '';
     foreach ($_POST as $key=>$route){
         $tmp = explode('-',$key);
-        $k = $manager->testString($tmp[1]);
+        $k = $app->getManager()->testString($tmp[1]);
         if($i%9 == 0){
-            $r = $manager->testString($route);
+            $r = $app->getManager()->testString($route);
             $routes[$r] = array();
         }
         else{
-            $routes[$r][$k] = $manager->testString($route);
+            $routes[$r][$k] = $app->getManager()->testString($route);
         }
         $i++;
     }
 };
 
 
-$manager->saveRoutesList($routes);
+$app->getManager()->saveRoutesList($routes);
 
 
 header('Content-Type: application/json');

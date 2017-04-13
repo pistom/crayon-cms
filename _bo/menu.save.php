@@ -1,7 +1,10 @@
 <?php
-include_once 'app.php';
-$menus = $manager->getMenusList();
-$oldMenuName = $manager->testString($_GET['menu']);
+require_once '../vendor/autoload.php';
+$app = new \CrayonBo\CrayonBo();
+$app->dieIfNotAdmin();
+
+$menus = $app->getManager()->getMenusList();
+$oldMenuName = $app->getManager()->testString($_GET['menu']);
 $menu = array();
 $menuName = '';
 $menuItem = '';
@@ -10,7 +13,7 @@ $menuOrder = null;
 if($_POST){
     $i = 0;
     foreach ($_POST as $item) {
-        $item = $manager->testString($item);
+        $item = $app->getManager()->testString($item);
         if($i == 0){
             $menuName = $item;
             $menu[$menuName] = array();
@@ -29,13 +32,13 @@ if($_POST){
                     $menuOrder = 0;
                 else
                     $menuOrder = (int)$item;
+
                 if(!$menuParent){
                     if(!isset($menu[$menuName][$menuItem]))
                         $menu[$menuName][$menuItem] = array();
                     if(!isset($menu[$menuName][$menuItem]['order']))
-                        $menu[$menuName][$menuItem] = array("order"=>$menuOrder);
-                    else
-                        $menu[$menuName][$menuItem]['order'] = $menuOrder;
+                        $menu[$menuName][$menuItem] = array();
+                    $menu[$menuName][$menuItem]['order'] = $menuOrder;
                 } else {
                     if(!isset($menu[$menuName][$menuParent]))
                         $menu[$menuName][$menuParent] = array('order'=>0);
@@ -48,6 +51,8 @@ if($_POST){
                         $menu[$menuName][$menuParent][$menuItem]['order'] = $menuOrder;
                 }
                 $menuParent = null;
+                $menuOrder = null;
+                $menuItem = '';
             }
         }
         $i++;
@@ -67,13 +72,12 @@ foreach ($menu[$menuName] as &$subMenu){
 }
 uasort($menu[$menuName],"cmp");
 
-
 unset($menus[$oldMenuName]);
 
 
 $menus[$menuName] = $menu[$menuName];
 
-$manager->saveMenusList($menus);
+$app->getManager()->saveMenusList($menus);
 
 
 header('Content-Type: application/json');

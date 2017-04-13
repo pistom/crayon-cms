@@ -1,10 +1,1 @@
-{
-  "admin":{
-    "pwd":"21232f297a57a5a743894a0e4a801fc3",
-    "role":"admin"
-  },
-  "user":{
-    "pwd":"ee11cbb19052e40b07aac0ca060c23ee",
-    "role":"user"
-  }
-}
+{"admin":{"role":"admin","pwd":"21232f297a57a5a743894a0e4a801fc3"},"user":{"role":"user","pwd":"ee11cbb19052e40b07aac0ca060c23ee"},"tomek":{"role":"","pwd":"d0d41f1a3cc3f67dcd74694de9fef1b0"}}

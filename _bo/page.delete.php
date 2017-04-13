@@ -1,8 +1,10 @@
 <?php
-include_once 'app.php';
+require_once '../vendor/autoload.php';
+$app = new \CrayonBo\CrayonBo();
+$app->dieIfNotAdmin();
 
-$pageName = $manager->testString($_POST['page']);
-$manager->deletePage($pageName);
+$pageName = $app->getManager()->testString($_POST['page']);
+$app->getManager()->deletePage($pageName);
 
 
 header('Content-Type: application/json');

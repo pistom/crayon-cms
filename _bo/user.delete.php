@@ -3,12 +3,12 @@ require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
 $app->dieIfNotAdmin();
 
-$menus = $app->getManager()->getMenusList();
-$menuName = $app->getManager()->testString($_POST['menu']);
+$users = $app->getManager()->getUsersList();
+$userName = $app->getManager()->testString($_POST['user']);
 
-unset($menus[$menuName]);
+unset($users[$userName]);
 
-$app->getManager()->saveMenusList($menus);
+$app->getManager()->saveUsersList($users);
 
 
 header('Content-Type: application/json');

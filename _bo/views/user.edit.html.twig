@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>User</h1>
+    <form action="" id="userForm">
+        <input name="username" type="text" value="{{ userName }}">
+        <input name="userrole" type="hidden" value="{{ user.role }}">
+        <input name="password" type="password" value="">
+        <a href="" data-action="save">Save</a>
+    </form>
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var saveData = function(e){
+            if(e.target.dataset.action == 'save'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('userForm'));
+                atomic.post("user.save.php{{ userName != '' ? '?user='~userName : '' }}",data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+            }
+        };
+        document.body.addEventListener("click",saveData,false);
+    </script>
+{% endblock %}

@@ -1,17 +1,17 @@
 <?php
-include_once 'app.php';
+require_once '../vendor/autoload.php';
+$app = new \CrayonBo\CrayonBo();
 
 $page = array();
 $pageName = '';
-$menus = $manager->getMenusList();
+$menus = $app->getManager()->getMenusList();
 if(isset($_GET['page'])) {
-    $pageName = $manager->testString($_GET['page']);
-    $page = $manager->getPage($pageName);
+    $pageName = $app->getManager()->testString($_GET['page']);
+    $page = $app->getManager()->getPage($pageName);
 }
 
-echo $twig->render('page.edit.html.twig', array(
+echo $app->twig->render('page.edit.html.twig', array(
     'page' => $page,
     'pageName' => $pageName,
-    'userRole' => $userRole,
     'menus' => $menus
 ));
