@@ -55,18 +55,18 @@
                     <td><input title="Name" type="text" name="r{{ loop.index }}-name" value="{{ route.name }}"></td>
                     <td><input title="Enabled" type="checkbox" name="r{{ loop.index }}-enabled" value="true" {{ route.enabled == 'true' ? 'checked' : '' }}></td>
                     <td><input title="Blind" type="checkbox" name="r{{ loop.index }}-blind" value="true" {{ route.blind == 'true' ? 'checked' : '' }}></td>
-                    <td><a href="" data-action="delete">Delete</a></td>
+                    <td><a href="" class="btn btn--red btn--small" data-action="delete">Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="9"></td>
-                    <td><a href="" data-action="add">Add</a></td>
+                    <td><a href="" class="btn btn--green btn--small" data-action="add">Add</a></td>
                 </tr>
                 <tr>
                     <td colspan="9"></td>
-                    <td><a href="" data-action="save">Save</a></td>
+                    <td><a href="" class="btn" data-action="save">Save</a></td>
                 </tr>
             </tfoot>
         </table>

@@ -1,0 +1,46 @@
+/* line 13, ../sass/mixins/_clearfix.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.clearfix2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 21, ../sass/tables.scss */
+table {
+  width: 100%;
+}
+/* line 24, ../sass/tables.scss */
+table tr td, table tr th {
+  padding: 5px;
+}
+/* line 25, ../sass/tables.scss */
+table tr td:last-child, table tr th:last-child {
+  text-align: right;
+}
+/* line 33, ../sass/tables.scss */
+table thead tr th {
+  font-family: "Lora", serif;
+  color: #222f3c;
+  border-bottom: 2px solid #9eb5cc;
+}
+/* line 43, ../sass/tables.scss */
+table tbody tr:hover td {
+  background-color: #f2f5f8;
+}
+/* line 47, ../sass/tables.scss */
+table tbody tr td {
+  font-family: "Muli", sans-serif;
+  font-size: .9rem;
+  border-bottom: 1px solid #e1e8ef;
+}
+/* line 56, ../sass/tables.scss */
+table tfoot tr td {
+  font-family: "Muli", sans-serif;
+  border-bottom: none;
+  font-size: .9rem;
+}

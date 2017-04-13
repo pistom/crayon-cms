@@ -77,10 +77,147 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 22, ../sass/main.scss */
 body {
-  background-color: #e1e1e1;
+  background-color: white;
+  font-family: "Muli", sans-serif;
+  line-height: 1.5em;
+}
+/* line 6, ../sass/mixins/_clearfix.scss */
+body:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* line 25, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
 a {
-  color: #41a83e;
+  text-decoration: none;
+  color: #47627d;
+}
+
+/* line 32, ../sass/main.scss */
+.aside {
+  position: fixed;
+  z-index: 5;
+  width: 240px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-right: 1px solid #47627d;
+  background-color: #222f3c;
+}
+/* line 42, ../sass/main.scss */
+.aside__brand {
+  padding: 15px;
+  background-color: #10161b;
+  height: 80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/* line 47, ../sass/main.scss */
+.aside__brandTitle {
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  line-height: 1.5em;
+}
+/* line 51, ../sass/main.scss */
+.aside__brandTitle a {
+  color: white;
+}
+/* line 55, ../sass/main.scss */
+.aside__brandSubTitle {
+  font-family: "Muli", sans-serif;
+  font-size: .6em;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  line-height: 1.5em;
+  color: #47627d;
+}
+/* line 65, ../sass/main.scss */
+.aside__nav a {
+  font-family: "Muli", sans-serif;
+  color: #47627d;
+  padding: 15px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  -webkit-transition: all .25s ease;
+          transition: all .25s ease;
+}
+/* line 74, ../sass/main.scss */
+.aside__nav a.active {
+  color: white;
+  background-color: #1c2732;
+}
+/* line 77, ../sass/main.scss */
+.aside__nav a.active:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: #1a6650;
+}
+/* line 86, ../sass/main.scss */
+.aside__nav a.active:hover {
+  background-color: #172028;
+}
+/* line 90, ../sass/main.scss */
+.aside__nav a:hover {
+  background-color: #2b3c4c;
+}
+
+/* line 96, ../sass/main.scss */
+.header, .content {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* line 100, ../sass/main.scss */
+.header {
+  position: fixed;
+  padding-left: 240px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #e1e8ef;
+  border-bottom: 1px solid #9eb5cc;
+}
+/* line 6, ../sass/mixins/_clearfix.scss */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 110, ../sass/main.scss */
+.header__user {
+  float: right;
+  padding: 22px 15px;
+}
+/* line 113, ../sass/main.scss */
+.header__userRole {
+  text-transform: uppercase;
+  font-size: .85rem;
+  color: #47627d;
+  margin-right: 20px;
+}
+
+/* line 121, ../sass/main.scss */
+.content {
+  padding: 95px 15px 15px 255px;
+}
+/* line 123, ../sass/main.scss */
+.content h1 {
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  border-bottom: 1px solid #e1e8ef;
+  margin-bottom: 25px;
+  color: #47627d;
 }

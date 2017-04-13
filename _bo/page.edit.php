@@ -13,5 +13,6 @@ if(isset($_GET['page'])) {
 echo $app->twig->render('page.edit.html.twig', array(
     'page' => $page,
     'pageName' => $pageName,
-    'menus' => $menus
+    'menus' => $menus,
+    'menuPage' => 'pages'
 ));

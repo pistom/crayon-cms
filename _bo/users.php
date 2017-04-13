@@ -5,5 +5,6 @@ $app->dieIfNotAdmin();
 $users = $app->getManager()->getUsersList();
 
 echo $app->twig->render('users.html.twig', array(
-    'users' => $users
+    'users' => $users,
+    'menuPage' => 'users'
 ));

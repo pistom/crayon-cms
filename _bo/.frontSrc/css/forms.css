@@ -1,0 +1,43 @@
+/* line 13, ../sass/mixins/_clearfix.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.clearfix2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 21, ../sass/forms.scss */
+label {
+  color: #47627d;
+  font-size: .8rem;
+  line-height: 1.5rem;
+}
+
+/* line 26, ../sass/forms.scss */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+  border: 1px solid #e1e8ef;
+  color: #47627d;
+  line-height: 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 5px;
+  font-size: 1rem;
+  margin: 4px 0 8px;
+}
+
+/* line 40, ../sass/forms.scss */
+table input[type="text"],
+table input[type="password"],
+table input[type="number"],
+table select {
+  font-size: 0.9rem;
+}

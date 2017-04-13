@@ -6,5 +6,6 @@ $pages = $app->getManager()->getPagesList();
 
 
 echo $app->twig->render('pages.html.twig', array(
-    'pages' => $pages
+    'pages' => $pages,
+    'menuPage' => 'pages'
 ));

@@ -15,5 +15,6 @@ if(isset($_GET['menu'])) {
 echo $app->twig->render('menu.edit.html.twig', array(
     'menu' => $menu,
     'menuName' => $menuName,
-    'routes' => $routes
+    'routes' => $routes,
+    'menuPage' => 'menus'
 ));

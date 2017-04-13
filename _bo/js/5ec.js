@@ -102,6 +102,7 @@ var msgWindow = document.getElementsByClassName('msgWindow')[0];
 var msgTitle = msgWindow.getElementsByClassName('msgWindowTitle')[0];
 var msgContent = msgWindow.getElementsByClassName('msgWindowContent')[0];
 var showMessage = function(type,title,msg){
+    msgWindow.className = 'msgWindow';
     msgWindow.classList.add('isOpen');
     msgWindow.classList.add(type);
     msgTitle.innerHTML = title;

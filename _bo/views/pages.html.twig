@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 {% block content %}
-    <h1>Menus</h1>
+    <h1>Pages</h1>
 
     <table>
         <thead>
@@ -15,16 +15,16 @@
             <tr>
                 <td><a href="page.edit.php?page={{ key }}">{{ key }}</a></td>
                 <td>{{ page.title }}</td>
-                <td>{% if userRole == 'admin' %}<a href="" data-action="delete" data-item="{{ key }}">Delete</a>{% endif %}</td>
+                <td>{% if userRole == 'admin' %}<a href="" class="btn btn--red btn--small" data-action="delete" data-item="{{ key }}">Delete</a>{% endif %}</td>
             </tr>
         {% endfor %}
         </tbody>
-        <tfood>
+        <tfoot>
             <tr>
                 <td colspan="2"></td>
-                <td>{% if userRole == 'admin' %}<a href="page.edit.php">Add</a>{% endif %}</td>
+                <td>{% if userRole == 'admin' %}<a class="btn btn--green" href="page.edit.php">Add</a>{% endif %}</td>
             </tr>
-        </tfood>
+        </tfoot>
     </table>
 
 

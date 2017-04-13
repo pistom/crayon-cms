@@ -1,0 +1,63 @@
+@import "compass";
+@import "mixins/breakpoint";
+@import "mixins/mixins";
+@import "mixins/clearfix";
+@import "colors";
+@import "fonts";
+
+//@import "sprites/*.png"; // Create sprites with src/images/sprites/*.png
+//$sprites: sprite-map("sprites/*.png");
+//$disable-magic-sprite-selectors: true;
+
+// @import "icons/*.png"; 			// Sprites - img in src/images
+// @include icons-sprite(home);
+// @include squish-text; 			// Hide text
+// @include inline-block; 			// Inline block
+// @include breakpoint ($tablet) 	// Breakpoints
+// @include containerRwd;			// Element has width definied in mixins/breakpoint/_devices.scss
+// @include clearfix;				// Set clear to both;
+// @include clearfix2;				// Add :after selector width clear:both;
+
+table {
+  width: 100%;
+  tr {
+    td,th {
+      &:last-child {
+        text-align:right;
+      }
+      padding: 5px;
+    }
+  }
+  thead {
+    tr {
+      th {
+        font-family: $font-secondary;
+        color: $cl-blue;
+        border-bottom: 2px solid $cl-gray-dark;
+      }
+    }
+  }
+  tbody{
+    tr {
+      &:hover {
+        td {
+          background-color: lighten($cl-gray,5);
+        }
+      }
+      td {
+        font-family: $font-primary;
+        font-size: .9rem;
+        border-bottom: 1px solid $cl-gray;
+      }
+    }
+  }
+  tfoot {
+    tr {
+      td {
+        font-family: $font-primary;
+        border-bottom: none;
+        font-size: .9rem;
+      }
+    }
+  }
+}

@@ -13,5 +13,6 @@ if(isset($_GET['user'])) {
 
 echo $app->twig->render('user.edit.html.twig', array(
     'user' => $user,
-    'userName' => $userName
+    'userName' => $userName,
+    'menuPage' => 'users'
 ));
