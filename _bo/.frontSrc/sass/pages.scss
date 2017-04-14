@@ -21,6 +21,7 @@
 .page {
   &__block {
     @include clearfix2;
+    min-height: 45px;
     &Label {
       float:left;
       width:15%;

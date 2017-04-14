@@ -1,4 +1,113 @@
 {% extends "base.html.twig" %}
 {% block content %}
     <h1>Configuration</h1>
+    <div class="page">
+        <form action="" method="post" id="settingsForm">
+            <div class="page__block">
+                <label class="page__blockLabel" for="dev_mode">Developper mode</label>
+                <div class="page__blockInput">
+                    <label class="page__blockLabel" for="dev_mode_enabled">
+                        <input type="radio" name="dev_mode" id="dev_mode_enabled" value="true" {{ settings['dev_mode'] ? 'checked' : '' }}> Enabled
+                    </label>
+                    <label class="page__blockLabel" for="dev_mode_disabled">
+                        <input type="radio" name="dev_mode" id="dev_mode_disabled" value="false" {{ not settings['dev_mode'] ? 'checked' : '' }}> Disabled
+                    </label>
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="site_name">Site name</label>
+                <div class="page__blockInput">
+                    <input type="text" id="site_name" value="{{ settings['site_name'] }}" name="site_name">
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="site_color">Site color</label>
+                <div class="page__blockInput">
+                    <input type="color" id="site_color" value="{{ settings['site_color'] }}" name="site_color">
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="tinymce_api_key">TinyMCE API key</label>
+                <div class="page__blockInput">
+                    <input type="text" id="tinymce_api_key" value="{{ settings['tinymce_api_key'] }}" name="tinymce_api_key" class="code">
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="fontawesome_cdn">Font Awesome CDN</label>
+                <div class="page__blockInput">
+                    <input type="text" id="fontawesome_cdn" value="{{ settings['fontawesome_cdn'] }}" name="fontawesome_cdn" class="code">
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel"></label>
+                <div class="page__blockInput">
+                    <a href="" class="btn btn--green" data-action="save-settings"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes</a>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="page__block">
+            <label class="page__blockLabel">Clear cache</label>
+            <div class="page__blockInput">
+                <a href="" class="btn btn--azure" data-action="clear-cache"><i class="fa fa-trash" aria-hidden="true"></i> Clear</a>
+            </div>
+        </div>
+        <div class="page__block">
+            <label class="page__blockLabel">Clear backups</label>
+            <div class="page__blockInput">
+                <a href="" class="btn btn--red" data-action="clear-backups"><i class="fa fa-trash" aria-hidden="true"></i> Clear</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var changeData = function(e){
+            if(e.target.dataset.action == 'save-settings'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('settingsForm'));
+                atomic.post('settings.save.php',data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+            } else if(e.target.dataset.action == 'clear-cache'){
+                e.preventDefault();
+                atomic.get('clear.cache.php')
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Clear cache', 'Twig cache has been cleared');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Cache not cleared');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Cache not cleared');
+                    })
+            } else if(e.target.dataset.action == 'clear-backups'){
+                e.preventDefault();
+                atomic.get('clear.backup.php')
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Clear backup', 'Backups has been cleared');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Backups not cleared');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Backups not cleared');
+                    })
+            }
+        };
+        document.body.addEventListener("click",changeData,false);
+    </script>
 {% endblock %}

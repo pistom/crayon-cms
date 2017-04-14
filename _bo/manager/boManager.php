@@ -133,4 +133,30 @@ class boManager {
         $data = htmlspecialchars($data);
         return $data;
     }
+
+    public function clearDirectory($dir){
+        $files = glob($dir.'/*');
+        foreach($files as $file){
+            if(is_file($file) && $file != $dir.'/index.html')
+                unlink($file);
+        }
+    }
+
+    public function clearCache($dir){
+        function rrmdir($dir) {
+            if (is_dir($dir)) {
+                $objects = scandir($dir);
+                foreach ($objects as $object) {
+                    if ($object != "." && $object != "..") {
+                        if (filetype($dir."/".$object) == "dir") rrmdir($dir."/".$object); else unlink($dir."/".$object);
+                    }
+                }
+                reset($objects);
+                rmdir($dir);
+            }
+        }
+        rrmdir($dir);
+    }
+
+
 }

@@ -20,17 +20,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 else :
 
     // SETTINGS
-    include_once '../settings.php';
-    $twigDebug = false;
-    if($dev_mode){
-        $twigCache = false;
-        $twigDebug = true;
+    $json_data = file_get_contents('../data/config.json');
+    $settings = json_decode($json_data, true);
+    if($settings['dev_mode']){
+        $settings['twig_cache'] = false;
+        $settings['twig_debug'] = true;
+    } else {
+        $settings['twig_cache'] = 'cache';
+        $settings['twig_debug'] = false;
     }
 
     require_once '../vendor/autoload.php';
     $loader = new Twig_Loader_Filesystem('views');
-    $twig = new Twig_Environment($loader, array('cache' => $twigCache,'debug' => $twigDebug));
-    echo $twig->render('login.html.twig', array());
+    $twig = new Twig_Environment($loader, array('cache' => $settings['twig_cache'],'debug' => $settings['twig_debug']));
+    echo $twig->render('login.html.twig', array(
+        'siteName' => $settings['site_name'],
+        'siteColor' => $settings['site_color']
+    ));
 endif;
 
 

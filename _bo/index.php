@@ -1,5 +1,4 @@
 <?php
-require_once 'manager/boManager.php';
 require_once '../vendor/autoload.php';
 
 $app = new \CrayonBo\CrayonBo();

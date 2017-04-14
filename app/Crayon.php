@@ -7,17 +7,20 @@ class Crayon {
     protected $lang;
     protected $twig;
     protected $routes;
+    protected $settings;
 
-    function __construct($router, $twig) {
+    function __construct($router) {
+        $this->getConfig();
+        $this->loadTwig();
+        $this->loadControllers();
         $this->lang = 'en';
         $this->router = $router;
-        $this->twig = $twig;
-        $this->loadControllers();
         $this->routes = $this->loadRoutes();
     }
 
     public function run() {
         $this->twig->addGlobal('routes',$this->routes);
+        $this->twig->addGlobal('settings',$this->settings);
         $ctrlParams = array(
             'lang'=>$this->lang,
             'twig'=>$this->twig,
@@ -75,5 +78,23 @@ class Crayon {
             true : false;
         $params['currentPath'] = $_SERVER["REQUEST_URI"];
         return $params;
+    }
+
+    protected function getConfig(){
+        $json_data = file_get_contents('data/config.json');
+        $this->settings = json_decode($json_data, true);
+        if($this->settings['dev_mode']){
+            $this->settings['twig_cache'] = false;
+            $this->settings['twig_debug'] = true;
+        } else {
+            $this->settings['twig_cache'] = 'cache';
+            $this->settings['twig_debug'] = false;
+        }
+    }
+
+    protected function loadTwig(){
+        $loader = new \Twig_Loader_Filesystem('views');
+        $this->twig = new \Twig_Environment($loader, array('cache' => $this->settings['twig_cache'],'debug' => $this->settings['twig_debug']));
+        $this->twig->addExtension(new \Twig_Extension_Debug());
     }
 }

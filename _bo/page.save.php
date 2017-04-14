@@ -26,6 +26,12 @@ if($_POST) {
         );
         $app->getManager()->addRoute($route);
     }
+    // UPDATE ROUTE TITLE
+    $routes = $app->getManager()->getRoutesList();
+    if(isset($routes[$page['pageName']])){
+        $routes[$page['pageName']]['name'] = $page['title'];
+        $app->getManager()->saveRoutesList($routes);
+    }
 }
 $app->getManager()->savePage($page);
 

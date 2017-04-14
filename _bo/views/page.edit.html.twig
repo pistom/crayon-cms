@@ -1,9 +1,10 @@
 {% extends "base.html.twig" %}
 {% block head %}
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey={{ settings.tinyMCE_API_key }}"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey={{ settings.tinymce_api_key }}"></script>
 {% endblock %}
 
 {% block content %}
+
     <h1>Page</h1>
     <form action="" id="pageForm">
         <div class="page">
@@ -75,7 +76,7 @@
             </div>
             {% endif %}
             <div class="page__block">
-                <button type="submit" class="btn btn--green btn--right">Save</button>
+                <button type="submit" class="btn btn--green btn--right"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
             </div>
         </div>
     </form>
@@ -88,6 +89,11 @@
         var loadTinyMCE = function(){
             tinymce.init({
                 selector:'textarea.tinymce',
+                setup: function (editor) {
+                    editor.on('change', function () {
+                        tinymce.triggerSave();
+                    });
+                },
                 force_br_newlines : false,
                 force_p_newlines : true,
                 forced_root_block : '',

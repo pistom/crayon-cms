@@ -24,10 +24,23 @@ body {
   font-family: $font-primary;
   line-height: 1.5em;
   @include clearfix2;
+  &.no-fa {
+    i,.aside__navIco {
+      display: none;
+    }
+  }
 }
 a {
   text-decoration: none;
   color: $cl-blue-light;
+}
+hr {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: $cl-gray;
+  height: 0;
+  margin-top: 10px;
+  margin-bottom:30px;
 }
 .aside {
   position: fixed;
@@ -62,6 +75,11 @@ a {
     }
   }
   &__nav {
+    &Ico {
+      width: 22px;
+      display: inline-block;
+      text-align: center;
+    }
     a {
       font-family: $font-primary;
       color: $cl-blue-light;

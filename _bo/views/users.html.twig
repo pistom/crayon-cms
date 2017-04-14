@@ -30,7 +30,7 @@
         <tfoot>
             <tr>
                 <td colspan="2"></td>
-                <td><a href="user.edit.php" class="btn btn--azure">Add</a></td>
+                <td><a href="user.edit.php" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
             </tr>
         </tfoot>
     </table>
@@ -45,16 +45,20 @@
     <script>
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
-                atomic.post('user.delete.php','user='+e.target.dataset.item)
-                    .success(function(data){
-                        if(data.status == 'success')
-                            showMessage('success','Done','Data has been saved');
-                        if(data.status == 'error')
-                            showMessage('error','Error','Data not saved');
-                    })
-                    .error(function(data){
-                        showMessage('error','Error','Server error');
-                    });
+                if(confirm('Are you sure?')){
+                    atomic.post('user.delete.php','user='+e.target.dataset.item)
+                        .success(function(data){
+                            if(data.status == 'success')
+                                showMessage('success','Done','Data has been saved');
+                            if(data.status == 'error')
+                                showMessage('error','Error','Data not saved');
+                        })
+                        .error(function(data){
+                            showMessage('error','Error','Server error');
+                        });
+                } else {
+                    location.reload();
+                }
             }
         },false);
     </script>

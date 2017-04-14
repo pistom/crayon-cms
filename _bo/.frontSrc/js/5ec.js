@@ -9,6 +9,10 @@ var showMessage = function(type,title,msg){
     msgTitle.innerHTML = title;
     msgContent.innerHTML = msg;
 };
+document.body.addEventListener("click",function(e){
+    if(!e.target.classList.contains("msgWindowTitle") && !e.target.classList.contains("msgWindowContent"))
+        msgWindow.classList.remove('isOpen');
+},false);
 var closeMessage = function(msg){
     msgWindow.classList.remove('isOpen');
 };
@@ -25,6 +29,9 @@ var serializeFormData = function(form){
                 data += field.name+"="+"true";
             else
                 data += field.name+"="+"false";
+        } else if(field.type == 'radio'){
+            if(field.checked)
+                data += field.name+"="+field.value;
         }
 
         else

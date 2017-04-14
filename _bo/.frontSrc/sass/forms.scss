@@ -26,6 +26,7 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="number"],
+input[type="color"],
 select {
   border: 1px solid $cl-gray;
   color: $cl-blue-light;
@@ -36,6 +37,15 @@ select {
   padding: 2px 5px;
   font-size: 1rem;
   margin:4px 0 8px;
+  &.code {
+    font-family:"Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  }
+}
+input[type="color"] {
+  min-height: 30px;
+  width: 70px;
+  padding: 5px;
+  background: transparent;
 }
 table input[type="text"],
 table input[type="password"],

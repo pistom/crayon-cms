@@ -34,7 +34,7 @@
             <tr>
                 <td colspan="3"></td>
                 <td>
-                    {% if userRole == 'admin' %}<a class="btn btn--azure" href="page.edit.php">Add</a>{% endif %}
+                    {% if userRole == 'admin' %}<a class="btn btn--azure" href="page.edit.php"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>{% endif %}
                 </td>
             </tr>
         </tfoot>
@@ -50,16 +50,20 @@
     <script>
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
-                atomic.post('page.delete.php','page='+e.target.dataset.item)
-                    .success(function(data){
-                        if(data.status == 'success')
-                            showMessage('success','Done','Data has been saved');
-                        if(data.status == 'error')
-                            showMessage('error','Error','Data not saved');
-                    })
-                    .error(function(data){
-                        showMessage('error','Error','Server error');
-                    });
+                if(confirm('Are you sure?')){
+                    atomic.post('page.delete.php','page='+e.target.dataset.item)
+                        .success(function(data){
+                            if(data.status == 'success')
+                                showMessage('success','Done','Data has been saved');
+                            if(data.status == 'error')
+                                showMessage('error','Error','Data not saved');
+                        })
+                        .error(function(data){
+                            showMessage('error','Error','Server error');
+                        });
+                } else {
+                    location.reload();
+                }
             }
         },false);
     </script>

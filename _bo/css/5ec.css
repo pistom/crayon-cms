@@ -99,6 +99,7 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="number"],
+input[type="color"],
 select {
   border: 1px solid #e1e8ef;
   color: #47627d;
@@ -111,8 +112,24 @@ select {
   font-size: 1rem;
   margin: 4px 0 8px;
 }
-
 /* line 40, ../sass/forms.scss */
+input[type="text"].code,
+input[type="password"].code,
+input[type="number"].code,
+input[type="color"].code,
+select.code {
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+
+/* line 44, ../sass/forms.scss */
+input[type="color"] {
+  min-height: 30px;
+  width: 70px;
+  padding: 5px;
+  background: transparent;
+}
+
+/* line 50, ../sass/forms.scss */
 table input[type="text"],
 table input[type="password"],
 table input[type="number"],
@@ -120,7 +137,7 @@ table select {
   font-size: 0.9rem;
 }
 
-/* line 46, ../sass/forms.scss */
+/* line 56, ../sass/forms.scss */
 textarea {
   border: 1px solid #e1e8ef;
   -webkit-box-sizing: border-box;
@@ -132,7 +149,7 @@ textarea {
   margin: 4px 0 8px;
   height: 100px;
 }
-/* line 55, ../sass/forms.scss */
+/* line 65, ../sass/forms.scss */
 textarea.pageContent {
   height: 500px;
 }
@@ -274,14 +291,28 @@ body:after {
   display: table;
   clear: both;
 }
-
 /* line 28, ../sass/main.scss */
+body.no-fa i, body.no-fa .aside__navIco {
+  display: none;
+}
+
+/* line 33, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #47627d;
 }
 
-/* line 32, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
+hr {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: #e1e8ef;
+  height: 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* line 45, ../sass/main.scss */
 .aside {
   position: fixed;
   z-index: 5;
@@ -294,7 +325,7 @@ a {
   border-right: 1px solid #47627d;
   background-color: #222f3c;
 }
-/* line 42, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .aside__brand {
   padding: 15px;
   background-color: #10161b;
@@ -302,17 +333,17 @@ a {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-/* line 47, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .aside__brandTitle {
   font-family: "Lora", serif;
   font-size: 1.5rem;
   line-height: 1.5em;
 }
-/* line 51, ../sass/main.scss */
+/* line 64, ../sass/main.scss */
 .aside__brandTitle a {
   color: white;
 }
-/* line 55, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 .aside__brandSubTitle {
   font-family: "Muli", sans-serif;
   font-size: .6em;
@@ -321,7 +352,13 @@ a {
   line-height: 1.5em;
   color: #47627d;
 }
-/* line 65, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
+.aside__navIco {
+  width: 22px;
+  display: inline-block;
+  text-align: center;
+}
+/* line 83, ../sass/main.scss */
 .aside__nav a {
   font-family: "Muli", sans-serif;
   color: #47627d;
@@ -334,12 +371,12 @@ a {
   -webkit-transition: all .25s ease;
           transition: all .25s ease;
 }
-/* line 74, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .aside__nav a.active {
   color: white;
   background-color: #1c2732;
 }
-/* line 77, ../sass/main.scss */
+/* line 95, ../sass/main.scss */
 .aside__nav a.active:before {
   content: "";
   position: absolute;
@@ -349,23 +386,23 @@ a {
   width: 4px;
   background-color: #098b50;
 }
-/* line 86, ../sass/main.scss */
+/* line 104, ../sass/main.scss */
 .aside__nav a.active:hover {
   background-color: #172028;
 }
-/* line 90, ../sass/main.scss */
+/* line 108, ../sass/main.scss */
 .aside__nav a:hover {
   background-color: #2b3c4c;
 }
 
-/* line 96, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .header, .content {
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-/* line 100, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 .header {
   z-index: 1;
   position: fixed;
@@ -383,30 +420,30 @@ a {
   display: table;
   clear: both;
 }
-/* line 111, ../sass/main.scss */
+/* line 129, ../sass/main.scss */
 .header__user {
   float: right;
   padding: 20px 15px;
 }
-/* line 114, ../sass/main.scss */
+/* line 132, ../sass/main.scss */
 .header__userRole {
   text-transform: uppercase;
   font-size: .85rem;
   color: #47627d;
   margin-right: 20px;
 }
-/* line 121, ../sass/main.scss */
+/* line 139, ../sass/main.scss */
 .header__front {
   float: right;
   padding: 20px 15px;
   border-right: 1px solid #9eb5cc;
 }
 
-/* line 127, ../sass/main.scss */
+/* line 145, ../sass/main.scss */
 .content {
   padding: 95px 15px 15px 255px;
 }
-/* line 129, ../sass/main.scss */
+/* line 147, ../sass/main.scss */
 .content h1 {
   font-family: "Lora", serif;
   font-size: 1.5rem;
@@ -532,19 +569,23 @@ a {
   clear: both;
 }
 
+/* line 22, ../sass/pages.scss */
+.page__block {
+  min-height: 45px;
+}
 /* line 6, ../sass/mixins/_clearfix.scss */
 .page__block:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 24, ../sass/pages.scss */
+/* line 25, ../sass/pages.scss */
 .page__blockLabel {
   float: left;
   width: 15%;
   margin-top: 8px;
 }
-/* line 29, ../sass/pages.scss */
+/* line 30, ../sass/pages.scss */
 .page__blockInput {
   float: left;
   width: 85%;
