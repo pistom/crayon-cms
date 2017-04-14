@@ -20,8 +20,26 @@
 // @include clearfix2;				// Add :after selector width clear:both;
 
 body {
-  background-color: $cl-gray;
+  font-family: $font-primary;
+  background-color: $cl-bg;
+  line-height: 1.5em;
+  color: $cl-text;
 }
-li.active>a{
-  color: #ff1493;
+.container {
+  @include containerRwd;
+  padding: 0 15px;
+  @include breakpoint($tablet){
+    padding: 0;
+  }
+}
+a {
+  text-decoration: none;
+  color: $cl-blue;
+  transition: all .5s ease;
+  &.active {
+    color: $cl-red;
+  }
+  &:hover {
+    color: darken($cl-blue,10);
+  }
 }

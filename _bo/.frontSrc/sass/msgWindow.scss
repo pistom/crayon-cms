@@ -24,7 +24,7 @@ $disable-magic-sprite-selectors: true;
   transform: translate(-50%,-50%);
   padding: 0;
   border:1px solid $cl-blue;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 0 10px transparentize($cl-blue-light,.7);
   overflow: hidden;
   &.isOpen {

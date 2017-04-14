@@ -1,0 +1,68 @@
+@import "compass";
+@import "mixins/breakpoint";
+@import "mixins/mixins";
+@import "mixins/clearfix";
+@import "colors";
+@import "fonts";
+
+@import "sprites/*.png"; // Create sprites with src/images/sprites/*.png
+$sprites: sprite-map("sprites/*.png");
+$disable-magic-sprite-selectors: true;
+
+.mainNavigation {
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: lighten($cl-gray,40);
+  &__list {
+    text-align: center;
+    &Item {
+      position: relative;
+      display: inline-block;
+      &.active {
+        .mainNavigation__listItemLink {
+          color: $cl-red;
+        }
+      }
+      &:hover {
+        .mainNavigation__subList {
+          max-height: 300px;
+        }
+      }
+      &Link {
+        display: block;
+        padding:15px 30px;
+        font-family: $font-secondary;
+        font-size: 1.2rem;
+        color: $cl-blue;
+      }
+    }
+  }
+  &__subList {
+    position: absolute;
+    transition: all .5s ease;
+    top: 54px;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 140px;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: lighten($cl-gray,40);
+    background: $cl-bg;
+    text-align: center;
+    box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    &Item {
+      display: block;
+      &Link {
+        display: block;
+        padding:8px 15px;
+        color: lighten($cl-blue,5);
+        line-height: 1.2em;
+        &:hover {
+          color: darken($cl-blue,20);
+        }
+      }
+    }
+  }
+}

@@ -1,21 +1,21 @@
-<ul>
+<ul class="mainNavigation__list">
     {% set iterator = 1 %}
     {% for key,item in menu %}
-        <li class="{{ (currentPath == routes[key].path) ? " active" : ""  }}">
+        <li class="mainNavigation__listItem{{ (currentPath == routes[key].path) ? " active" : ""  }}">
             {% if routes[key].blind == 'true' %}
-                <span>{{ routes[key].name }}</span>
+                <span class="mainNavigation__listItemLink">{{ routes[key].name }}</span>
             {% else %}
-                <a href="{{ routes[key].path }}" data-ajax="true" title="{{ routes[key].name }}">{{ routes[key].name }}</a>
+                <a class="mainNavigation__listItemLink" href="{{ routes[key].path }}" data-ajax="true" title="{{ routes[key].name }}">{{ routes[key].name }}</a>
             {% endif %}
         {% if item|length > 1 %}
-            <ul>
+            <ul class="mainNavigation__subList">
             {% for key2,item2 in item %}
                 {% if loop.index > 1 %}
-                    <li class="{{ (currentPath == routes[key2].path) ? " active" : ""  }}">
+                    <li class="mainNavigation__subListItem{{ (currentPath == routes[key2].path) ? " active" : ""  }}">
                         {% if routes[key2].blind == 'true' %}
-                            <span>{{ routes[key2].name }}</span>
+                            <span class="mainNavigation__subListItemLink">{{ routes[key2].name }}</span>
                         {% else %}
-                            <a href="{{ routes[key2].path }}" data-ajax="true" title="{{ routes[key2].name }}">{{ routes[key2].name }}</a>
+                            <a class="mainNavigation__subListItemLink" href="{{ routes[key2].path }}" data-ajax="true" title="{{ routes[key2].name }}">{{ routes[key2].name }}</a>
                         {% endif %}
                     </li>
                 {% endif %}

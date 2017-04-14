@@ -11,6 +11,7 @@
     <meta name="theme-color" content="{{ settings['site_color'] }}">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Lora|Muli:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="/css/5ec.min.css">
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="/css/5ec-ie8.css">
@@ -22,20 +23,32 @@
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<h1>5eC CMS</h1>
-<section class="lang">
-    <a href="{{ routes['home'].path }}">Eng</a> | <a href="{{ routes['home_pl'].path }}">Pol</a>
+
+<section class="mainHeader">
+    <div class="mainHeader__bg"></div>
+    <div class="container">
+        <div class="mainHeader__brand"></div>
+        <div class="mainHeader__title">{{ settings['site_name'] }}</div>
+        <div class="mainHeader__lang">
+            <a href="{{ routes['home'].path }}">EN</a> | <a href="{{ routes['glowna'].path }}">PL</a>
+        </div>
+    </div>
+
 </section>
-<hr>
+
 <section class="mainNavigation">
-{% include 'navigation.html.twig' with {'menu':menu} %}
+    <nav class="container" id="mainNavigation">
+        {% include 'navigation.html.twig' with {'menu':menu} %}
+    </nav>
 </section>
-<hr>
+
 <section class="mainContent">
-{% block content %}{% endblock %}
+    <div class="container" id="mainContent">
+        {% block content %}{% endblock %}
+    </div>
 </section>
 
-
+<script src="/js/drawshapes.js"></script>
 <script src="/js/5ec.js"></script>
 
 <script class="mainScripts">

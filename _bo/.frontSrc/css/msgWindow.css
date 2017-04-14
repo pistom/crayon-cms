@@ -37,7 +37,7 @@
           transform: translate(-50%, -50%);
   padding: 0;
   border: 1px solid #222f3c;
-  border-radius: 3px;
+  border-radius: 2px;
   -webkit-box-shadow: 0 0 10px rgba(71, 98, 125, 0.3);
           box-shadow: 0 0 10px rgba(71, 98, 125, 0.3);
   overflow: hidden;

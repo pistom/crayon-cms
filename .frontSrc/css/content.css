@@ -1,0 +1,62 @@
+/* line 13, ../sass/mixins/_clearfix.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.clearfix2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 56, sprites/*.png */
+.sprites-sprite {
+  background-image: url('../images/sprites-sda7de5a88e.png');
+  background-repeat: no-repeat;
+}
+
+/* line 12, ../sass/content.scss */
+.mainContent {
+  padding-top: 15px;
+}
+/* line 14, ../sass/content.scss */
+.mainContent h1 {
+  font-size: 3rem;
+  font-family: "Lora", serif;
+  line-height: 1.5em;
+}
+/* line 19, ../sass/content.scss */
+.mainContent h2 {
+  font-size: 2rem;
+  font-family: "Lora", serif;
+  line-height: 1.5em;
+}
+/* line 24, ../sass/content.scss */
+.mainContent h3 {
+  font-size: 1.5rem;
+  font-family: "Muli", sans-serif;
+  width: 600px;
+  line-height: 1.5em;
+}
+/* line 30, ../sass/content.scss */
+.mainContent p {
+  margin-bottom: 15px;
+}
+/* line 33, ../sass/content.scss */
+.mainContent strong {
+  font-weight: 600;
+}
+/* line 36, ../sass/content.scss */
+.mainContent ul, .mainContent ol {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+/* line 43, ../sass/content.scss */
+.mainContent ul {
+  list-style: disc;
+}
+/* line 46, ../sass/content.scss */
+.mainContent ol {
+  list-style-type: decimal;
+}

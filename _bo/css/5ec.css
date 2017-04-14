@@ -64,11 +64,12 @@
 }
 /* line 63, ../sass/btns.scss */
 .btn--small {
-  font-size: .75rem;
+  font-size: .65rem;
+  font-weight: 600;
   padding: 2px 5px;
   line-height: 1.2em;
 }
-/* line 68, ../sass/btns.scss */
+/* line 69, ../sass/btns.scss */
 .btn--right {
   float: right;
   margin-bottom: 0;
@@ -498,7 +499,7 @@ hr {
           transform: translate(-50%, -50%);
   padding: 0;
   border: 1px solid #222f3c;
-  border-radius: 3px;
+  border-radius: 2px;
   -webkit-box-shadow: 0 0 10px rgba(71, 98, 125, 0.3);
           box-shadow: 0 0 10px rgba(71, 98, 125, 0.3);
   overflow: hidden;

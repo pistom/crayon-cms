@@ -1,0 +1,46 @@
+@import "compass";
+@import "mixins/breakpoint";
+@import "mixins/mixins";
+@import "mixins/clearfix";
+@import "colors";
+@import "fonts";
+
+@import "sprites/*.png"; // Create sprites with src/images/sprites/*.png
+$sprites: sprite-map("sprites/*.png");
+$disable-magic-sprite-selectors: true;
+
+.mainHeader {
+  text-align: center;
+  padding: 15px;
+  overflow: hidden;
+  position: relative;
+  .container {
+    position: relative;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &__brand {
+    @include icon(logo-crayon,134px,200px,false);
+    margin: 0 auto 15px;
+  }
+  &__title {
+    background: $cl-bg;
+    font-family: $font-secondary;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    padding:15px;
+    display: inline-block;
+    border-top: 1px solid $cl-text;
+  }
+  &__lang {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

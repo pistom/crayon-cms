@@ -64,11 +64,12 @@
 }
 /* line 63, ../sass/btns.scss */
 .btn--small {
-  font-size: .75rem;
+  font-size: .65rem;
+  font-weight: 600;
   padding: 2px 5px;
   line-height: 1.2em;
 }
-/* line 68, ../sass/btns.scss */
+/* line 69, ../sass/btns.scss */
 .btn--right {
   float: right;
   margin-bottom: 0;

@@ -77,10 +77,52 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 22, ../sass/main.scss */
 body {
-  background-color: #e1e1e6;
+  font-family: "Muli", sans-serif;
+  background-color: white;
+  line-height: 1.5em;
+  color: #222f3c;
 }
 
-/* line 25, ../sass/main.scss */
-li.active > a {
-  color: #ff1493;
+/* line 28, ../sass/main.scss */
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+@media (min-width: 768px) {
+  /* line 28, ../sass/main.scss */
+  .container {
+    width: 743px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 28, ../sass/main.scss */
+  .container {
+    width: 1175px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+@media (min-width: 768px) {
+  /* line 28, ../sass/main.scss */
+  .container {
+    padding: 0;
+  }
+}
+
+/* line 35, ../sass/main.scss */
+a {
+  text-decoration: none;
+  color: #0dc3ca;
+  -webkit-transition: all .5s ease;
+          transition: all .5s ease;
+}
+/* line 39, ../sass/main.scss */
+a.active {
+  color: #fd0864;
+}
+/* line 42, ../sass/main.scss */
+a:hover {
+  color: #0a959a;
 }

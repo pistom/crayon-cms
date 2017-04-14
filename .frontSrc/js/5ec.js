@@ -1,11 +1,11 @@
 // Navigation
 (function(){
-    var navigation = document.getElementsByClassName('mainNavigation')[0];
+    var navigation = document.getElementById('mainNavigation');
     var navigationLinks = navigation.getElementsByTagName('a');
 
-    var mainContent = document.getElementsByClassName('mainContent')[0];
+    var mainContent = document.getElementById('mainContent');
     if(mainContent === undefined)
-        console.log("No content block found. Add block classed 'mainContent' to your template.");
+        console.log("No content block found. Add block whit id 'mainContent' to your template.");
 
     var setMenuItemAsActive = function(item){
         Array.prototype.forEach.call(navigationLinks,function(i){
@@ -73,5 +73,16 @@
     if(mainContent){
         document.body.addEventListener("click",getContentPage,false);
     }
+
+    document.getElementsByClassName("mainHeader__bg")[0].drawShapes({
+        shape: "oval",
+        qtt:60,
+        hideSpeed: 500,
+        showSpeed: 500,
+        size: {min:4,max:4},
+        speed:1000,
+        colors:["rgb(253,8,100)","rgb(138,190,43)","rgb(13,195,202)","rgb(34,47,60)"],
+        rotate: true
+    });
 
 })();
