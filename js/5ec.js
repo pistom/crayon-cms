@@ -103,6 +103,7 @@ function getURLParameter(name) {
     var navigationLinks = navigation.getElementsByTagName('a');
 
     var mainContent = document.getElementById('mainContent');
+    var mainContentLoader = document.getElementById('mainContentLoader');
     if(mainContent === undefined)
         console.log("No content block found. Add block whit id 'mainContent' to your template.");
 
@@ -137,9 +138,16 @@ function getURLParameter(name) {
     var getContent = function(url){
         atomic.get(url)
             .success(function(data,xhr){
-                mainContent.innerHTML = data.content;
+                mainContent.classList.add('isHidden');
+                mainContentLoader.classList.remove('isHidden');
                 var mainScripts = document.getElementsByClassName('mainScripts')[0];
-                eval(data.scripts);
+                setTimeout(function(){
+                    mainContent.innerHTML = data.content;
+                    eval(data.scripts);
+                    mainContent.classList.remove('isHidden');
+                    mainContentLoader.classList.add('isHidden');
+                },750);
+
             })
             .error(function(){
                 mainContent.innerHTML = "Page not found";

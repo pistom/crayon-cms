@@ -38,8 +38,9 @@
 /* line 27, ../sass/navigation.scss */
 .mainNavigation__listItem:hover .mainNavigation__subList {
   max-height: 300px;
+  border-width: 0 1px 1px 1px;
 }
-/* line 31, ../sass/navigation.scss */
+/* line 32, ../sass/navigation.scss */
 .mainNavigation__listItemLink {
   display: block;
   padding: 15px 30px;
@@ -47,7 +48,7 @@
   font-size: 1.2rem;
   color: #0dc3ca;
 }
-/* line 40, ../sass/navigation.scss */
+/* line 41, ../sass/navigation.scss */
 .mainNavigation__subList {
   position: absolute;
   -webkit-transition: all .5s ease;
@@ -58,7 +59,7 @@
           transform: translateX(-50%);
   left: 50%;
   width: 140px;
-  border-width: 0 1px 1px 1px;
+  border-width: 0;
   border-style: solid;
   border-color: #e6e6e6;
   background: white;
@@ -68,18 +69,18 @@
   max-height: 0;
   overflow: hidden;
 }
-/* line 55, ../sass/navigation.scss */
+/* line 56, ../sass/navigation.scss */
 .mainNavigation__subListItem {
   display: block;
 }
-/* line 57, ../sass/navigation.scss */
+/* line 58, ../sass/navigation.scss */
 .mainNavigation__subListItemLink {
   display: block;
   padding: 8px 15px;
   color: #0fdae2;
   line-height: 1.2em;
 }
-/* line 62, ../sass/navigation.scss */
+/* line 63, ../sass/navigation.scss */
 .mainNavigation__subListItemLink:hover {
   color: #07666a;
 }

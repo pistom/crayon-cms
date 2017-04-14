@@ -17,47 +17,73 @@
   background-repeat: no-repeat;
 }
 
-/* line 12, ../sass/content.scss */
+/* line 13, ../sass/content.scss */
+#mainContent, #mainContentLoader {
+  opacity: 1;
+  -webkit-transition: all .15s ease;
+          transition: all .15s ease;
+}
+/* line 16, ../sass/content.scss */
+#mainContent.isHidden, #mainContentLoader.isHidden {
+  opacity: 0;
+  -webkit-transition: all .25s ease;
+          transition: all .25s ease;
+}
+
+/* line 21, ../sass/content.scss */
+#mainContentLoader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+/* line 27, ../sass/content.scss */
 .mainContent {
   padding-top: 15px;
 }
-/* line 14, ../sass/content.scss */
+/* line 29, ../sass/content.scss */
+.mainContent h1, .mainContent h2, .mainContent h3 {
+  line-height: 1.2em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/* line 33, ../sass/content.scss */
 .mainContent h1 {
   font-size: 3rem;
   font-family: "Lora", serif;
-  line-height: 1.5em;
 }
-/* line 19, ../sass/content.scss */
+/* line 37, ../sass/content.scss */
 .mainContent h2 {
   font-size: 2rem;
   font-family: "Lora", serif;
-  line-height: 1.5em;
 }
-/* line 24, ../sass/content.scss */
+/* line 41, ../sass/content.scss */
 .mainContent h3 {
   font-size: 1.5rem;
   font-family: "Muli", sans-serif;
-  width: 600px;
-  line-height: 1.5em;
+  font-weight: 600;
 }
-/* line 30, ../sass/content.scss */
+/* line 46, ../sass/content.scss */
 .mainContent p {
   margin-bottom: 15px;
 }
-/* line 33, ../sass/content.scss */
+/* line 49, ../sass/content.scss */
 .mainContent strong {
   font-weight: 600;
 }
-/* line 36, ../sass/content.scss */
+/* line 52, ../sass/content.scss */
 .mainContent ul, .mainContent ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 43, ../sass/content.scss */
+/* line 59, ../sass/content.scss */
 .mainContent ul {
   list-style: disc;
 }
-/* line 46, ../sass/content.scss */
+/* line 62, ../sass/content.scss */
 .mainContent ol {
   list-style-type: decimal;
 }
@@ -369,6 +395,106 @@ table.table tr th {
   right: 0;
 }
 
+/* line 13, ../sass/mixins/_clearfix.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.clearfix2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, ../sass/loader.scss */
+.loader {
+  color: #fd0864;
+  font-size: 20px;
+  margin: 100px auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    -webkit-box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+            box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    -webkit-box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    -webkit-box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    -webkit-box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    -webkit-box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    -webkit-box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    -webkit-box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+            box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    -webkit-box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+            box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    -webkit-box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+            box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    -webkit-box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    -webkit-box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    -webkit-box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    -webkit-box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    -webkit-box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    -webkit-box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+            box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    -webkit-box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+            box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+
 /* line 5, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -452,15 +578,16 @@ body {
   background-color: white;
   line-height: 1.5em;
   color: #222f3c;
+  overflow-y: scroll;
 }
 
-/* line 28, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 .container {
   margin: 0 auto;
   padding: 0 15px;
 }
 @media (min-width: 768px) {
-  /* line 28, ../sass/main.scss */
+  /* line 29, ../sass/main.scss */
   .container {
     width: 743px;
     -webkit-box-sizing: border-box;
@@ -468,7 +595,7 @@ body {
   }
 }
 @media (min-width: 1200px) {
-  /* line 28, ../sass/main.scss */
+  /* line 29, ../sass/main.scss */
   .container {
     width: 1175px;
     -webkit-box-sizing: border-box;
@@ -476,24 +603,24 @@ body {
   }
 }
 @media (min-width: 768px) {
-  /* line 28, ../sass/main.scss */
+  /* line 29, ../sass/main.scss */
   .container {
     padding: 0;
   }
 }
 
-/* line 35, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 39, ../sass/main.scss */
+/* line 40, ../sass/main.scss */
 a.active {
   color: #fd0864;
 }
-/* line 42, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 a:hover {
   color: #0a959a;
 }
@@ -538,8 +665,9 @@ a:hover {
 /* line 27, ../sass/navigation.scss */
 .mainNavigation__listItem:hover .mainNavigation__subList {
   max-height: 300px;
+  border-width: 0 1px 1px 1px;
 }
-/* line 31, ../sass/navigation.scss */
+/* line 32, ../sass/navigation.scss */
 .mainNavigation__listItemLink {
   display: block;
   padding: 15px 30px;
@@ -547,7 +675,7 @@ a:hover {
   font-size: 1.2rem;
   color: #0dc3ca;
 }
-/* line 40, ../sass/navigation.scss */
+/* line 41, ../sass/navigation.scss */
 .mainNavigation__subList {
   position: absolute;
   -webkit-transition: all .5s ease;
@@ -558,7 +686,7 @@ a:hover {
           transform: translateX(-50%);
   left: 50%;
   width: 140px;
-  border-width: 0 1px 1px 1px;
+  border-width: 0;
   border-style: solid;
   border-color: #e6e6e6;
   background: white;
@@ -568,18 +696,18 @@ a:hover {
   max-height: 0;
   overflow: hidden;
 }
-/* line 55, ../sass/navigation.scss */
+/* line 56, ../sass/navigation.scss */
 .mainNavigation__subListItem {
   display: block;
 }
-/* line 57, ../sass/navigation.scss */
+/* line 58, ../sass/navigation.scss */
 .mainNavigation__subListItemLink {
   display: block;
   padding: 8px 15px;
   color: #0fdae2;
   line-height: 1.2em;
 }
-/* line 62, ../sass/navigation.scss */
+/* line 63, ../sass/navigation.scss */
 .mainNavigation__subListItemLink:hover {
   color: #07666a;
 }

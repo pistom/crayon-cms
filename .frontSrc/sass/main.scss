@@ -24,6 +24,7 @@ body {
   background-color: $cl-bg;
   line-height: 1.5em;
   color: $cl-text;
+  overflow-y: scroll;
 }
 .container {
   @include containerRwd;
