@@ -32,6 +32,7 @@ class Crayon {
             $controller = new \SiteController($ctrlParams);
             $controller->error404();
         } else {
+            $this->twig->addGlobal('currentMatch',$match['target']);
             $route = explode("#", $match['target']);
             $controllerName = $route[0];
             $functionName = $route[1];

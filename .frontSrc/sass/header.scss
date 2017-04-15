@@ -14,6 +14,9 @@ $disable-magic-sprite-selectors: true;
   padding: 15px;
   overflow: hidden;
   position: relative;
+  span.tHide {
+    opacity: 0;
+  }
   .container {
     position: relative;
   }
@@ -27,6 +30,7 @@ $disable-magic-sprite-selectors: true;
   &__brand {
     @include icon(logo-crayon,134px,200px,false);
     margin: 0 auto 15px;
+    cursor: pointer;
   }
   &__title {
     background: $cl-bg;

@@ -1,7 +1,9 @@
 <ul class="mainNavigation__list">
+
     {% set iterator = 1 %}
     {% for key,item in menu %}
-        <li class="mainNavigation__listItem{{ (currentPath == routes[key].path) ? " active" : ""  }}">
+
+        <li class="mainNavigation__listItem{{ (currentMatch == routes[key].controller~'#'~routes[key].function~'#'~routes[key].variables) ? " active" : ""  }}">
             {% if routes[key].blind == 'true' %}
                 <span class="mainNavigation__listItemLink">{{ routes[key].name }}</span>
             {% else %}
@@ -11,7 +13,7 @@
             <ul class="mainNavigation__subList">
             {% for key2,item2 in item %}
                 {% if loop.index > 1 %}
-                    <li class="mainNavigation__subListItem{{ (currentPath == routes[key2].path) ? " active" : ""  }}">
+                    <li class="mainNavigation__subListItem{{ (currentMatch == routes[key].controller~'#'~routes[key].function~'#'~routes[key].variables) ? " active" : ""  }}">
                         {% if routes[key2].blind == 'true' %}
                             <span class="mainNavigation__subListItemLink">{{ routes[key2].name }}</span>
                         {% else %}

@@ -22,7 +22,6 @@ class SiteController
         $menu_data = file_get_contents('data/menus.json');
         $menu = json_decode($menu_data, true);
         $this->twig->addGlobal('currentPath',$this->request['currentPath']);
-        $template = ($this->request['isAjax']) ? 'ajax.html.twig' : 'base.html.twig';
         if($this->request['isAjax']){
             $res['content'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.content.html.twig'));
             $res['scripts'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.scripts.html.twig'));
