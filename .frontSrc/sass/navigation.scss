@@ -40,6 +40,7 @@ $disable-magic-sprite-selectors: true;
   }
   &__subList {
     position: absolute;
+    z-index: 1;
     transition: all .5s ease;
     top: 54px;
     transform: translateX(-50%);

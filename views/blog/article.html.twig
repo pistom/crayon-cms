@@ -1,0 +1,15 @@
+{% extends template %}
+{% block contentTitle %}
+    <h2>
+        {{ article.title }}
+    </h2>
+{% endblock %}
+{% block content %}
+
+    <div class="blog__articleInfo">
+        {{ article.publication_date|date("d/m/Y g:i") }}
+    </div>
+    <p>
+        {{ article.content }}
+    </p>
+{% endblock %}

@@ -17,13 +17,13 @@
 }
 
 /* line 13, ../sass/content.scss */
-#mainContent, #mainContentLoader {
+#mainContent, #mainContentLoader, #mainContentTitle {
   opacity: 1;
   -webkit-transition: all .15s ease;
           transition: all .15s ease;
 }
 /* line 16, ../sass/content.scss */
-#mainContent.isHidden, #mainContentLoader.isHidden {
+#mainContent.isHidden, #mainContentLoader.isHidden, #mainContentTitle.isHidden {
   opacity: 0;
   -webkit-transition: all .25s ease;
           transition: all .25s ease;

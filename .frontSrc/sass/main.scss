@@ -44,3 +44,11 @@ a {
     color: darken($cl-blue,10);
   }
 }
+hr {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: lighten($cl-gray,40);
+  height: 0;
+  margin-top: 20px;
+  margin-bottom:20px;
+}

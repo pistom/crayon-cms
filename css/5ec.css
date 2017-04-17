@@ -18,13 +18,13 @@
 }
 
 /* line 13, ../sass/content.scss */
-#mainContent, #mainContentLoader {
+#mainContent, #mainContentLoader, #mainContentTitle {
   opacity: 1;
   -webkit-transition: all .15s ease;
           transition: all .15s ease;
 }
 /* line 16, ../sass/content.scss */
-#mainContent.isHidden, #mainContentLoader.isHidden {
+#mainContent.isHidden, #mainContentLoader.isHidden, #mainContentTitle.isHidden {
   opacity: 0;
   -webkit-transition: all .25s ease;
           transition: all .25s ease;
@@ -630,6 +630,16 @@ a:hover {
   color: #0a959a;
 }
 
+/* line 47, ../sass/main.scss */
+hr {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: #e6e6e6;
+  height: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* line 13, ../sass/mixins/_clearfix.scss */
 .clearfix {
   clear: both;
@@ -683,6 +693,7 @@ a:hover {
 /* line 41, ../sass/navigation.scss */
 .mainNavigation__subList {
   position: absolute;
+  z-index: 1;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
   top: 54px;
@@ -701,18 +712,18 @@ a:hover {
   max-height: 0;
   overflow: hidden;
 }
-/* line 56, ../sass/navigation.scss */
+/* line 57, ../sass/navigation.scss */
 .mainNavigation__subListItem {
   display: block;
 }
-/* line 58, ../sass/navigation.scss */
+/* line 59, ../sass/navigation.scss */
 .mainNavigation__subListItemLink {
   display: block;
   padding: 8px 15px;
   color: #0fdae2;
   line-height: 1.2em;
 }
-/* line 63, ../sass/navigation.scss */
+/* line 64, ../sass/navigation.scss */
 .mainNavigation__subListItemLink:hover {
   color: #07666a;
 }

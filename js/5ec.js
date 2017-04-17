@@ -105,6 +105,7 @@ function getURLParameter(name) {
     var navigationLinks = navigation.getElementsByTagName('a');
 
     var mainContent = document.getElementById('mainContent');
+    var mainContentTitle = document.getElementById('mainContentTitle');
     var mainContentLoader = document.getElementById('mainContentLoader');
     if(mainContent === undefined)
         console.log("No content block found. Add block whit id 'mainContent' to your template.");
@@ -142,12 +143,15 @@ function getURLParameter(name) {
         atomic.get(url)
             .success(function(data,xhr){
                 mainContent.classList.add('isHidden');
+                mainContentTitle.classList.add('isHidden');
                 mainContentLoader.classList.remove('isHidden');
                 var mainScripts = document.getElementsByClassName('mainScripts')[0];
                 setTimeout(function(){
                     mainContent.innerHTML = data.content;
+                    mainContentTitle.innerHTML = (data.contentTitle) ? data.contentTitle : "";
                     eval(data.scripts);
                     mainContent.classList.remove('isHidden');
+                    mainContentTitle.classList.remove('isHidden');
                     mainContentLoader.classList.add('isHidden');
                 },750);
 
@@ -188,11 +192,11 @@ function getURLParameter(name) {
 
     document.getElementsByClassName("mainHeader__bg")[0].drawShapes({
         shape: "oval",
-        qtt:60,
-        hideSpeed: 500,
-        showSpeed: 500,
+        qtt:125,
+        hideSpeed: 1000,
+        showSpeed: 50,
         size: {min:4,max:4},
-        speed:750,
+        speed:1000,
         colors:["rgb(253,8,100)","rgb(138,190,43)","rgb(13,195,202)","rgb(34,47,60)"],
         rotate: true
     });

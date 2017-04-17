@@ -51,6 +51,7 @@
 /* line 41, ../sass/navigation.scss */
 .mainNavigation__subList {
   position: absolute;
+  z-index: 1;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
   top: 54px;
@@ -69,18 +70,18 @@
   max-height: 0;
   overflow: hidden;
 }
-/* line 56, ../sass/navigation.scss */
+/* line 57, ../sass/navigation.scss */
 .mainNavigation__subListItem {
   display: block;
 }
-/* line 58, ../sass/navigation.scss */
+/* line 59, ../sass/navigation.scss */
 .mainNavigation__subListItemLink {
   display: block;
   padding: 8px 15px;
   color: #0fdae2;
   line-height: 1.2em;
 }
-/* line 63, ../sass/navigation.scss */
+/* line 64, ../sass/navigation.scss */
 .mainNavigation__subListItemLink:hover {
   color: #07666a;
 }

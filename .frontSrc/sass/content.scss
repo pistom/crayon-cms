@@ -10,7 +10,7 @@ $sprites: sprite-map("sprites/*.png");
 $disable-magic-sprite-selectors: true;
 
 
-#mainContent,#mainContentLoader {
+#mainContent,#mainContentLoader,#mainContentTitle {
   opacity:1;
   transition: all .15s ease;
   &.isHidden {
