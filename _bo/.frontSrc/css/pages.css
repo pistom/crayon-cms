@@ -22,12 +22,19 @@
 }
 /* line 25, ../sass/pages.scss */
 .page__blockLabel {
-  float: left;
-  width: 15%;
   margin-top: 8px;
 }
-/* line 30, ../sass/pages.scss */
-.page__blockInput {
-  float: left;
-  width: 85%;
+@media (min-width: 768px) {
+  /* line 25, ../sass/pages.scss */
+  .page__blockLabel {
+    width: 15%;
+    float: left;
+  }
+}
+@media (min-width: 768px) {
+  /* line 32, ../sass/pages.scss */
+  .page__blockInput {
+    float: left;
+    width: 85%;
+  }
 }

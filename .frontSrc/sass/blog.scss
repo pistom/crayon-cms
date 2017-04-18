@@ -1,0 +1,135 @@
+@import "compass";
+@import "mixins/breakpoint";
+@import "mixins/mixins";
+@import "mixins/clearfix";
+@import "colors";
+@import "fonts";
+
+@import "sprites/*.png"; // Create sprites with src/images/sprites/*.png
+$sprites: sprite-map("sprites/*.png");
+$disable-magic-sprite-selectors: true;
+
+
+.blog {
+  .mainContentTitle {
+    background-color: $cl-gray;
+    padding: 30px 15px;
+    @include breakpoint ($tablet) {
+      min-height:200px;
+    }
+    @include breakpoint ($desktop) {
+      min-height: 360px;
+    }
+    text-align: center;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    font-family: $font-secondary;
+    .title {
+      font-size: 2rem;
+      margin:15px;
+      text-shadow: 1px 1px 5px transparentize($cl-text,.5);
+      @include breakpoint ($tablet) {
+        font-size: 3rem;
+      }
+      @include breakpoint ($desktop) {
+        font-size: 4rem;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        width: 1175px;
+        top:50%;
+        left:50%;
+      }
+    }
+  }
+  &__articleInfo {
+    border-bottom:1px solid lighten($cl-gray,40);
+    margin-bottom:15px;
+    padding-bottom:15px;
+    padding-top:15px;
+    @include clearfix2;
+    &Date {
+      display: block;
+      text-align: center;
+      @include breakpoint ($tablet) {
+        float: left;
+        text-align: left;
+      }
+    }
+    &Category {
+      display: block;
+      text-align: center;
+      color: $cl-red;
+      text-transform: uppercase;
+      @include breakpoint ($tablet) {
+        float: right;
+        text-align:right;
+      }
+    }
+  }
+  &__articlesList {
+    padding-top:30px;
+    &Item {
+      border-bottom: 1px solid lighten($cl-gray,40);
+      margin-bottom:15px;
+      padding-bottom:15px;
+      text-align: center;
+      @include breakpoint ($tablet) {
+        text-align: left;
+      }
+      &First {
+        margin-bottom:15px;
+        .title {
+          margin-top:15px;
+          text-shadow: 1px 1px 5px transparentize($cl-text,.5);
+        }
+        &Date {
+          font-family: $font-secondary;
+          text-shadow: 1px 1px 5px transparentize($cl-text,.5);
+          text-align: center;
+          font-size: 1.2rem;
+          margin-top:10px;
+        }
+        padding-top:10px;
+        &Intro {
+          text-align: center;
+          padding:15px;
+          background: transparentize($cl-bg,.25);
+          color: $cl-text;
+        }
+      }
+      &Date {
+        color: gray;
+        font-size: .75rem;
+      }
+      &More {
+        @include breakpoint ($tablet) {
+          text-align: right;
+        }
+      }
+      &Image {
+        &Intro {
+          @include breakpoint ($tablet) {
+            padding-right:25px;
+          }
+        }
+      }
+    }
+  }
+  &__pagination {
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
+    a{
+      padding:5px 15px;
+      margin-top:6px;
+      display: inline-block;
+      border-width: 1px 1px 1px 0;
+      border-style: solid;
+      border-color: lighten($cl-gray,40);
+      &:first-child {
+        border-left-width: 1px;
+      }
+    }
+  }
+}

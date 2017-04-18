@@ -138,7 +138,21 @@ function getURLParameter(name) {
         setDocumentTitle(targetTitle);
         window.history.pushState({url: "" + targetUrl + "",title: "" + targetTitle + ""}, targetTitle, targetUrl);
     };
-
+    var scrollToTop = function(scrollDuration){
+        const   scrollHeight = window.scrollY,
+            scrollStep = Math.PI / ( scrollDuration / 15 ),
+            cosParameter = scrollHeight / 2;
+        var     scrollCount = 0,
+            scrollMargin,
+            scrollInterval = setInterval( function() {
+                if ( window.scrollY != 0 ) {
+                    scrollCount = scrollCount + 1;
+                    scrollMargin = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep );
+                    window.scrollTo( 0, ( scrollHeight - scrollMargin ) );
+                }
+                else clearInterval(scrollInterval);
+            }, 15 );
+    };
     var getContent = function(url){
         atomic.get(url)
             .success(function(data,xhr){
@@ -149,10 +163,12 @@ function getURLParameter(name) {
                 setTimeout(function(){
                     mainContent.innerHTML = data.content;
                     mainContentTitle.innerHTML = (data.contentTitle) ? data.contentTitle : "";
+                    document.body.className = (data.bodyClass) ? data.bodyClass : "";
                     eval(data.scripts);
                     mainContent.classList.remove('isHidden');
                     mainContentTitle.classList.remove('isHidden');
                     mainContentLoader.classList.add('isHidden');
+                    scrollToTop(500);
                 },750);
 
             })

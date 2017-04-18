@@ -19,7 +19,7 @@
     <script>window.html5 || document.write('<script src="/js/vendor/html5shiv.min.js"><\/script>')</script>
     <![endif]-->
 </head>
-<body>
+<body class="{{ bodyClass }}">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -42,10 +42,8 @@
     </nav>
 </section>
 
-<section class="mainContentTitle">
-    <div id="mainContentTitle">
+<section id="mainContentTitle">
         {% block contentTitle %}{% endblock %}
-    </div>
 </section>
 
 <section class="mainContent">

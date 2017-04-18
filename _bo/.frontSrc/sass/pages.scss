@@ -23,13 +23,17 @@
     @include clearfix2;
     min-height: 45px;
     &Label {
-      float:left;
-      width:15%;
+      @include breakpoint ($tablet) {
+        width:15%;
+        float:left;
+      }
       margin-top:8px;
     }
     &Input {
-      float: left;
-      width: 85%;
+      @include breakpoint ($tablet) {
+        float: left;
+        width: 85%;
+      }
     }
   }
 }

@@ -1,15 +1,3 @@
-/* line 13, ../sass/mixins/_clearfix.scss */
-.clearfix {
-  clear: both;
-}
-
-/* line 6, ../sass/mixins/_clearfix.scss */
-.clearfix2:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 /* line 7, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
@@ -95,8 +83,10 @@
 .title {
   line-height: 1.2em;
 }
-/* line 61, ../sass/fonts.scss */
-.title--1 {
+
+/* line 62, ../sass/fonts.scss */
+.title--1, h1 {
+  line-height: 1.2em;
   color: #0dc3ca;
   margin: 30px 0 20px;
   font-family: "Lora", serif;
@@ -104,90 +94,97 @@
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 61, ../sass/fonts.scss */
-  .title--1 {
+  /* line 62, ../sass/fonts.scss */
+  .title--1, h1 {
     font-size: 3rem;
   }
 }
-/* line 71, ../sass/fonts.scss */
-.title--2 {
+
+/* line 73, ../sass/fonts.scss */
+.title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 71, ../sass/fonts.scss */
-  .title--2 {
+  /* line 73, ../sass/fonts.scss */
+  .title--2, h2 {
     font-size: 1.8rem;
   }
 }
-/* line 78, ../sass/fonts.scss */
-.title--3 {
+
+/* line 80, ../sass/fonts.scss */
+.title--3, h3 {
+  line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 78, ../sass/fonts.scss */
-  .title--3 {
+  /* line 80, ../sass/fonts.scss */
+  .title--3, h3 {
     font-size: 1.2rem;
   }
 }
-/* line 85, ../sass/fonts.scss */
+
+/* line 88, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
-/* line 88, ../sass/fonts.scss */
+
+/* line 91, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
-/* line 91, ../sass/fonts.scss */
+
+/* line 94, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
-/* line 94, ../sass/fonts.scss */
+
+/* line 97, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 99, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 103, ../sass/fonts.scss */
+/* line 106, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 107, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 113, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 114, ../sass/fonts.scss */
+/* line 117, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 119, ../sass/fonts.scss */
+/* line 122, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 123, ../sass/fonts.scss */
+/* line 126, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 130, ../sass/fonts.scss */
+/* line 133, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 136, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
 }
@@ -416,4 +413,9 @@ table.table tr th:last-child, table.table tr td:last-child {
 table.table tr th {
   border-width: 0 0 2px 0;
   font-weight: 600;
+}
+
+/* line 224, ../sass/grid.scss */
+img.img--responsive {
+  max-width: 100%;
 }

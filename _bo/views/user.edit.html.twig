@@ -2,10 +2,27 @@
 {% block content %}
     <h1>User</h1>
     <form action="" id="userForm">
-        <input name="username" type="text" value="{{ userName }}">
-        <input name="userrole" type="hidden" value="{{ user.role }}">
-        <input name="password" type="password" value="">
-        <a href="" data-action="save"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</a>
+        <div class="page">
+            <div class="page__block">
+                <label class="page__blockLabel" for="username">Username</label>
+                <div class="page__blockInput">
+                    <input name="username" type="text" value="{{ userName }}" id="username">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="password">Password</label>
+                <div class="page__blockInput">
+                    <input name="password" type="password" value="" id="password">
+                </div>
+            </div>
+            <input name="userrole" type="hidden" value="{{ user.role }}">
+            <div class="page__block">
+                <div class="page__blockInput">
+                    <a href="" class="btn btn--green" data-action="save"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</a>
+                </div>
+            </div>
+
+        </div>
     </form>
 
 

@@ -1,7 +1,6 @@
 @import "compass";
 @import "mixins/breakpoint";
 @import "mixins/mixins";
-@import "mixins/clearfix";
 @import "colors";
 @import "fonts";
 
@@ -23,7 +22,4 @@ $disable-magic-sprite-selectors: true;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-}
-.mainContent,.mainContentTitle {
-  padding-top: 15px;
 }

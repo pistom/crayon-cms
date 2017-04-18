@@ -26,6 +26,7 @@ class BlogController extends SiteController {
                 'articles' => $articles['results'],
                 'pagination' => $articles['paginator']
             ));
+            $res['bodyClass'] = 'blog';
             header('Content-Type: application/json');
             echo json_encode($res);
         }
@@ -53,12 +54,14 @@ class BlogController extends SiteController {
         if($this->request['isAjax']){
             $res['contentTitle'] = $this->twig->render('blog/article.html.twig', array(
                 'template' => 'ajax.contentTitle.html.twig',
-                'article' => $article,
+                'article' => $article
             ));
             $res['content'] = $this->twig->render('blog/article.html.twig', array(
                 'template' => 'ajax.content.html.twig',
                 'article' => $article,
+                'category' => $category
             ));
+            $res['bodyClass'] = 'blog';
             header('Content-Type: application/json');
             echo json_encode($res);
         }
@@ -69,6 +72,7 @@ class BlogController extends SiteController {
                 'pageTitle' => 'Blog',
                 'pageDescription' => 'Desc',
                 'menu' => $menu,
+                'category' => $category
             ));
         }
     }

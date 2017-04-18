@@ -1,15 +1,24 @@
 {% extends template %}
+{% set bodyClass = 'blog' %}
 {% block contentTitle %}
-    <div class="container text-center">
-        <h1 class="title title--blue title--1 text--center">
-            {{ article.title }}
-        </h1>
+    <div class="mainContentTitle" style="background-image:url(/images/pages/{{ article.main_image }})">
+        <div class="container text-center">
+            <h1 class="title" style="color:{{ article.title_color }}">
+                {{ article.title }}
+            </h1>
+        </div>
     </div>
 {% endblock %}
 {% block content %}
 
     <div class="blog__articleInfo">
-        {{ article.publication_date|date("d/m/Y g:i") }}
+        <span class="blog__articleInfoDate">
+            <strong>{{ article.publication_date|date("d/m/Y") }}</strong>
+            {{ article.publication_date|date("g:i") }}
+        </span>
+        <span class="blog__articleInfoCategory">
+            {{ category.name }}
+        </span>
     </div>
     <p>
         {{ article.content }}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ settings['site_name'] }} - Back Office</title>
+    <title>{{ settings['site_name'] }} | Back Office</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#222f3c">
@@ -54,10 +54,10 @@
         <span class="header__userRole">{{ userRole }}</span><a href="logout.php" class="btn btn--red"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
     </div>
     <div class="header__front">
-        <a href="/" class="btn btn--azure" target="_blank"><i class="fa fa-share" aria-hidden="true"></i> Go to homepage</a>
+        <a href="/" class="btn btn--azure" target="_blank"><i class="fa fa-share" aria-hidden="true"></i> <span class="header__frontTxt">Go to homepage</span></a>
     </div>
 </header>
-<section class="content">
+<section class="content {{ contentClass }}">
     {% block content %}{% endblock %}
 </section>
 

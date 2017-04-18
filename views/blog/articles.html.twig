@@ -1,15 +1,64 @@
 {% extends template %}
+{% set bodyClass = 'blog' %}
 {% block content %}
-    {% for article in articles %}
-        <h3 class="title title--3 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
-        <p>{{ article.publication_date }}</p>
-        <hr>
-    {% endfor %}
-
-    {% if pagination|length > 1 %}
-        {% for page in pagination  %}
-            <a href="{{ page.url }}" data-ajax="true" title="{{ article.id }}" class="{{ currentPageNumber == page.page ? 'active' : '' }}">{{ page.page }}</a>
+    <div class="blog__articlesList">
+        {% for article in articles %}
+            <div class="blog__articlesListItem">
+            {% if currentPageNumber == 1 %}
+                {% if loop.index == 1 %}
+                    <div class="blog__articlesListItemFirst text-center" style="background-image:url(/images/pages/{{ article.main_image }})">
+                        <p class="blog__articlesListItemFirstDate" style="color:{{ article.title_color }}">{{ article.publication_date }}</p>
+                        <h1 class="title">
+                            <a style="color:{{ article.title_color }}" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a>
+                        </h1>
+                        <div class="blog__articlesListItemFirstIntro">
+                            <p>{{ article.intro }}</p>
+                            <a class="btn btn--blue" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">Read article</a>
+                        </div>
+                    </div>
+                {% elseif loop.index <= 4 %}
+                    <div class="row">
+                        <div class="col-t-33 col-d-25 text--center blog__articlesListItemImageIntro">
+                            <img class="img--responsive" src="/images/pages/{{ article.intro_image }}" alt="">
+                        </div>
+                        <div class="col-t-66 col-d-75">
+                            <h3 class="title title--3 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
+                            <span class="blog__articlesListItemDate">{{ article.publication_date }}</span>
+                            <p>{{ article.intro }}</p>
+                            <p class="blog__articlesListItemMore">
+                                <a class="btn btn--blue btn--small" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">Read article</a>
+                            </p>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="row">
+                        <div class="">
+                            <h3 class="title title--3 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
+                        </div>
+                        <div class="blog__articlesListItemImageIntro">
+                            <p class="blog__articlesListItemDate">{{ article.publication_date }}</span>
+                            <p class="text--small">{{ article.intro }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="row row-d-o1">
+                    <div>
+                        <h3 class="title title--3 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
+                    </div>
+                    <div class="blog__articlesListItemImageIntro">
+                        <p class="blog__articlesListItemDate">{{ article.publication_date }}</span>
+                        <p class="text--small">{{ article.intro }}</p>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
         {% endfor %}
-    {% endif %}
+    </div>
+    <div class="blog__pagination">
+        {% if pagination|length > 1 %}
+            {% for page in pagination  %}<a href="{{ page.url }}" data-ajax="true" title="{{ article.id }}" class="{{ currentPageNumber == page.page ? 'active' : '' }}">{{ page.page }}</a>{% endfor %}
+        {% endif %}
+    </div>
 
 {% endblock %}

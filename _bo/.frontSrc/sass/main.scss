@@ -45,7 +45,21 @@ hr {
 .aside {
   position: fixed;
   z-index: 5;
-  width: 240px;
+  width: 48px;
+  transition: width .5s ease;
+  &:hover {
+    width: 240px;
+    .aside__brandTitle {
+      opacity: 1;
+    }
+    .aside__brandSubTitle {
+      opacity: 1;
+    }
+  }
+  @include breakpoint($desktop){
+    width: 240px;
+  }
+  overflow-x:hidden;
   top: 0;
   bottom: 0;
   left: 0;
@@ -56,8 +70,14 @@ hr {
     padding: 15px;
     background-color: $cl-blue-dark;
     height: 80px;
+    width: 240px;
     box-sizing: border-box;
     &Title {
+      opacity: 0;
+      @include breakpoint ($desktop) {
+        opacity: 1;
+      }
+      transition: opacity .5s ease;
       font-family: $font-secondary;
       font-size: 1.5rem;
       line-height: 1.5em;
@@ -66,6 +86,11 @@ hr {
       }
     }
     &SubTitle {
+      opacity: 0;
+      @include breakpoint ($desktop) {
+        opacity: 1;
+      }
+      transition: opacity .5s ease;
       font-family: $font-primary;
       font-size: .6em;
       text-transform: uppercase;
@@ -77,6 +102,7 @@ hr {
   &__nav {
     &Ico {
       width: 22px;
+      margin-right:6px;
       display: inline-block;
       text-align: center;
     }
@@ -93,7 +119,7 @@ hr {
       padding: 15px;
       display: inline-block;
       box-sizing: border-box;
-      width: 100%;
+      width: 240px;
       position: relative;
       transition: all .25s ease;
       &.active {
@@ -141,8 +167,10 @@ hr {
 }
 .header {
   z-index: 1;
+  overflow: hidden;
   position: fixed;
-  padding-left: 240px;
+  padding-left: 60px;
+  transition: padding-left .5s ease;
   top: 0;
   left: 0;
   right: 0;
@@ -154,6 +182,10 @@ hr {
     float: right;
     padding:20px 15px;
     &Role {
+      display: none;
+      @include breakpoint ($tablet) {
+        display: inline;
+      }
       text-transform: uppercase;
       font-size: .85rem;
       color: $cl-blue-light;
@@ -161,13 +193,23 @@ hr {
     }
   }
   &__front {
+    &Txt {
+      display: none;
+      @include breakpoint($tablet){
+        display: inline;
+      }
+    }
     float: right;
     padding: 20px 15px;
     border-right: 1px solid $cl-gray-dark;
   }
 }
 .content {
-  padding: 95px 15px 15px 255px;
+  padding: 95px 15px 15px 60px;
+  transition: padding-left .5s ease;
+  @include breakpoint ($desktop) {
+    padding-left: 255px;
+  }
   h1 {
     @include clearfix2;
     font-family: $font-secondary;
@@ -185,6 +227,15 @@ hr {
     margin-bottom: 5px;
     margin-top: 15px;
     color: $cl-blue-light;
+  }
+  &__routing {
+    min-width:840px;
+  }
+  &__page {
+    min-width:480px;
+  }
+  &__menu {
+    min-width:480px;
   }
 }
 

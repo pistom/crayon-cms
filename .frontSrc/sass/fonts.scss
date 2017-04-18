@@ -58,43 +58,46 @@ $font-secondary: 'Lora', serif;
 
 .title {
   line-height: 1.2em;
-  &--1 {
-    color: $cl-blue;
-    margin:30px 0 20px;
-    font-family: $font-secondary;
-    font-size: 2rem;
-    text-align: center;
-    @include breakpoint($tablet) {
-      font-size: 3rem;
-    }
-  }
-  &--2 {
-    font-size: 1.5rem;
-    line-height: 1.5em;
-    @include breakpoint($tablet) {
-      font-size: 1.8rem;
-    }
-  }
-  &--3 {
-    font-size: 1rem;
-    font-weight: 700;
-    @include breakpoint($tablet) {
-      font-size: 1.2rem;
-    }
-  }
-  &--red {
-    color: $cl-red;
-  }
-  &--blue {
-    color: $cl-blue;
-  }
-  &--gray {
-    color: $cl-gray;
-  }
-  &--green {
-    color: $cl-green;
+}
+.title--1, h1 {
+  line-height: 1.2em;
+  color: $cl-blue;
+  margin:30px 0 20px;
+  font-family: $font-secondary;
+  font-size: 2rem;
+  text-align: center;
+  @include breakpoint($tablet) {
+    font-size: 3rem;
   }
 }
+.title--2, h2 {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  @include breakpoint($tablet) {
+    font-size: 1.8rem;
+  }
+}
+.title--3, h3 {
+  line-height: 1.2em;
+  font-size: 1rem;
+  font-weight: 700;
+  @include breakpoint($tablet) {
+    font-size: 1.2rem;
+  }
+}
+.title--red {
+  color: $cl-red;
+}
+.title--blue {
+  color: $cl-blue;
+}
+.title--gray {
+  color: $cl-gray;
+}
+.title--green {
+  color: $cl-green;
+}
+
 
 sup {
   font-size: .85em;
