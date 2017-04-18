@@ -81,7 +81,7 @@
 {% block scripts %}
     <script>
         var changeData = function(e){
-            if(e.target.dataset.action == 'save'){
+            if(e.target.dataset.action == 'save' || e.target.parentNode.dataset.action == 'save'){
                 e.preventDefault();
                 var data = serializeFormData(document.getElementById('routesForm'));
                 atomic.post('routing.save.php',data)
@@ -94,7 +94,7 @@
                     .error(function(data){
                         showMessage('error','Error','Server error');
                     })
-            } else if(e.target.dataset.action == 'delete'){
+            } else if(e.target.dataset.action == 'delete' || e.target.parentNode.dataset.action == 'delete'){
                 showMessage('info','Save changes', 'You need to save the changes!')
             }
         };

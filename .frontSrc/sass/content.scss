@@ -24,42 +24,6 @@ $disable-magic-sprite-selectors: true;
   left:50%;
   transform: translate(-50%,-50%);
 }
-.mainContent {
+.mainContent,.mainContentTitle {
   padding-top: 15px;
-  h1,h2,h3 {
-    line-height:1.2em;
-    box-sizing: border-box;
-  }
-  h1 {
-    font-size: 3rem;
-    font-family: $font-secondary;
-  }
-  h2 {
-    font-size: 2rem;
-    font-family: $font-secondary;
-  }
-  h3 {
-    font-size: 1.5rem;
-    font-family: $font-primary;
-    font-weight: 600;
-  }
-  p {
-    margin-bottom: 15px;
-  }
-  strong {
-    font-weight: 600;
-  }
-  ul,ol {
-    margin-bottom: 15px;
-    padding-left: 20px;
-    li {
-
-    }
-  }
-  ul {
-    list-style: disc;
-  }
-  ol {
-    list-style-type: decimal;
-  }
 }

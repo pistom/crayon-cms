@@ -42,7 +42,7 @@
                 </td>
                 <td><input name="r1-order" type="number" value=""></td>
                 <td>
-                    <a href="" data-action="delete">Delete</a>
+                    <a href="" class="btn btn--small btn--red" data-action="delete">Delete</a>
                 </td>
             </tr>
         {% else %}
@@ -125,7 +125,7 @@
 {% block scripts %}
     <script>
         var saveData = function(e){
-            if(e.target.dataset.action == 'save'){
+            if(e.target.dataset.action == 'save' || e.target.parentNode.dataset.action == 'save'){
                 e.preventDefault();
                 var data = serializeFormData(document.getElementById('menuForm'));
                 atomic.post('menu.save.php?menu={{ menuName }}',data)

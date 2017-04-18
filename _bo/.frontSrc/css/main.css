@@ -154,8 +154,12 @@ hr {
   display: inline-block;
   text-align: center;
 }
-/* line 83, ../sass/main.scss */
-.aside__nav a {
+/* line 85, ../sass/main.scss */
+.aside__nav li:hover .aside__navSubMenu {
+  max-height: 200px;
+}
+/* line 90, ../sass/main.scss */
+.aside__navItem {
   font-family: "Muli", sans-serif;
   color: #47627d;
   padding: 15px;
@@ -167,13 +171,13 @@ hr {
   -webkit-transition: all .25s ease;
           transition: all .25s ease;
 }
-/* line 92, ../sass/main.scss */
-.aside__nav a.active {
+/* line 99, ../sass/main.scss */
+.aside__navItem.active {
   color: white;
   background-color: #1c2732;
 }
-/* line 95, ../sass/main.scss */
-.aside__nav a.active:before {
+/* line 102, ../sass/main.scss */
+.aside__navItem.active:before {
   content: "";
   position: absolute;
   top: 0;
@@ -182,23 +186,46 @@ hr {
   width: 4px;
   background-color: #098b50;
 }
-/* line 104, ../sass/main.scss */
-.aside__nav a.active:hover {
+/* line 111, ../sass/main.scss */
+.aside__navItem.active:hover {
   background-color: #172028;
 }
-/* line 108, ../sass/main.scss */
-.aside__nav a:hover {
+/* line 115, ../sass/main.scss */
+.aside__navItem:hover {
+  background-color: #2b3c4c;
+}
+/* line 119, ../sass/main.scss */
+.aside__navSubMenu {
+  -webkit-transition: all .5s ease;
+          transition: all .5s ease;
+  overflow: hidden;
+  max-height: 0;
+}
+/* line 124, ../sass/main.scss */
+.aside__navSubItem {
+  padding: 5px 15px 5px 40px;
+  font-size: .85em;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  -webkit-transition: all .25s ease;
+          transition: all .25s ease;
+}
+/* line 132, ../sass/main.scss */
+.aside__navSubItem:hover {
   background-color: #2b3c4c;
 }
 
-/* line 114, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
 .header, .content {
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-/* line 118, ../sass/main.scss */
+/* line 142, ../sass/main.scss */
 .header {
   z-index: 1;
   position: fixed;
@@ -216,30 +243,30 @@ hr {
   display: table;
   clear: both;
 }
-/* line 129, ../sass/main.scss */
+/* line 153, ../sass/main.scss */
 .header__user {
   float: right;
   padding: 20px 15px;
 }
-/* line 132, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 .header__userRole {
   text-transform: uppercase;
   font-size: .85rem;
   color: #47627d;
   margin-right: 20px;
 }
-/* line 139, ../sass/main.scss */
+/* line 163, ../sass/main.scss */
 .header__front {
   float: right;
   padding: 20px 15px;
   border-right: 1px solid #9eb5cc;
 }
 
-/* line 145, ../sass/main.scss */
+/* line 169, ../sass/main.scss */
 .content {
   padding: 95px 15px 15px 255px;
 }
-/* line 147, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 .content h1 {
   font-family: "Lora", serif;
   font-size: 1.5rem;
@@ -253,4 +280,14 @@ hr {
   content: "";
   display: table;
   clear: both;
+}
+/* line 180, ../sass/main.scss */
+.content h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  color: #47627d;
 }

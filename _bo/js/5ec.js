@@ -157,36 +157,45 @@ var validateInput = function(input,pattern){
 (function(){
     // DYNAMIC TABLES
     var addDeleteTableRow = function(e){
-        if(e.target.dataset.action == 'add'){
-            e.preventDefault();
-            var currentTable = e.target.parentNode.parentNode.parentNode.parentNode;
-            var currentTableBody = currentTable.getElementsByTagName('tbody')[0];
-            var items = currentTableBody.getElementsByTagName('tr');
-            var lastItemNumber = Number(items[items.length-1].dataset.index);
-            var item = items[0];
-            var cln = item.cloneNode(true);
-            cln.dataset.index = lastItemNumber+1;
-            var newInputs = cln.getElementsByTagName('input');
-            var newSelects = cln.getElementsByTagName('select');
-            [].forEach.call(newInputs,function(input){
-                if(input.type == 'text')
-                    input.value = "";
-                if(input.type == 'checkbox')
-                    input.checked = '';
-                var oldName = input.name;
-                input.name = oldName.replace(/r\d+-/,'r'+(lastItemNumber+1)+'-');
-            });
-            [].forEach.call(newSelects,function(select){
-                select[0].selected = 'selected';
-                var oldName = select.name;
-                select.name = oldName.replace(/r\d+-/,'r'+(lastItemNumber+1)+'-');
-            });
-            currentTableBody.appendChild(cln);
+        var target;
+        if(e.target.nodeName == "A"){
+            target = e.target;
         }
-        if(e.target.dataset.action == 'delete'){
-            e.preventDefault();
-            var currentRow = e.target.parentNode.parentNode;
-            currentRow.parentNode.removeChild(currentRow);
+        if(e.target.nodeName == "I"){
+            target = e.target.parentNode;
+        }
+        if(e.target.nodeName == "A" || e.target.nodeName == "I"){
+            if(target.dataset.action == 'add'){
+                e.preventDefault();
+                var currentTable = target.parentNode.parentNode.parentNode.parentNode;
+                var currentTableBody = currentTable.getElementsByTagName('tbody')[0];
+                var items = currentTableBody.getElementsByTagName('tr');
+                var lastItemNumber = Number(items[items.length-1].dataset.index);
+                var item = items[0];
+                var cln = item.cloneNode(true);
+                cln.dataset.index = lastItemNumber+1;
+                var newInputs = cln.getElementsByTagName('input');
+                var newSelects = cln.getElementsByTagName('select');
+                [].forEach.call(newInputs,function(input){
+                    if(input.type == 'text')
+                        input.value = "";
+                    if(input.type == 'checkbox')
+                        input.checked = '';
+                    var oldName = input.name;
+                    input.name = oldName.replace(/r\d+-/,'r'+(lastItemNumber+1)+'-');
+                });
+                [].forEach.call(newSelects,function(select){
+                    select[0].selected = 'selected';
+                    var oldName = select.name;
+                    select.name = oldName.replace(/r\d+-/,'r'+(lastItemNumber+1)+'-');
+                });
+                currentTableBody.appendChild(cln);
+            }
+            if(target.dataset.action == 'delete'){
+                e.preventDefault();
+                var currentRow = target.parentNode.parentNode;
+                currentRow.parentNode.removeChild(currentRow);
+            }
         }
     };
     document.body.addEventListener("click",addDeleteTableRow,false);

@@ -1,4 +1,4 @@
-function drawShape(properties) {
+function DrawShape(properties) {
     this.shape = document.createElement("span");
     switch (properties.shape) {
         case "triangle":
@@ -31,8 +31,11 @@ function drawShape(properties) {
 }
 
 Object.prototype.drawShapes = function(config){
-    this.area = [this.offsetWidth,this.offsetHeight];
-    function getRandomProperties(area,isHidden){
+    function getDimensions(obj){
+         return [obj.offsetWidth,obj.offsetHeight];
+    }
+    this.dimensions = getDimensions(this);
+    function getRandomProperties(dimensions,isHidden){
         var width = (Math.random() * (config.size.max - config.size.min) + config.size.min);
         var height = (Math.random() * (config.size.max - config.size.min) + config.size.min);
         return {
@@ -40,20 +43,26 @@ Object.prototype.drawShapes = function(config){
             width: width,
             height: height,
             color: config.colors[Math.floor(Math.random()*config.colors.length)],
-            left: (Math.random() * ((area[0]-width) - 0) + 0),
-            top: (Math.random() * ((area[1]-height) - 0) + 0),
-            rotation: (Math.random() * (360 - 0) + 0)+"deg",
+            left: (Math.random() * ((dimensions[0] - width))),
+            top: (Math.random() * ((dimensions[1]-height))),
+            rotation: (Math.random() * 360)+"deg",
             isHidden: isHidden,
-            hideSpeed: config.hideSpeed,
+            hideSpeed: config.hideSpeed
         };
     }
-
-    var shapes = new Array(config.qtt);
-    for (var i=0; i<shapes.length; i++){
-        shapes[i] = new drawShape(getRandomProperties(this.area, false));
-        this.appendChild(shapes[i].shape);
+    function initShapes(obj,dimensions){
+        var area = dimensions[0]*dimensions[1];
+        var density = Math.round(config.density*(area/100000));
+        var shapes = new Array(density);
+        obj.innerHTML = '';
+        for (var i=0; i<shapes.length; i++){
+            shapes[i] = new DrawShape(getRandomProperties(dimensions, false));
+            obj.appendChild(shapes[i].shape);
+        }
+        shapes[0].shape.className = "tHide";
+        return shapes;
     }
-    shapes[0].shape.className = "tHide";
+    var shapes = initShapes(this,this.dimensions);
     function replaceShape(){
         shapes[1].shape.className = "tHide";
         shapes[0].shape.parentNode.removeChild(shapes[0].shape);
@@ -61,10 +70,14 @@ Object.prototype.drawShapes = function(config){
         shapes[shapes.length-1].shape.className = "";
         shapes[shapes.length-2].shape.style.transition = "all "+config.hideSpeed+"ms";
         shapes.shift();
-        var newShape = new drawShape(getRandomProperties(this.area, true));
+        var newShape = new DrawShape(getRandomProperties(this.dimensions, true));
         shapes.push(newShape);
         this.appendChild(newShape.shape);
     }
     setInterval(replaceShape.bind(this),config.speed);
+    window.addEventListener('resize',function(){
+        shapes = initShapes(this,this.dimensions);
+        this.dimensions = getDimensions(this);
+    }.bind(this),false);
 };
 

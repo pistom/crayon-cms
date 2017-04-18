@@ -1,12 +1,15 @@
 {% extends template %}
 {% block content %}
     {% for article in articles %}
-        <h3><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
+        <h3 class="title title--3 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
         <p>{{ article.publication_date }}</p>
         <hr>
     {% endfor %}
 
-    {% for page in pagination  %}
-        <a href="{{ page.url }}" data-ajax="true" title="{{ article.id }}" class="{{ currentPageNumber == page.page ? 'active' : '' }}">{{ page.page }}</a>
-    {% endfor %}
+    {% if pagination|length > 1 %}
+        {% for page in pagination  %}
+            <a href="{{ page.url }}" data-ajax="true" title="{{ article.id }}" class="{{ currentPageNumber == page.page ? 'active' : '' }}">{{ page.page }}</a>
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}

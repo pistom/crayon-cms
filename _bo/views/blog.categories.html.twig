@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Blog categories</h1>
+    <table>
+        <colgroup>
+            <col style="width: 20px">
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Menu</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key,category in categories %}
+            <tr>
+                <td>{{ loop.index }}.</td>
+                <td><a href="blog.category.edit.php?category={{ category.id }}">{{ category.name }}</a></td>
+                <td>
+                    <a href="blog.category.edit.php?category={{ key }}" class="btn btn--green btn--small">Edit</a>
+                    <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2"></td>
+            <td><a href="blog.category.edit.php" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
+        </tr>
+        </tfoot>
+    </table>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.body.addEventListener("click",function(e){
+            if(e.target.dataset.action == 'delete'){
+                if(confirm("Are you sure?")){
+                    atomic.post('blog.category.delete.php','category='+e.target.dataset.item)
+                        .success(function(data){
+                            if(data.status == 'success')
+                                showMessage('success','Done','Data has been saved');
+                            if(data.status == 'error')
+                                showMessage('error','Error','Data not saved');
+                        })
+                        .error(function(data){
+                            showMessage('error','Error','Server error');
+                        });
+                } else {
+                    location.reload();
+                }
+            }
+        },false);
+    </script>
+{% endblock %}

@@ -28,13 +28,23 @@
     </div>
     <nav class="aside__nav">
         <ul>
-        <li><a href="index.php" class="{{ menuPage == 'home' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-home" aria-hidden="true"></i></span> Home</a></li>
-        <li><a href="pages.php" class="{{ menuPage == 'pages' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-files-o" aria-hidden="true"></i></span> Pages</a></li>
+        <li><a href="index.php" class="aside__navItem {{ menuPage == 'home' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-home" aria-hidden="true"></i></span> Home</a></li>
+        <li><a href="pages.php" class="aside__navItem {{ menuPage == 'pages' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-files-o" aria-hidden="true"></i></span> Pages</a></li>
         {% if userRole == 'admin' %}
-            <li><a href="routing.php" class="{{ menuPage == 'routing' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-random" aria-hidden="true"></i></span> Routing</a></li>
-            <li><a href="menus.php" class="{{ menuPage == 'menus' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-sitemap" aria-hidden="true"></i></span> Menus</a></li>
-            <li><a href="users.php" class="{{ menuPage == 'users' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-users" aria-hidden="true"></i></span> Users</a></li>
-            <li><a href="settings.php" class="{{ menuPage == 'settings' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-cogs" aria-hidden="true"></i></span> Configuration</a></li>
+            <li><a href="routing.php" class="aside__navItem {{ menuPage == 'routing' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-random" aria-hidden="true"></i></span> Routing</a></li>
+            <li><a href="menus.php" class="aside__navItem {{ menuPage == 'menus' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-sitemap" aria-hidden="true"></i></span> Menus</a></li>
+            <li><a href="users.php" class="aside__navItem {{ menuPage == 'users' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-users" aria-hidden="true"></i></span> Users</a></li>
+        {% endif %}
+        <li>
+            <span class="aside__navItem {{ menuPage == 'blog' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-pencil" aria-hidden="true"></i></span> Blog</span>
+            <ul class="aside__navSubMenu">
+                <li><a href="blog.posts.php" class="aside__navSubItem"><span class="aside__navIco"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></span> Posts</a></li>
+                <li><a href="blog.categories.php" class="aside__navSubItem"><span class="aside__navIco"><i class="fa fa-list-ul" aria-hidden="true"></i></span> Categories</a></li>
+                <li><a href="blog.config.php" class="aside__navSubItem"><span class="aside__navIco"><i class="fa fa-cog" aria-hidden="true"></i></span> Configuration</a></li>
+            </ul>
+        </li>
+        {% if userRole == 'admin' %}
+            <li><a href="settings.php" class="aside__navItem {{ menuPage == 'settings' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-cogs" aria-hidden="true"></i></span> Configuration</a></li>
         {% endif %}
         </ul>
     </nav>

@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Category</h1>
+    <form action="" id="categoryForm">
+        <div class="page">
+            <div class="page__block">
+                <label class="page__blockLabel" for="category_id">Id</label>
+                <div class="page__blockInput">
+                    <input readonly disabled type="text" name="category_id" value="{{ category.id }}" id="category_id">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="category_name">Name</label>
+                <div class="page__blockInput">
+                    <input type="text" name="category_name" value="{{ category.name }}" id="category_name">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="category_menu">Menu</label>
+                <div class="page__blockInput">
+                    <select name="category_menu" id="category_menu">
+                        {% for key,menu in menus %}
+                            <option value="{{ key }}" {{ key==category.menu ? 'selected' : '' }}>{{ key }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="page__block">
+                <a href="" class="btn btn--green btn--right" data-action="save"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</a>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var saveData = function(e){
+            if(e.target.dataset.action == 'save' || e.target.parentNode.dataset.action == 'save'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('categoryForm'));
+                atomic.post('blog.category.save.php?category={{ category.id }}',data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+            }
+        };
+        document.body.addEventListener("click",saveData,false);
+    </script>
+{% endblock %}

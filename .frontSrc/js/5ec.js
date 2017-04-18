@@ -86,14 +86,12 @@
         if(e.state !== null) getContentPage(e.state);
         else window.history.back();
     });
-
     if(mainContent){
         document.body.addEventListener("click",getContentPage,false);
     }
-
     document.getElementsByClassName("mainHeader__bg")[0].drawShapes({
         shape: "oval",
-        qtt:125,
+        density:20,
         hideSpeed: 1000,
         showSpeed: 50,
         size: {min:4,max:4},
@@ -101,5 +99,4 @@
         colors:["rgb(253,8,100)","rgb(138,190,43)","rgb(13,195,202)","rgb(34,47,60)"],
         rotate: true
     });
-
 })();

@@ -127,6 +127,56 @@ class boManager {
         return $results;
     }
 
+    public function getBlogConfig(){
+        $json_data = file_get_contents('../data/blog/config.json');
+        $config = json_decode($json_data, true);
+        return $config;
+    }
+    public function saveBlogConfig($config){
+        copy('../data/blog/config.json', '../data/tmp/blog/config-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/blog/config.json', 'w');
+        fwrite($fp, json_encode($config));
+        fclose($fp);
+    }
+    public function getBlogCategories(){
+        $json_data = file_get_contents('../data/blog/categories.json');
+        $categories = json_decode($json_data, true);
+        return $categories;
+    }
+    public function getBlogCategory($id){
+        $categories = $this->getBlogCategories();
+        $category = null;
+        foreach ($categories as $c){
+            if ($c['id'] == $id)
+                $category = $c;
+        }
+        return $category;
+    }
+
+    public function saveBlogCategory($category){
+        copy('../data/blog/categories.json', '../data/tmp/blog/categories-tmp-'.date('YmdHis').'.json');
+        $categories = $this->getBlogCategories();
+        $categories[$category['id']] = $category;
+        $fp = fopen('../data/blog/categories.json', 'w');
+        fwrite($fp, json_encode($categories));
+        fclose($fp);
+    }
+    public function deleteBlogCategory($category){
+        copy('../data/blog/categories.json', '../data/tmp/blog/categories-tmp-'.date('YmdHis').'.json');
+        $categories = $this->getBlogCategories();
+        $k = null;
+        foreach ($categories as $key=>$c) {
+            if ($c['id'] == $category)
+                $k=$key;
+        }
+
+        unset($categories[$k]);
+
+        $fp = fopen('../data/blog/categories.json', 'w');
+        fwrite($fp, json_encode($categories));
+        fclose($fp);
+    }
+
     public function testString($data){
         $data = trim($data);
         $data = stripslashes($data);

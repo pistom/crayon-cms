@@ -3,6 +3,18 @@ namespace Crayon;
 
 class CrayonManager {
 
+    protected $blogConfig;
+
+    function __construct(){
+        $this->blogConfig = $this->getBlogConfig();
+    }
+
+    public function getBlogConfig(){
+        $json_data = file_get_contents('data/blog/config.json');
+        $config = json_decode($json_data, true);
+        return $config;
+    }
+
     public function getArticles($categoryId,$page,$menuName){
         $articles_data = file_get_contents('data/blog/articles.json');
 
@@ -28,9 +40,9 @@ class CrayonManager {
             return ($a['publication_date'] > $b['publication_date']) ? -1 : 1;
         });
 
-        $results = array_slice($allResults,5*($page-1),5);
+        $results = array_slice($allResults,$this->blogConfig['articles_per_page']*($page-1),$this->blogConfig['articles_per_page']);
 
-        $pagesQtt = ceil(count($allResults)/5);
+        $pagesQtt = ceil(count($allResults)/$this->blogConfig['articles_per_page']);
         $requestURI = (isset($dp['page'])) ? $_SERVER['REQUEST_URI'] : $_SERVER['REQUEST_URI'];
         $requestURI = preg_replace('/\/\d+\/$/','/', $requestURI);
 
