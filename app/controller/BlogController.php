@@ -16,7 +16,7 @@ class BlogController extends SiteController {
         $category = $this->manager->getCategory($categoryId);
         $menuName = (isset($sp[1])) ? $sp[1] : $category['menu'];
         $menu = $this->manager->getMenu($menuName);
-        $articles = $this->manager->getArticles($categoryId,$page,$menuName);
+        $articles = $this->manager->getArticles($categoryId,$page,$menuName,null);
 
 
         if($this->request['isAjax']){

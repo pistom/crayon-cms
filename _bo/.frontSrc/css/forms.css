@@ -52,6 +52,11 @@ input[type="color"] {
 }
 
 /* line 50, ../sass/forms.scss */
+input[disabled] {
+  background: #e1e8ef;
+}
+
+/* line 53, ../sass/forms.scss */
 table input[type="text"],
 table input[type="password"],
 table input[type="number"],
@@ -59,7 +64,7 @@ table select {
   font-size: 0.9rem;
 }
 
-/* line 56, ../sass/forms.scss */
+/* line 59, ../sass/forms.scss */
 textarea {
   border: 1px solid #e1e8ef;
   -webkit-box-sizing: border-box;
@@ -71,7 +76,7 @@ textarea {
   margin: 4px 0 8px;
   height: 100px;
 }
-/* line 65, ../sass/forms.scss */
+/* line 68, ../sass/forms.scss */
 textarea.pageContent {
   height: 500px;
 }

@@ -169,12 +169,44 @@ class boManager {
             if ($c['id'] == $category)
                 $k=$key;
         }
-
         unset($categories[$k]);
-
         $fp = fopen('../data/blog/categories.json', 'w');
         fwrite($fp, json_encode($categories));
         fclose($fp);
+    }
+
+    public function getAllBlogPosts(){
+        $json_data = file_get_contents('../data/blog/articles.json');
+        $posts = json_decode($json_data, true);
+        return $posts;
+    }
+
+    public function getBlogPost($id){
+        $posts = $this->getAllBlogPosts();
+        $post = array();
+        foreach ($posts as $key=>$p)
+            if($p['id'] == $id)
+                $post = $p;
+        return $post;
+    }
+
+    public function saveBlogPosts($posts){
+        copy('../data/blog/articles.json', '../data/tmp/blog/articles-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/blog/articles.json', 'w');
+        fwrite($fp, json_encode($posts));
+        fclose($fp);
+    }
+
+    public function saveBlogPost($post){
+        $posts = $this->getAllBlogPosts();
+        $posts[$post['id']] = $post;
+        $this->saveBlogPosts($posts);
+    }
+
+    public function deleteBlogPost($id){
+        $posts = $this->getAllBlogPosts();
+        unset($posts[$id]);
+        $this->saveBlogPosts($posts);
     }
 
     public function testString($data){

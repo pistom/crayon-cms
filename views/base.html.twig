@@ -47,7 +47,10 @@
 </section>
 
 <section class="mainContent">
-    <div id="mainContentLoader" class="isHidden loader">Loading...</div>
+    <div id="mainContentLoader" class="isHidden spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
     <div class="container" id="mainContent">
         {% block content %}{% endblock %}
     </div>

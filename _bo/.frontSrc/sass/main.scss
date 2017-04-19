@@ -238,4 +238,29 @@ hr {
     min-width:480px;
   }
 }
+.pagination {
 
+  display: block;
+  margin-bottom: 30px;
+  a{
+    padding:5px 15px;
+    margin-top:6px;
+    display: inline-block;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: $cl-gray;
+    color: $cl-azure;
+    &:first-child {
+      border-left-width: 1px;
+    }
+    &.active {
+      color: $cl-blue;
+      background: $cl-gray;
+    }
+    &:hover {
+      background: $cl-azure;
+      color: $cl-white;
+      border-color: lighten($cl-azure,20);
+    }
+  }
+}

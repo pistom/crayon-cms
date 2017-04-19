@@ -198,14 +198,14 @@ strong {
 /* line 12, ../sass/content.scss */
 #mainContent, #mainContentLoader, #mainContentTitle {
   opacity: 1;
-  -webkit-transition: all .15s ease;
-          transition: all .15s ease;
+  -webkit-transition: all .5s ease;
+          transition: all .5s ease;
 }
 /* line 15, ../sass/content.scss */
 #mainContent.isHidden, #mainContentLoader.isHidden, #mainContentTitle.isHidden {
   opacity: 0;
-  -webkit-transition: all .25s ease;
-          transition: all .25s ease;
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
 }
 
 /* line 20, ../sass/content.scss */

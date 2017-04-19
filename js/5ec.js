@@ -138,14 +138,15 @@ function getURLParameter(name) {
         setDocumentTitle(targetTitle);
         window.history.pushState({url: "" + targetUrl + "",title: "" + targetTitle + ""}, targetTitle, targetUrl);
     };
-    var scrollToTop = function(scrollDuration){
-        const   scrollHeight = window.scrollY,
+    var scrollTo = function(element,scrollDuration){
+        var scrollTo = element.offsetTop;
+        const scrollHeight = window.scrollY,
             scrollStep = Math.PI / ( scrollDuration / 15 ),
             cosParameter = scrollHeight / 2;
-        var     scrollCount = 0,
-            scrollMargin,
-            scrollInterval = setInterval( function() {
-                if ( window.scrollY != 0 ) {
+        var scrollCount = 0,
+            scrollMargin;
+        var scrollInterval = setInterval( function() {
+                if ( window.scrollY >= scrollTo ) {
                     scrollCount = scrollCount + 1;
                     scrollMargin = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep );
                     window.scrollTo( 0, ( scrollHeight - scrollMargin ) );
@@ -168,7 +169,7 @@ function getURLParameter(name) {
                     mainContent.classList.remove('isHidden');
                     mainContentTitle.classList.remove('isHidden');
                     mainContentLoader.classList.add('isHidden');
-                    scrollToTop(500);
+                    scrollTo(navigation,500);
                 },750);
 
             })

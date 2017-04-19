@@ -47,6 +47,9 @@ input[type="color"] {
   padding: 5px;
   background: transparent;
 }
+input[disabled] {
+  background: $cl-gray;
+}
 table input[type="text"],
 table input[type="password"],
 table input[type="number"],

@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 {% block content %}
-    <h1>Blog categories</h1>
+    <h1>Blog posts <a href="blog.post.edit.php" class="btn btn--azure btn--right "><i class="fa fa-plus" aria-hidden="true"></i> Add</a></h1>
     <table>
         <colgroup>
             <col style="width: 20px">
@@ -10,37 +10,43 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>Category</th>
+            <th>Post</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        {% for key,category in categories %}
+        {% for post in posts.results %}
             <tr>
-                <td>{{ loop.index }}.</td>
-                <td><a href="blog.category.edit.php?category={{ category.id }}">{{ category.name }}</a></td>
+
+                <td>{{ loop.index+(articlesPerPage*(currentPage-1)) }}.</td>
+                <td><a href="blog.post.edit.php?postId={{ post.id }}">{{ post.title }}</a></td>
                 <td>
-                    <a href="blog.category.edit.php?category={{ key }}" class="btn btn--green btn--small">Edit</a>
-                    <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a>
+                    <a href="blog.post.edit.php?postId={{ post.id }}" class="btn btn--green btn--small">Edit</a>
+                    <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ post.id }}">Delete</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="2"></td>
-            <td><a href="blog.category.edit.php" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
+            <td colspan="3"></td>
         </tr>
         </tfoot>
     </table>
+
+    <div class="pagination">
+        {% for page in posts.paginator %}<a href="/_bo/blog.posts.php?page={{ page.page }}" class="{{ currentPage == page.page ? 'active' : '' }}">{{ page.page }}</a>{% endfor %}
+    </div>
 {% endblock %}
+
+
 
 {% block scripts %}
     <script>
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
                 if(confirm("Are you sure?")){
-                    atomic.post('blog.category.delete.php','category='+e.target.dataset.item)
+                    atomic.post('blog.post.delete.php','postId='+e.target.dataset.item)
                         .success(function(data){
                             if(data.status == 'success')
                                 showMessage('success','Done','Data has been saved');

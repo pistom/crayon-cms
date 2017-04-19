@@ -79,8 +79,12 @@ $disable-magic-sprite-selectors: true;
       }
       &First {
         margin-bottom:15px;
+        background-size:cover;
+        background-position: center center;
         .title {
           margin-top:15px;
+          margin-left:15px;
+          margin-right:15px;
           text-shadow: 1px 1px 5px transparentize($cl-text,.5);
         }
         &Date {

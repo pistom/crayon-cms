@@ -131,6 +131,11 @@ input[type="color"] {
 }
 
 /* line 50, ../sass/forms.scss */
+input[disabled] {
+  background: #e1e8ef;
+}
+
+/* line 53, ../sass/forms.scss */
 table input[type="text"],
 table input[type="password"],
 table input[type="number"],
@@ -138,7 +143,7 @@ table select {
   font-size: 0.9rem;
 }
 
-/* line 56, ../sass/forms.scss */
+/* line 59, ../sass/forms.scss */
 textarea {
   border: 1px solid #e1e8ef;
   -webkit-box-sizing: border-box;
@@ -150,7 +155,7 @@ textarea {
   margin: 4px 0 8px;
   height: 100px;
 }
-/* line 65, ../sass/forms.scss */
+/* line 68, ../sass/forms.scss */
 textarea.pageContent {
   height: 500px;
 }
@@ -576,6 +581,37 @@ hr {
 /* line 237, ../sass/main.scss */
 .content__menu {
   min-width: 480px;
+}
+
+/* line 241, ../sass/main.scss */
+.pagination {
+  display: block;
+  margin-bottom: 30px;
+}
+/* line 245, ../sass/main.scss */
+.pagination a {
+  padding: 5px 15px;
+  margin-top: 6px;
+  display: inline-block;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #e1e8ef;
+  color: #0079cd;
+}
+/* line 253, ../sass/main.scss */
+.pagination a:first-child {
+  border-left-width: 1px;
+}
+/* line 256, ../sass/main.scss */
+.pagination a.active {
+  color: #222f3c;
+  background: #e1e8ef;
+}
+/* line 260, ../sass/main.scss */
+.pagination a:hover {
+  background: #0079cd;
+  color: white;
+  border-color: #34acff;
 }
 
 /* line 13, ../sass/mixins/_clearfix.scss */

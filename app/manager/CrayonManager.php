@@ -10,13 +10,17 @@ class CrayonManager {
     }
 
     public function getBlogConfig(){
-        $json_data = file_get_contents('data/blog/config.json');
+        $file = (file_exists('data/blog/config.json')) ? 'data/blog/config.json' : '../data/blog/config.json';
+        $json_data = file_get_contents($file);
         $config = json_decode($json_data, true);
         return $config;
     }
 
-    public function getArticles($categoryId,$page,$menuName){
-        $articles_data = file_get_contents('data/blog/articles.json');
+    public function getArticles($categoryId,$page,$menuName,$itemsPerPage){
+
+        $file = (file_exists('data/blog/articles.json')) ? 'data/blog/articles.json' : '../data/blog/articles.json';
+        $articles_data = file_get_contents($file);
+
 
         $articles = json_decode($articles_data, true);
         $allResults = array();
@@ -27,7 +31,11 @@ class CrayonManager {
                 }
                 else {
                     $articleCategory = $this->getCategory($article['category_id']);
-                    if($articleCategory['menu'] == $menuName)
+                    if($menuName)
+                        if($articleCategory['menu'] == $menuName)
+                            array_push($allResults, $article);
+                        else;
+                    else
                         array_push($allResults, $article);
                 }
 
@@ -39,10 +47,10 @@ class CrayonManager {
             }
             return ($a['publication_date'] > $b['publication_date']) ? -1 : 1;
         });
+        $articlesPerPage = ($itemsPerPage) ? $itemsPerPage : $this->blogConfig['articles_per_page'];
+        $results = array_slice($allResults,$articlesPerPage*($page-1),$articlesPerPage);
 
-        $results = array_slice($allResults,$this->blogConfig['articles_per_page']*($page-1),$this->blogConfig['articles_per_page']);
-
-        $pagesQtt = ceil(count($allResults)/$this->blogConfig['articles_per_page']);
+        $pagesQtt = ceil(count($allResults)/$articlesPerPage);
         $requestURI = (isset($dp['page'])) ? $_SERVER['REQUEST_URI'] : $_SERVER['REQUEST_URI'];
         $requestURI = preg_replace('/\/\d+\/$/','/', $requestURI);
 
@@ -66,12 +74,14 @@ class CrayonManager {
             if ($a['slug'] == $slug)
                 $article = $a;
         }
+        $article['content'] = htmlspecialchars_decode($article['content']);
         return $article;
     }
 
     public function getCategory($id){
         $category = null;
-        $cat_data = file_get_contents('data/blog/categories.json');
+        $file = (file_exists('data/blog/categories.json')) ? 'data/blog/categories.json' : '../data/blog/categories.json';
+        $cat_data = file_get_contents($file);
         $categories = json_decode($cat_data, true);
         foreach ($categories as $c){
             if ($c['id'] == $id)

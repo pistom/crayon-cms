@@ -11,10 +11,10 @@ $disable-magic-sprite-selectors: true;
 
 #mainContent,#mainContentLoader,#mainContentTitle {
   opacity:1;
-  transition: all .15s ease;
+  transition: all .5s ease;
   &.isHidden {
     opacity:0;
-    transition: all .25s ease;
+    transition: all 1s ease;
   }
 }
 #mainContentLoader {
