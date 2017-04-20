@@ -75,9 +75,13 @@ Object.prototype.drawShapes = function(config){
         this.appendChild(newShape.shape);
     }
     setInterval(replaceShape.bind(this),config.speed);
-    window.addEventListener('resize',function(){
-        shapes = initShapes(this,this.dimensions);
-        this.dimensions = getDimensions(this);
+    this.afterResizeWidth = this.dimensions[0];
+    window.addEventListener('resize',function(e){
+        if(this.afterResizeWidth != getDimensions(this)[0]){
+            this.dimensions = getDimensions(this);
+            this.afterResizeWidth = this.dimensions[0];
+            shapes = initShapes(this,this.dimensions);
+        }
     }.bind(this),false);
 };
 

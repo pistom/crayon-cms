@@ -74,7 +74,17 @@ class CrayonManager {
             if ($a['slug'] == $slug)
                 $article = $a;
         }
-        $article['content'] = htmlspecialchars_decode($article['content']);
+        set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
+            if (0 === error_reporting())
+                return false;
+            throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+        });
+        $article['content'] = '';
+        try{
+            $article['content'] = file_get_contents('data/blog/articles/'.$article['id'].'.html.twig');
+        } catch (\ErrorException $e) {
+            $article['content'] = 'Content not found.';
+        }
         return $article;
     }
 

@@ -6,6 +6,7 @@ $app->dieIfNotAdmin();
 $app->getManager()->clearDirectory('../data/tmp');
 $app->getManager()->clearDirectory('../data/tmp/pages');
 $app->getManager()->clearDirectory('../data/tmp/blog');
+$app->getManager()->clearDirectory('../data/tmp/blog/articles');
 $app->getManager()->clearDirectory('../views/tmp');
 $app->getManager()->clearDirectory('../views/tmp/pages');
 

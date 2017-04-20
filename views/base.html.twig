@@ -56,6 +56,17 @@
     </div>
 </section>
 
+<section class="mainFooter">
+    <div class="container">
+        {% include 'navigation.html.twig' with {'menu':menu} %}
+    </div>
+</section>
+<section class="mainCopyright">
+    <div class="container">
+        &copy; {{ settings['copyright'] }}
+    </div>
+</section>
+
 <script src="/js/drawshapes.js"></script>
 <script src="/js/5ec.js"></script>
 

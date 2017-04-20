@@ -195,34 +195,63 @@ strong {
   background-repeat: no-repeat;
 }
 
-/* line 12, ../sass/content.scss */
-#mainContent, #mainContentLoader, #mainContentTitle {
-  opacity: 1;
-  -webkit-transition: all .5s ease;
-          transition: all .5s ease;
-  z-index: 1;
-  position: relative;
-}
-/* line 17, ../sass/content.scss */
-#mainContent.isHidden, #mainContentLoader.isHidden, #mainContentTitle.isHidden {
-  opacity: 0;
-  -webkit-transition: all 1s ease;
-          transition: all 1s ease;
-  z-index: 0;
-}
-
-/* line 23, ../sass/content.scss */
-#mainContentTitle {
+/* line 12, ../sass/footer.scss */
+.mainCopyright {
+  background-color: #8abe2b;
+  padding: 8px 15px;
+  font-size: .85rem;
+  text-align: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-/* line 26, ../sass/content.scss */
-#mainContentLoader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+/* line 19, ../sass/footer.scss */
+.mainFooter {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #222f3c;
+  color: #597c9e;
+  padding: 15px;
+}
+/* line 25, ../sass/footer.scss */
+.mainFooter .mainNavigation__list {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  /* line 25, ../sass/footer.scss */
+  .mainFooter .mainNavigation__list {
+    text-align: left;
+  }
+}
+/* line 30, ../sass/footer.scss */
+.mainFooter .mainNavigation__listItem {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+@media (min-width: 768px) {
+  /* line 30, ../sass/footer.scss */
+  .mainFooter .mainNavigation__listItem {
+    width: 140px;
+  }
+  /* line 34, ../sass/footer.scss */
+  .mainFooter .mainNavigation__listItem:first-child {
+    margin-left: -15px;
+  }
+}
+/* line 40, ../sass/footer.scss */
+.mainFooter .mainNavigation__listItemLink {
+  padding: 8px 15px 4px;
+  display: block;
+  font-size: 1.2rem;
+  color: #506f8d;
+  line-height: 1.2;
+}
+/* line 51, ../sass/footer.scss */
+.mainFooter .mainNavigation__subListItemLink {
+  padding: 4px 15px;
+  font-size: .85rem;
+  display: block;
+  color: #3e556d;
+  line-height: 1.2;
 }

@@ -11,12 +11,11 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/_bo/css/5ec.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lora|Muli:400,700&amp;subset=latin-ext" rel="stylesheet">
-    {% if settings['fontawesome_cdn'] != '' %}
-        <link rel="stylesheet" href="{{ settings['fontawesome_cdn'] }}">
-    {% endif %}
+    <link rel="stylesheet" href="{{ settings['fontawesome_cdn'] ? settings['fontawesome_cdn'] : 'https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css' }}">
+
     {% block head %}{% endblock %}
 </head>
-<body class="{{ settings['fontawesome_cdn'] == '' ? 'no-fa' }}">
+<body>
 
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

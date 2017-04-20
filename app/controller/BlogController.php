@@ -44,12 +44,16 @@ class BlogController extends SiteController {
 
     }
 
-
     public function article($sp,$dp){
-
         $article = $this->manager->getArticle($dp['article']);
-        $category = $this->manager->getCategory($article['category_id']);
-        $menu = $this->manager->getMenu($category['menu']);
+        try {
+            $category = $this->manager->getCategory($article['category_id']);
+            $menu = $this->manager->getMenu($category['menu']);
+        } catch(\ErrorException $e){
+            header($_SERVER["SERVER_PROTOCOL"].' 404 Not Found');
+            $this->error404();
+            die();
+        }
 
         if($this->request['isAjax']){
             $res['contentTitle'] = $this->twig->render('blog/article.html.twig', array(

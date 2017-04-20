@@ -195,32 +195,32 @@ strong {
   background-repeat: no-repeat;
 }
 
-/* line 12, ../sass/navigation.scss */
+/* line 11, ../sass/navigation.scss */
 .mainNavigation {
   border-width: 1px 0;
   border-style: solid;
   border-color: #e6e6e6;
 }
 /* line 16, ../sass/navigation.scss */
-.mainNavigation__list {
+.mainNavigation .mainNavigation__list {
   text-align: center;
 }
 /* line 18, ../sass/navigation.scss */
-.mainNavigation__listItem {
+.mainNavigation .mainNavigation__listItem {
   position: relative;
   display: inline-block;
 }
 /* line 22, ../sass/navigation.scss */
-.mainNavigation__listItem.active .mainNavigation__listItemLink {
+.mainNavigation .mainNavigation__listItem.active .mainNavigation__listItemLink {
   color: #fd0864;
 }
 /* line 27, ../sass/navigation.scss */
-.mainNavigation__listItem:hover .mainNavigation__subList {
+.mainNavigation .mainNavigation__listItem:hover .mainNavigation__subList {
   max-height: 300px;
   border-width: 0 1px 1px 1px;
 }
 /* line 32, ../sass/navigation.scss */
-.mainNavigation__listItemLink {
+.mainNavigation .mainNavigation__listItemLink {
   display: block;
   padding: 15px 30px;
   font-family: "Lora", serif;
@@ -228,9 +228,9 @@ strong {
   color: #0dc3ca;
 }
 /* line 41, ../sass/navigation.scss */
-.mainNavigation__subList {
+.mainNavigation .mainNavigation__subList {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
   top: 54px;
@@ -250,17 +250,17 @@ strong {
   overflow: hidden;
 }
 /* line 57, ../sass/navigation.scss */
-.mainNavigation__subListItem {
+.mainNavigation .mainNavigation__subListItem {
   display: block;
 }
 /* line 59, ../sass/navigation.scss */
-.mainNavigation__subListItemLink {
+.mainNavigation .mainNavigation__subListItemLink {
   display: block;
   padding: 8px 15px;
   color: #0fdae2;
   line-height: 1.2em;
 }
 /* line 64, ../sass/navigation.scss */
-.mainNavigation__subListItemLink:hover {
+.mainNavigation .mainNavigation__subListItemLink:hover {
   color: #07666a;
 }

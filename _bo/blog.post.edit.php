@@ -17,4 +17,5 @@ echo $app->twig->render('blog.post.edit.html.twig', array(
     'post' => $post,
     'categories' => $categories,
     'menuPage' => 'blog',
+    'now' => new \DateTime
 ));

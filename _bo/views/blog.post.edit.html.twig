@@ -27,13 +27,13 @@
             <div class="page__block">
                 <label class="page__blockLabel" for="post_title_color">Title color</label>
                 <div class="page__blockInput">
-                    <input type="color" id="post_title_color" value="{{ post.title_color }}" name="post_title_color">
+                    <input type="color" id="post_title_color" value="{{ post.title_color ? post.title_color : settings.site_color }}" name="post_title_color">
                 </div>
             </div>
             <div class="page__block">
-                <label class="page__blockLabel" for="post_publication_date">Title color</label>
+                <label class="page__blockLabel" for="post_publication_date">Publication date</label>
                 <div class="page__blockInput">
-                    <input type="text" id="post_publication_date" value="{{ post.publication_date }}" name="post_publication_date">
+                    <input class="input--narrow" type="datetime" id="post_publication_date" value="{{ post.publication_date ? post.publication_date : new|date("Y-m-d h:i")}}" name="post_publication_date">
                 </div>
             </div>
             <div class="page__block">
@@ -117,9 +117,9 @@
             atomic.post('blog.post.save.php',data)
                 .success(function(data){
                     if(data.status == 'success')
-                        showMessage('success','Done','Data has been saved');
+                        showMessage('success','Done',data.message);
                     if(data.status == 'error')
-                        showMessage('error','Error','Data not saved');
+                        showMessage('error','Error',data.message);
                 })
                 .error(function(data){
                     showMessage('error','Error','Server error');

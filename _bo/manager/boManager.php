@@ -1,6 +1,14 @@
 <?php
 class boManager {
 
+    function __construct(){
+        set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
+            if (0 === error_reporting())
+                return false;
+            throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+        });
+    }
+
     public function getRoutesList(){
         $json_data = file_get_contents('../data/routing.json');
         $routes = json_decode($json_data, true);
@@ -187,6 +195,12 @@ class boManager {
         foreach ($posts as $key=>$p)
             if($p['id'] == $id)
                 $post = $p;
+        $post['content'] = '';
+        try {
+            $post['content'] = file_get_contents('../data/blog/articles/'.$id.'.html.twig');
+        } catch(\ErrorException $e) {
+            $post['content'] = 'Content not found';
+        }
         return $post;
     }
 
@@ -195,15 +209,29 @@ class boManager {
         $fp = fopen('../data/blog/articles.json', 'w');
         fwrite($fp, json_encode($posts));
         fclose($fp);
+        return 'Posts saved';
     }
 
     public function saveBlogPost($post){
+        $message = '';
+        try{
+            copy('../data/blog/articles/'.$post['id'].'.html.twig', '../data/tmp/blog/articles/'.$post['id'].'-tmp-'.date('YmdHis').'.html.twig');
+        } catch (\ErrorException $e) {
+            $message = '<span class="text--red">Failed backup</span><br/>';
+        }
+        $fp = fopen('../data/blog/articles/'.$post['id'].'.html.twig', 'w');
+        fwrite($fp, $post['content']);
+        fclose($fp);
+        unset($post['content']);
         $posts = $this->getAllBlogPosts();
         $posts[$post['id']] = $post;
-        $this->saveBlogPosts($posts);
+        $message .= $this->saveBlogPosts($posts);
+        return $message;
     }
 
     public function deleteBlogPost($id){
+        copy('../data/blog/articles/'.$id.'.html.twig', '../data/tmp/blog/articles/'.$id.'-tmp-'.date('YmdHis').'.html.twig');
+        unlink('../data/blog/articles/'.$id.'.html.twig');
         $posts = $this->getAllBlogPosts();
         unset($posts[$id]);
         $this->saveBlogPosts($posts);

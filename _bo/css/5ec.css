@@ -98,6 +98,9 @@ label {
 
 /* line 26, ../sass/forms.scss */
 input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="time"],
 input[type="password"],
 input[type="number"],
 input[type="color"],
@@ -113,16 +116,30 @@ select {
   font-size: 1rem;
   margin: 4px 0 8px;
 }
-/* line 40, ../sass/forms.scss */
+/* line 43, ../sass/forms.scss */
 input[type="text"].code,
+input[type="date"].code,
+input[type="datetime"].code,
+input[type="time"].code,
 input[type="password"].code,
 input[type="number"].code,
 input[type="color"].code,
 select.code {
   font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }
+/* line 47, ../sass/forms.scss */
+input[type="text"].input--narrow,
+input[type="date"].input--narrow,
+input[type="datetime"].input--narrow,
+input[type="time"].input--narrow,
+input[type="password"].input--narrow,
+input[type="number"].input--narrow,
+input[type="color"].input--narrow,
+select.input--narrow {
+  width: auto;
+}
 
-/* line 44, ../sass/forms.scss */
+/* line 52, ../sass/forms.scss */
 input[type="color"] {
   min-height: 30px;
   width: 70px;
@@ -130,20 +147,23 @@ input[type="color"] {
   background: transparent;
 }
 
-/* line 50, ../sass/forms.scss */
+/* line 58, ../sass/forms.scss */
 input[disabled] {
   background: #e1e8ef;
 }
 
-/* line 53, ../sass/forms.scss */
+/* line 61, ../sass/forms.scss */
 table input[type="text"],
 table input[type="password"],
+table input[type="date"],
+table input[type="datetime"],
+table input[type="time"],
 table input[type="number"],
 table select {
   font-size: 0.9rem;
 }
 
-/* line 59, ../sass/forms.scss */
+/* line 70, ../sass/forms.scss */
 textarea {
   border: 1px solid #e1e8ef;
   -webkit-box-sizing: border-box;
@@ -155,7 +175,7 @@ textarea {
   margin: 4px 0 8px;
   height: 100px;
 }
-/* line 68, ../sass/forms.scss */
+/* line 79, ../sass/forms.scss */
 textarea.pageContent {
   height: 500px;
 }

@@ -35,7 +35,7 @@ var serializeFormData = function(form){
         }
 
         else
-            data += field.name+"="+field.value;
+            data += field.name+"="+encodeURIComponent(field.value);
         if(i++ < fields.length-1)
             data +="&";
     });

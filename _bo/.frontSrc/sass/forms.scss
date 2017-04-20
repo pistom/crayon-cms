@@ -24,6 +24,9 @@ label {
   line-height:1.5rem;
 }
 input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="time"],
 input[type="password"],
 input[type="number"],
 input[type="color"],
@@ -40,6 +43,11 @@ select {
   &.code {
     font-family:"Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
   }
+  &.input{
+    &--narrow {
+      width: auto;
+    }
+  }
 }
 input[type="color"] {
   min-height: 30px;
@@ -52,6 +60,9 @@ input[disabled] {
 }
 table input[type="text"],
 table input[type="password"],
+table input[type="date"],
+table input[type="datetime"],
+table input[type="time"],
 table input[type="number"],
 table select {
   font-size: 0.9rem;
