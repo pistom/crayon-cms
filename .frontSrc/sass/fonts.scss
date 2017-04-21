@@ -121,6 +121,10 @@ a {
   &:hover {
     color: darken($cl-blue,10);
   }
+  &:active {
+    color: $cl-bg;
+    background-color: $cl-red;
+  }
 }
 strong {
   font-weight: 600;

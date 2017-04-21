@@ -72,10 +72,10 @@ $disable-magic-sprite-selectors: true;
     font-size: 1.2em;
     font-family: $font-secondary;
     color: lighten($cl-text,20);
-    line-height: 2.2;
+    line-height: 1.5em;
     &:first-letter {
       font-size: 2.4em;
-      line-height: 1;
+      line-height: 1.5rem;
       vertical-align: -.22em;
       font-style: italic;
     }
@@ -168,6 +168,9 @@ $disable-magic-sprite-selectors: true;
       border-color: lighten($cl-gray,40);
       &:first-child {
         border-left-width: 1px;
+      }
+      &:active {
+        background-color: lighten($cl-text,50);
       }
     }
   }

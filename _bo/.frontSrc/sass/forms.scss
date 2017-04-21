@@ -69,6 +69,7 @@ table select {
 }
 textarea {
   border: 1px solid $cl-gray;
+  font-family: $font-primary;
   box-sizing: border-box;
   width: 100%;
   border-radius: 2px;
@@ -78,5 +79,8 @@ textarea {
   height: 100px;
   &.pageContent{
     height: 500px;
+  }
+  &.code {
+    font-family:"Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
   }
 }

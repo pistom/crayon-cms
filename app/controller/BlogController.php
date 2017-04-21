@@ -6,7 +6,6 @@ class BlogController extends SiteController {
 
     function __construct($ctrlParams) {
         parent::__construct($ctrlParams);
-        $this->manager = new \Crayon\CrayonManager();
     }
 
     public function articlesList($sp,$dp){

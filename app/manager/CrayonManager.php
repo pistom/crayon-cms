@@ -4,9 +4,18 @@ namespace Crayon;
 class CrayonManager {
 
     protected $blogConfig;
+    protected $mailer;
+    protected $config;
 
     function __construct(){
         $this->blogConfig = $this->getBlogConfig();
+        $this->config = $this->getSiteConfig();
+        $this->mailer = new \PHPMailer;
+    }
+
+    protected function getSiteConfig(){
+        $json_data = file_get_contents('data/config.json');
+        return json_decode($json_data, true);
     }
 
     public function getBlogConfig(){
@@ -97,5 +106,45 @@ class CrayonManager {
         $menu_data = file_get_contents('data/menus.json');
         $menu = json_decode($menu_data, true);
         return $menu[$menuName];
+    }
+
+    public function testString($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    public function sendEmail($to,$replayTo,$subject,$message){
+        $this->getMailConfig();
+        $this->mailer->addAddress($to);
+        $this->mailer->addReplyTo($replayTo);
+        $this->mailer->isHTML(true);
+        $this->mailer->Subject = $subject;
+        $this->mailer->Body = $message;
+        if(filter_var($replayTo, FILTER_VALIDATE_EMAIL)){
+            if(!$this->mailer->send())
+                $isSent = $this->mailer->ErrorInfo;
+            else
+                $isSent = true;
+        } else
+            $isSent = $this->mailer->ErrorInfo;
+        $this->mailer->ClearAllRecipients();
+        $this->mailer->ClearAttachments();
+        return $isSent;
+    }
+
+    protected function getMailConfig(){
+        $this->mailer->SMTPDebug = 0;
+        $this->mailer->isSMTP();
+        $this->mailer->Host = $this->config['mail_host'];
+        $this->mailer->SMTPAuth = $this->config['mail_smtp_auth'];
+        $this->mailer->Username = $this->config['site_email'];
+        $this->mailer->Password = $this->config['mail_password'];
+        $this->mailer->SMTPSecure = $this->config['mail_smtp_secure'];
+        $this->mailer->From = $this->config['site_email'];
+        $this->mailer->FromName = $this->config['site_name'];
+        $this->mailer->Port = 587;
+        $this->mailer->CharSet = 'UTF-8';
     }
 }

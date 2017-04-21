@@ -5,12 +5,15 @@ class SiteController
     protected $lang;
     protected $twig;
     protected $request;
+    protected $siteConfig;
 
     function __construct($ctrlParams)
     {
         $this->lang = $ctrlParams['lang'];
         $this->twig = $ctrlParams['twig'];
         $this->request = $ctrlParams['request'];
+        $this->manager = new \Crayon\CrayonManager();
+        $this->siteConfig = $ctrlParams['settings'];
     }
 
     /**
@@ -47,6 +50,7 @@ class SiteController
 
         if($this->request['isAjax']){
             $res['content'] = $this->twig->render('contact.html.twig', array('template' => 'ajax.content.html.twig'));
+            $res['scripts'] = $this->twig->render('contact.html.twig', array('template' => 'ajax.scripts.html.twig'));
             header('Content-Type: application/json');
             echo json_encode($res);
         } else {
@@ -55,6 +59,34 @@ class SiteController
                 'menu' => $menu[$sp[0]],
             ));
         }
+    }
+
+    /**
+     * Contact page
+     */
+    public function contactSend($sp,$dp) {
+        $res['status'] = 'error';
+        $res['message'] = 'Your message was not sent. Please try later or send me a mail to <a href="mailto:'.$this->siteConfig['admin_email'].'">'.$this->siteConfig['admin_email'].'</a>';
+        if(isset($_POST['email'])){
+            $contactForm['email'] = $this->manager->testString($_POST['email']);
+            $contactForm['message'] = $this->manager->testString($_POST['message']);
+            $isSend = $this->manager->sendEmail(
+                $this->siteConfig['admin_email'],
+                $contactForm['email'],
+                'Contact from '.$this->siteConfig['site_name'],
+                $contactForm['message']
+            );
+            if($isSend === true){
+                $res['status'] = 'success';
+                $res['message'] = 'Thank you for your message.';
+            } else {
+                $res['status'] = 'error';
+                $res['message'] = $isSend;
+            }
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($res);
     }
 
     /**

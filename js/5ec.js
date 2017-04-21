@@ -97,6 +97,49 @@
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 }
+// Serialize Form Data
+var serializeFormData = function(form){
+    var fields = form.querySelectorAll("input:not([type=submit]), textarea, select");
+    var data = "";
+    var i = 0;
+    [].forEach.call(fields,function(field){
+        if(field.type == 'checkbox'){
+            if(field.checked)
+                data += field.name+"="+"true";
+            else
+                data += field.name+"="+"false";
+        } else if(field.type == 'radio'){
+            if(field.checked)
+                data += field.name+"="+field.value;
+        }
+
+        else
+            data += field.name+"="+encodeURIComponent(field.value);
+        if(i++ < fields.length-1)
+            data +="&";
+    });
+    return data
+};
+
+//Contact form
+var initContactForm = function(){
+    var mainContactForm = document.getElementById('mainContactForm');
+    if(mainContactForm){
+        mainContactForm.addEventListener('submit',function(e){
+            e.preventDefault();
+            var data = serializeFormData(e.target);
+            atomic.post(e.target.action,data)
+                .success(function(data){
+                    console.log(data);
+                })
+                .error(function(data){
+
+                })
+        },false);
+    }
+};
+
+
 // Navigation
 (function(){
     var brand = document.getElementsByClassName("mainHeader__brand")[0];
@@ -155,7 +198,8 @@ function getURLParameter(name) {
             }, 15 );
     };
     var getContent = function(url){
-        atomic.get(url)
+        var getContentOnly = (bodyIsLoaded) ? 'true' : 'false';
+        atomic.get(url+"?ajax="+getContentOnly)
             .success(function(data,xhr){
                 mainContent.classList.add('isHidden');
                 mainContentTitle.classList.add('isHidden');
@@ -216,3 +260,4 @@ function getURLParameter(name) {
         rotate: false
     });
 })();
+

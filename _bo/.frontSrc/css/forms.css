@@ -87,6 +87,7 @@ table select {
 /* line 70, ../sass/forms.scss */
 textarea {
   border: 1px solid #e1e8ef;
+  font-family: "Muli", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
@@ -96,7 +97,11 @@ textarea {
   margin: 4px 0 8px;
   height: 100px;
 }
-/* line 79, ../sass/forms.scss */
+/* line 80, ../sass/forms.scss */
 textarea.pageContent {
   height: 500px;
+}
+/* line 83, ../sass/forms.scss */
+textarea.code {
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }

@@ -24,7 +24,8 @@ class Crayon {
         $ctrlParams = array(
             'lang'=>$this->lang,
             'twig'=>$this->twig,
-            'request'=>$this->getRequestParams()
+            'request'=>$this->getRequestParams(),
+            'settings'=>$this->settings
         );
         $this->router->addMatchTypes(array('slug' => '[a-zA-Z0-9-_]++'));
         $match = $this->router->match();
@@ -76,7 +77,8 @@ class Crayon {
 
     protected function getRequestParams(){
         $params = array();
-        $params['isAjax'] = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') ?
+        $bodyIsLoaded = (isset($_GET['ajax']) && $_GET['ajax']==='true') ? true : false;
+        $params['isAjax'] = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') && $bodyIsLoaded ?
             true : false;
         $params['currentPath'] = $_SERVER["REQUEST_URI"];
         return $params;
@@ -92,6 +94,7 @@ class Crayon {
             $this->settings['twig_cache'] = 'cache';
             $this->settings['twig_debug'] = false;
         }
+
     }
 
     protected function loadTwig(){

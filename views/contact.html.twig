@@ -1,9 +1,12 @@
 {% extends template %}
 {% block content %}
     <h1>Contact</h1>
-    <form action="">
+    <form action="{{ routes.contact_send.path }}" id="mainContactForm">
         <input type="text" name="email">
         <textarea name="message" id="" cols="30" rows="10"></textarea>
         <input class="btn btn--blue" type="submit" value="Send">
     </form>
+{% endblock %}
+{% block scripts %}
+    initContactForm();
 {% endblock %}

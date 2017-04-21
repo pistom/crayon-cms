@@ -27,13 +27,13 @@
             <div class="page__block">
                 <label class="page__blockLabel" for="post_title_color">Title color</label>
                 <div class="page__blockInput">
-                    <input type="color" id="post_title_color" value="{{ post.title_color ? post.title_color : settings.site_color }}" name="post_title_color">
+                    <input type="color" id="post_title_color" value="{{ post.title_color ? post.title_color : '#ffffff' }}" name="post_title_color">
                 </div>
             </div>
             <div class="page__block">
                 <label class="page__blockLabel" for="post_publication_date">Publication date</label>
                 <div class="page__blockInput">
-                    <input class="input--narrow" type="datetime" id="post_publication_date" value="{{ post.publication_date ? post.publication_date : new|date("Y-m-d h:i")}}" name="post_publication_date">
+                    <input class="input--narrow" type="datetime" id="post_publication_date" value="{{ post.publication_date ? post.publication_date : now|date("Y-m-d H:i")}}" name="post_publication_date">
                 </div>
             </div>
             <div class="page__block">
@@ -90,6 +90,7 @@
                     tinymce.triggerSave();
                 });
             },
+            height : "480",
             force_br_newlines : false,
             force_p_newlines : true,
             forced_root_block : '',
