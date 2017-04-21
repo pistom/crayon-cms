@@ -14,6 +14,8 @@ if($_POST){
     $settings['tinymce_api_key'] = $app->getManager()->testString($_POST['tinymce_api_key']);
     $settings['fontawesome_cdn'] = $app->getManager()->testString($_POST['fontawesome_cdn']);
     $settings['site_color'] = $app->getManager()->testString($_POST['site_color']);
+    $settings['site_email'] = $app->getManager()->testString($_POST['site_email']);
+    $settings['admin_email'] = $app->getManager()->testString($_POST['admin_email']);
     $settings['copyright'] = $app->getManager()->testString($_POST['copyright']);
 };
 

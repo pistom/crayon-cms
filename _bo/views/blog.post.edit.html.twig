@@ -93,13 +93,25 @@
             force_br_newlines : false,
             force_p_newlines : true,
             forced_root_block : '',
-            plugins: "code textcolor advlist",
+            plugins: "code textcolor lists advlist",
             toolbar: "undo redo | bold italic underline alignleft aligncenter alignright | bullist numlist | forecolor | styleselect fontsizeselect | bullist numlist outdent indent",
             textcolor_map: [
                 "0DC3CA", "Niebieski",
                 "4D4F4F", "Szary",
                 "FD0864", "Czerwony",
                 "8ABE2B", "Zielony"
+            ],
+            style_formats: [
+                { title: 'Heaer 1', block: 'h1', classes: 'title title--1'},
+                { title: 'Heaer 2', block: 'h2', classes: 'title title--2'},
+                { title: 'Heaer 3', block: 'h3', classes: 'title title--3'},
+                { title: 'Paragraph', block: 'p'},
+                { title: 'Blockquotes', items: [
+                    { title: 'Citation block 1', block: 'blockquote', wrapper: true},
+                    { title: 'Citation block 2', selector: 'blockquote', classes: 'citation'},
+                    { title: 'Author', selector: 'blockquote p', classes: 'author'},
+                    { title: 'Link', selector: 'blockquote p', classes: 'url'}
+                ]}
             ]
         });
     };

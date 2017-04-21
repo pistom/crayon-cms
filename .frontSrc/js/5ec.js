@@ -114,6 +114,6 @@
         size: {min:4,max:4},
         speed:1000,
         colors:["rgb(253,8,100)","rgb(138,190,43)","rgb(13,195,202)","rgb(34,47,60)"],
-        rotate: true
+        rotate: false
     });
 })();

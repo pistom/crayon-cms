@@ -26,7 +26,7 @@ class Crayon {
             'twig'=>$this->twig,
             'request'=>$this->getRequestParams()
         );
-        $this->router->addMatchTypes(array('alias' => '[a-zA-Z0-9-_]++'));
+        $this->router->addMatchTypes(array('slug' => '[a-zA-Z0-9-_]++'));
         $match = $this->router->match();
         if ($match === false) {
             header($_SERVER["SERVER_PROTOCOL"].' 404 Not Found');

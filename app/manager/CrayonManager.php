@@ -16,30 +16,33 @@ class CrayonManager {
         return $config;
     }
 
-    public function getArticles($categoryId,$page,$menuName,$itemsPerPage){
-
+    public function getArticles($categoryId,$page,$menuName,$itemsPerPage,$publishedOnly=false){
         $file = (file_exists('data/blog/articles.json')) ? 'data/blog/articles.json' : '../data/blog/articles.json';
         $articles_data = file_get_contents($file);
-
-
         $articles = json_decode($articles_data, true);
         $allResults = array();
         foreach ($articles as $article){
-                if($categoryId){
-                    if($article['category_id'] == $categoryId)
+            if($categoryId){
+                if($article['category_id'] == $categoryId)
+                    array_push($allResults, $article);
+            }
+            else {
+                $articleCategory = $this->getCategory($article['category_id']);
+                if($menuName)
+                    if($articleCategory['menu'] == $menuName)
                         array_push($allResults, $article);
-                }
-                else {
-                    $articleCategory = $this->getCategory($article['category_id']);
-                    if($menuName)
-                        if($articleCategory['menu'] == $menuName)
-                            array_push($allResults, $article);
-                        else;
-                    else
-                        array_push($allResults, $article);
-                }
-
+                    else;
+                else
+                    array_push($allResults, $article);
+            }
         }
+        if($publishedOnly)
+            foreach ($allResults as $key=>$result){
+                $actualDate = new \DateTime;
+                $publicationDate = \DateTime::createFromFormat('Y-m-d H:i', $result['publication_date']);
+                if ($publicationDate > $actualDate)
+                    unset($allResults[$key]);
+            }
 
         uasort($allResults, function($a, $b) {
             if ($a['publication_date'] == $b['publication_date']) {
@@ -74,17 +77,7 @@ class CrayonManager {
             if ($a['slug'] == $slug)
                 $article = $a;
         }
-        set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
-            if (0 === error_reporting())
-                return false;
-            throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
-        });
-        $article['content'] = '';
-        try{
-            $article['content'] = file_get_contents('data/blog/articles/'.$article['id'].'.html.twig');
-        } catch (\ErrorException $e) {
-            $article['content'] = 'Content not found.';
-        }
+        $article['content'] = @file_get_contents('data/blog/articles/'.$article['id'].'.html.twig');
         return $article;
     }
 

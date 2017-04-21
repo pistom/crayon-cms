@@ -10,8 +10,7 @@
     </div>
 {% endblock %}
 {% block content %}
-
-    <div class="blog__articleInfo">
+    <div class="blog__articleInfo row row-d-o1">
         <span class="blog__articleInfoDate">
             <strong>{{ article.publication_date|date("d/m/Y") }}</strong>
             {{ article.publication_date|date("g:i") }}
@@ -20,7 +19,8 @@
             {{ category.name }}
         </span>
     </div>
-    <p>
+    <div class="row row-d-o1">
+        <p class="blog__intro">{{ article.intro }}</p>
         {{ article.content|raw }}
-    </p>
+    </div>
 {% endblock %}

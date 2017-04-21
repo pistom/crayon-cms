@@ -38,6 +38,26 @@ class SiteController
     }
 
     /**
+     * Contact page
+     */
+    public function contact($sp,$dp) {
+
+        $menu_data = file_get_contents('data/menus.json');
+        $menu = json_decode($menu_data, true);
+
+        if($this->request['isAjax']){
+            $res['content'] = $this->twig->render('contact.html.twig', array('template' => 'ajax.content.html.twig'));
+            header('Content-Type: application/json');
+            echo json_encode($res);
+        } else {
+            echo $this->twig->render('contact.html.twig', array(
+                'template' => 'base.html.twig',
+                'menu' => $menu[$sp[0]],
+            ));
+        }
+    }
+
+    /**
      * 404
      */
     public function error404() {

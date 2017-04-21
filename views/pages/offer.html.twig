@@ -1,15 +1,9 @@
-{% extends template %}
-{% block content %}
-
-    <h1>Offer</h1>
-    <p>Ab beatae optio sit unde veritatis. Culpa saepe
-        sapiente similique. Accusantium ad aperiam blanditiis consequatur corporis dolorem dolores dolorum incidunt
-        laborum necessitatibus perspiciatis praesentium, quibusdam recusandae repellat reprehenderit saepe similique
-        vero voluptate!</p>
-    <p>
-        <a href="{{ routes['offer1'].path }}" data-ajax="true" title="{{ routes['offer1'].name }}">{{ routes['offer1'].name }}</a>, <a href="{{ routes['offer2'].path }}" data-ajax="true">{{ routes['offer2'].name }}</a>
-    </p>
-
-{% endblock %}{# end content #}
-{% block scripts %}
-{% endblock %}{# end scripts #}
+{% extends template %}{% block content %}<h1>Offer</h1>
+<p>Pellentesque tincidunt consequat, orci molestie sed, lectus. Phasellus ac nunc ut malesuada aliquet, purus et ipsum. Aliquam ante sem eu pede sit amet dolor. Morbi tellus dui et magnis dis parturient montes, nascetur ridiculus mus. Integer euismod orci et magnis dis parturient montes, nascetur ridiculus mus. Nunc dolor a arcu. Praesent vitae wisi quis enim. Phasellus a mi.</p>
+<blockquote>
+<p style="text-align: left;">Cras suscipit, dolor lorem, ornare arcu erat, nonummy justo quis neque. Sed bibendum.</p>
+</blockquote>
+<p>Morbi mattis. Pellentesque habitant morbi tristique magna. Vestibulum enim. Suspendisse adipiscing eget, auctor mattis. Integer neque eu mi. Aenean scelerisque, quam risus, pellentesque eget, aliquam purus. Mauris id lorem leo, cursus arcu iaculis malesuada id, urna. Nunc nunc. Nulla malesuada. Ut vestibulum ipsum. Sed eu nisl. Vestibulum laoreet, est turpis egestas. Praesent in faucibus arcu erat volutpat. Praesent elit lectus non tincidunt sed, aliquam dolor. Aliquam commodo ligula, ornare velit in nonummy dui aliquam odio. Aenean ut aliquet at, malesuada et, scelerisque odio et magnis dis parturient montes, nascetur ridiculus mus. Nunc tristique commodo. Curabitur lobortis vitae, velit. Cum sociis natoque penatibus et nisl pellentesque a, tortor. Nam non ante. Vestibulum laoreet hendrerit sollicitudin mauris pulvinar felis, eleifend placerat.</p>
+<h2>Mauris nec sem orci, viverra diam sodales lectus eget volutpat ut, sapien.</h2>
+<p>Sed venenatis. Morbi egestas, nunc neque, congue arcu sit amet nibh. Cras adipiscing ac, suscipit dolor. Aliquam nulla. Nunc in neque ut nisl. Proin faucibus erat. Sed molestie, neque sollicitudin ligula tristique velit, fermentum molestie nisl. Nam cursus, lacus pretium quis, tincidunt at, gravida varius in, tristique senectus et erat volutpat. Vivamus ullamcorper sem in neque at magna. Integer lacinia dignissim, tellus. Curabitur arcu dolor, scelerisque rhoncus placerat consequat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce venenatis tristique, sollicitudin mauris sit amet tempus purus. Pellentesque facilisis. Maecenas wisi. Donec faucibus turpis. Duis hendrerit metus semper leo. Integer lacinia eget, neque. Nam rhoncus, dui porta laoreet. Vestibulum iaculis. Sed venenatis. Sed a mi. Cras non ipsum. Duis blandit malesuada. Ut facilisis. In nec massa non mattis neque. Fusce congue. Proin id leo eu tortor. Cras.</p>
+<p><a title="{{ routes['offer1'].name }}" href="{{ routes['offer1'].path }}" data-ajax="true">{{ routes['offer1'].name }}</a>, <a href="{{ routes['offer2'].path }}" data-ajax="true">{{ routes['offer2'].name }}</a></p>{% endblock %}{# end content #}{% block scripts %}                                            {% endblock %}{# end scripts #}

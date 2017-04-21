@@ -37,6 +37,20 @@
             </div>
 
             <div class="page__block">
+                <label class="page__blockLabel" for="site_email">Site email</label>
+                <div class="page__blockInput">
+                    <input type="text" id="site_email" value="{{ settings['site_email'] }}" name="site_email">
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="admin_email">Admin email</label>
+                <div class="page__blockInput">
+                    <input type="text" id="admin_email" value="{{ settings['admin_email'] }}" name="admin_email">
+                </div>
+            </div>
+
+            <div class="page__block">
                 <label class="page__blockLabel" for="tinymce_api_key">TinyMCE API key</label>
                 <div class="page__blockInput">
                     <input type="text" id="tinymce_api_key" value="{{ settings['tinymce_api_key'] }}" name="tinymce_api_key" class="code">

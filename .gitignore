@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /cache/*
+/css/fonts/
 .sass-cache
 .vscode
 .idea

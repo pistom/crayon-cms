@@ -1,8 +1,16 @@
 @import "colors";
 @import "mixins/breakpoint";
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url('fonts/ReenieBeanie.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 $font-primary: 'Muli', sans-serif;
 $font-secondary: 'Lora', serif;
+$font-tertiary: 'reenie_beanieregular','Lora', serif;
+
 
 .marginTop-1 {
   margin-top: 1em!important;
@@ -135,5 +143,81 @@ strong {
   }
   ol {
     list-style-type: decimal;
+  }
+}
+
+blockquote {
+  border-left: 2px solid $cl-green;
+  border-right: 2px solid $cl-green;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: $font-secondary;
+  font-size: 1.5rem;
+  color: lighten($cl-text,20);
+  @include breakpoint ($tablet) {
+    font-size: 2rem;
+  }
+  @include breakpoint ($desktop) {
+    margin:1.5em 60px;
+  }
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+  &:before {
+    color: lighten($cl-text,60);
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.15em;
+    vertical-align: -0.2em;
+  }
+  &:after {
+    color: lighten($cl-text,60);
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-left: 0.15em;
+    vertical-align: -0.2em;
+  }
+  p {
+    display: inline;
+  }
+  &.citation {
+    font-size: 1rem;
+    padding: 0 15px;
+    p {
+      display: block;
+      quotes: '\00AB' '\00BB';
+      &:before {
+        color: lighten($cl-text,60);
+        content: open-quote;
+      }
+      &:after {
+        color: lighten($cl-text,60);
+        content: close-quote;
+      }
+      &.author {
+        &:before, &:after {
+          display: none;
+        }
+        text-align: right;
+        margin-bottom:0;
+        font-style: normal;
+      }
+      &.url {
+        text-align: right;
+        margin-bottom:0;
+        font-size: .85em;
+        &:before, &:after {
+          display: none;
+        }
+        a {
+          color: $cl-green;
+        }
+      }
+    }
+    &:before,&:after {
+      display: none;
+    }
   }
 }

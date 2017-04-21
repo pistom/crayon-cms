@@ -1,13 +1,7 @@
 <?php
 class boManager {
 
-    function __construct(){
-        set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
-            if (0 === error_reporting())
-                return false;
-            throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
-        });
-    }
+
 
     public function getRoutesList(){
         $json_data = file_get_contents('../data/routing.json');
@@ -195,12 +189,7 @@ class boManager {
         foreach ($posts as $key=>$p)
             if($p['id'] == $id)
                 $post = $p;
-        $post['content'] = '';
-        try {
-            $post['content'] = file_get_contents('../data/blog/articles/'.$id.'.html.twig');
-        } catch(\ErrorException $e) {
-            $post['content'] = 'Content not found';
-        }
+        $post['content'] = @file_get_contents('../data/blog/articles/'.$id.'.html.twig');
         return $post;
     }
 
@@ -214,11 +203,7 @@ class boManager {
 
     public function saveBlogPost($post){
         $message = '';
-        try{
-            copy('../data/blog/articles/'.$post['id'].'.html.twig', '../data/tmp/blog/articles/'.$post['id'].'-tmp-'.date('YmdHis').'.html.twig');
-        } catch (\ErrorException $e) {
-            $message = '<span class="text--red">Failed backup</span><br/>';
-        }
+        @copy('../data/blog/articles/'.$post['id'].'.html.twig', '../data/tmp/blog/articles/'.$post['id'].'-tmp-'.date('YmdHis').'.html.twig');
         $fp = fopen('../data/blog/articles/'.$post['id'].'.html.twig', 'w');
         fwrite($fp, $post['content']);
         fclose($fp);

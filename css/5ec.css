@@ -1,90 +1,96 @@
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -94,104 +100,200 @@
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
 }
 
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
+}
+
 /* line 56, sprites/*.png */
 .sprites-sprite {
-  background-image: url('../images/sprites-sda7de5a88e.png');
+  background-image: url('../images/sprites-scaee3e284a.png');
   background-repeat: no-repeat;
 }
 
@@ -259,6 +361,7 @@ strong {
 .blog__articleInfoDate {
   display: block;
   text-align: center;
+  color: gray;
 }
 @media (min-width: 768px) {
   /* line 51, ../sass/blog.scss */
@@ -267,7 +370,7 @@ strong {
     text-align: left;
   }
 }
-/* line 59, ../sass/blog.scss */
+/* line 60, ../sass/blog.scss */
 .blog__articleInfoCategory {
   display: block;
   text-align: center;
@@ -275,17 +378,31 @@ strong {
   text-transform: uppercase;
 }
 @media (min-width: 768px) {
-  /* line 59, ../sass/blog.scss */
+  /* line 60, ../sass/blog.scss */
   .blog__articleInfoCategory {
     float: right;
     text-align: right;
   }
 }
-/* line 70, ../sass/blog.scss */
+/* line 71, ../sass/blog.scss */
+.blog__intro {
+  font-size: 1.2em;
+  font-family: "Lora", serif;
+  color: #47627d;
+  line-height: 2.2;
+}
+/* line 76, ../sass/blog.scss */
+.blog__intro:first-letter {
+  font-size: 2.4em;
+  line-height: 1;
+  vertical-align: -.22em;
+  font-style: italic;
+}
+/* line 83, ../sass/blog.scss */
 .blog__articlesList {
   padding-top: 30px;
 }
-/* line 72, ../sass/blog.scss */
+/* line 85, ../sass/blog.scss */
 .blog__articlesListItem {
   border-bottom: 1px solid #e6e6e6;
   margin-bottom: 15px;
@@ -293,26 +410,62 @@ strong {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 72, ../sass/blog.scss */
+  /* line 85, ../sass/blog.scss */
   .blog__articlesListItem {
     text-align: left;
   }
 }
-/* line 80, ../sass/blog.scss */
+/* line 93, ../sass/blog.scss */
+.blog__articlesListItem .title {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+@media (min-width: 768px) {
+  /* line 93, ../sass/blog.scss */
+  .blog__articlesListItem .title {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 93, ../sass/blog.scss */
+  .blog__articlesListItem .title {
+    font-size: 2rem;
+  }
+}
+/* line 103, ../sass/blog.scss */
+.blog__articlesListItem .title.title--3 {
+  font-size: 1rem;
+}
+/* line 107, ../sass/blog.scss */
 .blog__articlesListItemFirst {
   margin-bottom: 15px;
   background-size: cover;
   background-position: center center;
   padding-top: 10px;
 }
-/* line 84, ../sass/blog.scss */
+/* line 111, ../sass/blog.scss */
 .blog__articlesListItemFirst .title {
   margin-top: 15px;
   margin-left: 15px;
   margin-right: 15px;
   text-shadow: 1px 1px 5px rgba(34, 47, 60, 0.5);
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
 }
-/* line 90, ../sass/blog.scss */
+@media (min-width: 768px) {
+  /* line 111, ../sass/blog.scss */
+  .blog__articlesListItemFirst .title {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 111, ../sass/blog.scss */
+  .blog__articlesListItemFirst .title {
+    font-size: 3rem;
+  }
+}
+/* line 125, ../sass/blog.scss */
 .blog__articlesListItemFirstDate {
   font-family: "Lora", serif;
   text-shadow: 1px 1px 5px rgba(34, 47, 60, 0.5);
@@ -320,37 +473,37 @@ strong {
   font-size: 1.2rem;
   margin-top: 10px;
 }
-/* line 98, ../sass/blog.scss */
+/* line 133, ../sass/blog.scss */
 .blog__articlesListItemFirstIntro {
   text-align: center;
   padding: 15px;
   background: rgba(255, 255, 255, 0.75);
   color: #222f3c;
 }
-/* line 105, ../sass/blog.scss */
+/* line 140, ../sass/blog.scss */
 .blog__articlesListItemDate {
   color: gray;
   font-size: .75rem;
 }
 @media (min-width: 768px) {
-  /* line 109, ../sass/blog.scss */
+  /* line 144, ../sass/blog.scss */
   .blog__articlesListItemMore {
     text-align: right;
   }
 }
 @media (min-width: 768px) {
-  /* line 115, ../sass/blog.scss */
+  /* line 150, ../sass/blog.scss */
   .blog__articlesListItemImageIntro {
     padding-right: 25px;
   }
 }
-/* line 123, ../sass/blog.scss */
+/* line 158, ../sass/blog.scss */
 .blog__pagination {
   text-align: center;
   display: block;
   margin-bottom: 30px;
 }
-/* line 127, ../sass/blog.scss */
+/* line 162, ../sass/blog.scss */
 .blog__pagination a {
   padding: 5px 15px;
   margin-top: 6px;
@@ -359,98 +512,104 @@ strong {
   border-style: solid;
   border-color: #e6e6e6;
 }
-/* line 134, ../sass/blog.scss */
+/* line 169, ../sass/blog.scss */
 .blog__pagination a:first-child {
   border-left-width: 1px;
 }
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -460,99 +619,195 @@ strong {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
+}
+
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
 }
 
 /* line 21, ../sass/btns.scss */
@@ -623,93 +878,99 @@ strong {
 }
 
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -719,104 +980,200 @@ strong {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
 }
 
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
+}
+
 /* line 56, sprites/*.png */
 .sprites-sprite {
-  background-image: url('../images/sprites-sda7de5a88e.png');
+  background-image: url('../images/sprites-scaee3e284a.png');
   background-repeat: no-repeat;
 }
 
@@ -852,93 +1209,99 @@ strong {
           transform: translate(-50%, -50%);
 }
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -948,188 +1311,290 @@ strong {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
 }
 
-/* line 7, ../sass/fonts.scss */
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
+}
+
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -1139,104 +1604,200 @@ strong {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
+}
+
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
 }
 
 /* line 56, sprites/*.png */
 .sprites-sprite {
-  background-image: url('../images/sprites-sda7de5a88e.png');
+  background-image: url('../images/sprites-scaee3e284a.png');
   background-repeat: no-repeat;
 }
 
@@ -1301,93 +1862,99 @@ strong {
   line-height: 1.2;
 }
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -1397,99 +1964,195 @@ strong {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
+}
+
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
 }
 
 /* line 6, ../sass/mixins/_clearfix.scss */
@@ -1723,93 +2386,99 @@ img.img--responsive {
   max-width: 100%;
 }
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -1819,104 +2488,200 @@ img.img--responsive {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
 }
 
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
+}
+
 /* line 56, sprites/*.png */
 .sprites-sprite, .no-svg .mainHeader__brand {
-  background-image: url('../images/sprites-sda7de5a88e.png');
+  background-image: url('../images/sprites-scaee3e284a.png');
   background-repeat: no-repeat;
 }
 
@@ -1948,120 +2713,130 @@ strong {
   width: 134px;
   height: 200px;
   display: block;
-  background-image: url('data:image/svg+xml;charset=utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IldhcnN0d2FfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxMzRweCIgaGVpZ2h0PSIyMDBweCIgdmlld0JveD0iMCAwIDEzNCAyMDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEzNCAyMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZEMDg2NCIgZD0iTTY4LjAxOCw3My43NTRsLTIuOTE1LDIwLjY0bC00LjM0OSwzNC41MDhsMzMuOTgyLTQ1LjUzNEM5MS42MzMsODAuODM3LDc3LjEwMiw2OS43NjYsNjguMDE4LDczLjc1NCIvPg0KPHBhdGggZmlsbD0iI0ZEMDg2NCIgZD0iTTEzMy43NDEsMTkuOTg0Yy04LjIyMi05LjYyLTM2LjA0My0yMS4wMDItNDguNjY4LTE5LjkxMmMtMS4xNDUsMi43NzEtOC43NywyMS40MzYtMTAuMjMsMjUuMDA4DQoJYzE2Ljg0NC0yLjI3Nyw0MC40NDUsMTAuMjkyLDQ4LjY4OCwxOS45MThDMTI0Ljk2NCw0MS41MjQsMTMyLjY3NiwyMi41NjQsMTMzLjc0MSwxOS45ODQiLz4NCjxwYXRoIGZpbGw9IiMyMjJGM0MiIGQ9Ik0xMjAuNDU4LDE4MS40MzRjLTQuNzg5LTExLjQ1MS0xMS40Ny0yMC45MjMtMTkuNDU0LTI3Ljg5NWMtNy4wMzEsNS43MDktMTcuODU0LDE0LjIwMS0yNy4wMjUsMTQuMjAxDQoJYy0yNC4xNzEsMC0zOC43MTUtMjIuODY2LTM4LjcxNS01MS40OTNjMC0yOC42MjQsMTQuNTQ0LTUyLjE2OCwzOC43MTUtNTIuMTY4YzkuMTcyLDAsMTkuMjc2LDYuMTc3LDI2LjMxMSwxMS44ODYNCgljMTAuMDU0LTguNDMxLDEzLjcyOS0xMi45OTMsMTkuNTQ0LTIzLjg0NmMtMTIuNTg5LTExLjI2My0yOC41MjItMTguODM0LTQ1Ljg1NC0xOC44MzRjLTQwLjcxNCwwLTczLjcxOSwzNy45NzItNzMuNzE5LDgzLjc3Ng0KCUMwLjI1OSwxNjIuODY1LDMzLjI2NCwyMDAsNzMuOTc5LDIwMEM5MS42MDEsMjAwLDEwNy43NzcsMTkzLjA0LDEyMC40NTgsMTgxLjQzNCIvPg0KPC9zdmc+DQo=');
+  background-image: url('data:image/svg+xml;charset=utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IldhcnN0d2FfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxMzRweCIgaGVpZ2h0PSIyMDBweCIgdmlld0JveD0iMCAwIDEzNCAyMDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEzNCAyMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZEMDg2NCIgZD0iTTcuMDE4LDE2Mi4wMThjMCwwLTMuMzg5LTE0LjM1OC0xLjYzMy00Mi4zOGM0LjYyNSw2Ljc4MSw1LjkyLDcuMjIzLDUuOTIsNy4yMjNsLTMuMzE3LTI0LjQ1Mg0KCWMwLDAsNC43MzYtMjEuMjI0LDE5Ljg5NS0zOS45NTFjNC4xMzgsMTguMzc0LDYuNDQxLDIzLjIwNyw2LjQ0MSwyMy4yMDdzMS42MjUtMjUuOTQ3LDkuOC00MC4wMjENCgljMTIuOTE5LTcuOTI3LDExLjEyOS03LjQ3OCwyOC45OC0xNS40NTdjLTEuNjI3LDEzLjgwNC0xLjM1MiwyNy45NjctMS4zNTIsMjcuOTY3czYuNTcyLTE5LjgyNiwxNi41MjgtMzIuOTA4DQoJYzIyLjA5Mi00LjAyNiw0Mi43NzgtNC43NzMsNDIuNzc4LTQuNzczcy0xNC40NzEsMTkuMjUtMTguNDU3LDQ0LjQ4OGMtMTIuMzk5LTAuMzc1LTI2LjI3MiwzLjU2NC0zMi4xMTYsMTAuNTMyDQoJYzE2Ljc5OSwxMC4wNjksMjkuNjIyLDQuODc2LDI5LjYyMiw0Ljg3NnMtMC4xMTQsMTAuODc3LTIuMjA5LDI1Ljc3NWMtNC41MDEsMC4xOTktMzIuNTkzLDQuMDExLTU0LjM4MiwxMC4yNTkNCgljMjguMTYsMi43NjUsMzguNDI0LDcuMTM0LDQ1LjgyNCwxMy4xMjljLTEzLjEyLDIwLjA5OC0yMi43MzIsMjUuMTA2LTI1Ljk4NiwyOC40MjhjLTEwLjQxOS03LjAyMi0yMy4xMzctMTEuMjY4LTMwLjI2Ni0xMC43MTMNCgljMTQsMTAuNjU2LDE5LjA2NiwxNi4xNDQsMTkuMDY2LDE2LjE0NFMyOS42MjgsMTc4LjUwMiw3LjAxOCwxNjIuMDE4eiIvPg0KPHBhdGggZmlsbD0iIzIyMkYzQyIgZD0iTTEuODc2LDE5My45MDhjMCwwLDYuNzU1LTk4Ljg4Myw3OC40MDItMTMyLjA2M0MxMy41NjQsMTA3LjExNywxNC4zMTIsMTgwLjksMTQuMzEyLDE4MC45TDEuODc2LDE5My45MDh6Ig0KCS8+DQo8L3N2Zz4NCg==');
   background-repeat: no-repeat;
-  margin: 0 auto 15px;
+  margin: 0 auto -12px;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 /* line 17, ../sass/mixins/_mixins.scss */
 .no-svg .mainHeader__brand {
   background-position: 0 -80px;
 }
-/* line 35, ../sass/header.scss */
+/* line 37, ../sass/header.scss */
 .mainHeader__title {
   background: white;
-  font-family: "Lora", serif;
-  font-size: 2rem;
+  font-family: "reenie_beanieregular", "Lora", serif;
+  position: relative;
+  z-index: auto;
+  font-size: 4rem;
   text-align: center;
   margin: 0;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
   display: inline-block;
-  border-top: 1px solid #222f3c;
+  border-top: 0 solid #222f3c;
 }
-/* line 45, ../sass/header.scss */
+/* line 49, ../sass/header.scss */
 .mainHeader__lang {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -2071,99 +2846,195 @@ strong {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
+}
+
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
 }
 
 /* line 7, ../sass/loader.scss */
@@ -2278,93 +3149,99 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -2374,99 +3251,195 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
+}
+
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
 }
 
 /* line 22, ../sass/main.scss */
@@ -2516,93 +3489,99 @@ hr {
   margin-bottom: 20px;
 }
 
-/* line 7, ../sass/fonts.scss */
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url("fonts/ReenieBeanie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../sass/fonts.scss */
 .marginTop-1 {
   margin-top: 1em !important;
 }
 
-/* line 10, ../sass/fonts.scss */
+/* line 18, ../sass/fonts.scss */
 .marginTop-2 {
   margin-top: 2em !important;
 }
 
-/* line 13, ../sass/fonts.scss */
+/* line 21, ../sass/fonts.scss */
 .marginTop-3 {
   margin-top: 3em !important;
 }
 
-/* line 17, ../sass/fonts.scss */
+/* line 25, ../sass/fonts.scss */
 .marginBottom-1 {
   margin-bottom: 1em !important;
 }
 
-/* line 20, ../sass/fonts.scss */
+/* line 28, ../sass/fonts.scss */
 .marginBottom-2 {
   margin-bottom: 2em !important;
 }
 
-/* line 23, ../sass/fonts.scss */
+/* line 31, ../sass/fonts.scss */
 .marginBottom-3 {
   margin-bottom: 3em !important;
 }
 
-/* line 27, ../sass/fonts.scss */
+/* line 35, ../sass/fonts.scss */
 .text--center {
   text-align: center;
 }
 
-/* line 30, ../sass/fonts.scss */
+/* line 38, ../sass/fonts.scss */
 .text--left {
   text-align: left !important;
 }
 
-/* line 33, ../sass/fonts.scss */
+/* line 41, ../sass/fonts.scss */
 .text--right {
   text-align: right !important;
 }
 
-/* line 36, ../sass/fonts.scss */
+/* line 44, ../sass/fonts.scss */
 .text--bold, strong {
   font-weight: 700;
 }
 
-/* line 39, ../sass/fonts.scss */
+/* line 47, ../sass/fonts.scss */
 .text--red {
   color: #fd0864;
 }
 
-/* line 42, ../sass/fonts.scss */
+/* line 50, ../sass/fonts.scss */
 .text--blue {
   color: #0dc3ca;
 }
 
-/* line 45, ../sass/fonts.scss */
+/* line 53, ../sass/fonts.scss */
 .text--green {
   color: #8abe2b;
 }
 
-/* line 48, ../sass/fonts.scss */
+/* line 56, ../sass/fonts.scss */
 .text--gray {
   color: gray;
 }
 
-/* line 51, ../sass/fonts.scss */
+/* line 59, ../sass/fonts.scss */
 .text--coursive, em {
   font-style: italic;
 }
 
-/* line 54, ../sass/fonts.scss */
+/* line 62, ../sass/fonts.scss */
 .text--small {
   font-size: .8rem;
   line-height: 1.5em;
 }
 
-/* line 59, ../sass/fonts.scss */
+/* line 67, ../sass/fonts.scss */
 .title {
   line-height: 1.2em;
 }
 
-/* line 62, ../sass/fonts.scss */
+/* line 70, ../sass/fonts.scss */
 .title--1, h1 {
   line-height: 1.2em;
   color: #0dc3ca;
@@ -2612,104 +3591,200 @@ hr {
   text-align: center;
 }
 @media (min-width: 768px) {
-  /* line 62, ../sass/fonts.scss */
+  /* line 70, ../sass/fonts.scss */
   .title--1, h1 {
     font-size: 3rem;
   }
 }
 
-/* line 73, ../sass/fonts.scss */
+/* line 81, ../sass/fonts.scss */
 .title--2, h2 {
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 73, ../sass/fonts.scss */
+  /* line 81, ../sass/fonts.scss */
   .title--2, h2 {
     font-size: 1.8rem;
   }
 }
 
-/* line 80, ../sass/fonts.scss */
+/* line 88, ../sass/fonts.scss */
 .title--3, h3 {
   line-height: 1.2em;
   font-size: 1rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  /* line 80, ../sass/fonts.scss */
+  /* line 88, ../sass/fonts.scss */
   .title--3, h3 {
     font-size: 1.2rem;
   }
 }
 
-/* line 88, ../sass/fonts.scss */
+/* line 96, ../sass/fonts.scss */
 .title--red {
   color: #fd0864;
 }
 
-/* line 91, ../sass/fonts.scss */
+/* line 99, ../sass/fonts.scss */
 .title--blue {
   color: #0dc3ca;
 }
 
-/* line 94, ../sass/fonts.scss */
+/* line 102, ../sass/fonts.scss */
 .title--gray {
   color: gray;
 }
 
-/* line 97, ../sass/fonts.scss */
+/* line 105, ../sass/fonts.scss */
 .title--green {
   color: #8abe2b;
 }
 
-/* line 102, ../sass/fonts.scss */
+/* line 110, ../sass/fonts.scss */
 sup {
   font-size: .85em;
 }
 
-/* line 106, ../sass/fonts.scss */
+/* line 114, ../sass/fonts.scss */
 a {
   text-decoration: none;
   color: #0dc3ca;
   -webkit-transition: all .5s ease;
           transition: all .5s ease;
 }
-/* line 110, ../sass/fonts.scss */
+/* line 118, ../sass/fonts.scss */
 a.active {
   color: #fd0864;
 }
-/* line 113, ../sass/fonts.scss */
+/* line 121, ../sass/fonts.scss */
 a:hover {
   color: #0a959a;
 }
 
-/* line 117, ../sass/fonts.scss */
+/* line 125, ../sass/fonts.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 122, ../sass/fonts.scss */
+/* line 130, ../sass/fonts.scss */
 .mainContent p, .mainContentTitle p {
   margin-bottom: 15px;
 }
-/* line 126, ../sass/fonts.scss */
+/* line 134, ../sass/fonts.scss */
 .mainContent ul, .mainContent ol, .mainContentTitle ul, .mainContentTitle ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }
-/* line 133, ../sass/fonts.scss */
+/* line 141, ../sass/fonts.scss */
 .mainContent ul, .mainContentTitle ul {
   list-style: disc;
 }
-/* line 136, ../sass/fonts.scss */
+/* line 144, ../sass/fonts.scss */
 .mainContent ol, .mainContentTitle ol {
   list-style-type: decimal;
 }
 
+/* line 149, ../sass/fonts.scss */
+blockquote {
+  border-left: 2px solid #8abe2b;
+  border-right: 2px solid #8abe2b;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+  color: #47627d;
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+}
+@media (min-width: 768px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 149, ../sass/fonts.scss */
+  blockquote {
+    margin: 1.5em 60px;
+  }
+}
+/* line 166, ../sass/fonts.scss */
+blockquote:before {
+  color: #b9c8d7;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 174, ../sass/fonts.scss */
+blockquote:after {
+  color: #b9c8d7;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.2em;
+}
+/* line 182, ../sass/fonts.scss */
+blockquote p {
+  display: inline;
+}
+/* line 185, ../sass/fonts.scss */
+blockquote.citation {
+  font-size: 1rem;
+  padding: 0 15px;
+}
+/* line 188, ../sass/fonts.scss */
+blockquote.citation p {
+  display: block;
+  quotes: '\00AB' '\00BB';
+}
+/* line 191, ../sass/fonts.scss */
+blockquote.citation p:before {
+  color: #b9c8d7;
+  content: open-quote;
+}
+/* line 195, ../sass/fonts.scss */
+blockquote.citation p:after {
+  color: #b9c8d7;
+  content: close-quote;
+}
+/* line 199, ../sass/fonts.scss */
+blockquote.citation p.author {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+}
+/* line 200, ../sass/fonts.scss */
+blockquote.citation p.author:before, blockquote.citation p.author:after {
+  display: none;
+}
+/* line 207, ../sass/fonts.scss */
+blockquote.citation p.url {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+/* line 211, ../sass/fonts.scss */
+blockquote.citation p.url:before, blockquote.citation p.url:after {
+  display: none;
+}
+/* line 214, ../sass/fonts.scss */
+blockquote.citation p.url a {
+  color: #8abe2b;
+}
+/* line 219, ../sass/fonts.scss */
+blockquote.citation:before, blockquote.citation:after {
+  display: none;
+}
+
 /* line 56, sprites/*.png */
 .sprites-sprite {
-  background-image: url('../images/sprites-sda7de5a88e.png');
+  background-image: url('../images/sprites-scaee3e284a.png');
   background-repeat: no-repeat;
 }
 
