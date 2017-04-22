@@ -14,7 +14,7 @@ class CrayonManager {
     }
 
     protected function getSiteConfig(){
-        $json_data = file_get_contents('data/config.json');
+        $json_data = (file_exists('data/config.json')) ? 'data/config.json' : '../data/config.json';
         return json_decode($json_data, true);
     }
 
