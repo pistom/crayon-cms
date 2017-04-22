@@ -173,7 +173,7 @@ a:hover {
 }
 /* line 124, ../sass/fonts.scss */
 a:active {
-  color: white;
+  color: white !important;
   background-color: #fd0864;
 }
 
@@ -296,9 +296,9 @@ blockquote.citation:before, blockquote.citation:after {
   display: none;
 }
 
-/* line 56, sprites/*.png */
+/* line 64, sprites/*.png */
 .sprites-sprite, .no-svg .mainHeader__brand {
-  background-image: url('../images/sprites-scaee3e284a.png');
+  background-image: url('../images/sprites-s4fd06c96ae.png');
   background-repeat: no-repeat;
 }
 
@@ -339,7 +339,7 @@ blockquote.citation:before, blockquote.citation:after {
 }
 /* line 17, ../sass/mixins/_mixins.scss */
 .no-svg .mainHeader__brand {
-  background-position: 0 -80px;
+  background-position: 0 -110px;
 }
 /* line 37, ../sass/header.scss */
 .mainHeader__title {

@@ -296,49 +296,115 @@ blockquote.citation:before, blockquote.citation:after {
   display: none;
 }
 
-/* line 7, ../sass/loader.scss */
-.spinner {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  margin: 100px auto;
+/* line 27, ../sass/forms.scss */
+label {
+  color: gray;
+  font-size: .75rem;
+  line-height: 1.5rem;
+}
+@media (min-width: 768px) {
+  /* line 27, ../sass/forms.scss */
+  label {
+    font-size: 1em;
+    text-align: right;
+    display: block;
+    padding-top: 5px;
+  }
 }
 
-/* line 15, ../sass/loader.scss */
-.double-bounce1, .double-bounce2 {
+/* line 38, ../sass/forms.scss */
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="time"],
+input[type="password"],
+input[type="number"],
+input[type="color"],
+select {
+  -webkit-transition: all .5s ease;
+          transition: all .5s ease;
+  border: 0 solid #0dc3ca;
+  border-bottom-width: 2px;
+  color: #222f3c;
+  line-height: 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #fd0864;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+  border-radius: 2px;
+  padding: 2px 0;
+  font-size: 1rem;
+  margin: 4px 0 8px;
+}
+/* line 57, ../sass/forms.scss */
+input[type="text"].code,
+input[type="date"].code,
+input[type="datetime"].code,
+input[type="time"].code,
+input[type="password"].code,
+input[type="number"].code,
+input[type="color"].code,
+select.code {
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+/* line 61, ../sass/forms.scss */
+input[type="text"].input--narrow,
+input[type="date"].input--narrow,
+input[type="datetime"].input--narrow,
+input[type="time"].input--narrow,
+input[type="password"].input--narrow,
+input[type="number"].input--narrow,
+input[type="color"].input--narrow,
+select.input--narrow {
+  width: auto;
 }
 
-/* line 29, ../sass/loader.scss */
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+/* line 66, ../sass/forms.scss */
+input[type="color"] {
+  min-height: 30px;
+  width: 70px;
+  padding: 5px;
+  background: transparent;
 }
 
-@-webkit-keyframes sk-bounce {
-  0%, 100% {
-    -webkit-transform: scale(0);
-  }
-  50% {
-    -webkit-transform: scale(1);
-  }
+/* line 72, ../sass/forms.scss */
+input[disabled], textarea[disabled], select[disabled], button[disabled] {
+  background: #f8f8f8;
+  border-color: #cdcdcd #cdcdcd #cdcdcd #cdcdcd;
+  color: #cdcdcd;
 }
-@keyframes sk-bounce {
-  0%, 100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  50% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
+
+/* line 77, ../sass/forms.scss */
+table input[type="text"],
+table input[type="password"],
+table input[type="date"],
+table input[type="datetime"],
+table input[type="time"],
+table input[type="number"],
+table select {
+  font-size: 0.9rem;
+}
+
+/* line 86, ../sass/forms.scss */
+textarea {
+  -webkit-transition: all .5s ease;
+          transition: all .5s ease;
+  border: 0 solid #0dc3ca;
+  border-bottom-width: 2px;
+  font-family: "Muli", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 0;
+  font-size: 1rem;
+  margin: 4px 0 8px;
+  height: 100px;
+}
+/* line 98, ../sass/forms.scss */
+textarea.pageContent {
+  height: 500px;
+}
+/* line 101, ../sass/forms.scss */
+textarea.code {
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }

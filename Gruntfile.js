@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		        dest: 'js/5ec.js'
 		    },
 			css: {
-				src: [".frontSrc/css/**/*.css"],
+				src: [".frontSrc/css/main.css",".frontSrc/css/**/*.css"],
   		    	dest: "css/5ec.css"
 		    }
         },

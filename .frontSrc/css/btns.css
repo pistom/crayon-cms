@@ -173,7 +173,7 @@ a:hover {
 }
 /* line 124, ../sass/fonts.scss */
 a:active {
-  color: white;
+  color: white !important;
   background-color: #fd0864;
 }
 

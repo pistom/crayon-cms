@@ -14,7 +14,8 @@
                     </label>
                 </div>
             </div>
-
+            <hr>
+            <h2>Site options</h2>
             <div class="page__block">
                 <label class="page__blockLabel" for="site_name">Site name</label>
                 <div class="page__blockInput">
@@ -64,6 +65,67 @@
                 </div>
             </div>
 
+            <hr>
+            <h2>Mailer options</h2>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="smtp">IS SMTP</label>
+                <div class="page__blockInput">
+                    <label class="page__blockLabel" for="mail_is_smtp">
+                        <input type="radio" name="mail_is_smtp" id="is_smtp_enabled" value="true" {{ settings['mail_is_smtp'] ? 'checked' : '' }}> Enabled
+                    </label>
+                    <label class="page__blockLabel" for="is_smtp_disabled">
+                        <input type="radio" name="mail_is_smtp" id="is_smtp_disabled" value="false" {{ not settings['mail_is_smtp'] ? 'checked' : '' }}> Disabled
+                    </label>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="mail_host">Host</label>
+                <div class="page__blockInput">
+                    <input type="text" id="mail_host" value="{{ settings['mail_host'] }}" name="mail_host">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="mail_smtp_auth">SMTP Auth</label>
+                <div class="page__blockInput">
+                    <label class="page__blockLabel" for="mail_smtp_auth_enabled">
+                        <input type="radio" name="mail_smtp_auth" id="mail_smtp_auth_enabled" value="true" {{ settings['mail_smtp_auth'] ? 'checked' : '' }}> Enabled
+                    </label>
+                    <label class="page__blockLabel" for="mail_smtp_auth_disabled">
+                        <input type="radio" name="mail_smtp_auth" id="mail_smtp_auth_disabled" value="false" {{ not settings['mail_smtp_auth'] ? 'checked' : '' }}> Disabled
+                    </label>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="mail_username">Username</label>
+                <div class="page__blockInput">
+                    <input type="text" id="mail_username" value="{{ settings['mail_username'] }}" name="mail_username">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="mail_password">Password</label>
+                <div class="page__blockInput">
+                    <input type="password" id="mail_password" value="{{ settings['mail_password'] }}" name="mail_password">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="mail_smtp_secure">SMTP secure</label>
+                <div class="page__blockInput">
+                    <select type="password" id="mail_smtp_secure" name="mail_smtp_secure" class="input--narrow">
+                        <option value="" {{ settings['mail_smtp_secure'] == '' ? 'selected' : '' }}>none</option>
+                        <option value="ssl" {{ settings['mail_smtp_secure'] == 'ssl' ? 'selected' : '' }}>SSL</option>
+                        <option value="tls" {{ settings['mail_smtp_secure'] == 'tls' ? 'selected' : '' }}>TLS</option>
+                    </select>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="mail_port">Port</label>
+                <div class="page__blockInput">
+                    <input type="number" id="mail_port" value="{{ settings['mail_port'] }}" name="mail_port">
+                </div>
+            </div>
+
+            <hr>
             <div class="page__block">
                 <label class="page__blockLabel"></label>
                 <div class="page__blockInput">

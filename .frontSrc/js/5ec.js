@@ -1,3 +1,24 @@
+// Page Messages
+var msgWindow = document.getElementsByClassName('msgWindow')[0];
+var msgTitle = msgWindow.getElementsByClassName('msgWindowTitle')[0];
+var msgContent = msgWindow.getElementsByClassName('msgWindowContent')[0];
+var showMessage = function(type,title,msg){
+    msgWindow.className = 'msgWindow';
+    msgWindow.classList.add('isOpen');
+    msgWindow.classList.add(type);
+    msgTitle.innerHTML = title;
+    msgContent.innerHTML = msg;
+};
+document.body.addEventListener("click",function(e){
+    if(!e.target.classList.contains("msgWindowTitle") && !e.target.classList.contains("msgWindowContent"))
+        msgWindow.classList.remove('isOpen');
+},false);
+var closeMessage = function(msg){
+    msgWindow.classList.remove('isOpen');
+};
+msgWindow.getElementsByClassName('msgWindowClose')[0].addEventListener('click',closeMessage,false);
+
+
 // Serialize Form Data
 var serializeFormData = function(form){
     var fields = form.querySelectorAll("input:not([type=submit]), textarea, select");
@@ -23,18 +44,33 @@ var serializeFormData = function(form){
 };
 
 //Contact form
+var disableForm = function(status,form){
+    var formInputs = form.querySelectorAll('input,select,textarea');
+    [].forEach.call(formInputs,function(input){
+        input.disabled = status;
+    });
+};
 var initContactForm = function(){
     var mainContactForm = document.getElementById('mainContactForm');
     if(mainContactForm){
         mainContactForm.addEventListener('submit',function(e){
             e.preventDefault();
             var data = serializeFormData(e.target);
+            disableForm(true,e.target);
             atomic.post(e.target.action,data)
                 .success(function(data){
-                    console.log(data);
+                    if(data.status == 'success'){
+                        showMessage('success','Thank you',data.message);
+                        e.target.email.value = "";
+                        e.target.message.value = "";
+                    }
+                    if(data.status == 'error'){
+                        showMessage('error','Error',data.message);
+                        disableForm(false,e.target);
+                    }
                 })
                 .error(function(data){
-
+                    showMessage('error','Error','I can not connect to the server.');
                 })
         },false);
     }

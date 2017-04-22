@@ -173,7 +173,7 @@ a:hover {
 }
 /* line 124, ../sass/fonts.scss */
 a:active {
-  color: white;
+  color: white !important;
   background-color: #fd0864;
 }
 
@@ -296,9 +296,9 @@ blockquote.citation:before, blockquote.citation:after {
   display: none;
 }
 
-/* line 56, sprites/*.png */
+/* line 64, sprites/*.png */
 .sprites-sprite {
-  background-image: url('../images/sprites-scaee3e284a.png');
+  background-image: url('../images/sprites-s4fd06c96ae.png');
   background-repeat: no-repeat;
 }
 

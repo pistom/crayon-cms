@@ -64,6 +64,7 @@ class CrayonManager {
 
         $pagesQtt = ceil(count($allResults)/$articlesPerPage);
         $requestURI = (isset($dp['page'])) ? $_SERVER['REQUEST_URI'] : $_SERVER['REQUEST_URI'];
+        $requestURI = preg_replace('/\?.*$/','', $requestURI);
         $requestURI = preg_replace('/\/\d+\/$/','/', $requestURI);
 
         $paginator = array();
@@ -136,15 +137,17 @@ class CrayonManager {
 
     protected function getMailConfig(){
         $this->mailer->SMTPDebug = 0;
-        $this->mailer->isSMTP();
-        $this->mailer->Host = $this->config['mail_host'];
-        $this->mailer->SMTPAuth = $this->config['mail_smtp_auth'];
-        $this->mailer->Username = $this->config['site_email'];
-        $this->mailer->Password = $this->config['mail_password'];
-        $this->mailer->SMTPSecure = $this->config['mail_smtp_secure'];
+        if ($this->config['mail_is_smtp']){
+            $this->mailer->isSMTP();
+            $this->mailer->Host = $this->config['mail_host'];
+            $this->mailer->SMTPAuth = $this->config['mail_smtp_auth'];
+            $this->mailer->Username = $this->config['mail_username'];
+            $this->mailer->Password = $this->config['mail_password'];
+            $this->mailer->SMTPSecure = $this->config['mail_smtp_secure'];
+            $this->mailer->Port = $this->config['mail_port'];
+        }
         $this->mailer->From = $this->config['site_email'];
         $this->mailer->FromName = $this->config['site_name'];
-        $this->mailer->Port = 587;
         $this->mailer->CharSet = 'UTF-8';
     }
 }

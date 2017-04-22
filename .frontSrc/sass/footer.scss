@@ -21,6 +21,7 @@ $disable-magic-sprite-selectors: true;
   background-color: $cl-text;
   color: lighten($cl-text,30);
   padding:15px;
+  margin-top: 30px;
   .mainNavigation {
     &__list {
       text-align: center;

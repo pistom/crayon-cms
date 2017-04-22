@@ -296,49 +296,88 @@ blockquote.citation:before, blockquote.citation:after {
   display: none;
 }
 
-/* line 7, ../sass/loader.scss */
-.spinner {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  margin: 100px auto;
+/* line 64, sprites/*.png */
+.sprites-sprite, .no-svg .msgWindowClose {
+  background-image: url('../images/sprites-s4fd06c96ae.png');
+  background-repeat: no-repeat;
 }
 
-/* line 15, ../sass/loader.scss */
-.double-bounce1, .double-bounce2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #fd0864;
-  opacity: 0.6;
+/* line 11, ../sass/msgWindow.scss */
+.msgWindow {
+  max-height: 0;
+  -webkit-transition: all .5s ease;
+          transition: all .5s ease;
+  opacity: 0;
+  position: fixed;
+  background-color: white;
+  text-align: center;
+  width: 320px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 95%;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 0;
+  border: 1px solid #0dc3ca;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 10px rgba(13, 195, 202, 0.3);
+          box-shadow: 0 0 10px rgba(13, 195, 202, 0.3);
+  overflow: hidden;
+}
+/* line 30, ../sass/msgWindow.scss */
+.msgWindow.isOpen {
+  opacity: 1;
+  max-height: 200px;
+  overflow: hidden;
+}
+/* line 36, ../sass/msgWindow.scss */
+.msgWindow.success .msgWindowTitle {
+  color: #8abe2b;
+  border-color: #8abe2b;
+}
+/* line 42, ../sass/msgWindow.scss */
+.msgWindow.info .msgWindowTitle {
+  color: #0dc3ca;
+  border-color: #0dc3ca;
+}
+/* line 48, ../sass/msgWindow.scss */
+.msgWindow.error .msgWindowTitle {
+  color: #fd0864;
+  border-color: #fd0864;
+}
+/* line 53, ../sass/msgWindow.scss */
+.msgWindowTitle {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  font-family: "Lora", serif;
+  border-bottom: 1px solid;
+  padding: 0 0 10px;
+  margin: 15px 30px 15px;
+}
+/* line 61, ../sass/msgWindow.scss */
+.msgWindowContent {
+  font-size: 15px;
+  line-height: 1.4;
+  overflow: auto;
+  padding: 0 20px 20px 20px;
+}
+/* line 67, ../sass/msgWindow.scss */
+.msgWindowClose {
+  width: 30px;
+  height: 30px;
+  display: block;
+  background-image: url('data:image/svg+xml;charset=utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IldhcnN0d2FfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIzMHB4IiBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzAgMzAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iIzIyMkYzQyIgZD0iTTE2Ljk4NCwyOS42N2MtMC4wNzQsMC0wLjE0Ny0wLjAyOS0wLjIwMy0wLjA4NGwtNi44ODktNi44OTNsLTYuODksNi44ODgNCgljLTAuMDU0LDAuMDU0LTAuMTI4LDAuMDg1LTAuMjA0LDAuMDg1bDAsMGMtMC4wNzgsMC0wLjE1MS0wLjAzMi0wLjIwNC0wLjA4NWwtMi4xODMtMi4xODVjLTAuMTEyLTAuMTEyLTAuMTEyLTAuMjk2LDAtMC40MDgNCglsNi44OS02Ljg4OGwtNi44ODgtNi44OTNjLTAuMTEzLTAuMTEzLTAuMTEzLTAuMjk2LDAtMC40MDlsMi4xODMtMi4xODJjMC4wNTUtMC4wNTUsMC4xMjgtMC4wODYsMC4yMDUtMC4wODZsMCwwDQoJYzAuMDc2LDAsMC4xNSwwLjAzMSwwLjIwNCwwLjA4Nmw2Ljg4OSw2Ljg5Mmw2Ljg5Mi02Ljg4OGMwLjA1Ni0wLjA1NSwwLjEzLTAuMDg0LDAuMjAzLTAuMDg0YzAuMDc0LDAsMC4xNDcsMC4wMjksMC4yMDUsMC4wODQNCglsMi4xODMsMi4xODRjMC4wNTQsMC4wNTQsMC4wODQsMC4xMjgsMC4wODQsMC4yMDRjMCwwLjA3Ni0wLjAzMSwwLjE0OS0wLjA4NCwwLjIwNEwxMi40ODQsMjAuMWw2Ljg4OCw2Ljg5Mg0KCWMwLjA1NSwwLjA1NSwwLjA4NSwwLjEyOCwwLjA4NSwwLjIwNGMwLDAuMDc3LTAuMDMxLDAuMTUtMC4wODUsMC4yMDVsLTIuMTg2LDIuMTg0QzE3LjEzMiwyOS42NDMsMTcuMDU5LDI5LjY3LDE2Ljk4NCwyOS42N3oiLz4NCjwvc3ZnPg0K');
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
-  left: 0;
-  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+  right: 0;
+  cursor: pointer;
 }
-
-/* line 29, ../sass/loader.scss */
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
-
-@-webkit-keyframes sk-bounce {
-  0%, 100% {
-    -webkit-transform: scale(0);
-  }
-  50% {
-    -webkit-transform: scale(1);
-  }
-}
-@keyframes sk-bounce {
-  0%, 100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  50% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
+/* line 17, ../sass/mixins/_mixins.scss */
+.no-svg .msgWindowClose {
+  background-position: 0 0;
 }

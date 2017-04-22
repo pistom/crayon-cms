@@ -17,6 +17,21 @@ if($_POST){
     $settings['site_email'] = $app->getManager()->testString($_POST['site_email']);
     $settings['admin_email'] = $app->getManager()->testString($_POST['admin_email']);
     $settings['copyright'] = $app->getManager()->testString($_POST['copyright']);
+
+    if($_POST['mail_is_smtp']=='true')
+        $settings['mail_is_smtp'] = true;
+    else
+        $settings['mail_is_smtp'] = false;
+    $settings['mail_host'] = $app->getManager()->testString($_POST['mail_host']);
+    if($_POST['mail_smtp_auth']=='true')
+        $settings['mail_smtp_auth'] = true;
+    else
+        $settings['mail_smtp_auth'] = false;
+    $settings['mail_username'] = $app->getManager()->testString($_POST['mail_username']);
+    $settings['mail_password'] = $app->getManager()->testString($_POST['mail_password']);
+    $settings['mail_smtp_secure'] = $app->getManager()->testString($_POST['mail_smtp_secure']);
+    $settings['mail_port'] = $app->getManager()->testString($_POST['mail_port']);
+
 };
 
 

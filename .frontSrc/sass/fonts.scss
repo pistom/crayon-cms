@@ -122,7 +122,7 @@ a {
     color: darken($cl-blue,10);
   }
   &:active {
-    color: $cl-bg;
+    color: $cl-bg!important;
     background-color: $cl-red;
   }
 }
