@@ -159,17 +159,17 @@ var initContactForm = function(){
             atomic.post(e.target.action,data)
                 .success(function(data){
                     if(data.status == 'success'){
-                        showMessage('success','Thank you',data.message);
+                        showMessage('success',translate.thank_you,translate.message_sent);
                         e.target.email.value = "";
                         e.target.message.value = "";
                     }
                     if(data.status == 'error'){
-                        showMessage('error','Error',data.message);
+                        showMessage('error',translate.error,translate.message_not_sent);
                         disableForm(false,e.target);
                     }
                 })
                 .error(function(data){
-                    showMessage('error','Error','I can not connect to the server.');
+                    showMessage('error',translate.error,translate.server_connect_error);
                 })
         },false);
     }

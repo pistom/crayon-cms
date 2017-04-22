@@ -109,6 +109,16 @@ class CrayonManager {
         return $menu[$menuName];
     }
 
+    public function getTranslations($lang){
+        $json_data = file_get_contents('data/translations.json');
+        $translations = json_decode($json_data, true);
+        $translation = array();
+        foreach($translations as $key=>$translate){
+            $translation[$key] = $translate[$lang];
+        }
+        return $translation;
+    }
+
     public function testString($data){
         $data = trim($data);
         $data = stripslashes($data);

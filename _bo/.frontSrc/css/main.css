@@ -219,7 +219,7 @@ hr {
 }
 /* line 128, ../sass/main.scss */
 .aside__navItem.active:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;

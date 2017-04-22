@@ -42,6 +42,13 @@
                 <li><a href="blog.config.php" class="aside__navSubItem"><span class="aside__navIco"><i class="fa fa-cog" aria-hidden="true"></i></span> Configuration</a></li>
             </ul>
         </li>
+        <li>
+            <span class="aside__navItem {{ menuPage == 'internationalization' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-language" aria-hidden="true"></i></span> Internationalization</span>
+            <ul class="aside__navSubMenu">
+                <li><a href="languages.php" class="aside__navSubItem"><span class="aside__navIco"><i class="fa fa-flag" aria-hidden="true"></i></span> Languages</a></li>
+                <li><a href="translations.php" class="aside__navSubItem"><span class="aside__navIco"><i class="fa fa-font" aria-hidden="true"></i></span> Translations</a></li>
+            </ul>
+        </li>
         {% if userRole == 'admin' %}
             <li><a href="settings.php" class="aside__navItem {{ menuPage == 'settings' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-cogs" aria-hidden="true"></i></span> Configuration</a></li>
         {% endif %}

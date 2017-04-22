@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Translations</h1>
+
+    <table>
+        <colgroup>
+            <col style="width: 20px">
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Translation</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for key,translate in translations %}
+            <tr>
+                <td><code>{{ key }}</code></td>
+                <td>
+                    EN: <strong>{{ translate.en }}</strong><br>
+                    PL: <strong>{{ translate.pl }}</strong>
+                </td>
+                <td><a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="1"></td>
+                <td colspan="2"><a href="#" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.body.addEventListener("click",function(e){
+            if(e.target.dataset.action == 'delete'){
+                if(confirm("Are you sure?")){
+                    atomic.post('language.delete.php','lang='+e.target.dataset.item)
+                        .success(function(data){
+                            if(data.status == 'success')
+                                showMessage('success','Done','Data has been saved');
+                            if(data.status == 'error')
+                                showMessage('error','Error','Data not saved');
+                        })
+                        .error(function(data){
+                            showMessage('error','Error','Server error');
+                        });
+                } else {
+                    location.reload();
+                }
+            }
+        },false);
+    </script>
+{% endblock %}

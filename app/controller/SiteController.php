@@ -23,11 +23,13 @@ class SiteController
         $page_data = file_get_contents('data/pages/'.$sp[0].'.json');
         $page = json_decode($page_data, true);
         $menu_data = file_get_contents('data/menus.json');
-        $menu = json_decode($menu_data, true);
+        $menus = json_decode($menu_data, true);
+        $menu = $menus[$page['menu']];
+        $translations = $this->manager->getTranslations($menu['lang']);
         $this->twig->addGlobal('currentPath',$this->request['currentPath']);
         if($this->request['isAjax']){
-            $res['content'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.content.html.twig'));
-            $res['scripts'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.scripts.html.twig'));
+            $res['content'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.content.html.twig','t' => $translations));
+            $res['scripts'] = $this->twig->render('pages/'.$sp[0].'.html.twig', array('template' => 'ajax.scripts.html.twig','t' => $translations));
             header('Content-Type: application/json');
             echo json_encode($res);
         } else {
@@ -35,7 +37,8 @@ class SiteController
                 'template' => 'base.html.twig',
                 'pageTitle' => $page['title'],
                 'pageDescription' => $page['description'],
-                'menu' => $menu[$page['menu']],
+                'menu' => $menu,
+                't' => $translations
             ));
         }
     }
@@ -46,23 +49,25 @@ class SiteController
     public function contact($sp,$dp) {
 
         $menu_data = file_get_contents('data/menus.json');
-        $menu = json_decode($menu_data, true);
-
+        $menus = json_decode($menu_data, true);
+        $menu = $menus[$sp[0]];
+        $translations = $this->manager->getTranslations($menu['lang']);
         if($this->request['isAjax']){
-            $res['content'] = $this->twig->render('contact.html.twig', array('template' => 'ajax.content.html.twig'));
-            $res['scripts'] = $this->twig->render('contact.html.twig', array('template' => 'ajax.scripts.html.twig'));
+            $res['content'] = $this->twig->render('contact.html.twig', array('template' => 'ajax.content.html.twig','t' => $translations));
+            $res['scripts'] = $this->twig->render('contact.html.twig', array('template' => 'ajax.scripts.html.twig','t' => $translations));
             header('Content-Type: application/json');
             echo json_encode($res);
         } else {
             echo $this->twig->render('contact.html.twig', array(
                 'template' => 'base.html.twig',
-                'menu' => $menu[$sp[0]],
+                'menu' => $menu,
+                't' => $translations
             ));
         }
     }
 
     /**
-     * Contact page
+     * Contact send
      */
     public function contactSend($sp,$dp) {
         $res['status'] = 'error';
@@ -84,9 +89,27 @@ class SiteController
                 $res['message'] = $isSend;
             }
         }
-
         header('Content-Type: application/json');
         echo json_encode($res);
+    }
+
+    /**
+     * Get translation JS
+     */
+    public function jsTranslation($sp,$dp) {
+        $lang = $this->manager->testString($_GET['lang']);
+        $translation = $this->manager->getTranslations($lang);
+        header("Content-type: text/javascript");
+        echo "var translate = {";
+        $translationLenght = count($translation);
+        $i = 1;
+        foreach ($translation as $key=>$translate){
+            echo "\"".$key."\":\"".$translate."\"";
+            if($i<$translationLenght)
+                echo ",";
+            $i++;
+        }
+        echo "};";
     }
 
     /**

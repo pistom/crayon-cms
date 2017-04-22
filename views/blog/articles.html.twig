@@ -13,7 +13,7 @@
                         </h1>
                         <div class="blog__articlesListItemFirstIntro">
                             <p>{{ article.intro }}</p>
-                            <a class="btn btn--blue" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">Read article</a>
+                            <a class="btn btn--blue" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ t.read_article }}</a>
                         </div>
                     </div>
                 {% elseif loop.index <= 4 %}
@@ -26,7 +26,7 @@
                             <span class="blog__articlesListItemDate">{{ article.publication_date|date("d/m/Y") }}</span>
                             <p>{{ article.intro }}</p>
                             <p class="blog__articlesListItemMore">
-                                <a class="btn btn--blue btn--small" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">Read article</a>
+                                <a class="btn btn--blue btn--small" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ t.read_article }}</a>
                             </p>
                         </div>
                     </div>

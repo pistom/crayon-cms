@@ -16,39 +16,42 @@ if($_POST){
         $item = $app->getManager()->testString($item);
         if($i == 0){
             $menuName = $item;
-            $menu[$menuName] = array();
+            $menu[$menuName]['items'] = array();
+        }
+        else if($i == 1) {
+            $menu[$menuName]['lang'] = $item;
         } else {
-            if($i%3 == 1){
+            if($i%3 == 2){
                 $menuItem = $item;
             }
-            if($i%3 == 2){
+            if($i%3 == 0){
                 if($item == '--')
                     $menuParent = null;
                 else
                     $menuParent = $item;
             }
-            if($i%3 == 0){
+            if($i%3 == 1){
                 if($item == '')
                     $menuOrder = 0;
                 else
                     $menuOrder = (int)$item;
 
                 if(!$menuParent){
-                    if(!isset($menu[$menuName][$menuItem]))
-                        $menu[$menuName][$menuItem] = array();
-                    if(!isset($menu[$menuName][$menuItem]['order']))
-                        $menu[$menuName][$menuItem] = array();
-                    $menu[$menuName][$menuItem]['order'] = $menuOrder;
+                    if(!isset($menu[$menuName]['items'][$menuItem]))
+                        $menu[$menuName]['items'][$menuItem] = array();
+                    if(!isset($menu[$menuName]['items'][$menuItem]['order']))
+                        $menu[$menuName]['items'][$menuItem] = array();
+                    $menu[$menuName]['items'][$menuItem]['order'] = $menuOrder;
                 } else {
-                    if(!isset($menu[$menuName][$menuParent]))
-                        $menu[$menuName][$menuParent] = array('order'=>0);
-                    if(!isset($menu[$menuName][$menuParent][$menuItem]))
-                        $menu[$menuName][$menuParent][$menuItem] = array();
+                    if(!isset($menu[$menuName]['items'][$menuParent]))
+                        $menu[$menuName]['items'][$menuParent] = array('order'=>0);
+                    if(!isset($menu[$menuName]['items'][$menuParent][$menuItem]))
+                        $menu[$menuName]['items'][$menuParent][$menuItem] = array();
 
-                    if(!isset($menu[$menuName][$menuParent][$menuItem]['order']))
-                        $menu[$menuName][$menuParent][$menuItem] = array("order"=>$menuOrder);
+                    if(!isset($menu[$menuName]['items'][$menuParent][$menuItem]['order']))
+                        $menu[$menuName]['items'][$menuParent][$menuItem] = array("order"=>$menuOrder);
                     else
-                        $menu[$menuName][$menuParent][$menuItem]['order'] = $menuOrder;
+                        $menu[$menuName]['items'][$menuParent][$menuItem]['order'] = $menuOrder;
                 }
                 $menuParent = null;
                 $menuOrder = null;
@@ -67,16 +70,17 @@ function cmp($a, $b)
         return 0;
     return ($i < $j) ? -1 : 1;
 }
-foreach ($menu[$menuName] as &$subMenu){
+foreach ($menu[$menuName]['items'] as &$subMenu){
     uasort($subMenu,"cmp");
 }
-uasort($menu[$menuName],"cmp");
+uasort($menu[$menuName]['items'],"cmp");
 
 unset($menus[$oldMenuName]);
 
 
-$menus[$menuName] = $menu[$menuName];
 
+$menus[$menuName] = $menu[$menuName];
+//var_dump($menus);
 $app->getManager()->saveMenusList($menus);
 
 

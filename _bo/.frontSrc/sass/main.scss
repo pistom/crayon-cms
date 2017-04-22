@@ -126,7 +126,7 @@ hr {
         color: $cl-white;
         background-color: darken($cl-blue,3);
         &:before {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           bottom: 0;

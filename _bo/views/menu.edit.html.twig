@@ -4,6 +4,11 @@
     <h1>Menu</h1>
     <form action="" id="menuForm">
     <input name="menu-name" type="text" value="{{ menuName }}">
+    <select class="input--narrow" name="menu-lang" type="text" value="{{ menu.lang }}">
+        {% for key,lang in languages  %}
+            <option value="{{ key }}" {{ key == menu.lang ? 'selected' : '' }}>{{ lang }}</option>
+        {% endfor %}
+    </select>
     <table>
         <colgroup>
             <col>
@@ -22,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-        {% if menu is null %}
+        {% if menu.items is null %}
             <tr data-index="1">
                 <td>1.</td>
                 <td>
@@ -48,7 +53,7 @@
             </tr>
         {% else %}
             {% set iterator = 1 %}
-            {% for key,item in menu %}
+            {% for key,item in menu.items %}
                         <tr data-index="{{ iterator }}">
                             <td>{{ iterator }}.</td>
                             <td>

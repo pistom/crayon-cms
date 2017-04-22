@@ -6,6 +6,7 @@ $app->dieIfNotAdmin();
 $routes = $app->getManager()->getRoutesList();
 $menu = null;
 $menuName = '';
+$languages = $app->getManager()->getLanguagesList();
 if(isset($_GET['menu'])) {
     $menus = $app->getManager()->getMenusList();
     $menuName = $app->getManager()->testString($_GET['menu']);
@@ -16,5 +17,6 @@ echo $app->twig->render('menu.edit.html.twig', array(
     'menu' => $menu,
     'menuName' => $menuName,
     'routes' => $routes,
-    'menuPage' => 'menus'
+    'menuPage' => 'menus',
+    'languages' => $languages
 ));

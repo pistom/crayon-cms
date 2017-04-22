@@ -15,6 +15,7 @@ class BlogController extends SiteController {
         $category = $this->manager->getCategory($categoryId);
         $menuName = (isset($sp[1])) ? $sp[1] : $category['menu'];
         $menu = $this->manager->getMenu($menuName);
+        $translations = $this->manager->getTranslations($menu['lang']);
         $articles = $this->manager->getArticles($categoryId,$page,$menuName,null,true);
 
 
@@ -23,7 +24,8 @@ class BlogController extends SiteController {
                 'currentPageNumber' => $page,
                 'template' => 'ajax.content.html.twig',
                 'articles' => $articles['results'],
-                'pagination' => $articles['paginator']
+                'pagination' => $articles['paginator'],
+                't' => $translations
             ));
             $res['bodyClass'] = 'blog';
             header('Content-Type: application/json');
@@ -37,7 +39,8 @@ class BlogController extends SiteController {
                 'pageTitle' => 'Blog',
                 'pageDescription' => 'Desc',
                 'menu' => $menu,
-                'pagination' => $articles['paginator']
+                'pagination' => $articles['paginator'],
+                't' => $translations
             ));
         }
 
@@ -48,6 +51,7 @@ class BlogController extends SiteController {
         try {
             $category = $this->manager->getCategory($article['category_id']);
             $menu = $this->manager->getMenu($category['menu']);
+            $translations = $this->manager->getTranslations($menu['lang']);
         } catch(\ErrorException $e){
             header($_SERVER["SERVER_PROTOCOL"].' 404 Not Found');
             $this->error404();
@@ -57,12 +61,14 @@ class BlogController extends SiteController {
         if($this->request['isAjax']){
             $res['contentTitle'] = $this->twig->render('blog/article.html.twig', array(
                 'template' => 'ajax.contentTitle.html.twig',
-                'article' => $article
+                'article' => $article,
+                't' => $translations
             ));
             $res['content'] = $this->twig->render('blog/article.html.twig', array(
                 'template' => 'ajax.content.html.twig',
                 'article' => $article,
-                'category' => $category
+                'category' => $category,
+                't' => $translations
             ));
             $res['bodyClass'] = 'blog';
             header('Content-Type: application/json');
@@ -75,7 +81,8 @@ class BlogController extends SiteController {
                 'pageTitle' => 'Blog',
                 'pageDescription' => 'Desc',
                 'menu' => $menu,
-                'category' => $category
+                'category' => $category,
+                't' => $translations
             ));
         }
     }

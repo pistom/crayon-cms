@@ -1,0 +1,14 @@
+{
+  "read_article": {"en":"Read article","pl":"Czytaj artykuł"},
+  "contact": {"en":"Contact","pl":"Kontakt"},
+  "contact_form": {"en":"Contact form","pl":"Formularz kontaktowy"},
+  "email": {"en":"E-mail","pl":"E-mail"},
+  "message": {"en":"Message","pl":"Wiadomość"},
+  "thank_you": {"en":"Thank you","pl":"Dziękuję"},
+  "error": {"en":"Error","pl":"Błąd"},
+  "message_sent":{"en":"Message was sent","pl":"Wiadomość została wysłana"},
+  "message_not_sent":{"en":"Failed to send the message","pl":"Nie udało się wysłać wiadomości"},
+  "server_connect_error":{"en":"I can not connect to the server","pl":"Nie udało się połączyć z serwerem"},
+  "email_placeholder":{"en":"your e-mail address","pl":"podaj swój adres email"},
+  "message_placeholder":{"en":"enter your message","pl":"wprowadź wiadomość"}
+}

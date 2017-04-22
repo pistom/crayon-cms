@@ -46,6 +46,19 @@ class boManager {
         fclose($fp);
     }
 
+    public function getLanguagesList(){
+        $json_data = file_get_contents('../data/languages.json');
+        $languages = json_decode($json_data, true);
+        return $languages;
+    }
+
+    public function getTranslations(){
+        $json_data = file_get_contents('../data/translations.json');
+        $translations = json_decode($json_data, true);
+        return $translations;
+    }
+
+
     public function getPagesList(){
         $results = array();
         $pages = glob('../data/pages/*.json');
@@ -252,6 +265,8 @@ class boManager {
         }
         rrmdir($dir);
     }
+
+
 
 
 }
