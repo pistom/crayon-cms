@@ -131,6 +131,7 @@ hr {
       width: 240px;
       position: relative;
       transition: all .25s ease;
+      font-size: 1rem;
       &.active {
         color: $cl-white;
         background-color: darken($cl-blue,3);

@@ -10,6 +10,11 @@
   clear: both;
 }
 
+/* line 7, ../sass/fonts.scss */
+.text--right {
+  text-align: right;
+}
+
 /* line 22, ../sass/pages.scss */
 .page__block {
   min-height: 45px;

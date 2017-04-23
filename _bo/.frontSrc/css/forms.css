@@ -10,14 +10,23 @@
   clear: both;
 }
 
+/* line 7, ../sass/fonts.scss */
+.text--right {
+  text-align: right;
+}
+
 /* line 21, ../sass/forms.scss */
 label {
   color: #9eb5cc;
   font-size: .75rem;
   line-height: 1.5rem;
+  padding: 2px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-/* line 26, ../sass/forms.scss */
+/* line 29, ../sass/forms.scss */
 input[type="text"],
 input[type="date"],
 input[type="datetime"],
@@ -37,7 +46,7 @@ select {
   font-size: 1rem;
   margin: 4px 0 8px;
 }
-/* line 43, ../sass/forms.scss */
+/* line 46, ../sass/forms.scss */
 input[type="text"].code,
 input[type="date"].code,
 input[type="datetime"].code,
@@ -48,7 +57,7 @@ input[type="color"].code,
 select.code {
   font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }
-/* line 47, ../sass/forms.scss */
+/* line 50, ../sass/forms.scss */
 input[type="text"].input--narrow,
 input[type="date"].input--narrow,
 input[type="datetime"].input--narrow,
@@ -60,7 +69,7 @@ select.input--narrow {
   width: auto;
 }
 
-/* line 52, ../sass/forms.scss */
+/* line 55, ../sass/forms.scss */
 input[type="color"] {
   min-height: 30px;
   width: 70px;
@@ -68,12 +77,12 @@ input[type="color"] {
   background: transparent;
 }
 
-/* line 58, ../sass/forms.scss */
+/* line 61, ../sass/forms.scss */
 input[disabled] {
   background: #e1e8ef;
 }
 
-/* line 61, ../sass/forms.scss */
+/* line 64, ../sass/forms.scss */
 table input[type="text"],
 table input[type="password"],
 table input[type="date"],
@@ -84,7 +93,7 @@ table select {
   font-size: 0.9rem;
 }
 
-/* line 70, ../sass/forms.scss */
+/* line 73, ../sass/forms.scss */
 textarea {
   border: 1px solid #e1e8ef;
   font-family: "Muli", sans-serif;
@@ -97,11 +106,11 @@ textarea {
   margin: 4px 0 8px;
   height: 100px;
 }
-/* line 80, ../sass/forms.scss */
+/* line 83, ../sass/forms.scss */
 textarea.pageContent {
   height: 500px;
 }
-/* line 83, ../sass/forms.scss */
+/* line 86, ../sass/forms.scss */
 textarea.code {
   font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }

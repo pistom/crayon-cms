@@ -10,6 +10,11 @@
   clear: both;
 }
 
+/* line 7, ../sass/fonts.scss */
+.text--right {
+  text-align: right;
+}
+
 /* line 56, sprites/*.png */
 .sprites-sprite, .no-svg .msgWindowClose {
   background-image: url('../images/sprites-s758c60f046.png');

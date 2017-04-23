@@ -266,7 +266,31 @@ class boManager {
         rrmdir($dir);
     }
 
+    public function saveTranslation($key,$translation,$old_key=null){
+        copy('../data/translations.json', '../data/tmp/translations-tmp-'.date('YmdHis').'.json');
+        $translations = $this->getTranslations();
+        if($old_key) unset($translations[$old_key]);
+        $translations[$key] = $translation;
+        ksort($translations);
+        $fp = fopen('../data/translations.json', 'w');
+        fwrite($fp, json_encode($translations));
+        fclose($fp);
+    }
 
+    public function deleteTranslation($key) {
+        copy('../data/translations.json', '../data/tmp/translations-tmp-'.date('YmdHis').'.json');
+        $translations = $this->getTranslations();
+        unset($translations[$key]);
+        $fp = fopen('../data/translations.json', 'w');
+        fwrite($fp, json_encode($translations));
+        fclose($fp);
+    }
 
+    public function saveLanguages($languages){
+        copy('../data/languages.json', '../data/tmp/languages-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/languages.json', 'w');
+        fwrite($fp, json_encode($languages));
+        fclose($fp);
+    }
 
 }

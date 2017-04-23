@@ -10,6 +10,11 @@
   clear: both;
 }
 
+/* line 7, ../sass/fonts.scss */
+.text--right {
+  text-align: right;
+}
+
 /* line 21, ../sass/btns.scss */
 .btn {
   border: 1px solid #e1e8ef;

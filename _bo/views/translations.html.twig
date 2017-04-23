@@ -2,15 +2,15 @@
 {% block content %}
     <h1>Translations</h1>
 
-    <table>
+    <table class="lang__translations">
         <colgroup>
-            <col style="width: 240px">
+            <col style="width: 20px">
             <col>
             <col>
         </colgroup>
         <thead>
             <tr>
-                <th>Code</th>
+                <th>#</th>
                 <th>Translation</th>
                 <th>Action</th>
             </tr>
@@ -18,35 +18,42 @@
         <tbody>
         {% for key,translate in translations %}
             <tr data-index="{{ loop.index }}">
-                <form action="">
-                    <td>
-                        <label for="input_{{ key }}">Key</label>
-                        <input name="key" id="input_{{ key }}" class="input--narrow" type="text" value="{{ key }}"/>
-                        <input name="old_key" type="hidden" value="{{ key }}">
-                    </td>
-                    <td>
-                        <table class="lang__translations">
-                        {% for code,lang in languages  %}
-                            <tr>
-                                <td>
-                                    <label for="{{ loop.parent.loop.index }}_translate_{{ code }}">{{ lang }}</label>
-                                </td>
-                                <td>
-                                    <input name="{{ code }}" id="{{ loop.parent.loop.index }}_translate_{{ code }}" class="input--narrow" type="text" value="{{ translate[code] }}"/>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </table>
-                    </td>
-                </form>
-                <td><a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a></td>
+                <td></td>
+                <td colspan="2">
+                    <form action="" id="form_{{ loop.index }}">
+                        <div class="row">
+                            <div class="col-t-25">
+                                <label for="input_{{ key }}">Key</label>
+                                <input name="key" id="input_{{ key }}" class="input--narrow" type="text" value="{{ key }}"/>
+                                <input name="old_key" type="hidden" value="{{ key }}">
+                            </div>
+                            <div class="col-t-50">
+                                <div class="lang__translations">
+                                    {% for code,lang in languages  %}
+                                        <div class="row">
+                                            <div class="col-t-25">
+                                                <label for="{{ loop.parent.loop.index }}_translate_{{ code }}">{{ lang }} ({{ code }})</label>
+                                            </div>
+                                            <div class="col-t-75">
+                                                <input name="{{ code }}" id="{{ loop.parent.loop.index }}_translate_{{ code }}" class="input--narrow" type="text" value="{{ translate[code] }}"/>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-t-25 text--right">
+                                <button data-action="save" type="submit" class="btn btn--green btn--small" data-item="{{ key }}">Save</button>
+                                <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a>
+                            </div>
+                        </div>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="1"></td>
-                <td colspan="2"><a href="#" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
+                <td colspan="3"><a data-action="add" href="#" class="btn btn--azure" style="float:right"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
             </tr>
         </tfoot>
     </table>
@@ -62,7 +69,7 @@
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
                 if(confirm("Are you sure?")){
-                    atomic.post('language.delete.php','lang='+e.target.dataset.item)
+                    atomic.post('translation.delete.php','key='+e.target.dataset.item)
                         .success(function(data){
                             if(data.status == 'success')
                                 showMessage('success','Done','Data has been saved');
@@ -75,6 +82,22 @@
                 } else {
                     location.reload();
                 }
+            } else if(e.target.dataset.action == 'save') {
+                e.preventDefault();
+                var form = e.target.form;
+                var data = serializeFormData(form);
+                atomic.post('translation.save.php',data)
+                    .success(function(data){
+                        if(data.status == 'success'){
+                            showMessage('success','Done','Data has been saved');
+                            form.old_key.value = form.key.value;
+                        }
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    });
             }
         },false);
     </script>

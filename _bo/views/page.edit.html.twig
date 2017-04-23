@@ -30,7 +30,7 @@
             <div class="page__block">
                 <label class="page__blockLabel" for="pageMenu">Menu</label>
                 <div class="page__blockInput">
-                    <select name="pageMenu" id="pageMenu" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
+                    <select name="pageMenu" class="input--narrow" id="pageMenu" {{ userRole != 'admin' ? 'readonly disabled' : '' }}>
                         {% for key,menu in menus %}
                             <option value="{{ key }}" {{ key==page.menu ? 'selected' : '' }}>{{ key }}</option>
                         {% endfor %}
@@ -55,7 +55,7 @@
             </div>
             {% if pageName == '' %}
             <div id="addRouteBlock">
-                <label class="page__blockLabel" for="addRoute"><input id="addRoute" type="checkbox" name="addRoute" value="true" checked>Add route</label>
+                <label class="page__blockLabel" for="addRoute"><input id="addRoute" type="checkbox" name="addRoute" value="true" checked>Create route</label>
                 <div class="page__blockInput">
                     <table>
                         <thead>

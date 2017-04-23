@@ -1,40 +1,50 @@
 {% extends "base.html.twig" %}
 {% block content %}
     <h1>Languages</h1>
-
-    <table>
-        <colgroup>
-            <col style="width: 20px">
-            <col>
-            <col>
-        </colgroup>
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Language</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for key,lang in languages %}
-            <tr>
-                <td>{{ key }}</td>
-                <td><a href="language.edit.php?lang={{ key }}">{{ lang }}</a></td>
-                <td>
-                    <a href="language.edit.php?lang={{ key }}" class="btn btn--green btn--small">Edit</a>
-                    <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="2"></td>
-                <td><a href="language.edit.php" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
-            </tr>
-        </tfoot>
-    </table>
-
+    <form action="" id="languagesForm">
+        <table>
+            <colgroup>
+                <col style="width: 20px">
+                <col style="width: 120px">
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Code</th>
+                    <th>Language name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for key,lang in languages %}
+                <tr data-index="{{ loop.index }}">
+                    <td></td>
+                    <td><input class="input--narrow" type="text" name="r{{ loop.index }}-code" value="{{ key }}"></td>
+                    <td><input type="text" name="r{{ loop.index }}-name" value="{{ lang }}"></td>
+                    <td>
+                        <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">
+                        <a href="" class="btn btn--azure" data-action="add"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">
+                        <a href="" class="btn btn--green" data-action="save"><i class="fa fa-save" aria-hidden="true"></i> Save</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
 
 
 
@@ -46,7 +56,7 @@
         document.body.addEventListener("click",function(e){
             if(e.target.dataset.action == 'delete'){
                 if(confirm("Are you sure?")){
-                    atomic.post('language.delete.php','lang='+e.target.dataset.item)
+                    atomic.post('language.delete.php','code='+e.target.dataset.item)
                         .success(function(data){
                             if(data.status == 'success')
                                 showMessage('success','Done','Data has been saved');
@@ -59,6 +69,19 @@
                 } else {
                     location.reload();
                 }
+            } else if(e.target.dataset.action == 'save'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('languagesForm'));
+                atomic.post('languages.save.php',data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    });
             }
         },false);
     </script>

@@ -10,6 +10,11 @@
   clear: both;
 }
 
+/* line 7, ../sass/fonts.scss */
+.text--right {
+  text-align: right;
+}
+
 /* line 21, ../sass/tables.scss */
 table {
   width: 100%;
@@ -49,12 +54,8 @@ table tfoot tr td {
   border-bottom: none;
   font-size: .9rem;
 }
-/* line 74, ../sass/tables.scss */
-table .lang__translations tr td {
-  border-bottom: none;
-  padding: 0;
-}
-/* line 77, ../sass/tables.scss */
-table .lang__translations tr td:last-child {
+
+/* line 76, ../sass/tables.scss */
+.lang__translations tr td:last-child {
   text-align: inherit;
 }

@@ -68,15 +68,13 @@ table {
       }
     }
   }
-  .lang {
-    &__translations {
-      tr {
-        td {
-          border-bottom: none;
-          padding:0;
-          &:last-child {
-            text-align:inherit;
-          }
+}
+.lang {
+  &__translations {
+    tr {
+      td {
+        &:last-child{
+          text-align:inherit;
         }
       }
     }
