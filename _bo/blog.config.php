@@ -5,6 +5,6 @@ $app->dieIfNotAdmin();
 $config = $app->getManager()->getBlogConfig();
 
 echo $app->twig->render('blog.config.html.twig', array(
-    'menuPage' => 'blog',
+    'menuPage' => 'blog.s',
     'config' => $config
 ));

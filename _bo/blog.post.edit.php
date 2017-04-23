@@ -16,6 +16,6 @@ if(isset($_GET['postId'])) {
 echo $app->twig->render('blog.post.edit.html.twig', array(
     'post' => $post,
     'categories' => $categories,
-    'menuPage' => 'blog',
+    'menuPage' => 'blog.p',
     'now' => new \DateTime
 ));

@@ -5,6 +5,6 @@ $app->dieIfNotAdmin();
 $categories = $app->getManager()->getBlogCategories();
 
 echo $app->twig->render('blog.categories.html.twig', array(
-    'menuPage' => 'blog',
+    'menuPage' => 'blog.c',
     'categories' => $categories
 ));

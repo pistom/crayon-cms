@@ -16,5 +16,5 @@ if(isset($_GET['category'])) {
 echo $app->twig->render('blog.category.edit.html.twig', array(
     'category' => $category,
     'menus' => $menus,
-    'menuPage' => 'blog',
+    'menuPage' => 'blog.c',
 ));

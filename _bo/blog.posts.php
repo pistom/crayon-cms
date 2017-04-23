@@ -13,7 +13,7 @@ $categories = $app->getManager()->getBlogCategories();
 echo $app->twig->render('blog.posts.html.twig', array(
     'posts' => $posts,
     'categories' => $categories,
-    'menuPage' => 'blog',
+    'menuPage' => 'blog.p',
     'currentPage' => $page,
     'articlesPerPage' => $articlesPerPage
 ));

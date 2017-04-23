@@ -8,5 +8,5 @@ $translations = $app->getManager()->getTranslations();
 
 echo $app->twig->render('translations.html.twig', array(
     'translations' => $translations,
-    'menuPage' => 'internationalization'
+    'menuPage' => 'inter.t'
 ));

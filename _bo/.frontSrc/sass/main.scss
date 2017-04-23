@@ -107,13 +107,22 @@ hr {
       text-align: center;
     }
     li {
-      &:hover {
-        .aside__navSubMenu {
-          max-height:200px;
+      input:checked {
+        &+.aside__navSubMenu {
+          max-height:110px;
+        }
+      }
+      label.active {
+        &+input+.aside__navSubMenu {
+          max-height:110px;
         }
       }
     }
+    input {
+      display: none;
+    }
     &Item {
+      cursor: pointer;
       font-family: $font-primary;
       color: $cl-blue-light;
       padding: 15px;
@@ -155,6 +164,10 @@ hr {
       width: 100%;
       position: relative;
       transition: all .25s ease;
+      &.active {
+        color: $cl-white;
+        background-color: darken($cl-blue, 3);
+      }
       &:hover {
         background-color: lighten($cl-blue,5);
       }

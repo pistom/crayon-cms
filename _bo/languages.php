@@ -8,5 +8,5 @@ $languages = $app->getManager()->getLanguagesList();
 
 echo $app->twig->render('languages.html.twig', array(
     'languages' => $languages,
-    'menuPage' => 'internationalization'
+    'menuPage' => 'inter.l'
 ));
