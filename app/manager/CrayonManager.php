@@ -14,8 +14,10 @@ class CrayonManager {
     }
 
     protected function getSiteConfig(){
-        $json_data = (file_exists('data/config.json')) ? 'data/config.json' : '../data/config.json';
-        return json_decode($json_data, true);
+        $file = (file_exists('data/config.json')) ? 'data/config.json' : '../data/config.json';
+        $json_data = file_get_contents($file);
+        $config = json_decode($json_data, true);
+        return $config;
     }
 
     public function getBlogConfig(){
@@ -147,7 +149,7 @@ class CrayonManager {
 
     protected function getMailConfig(){
         $this->mailer->SMTPDebug = 0;
-        if ($this->config['mail_is_smtp']){
+        if ($this->config['mail_is_smtp']) {
             $this->mailer->isSMTP();
             $this->mailer->Host = $this->config['mail_host'];
             $this->mailer->SMTPAuth = $this->config['mail_smtp_auth'];
