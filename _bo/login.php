@@ -22,17 +22,10 @@ else :
     // SETTINGS
     $json_data = file_get_contents('../data/config.json');
     $settings = json_decode($json_data, true);
-    if($settings['dev_mode']){
-        $settings['twig_cache'] = false;
-        $settings['twig_debug'] = true;
-    } else {
-        $settings['twig_cache'] = 'cache';
-        $settings['twig_debug'] = false;
-    }
 
     require_once '../vendor/autoload.php';
     $loader = new Twig_Loader_Filesystem('views');
-    $twig = new Twig_Environment($loader, array('cache' => $settings['twig_cache'],'debug' => $settings['twig_debug']));
+    $twig = new Twig_Environment($loader, array('cache' => false,'debug' => false));
     echo $twig->render('login.html.twig', array(
         'siteName' => $settings['site_name'],
         'siteColor' => $settings['site_color']
