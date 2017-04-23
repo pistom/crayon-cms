@@ -4,9 +4,11 @@ $app = new \CrayonBo\CrayonBo();
 $app->dieIfNotAdmin();
 
 $translations = $app->getManager()->getTranslations();
+$languages = $app->getManager()->getLanguagesList();
 
 
 echo $app->twig->render('translations.html.twig', array(
     'translations' => $translations,
-    'menuPage' => 'inter.t'
+    'menuPage' => 'inter.t',
+    'languages' => $languages
 ));

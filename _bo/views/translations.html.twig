@@ -4,7 +4,7 @@
 
     <table>
         <colgroup>
-            <col style="width: 20px">
+            <col style="width: 240px">
             <col>
             <col>
         </colgroup>
@@ -17,12 +17,28 @@
         </thead>
         <tbody>
         {% for key,translate in translations %}
-            <tr>
-                <td><code>{{ key }}</code></td>
-                <td>
-                    EN: <input class="input--narrow" type="text" value="{{ translate.en }}"/><br>
-                    PL: <input class="input--narrow" type="text" value="{{ translate.pl }}"/>
-                </td>
+            <tr data-index="{{ loop.index }}">
+                <form action="">
+                    <td>
+                        <label for="input_{{ key }}">Key</label>
+                        <input name="key" id="input_{{ key }}" class="input--narrow" type="text" value="{{ key }}"/>
+                        <input name="old_key" type="hidden" value="{{ key }}">
+                    </td>
+                    <td>
+                        <table class="lang__translations">
+                        {% for code,lang in languages  %}
+                            <tr>
+                                <td>
+                                    <label for="{{ loop.parent.loop.index }}_translate_{{ code }}">{{ lang }}</label>
+                                </td>
+                                <td>
+                                    <input name="{{ code }}" id="{{ loop.parent.loop.index }}_translate_{{ code }}" class="input--narrow" type="text" value="{{ translate[code] }}"/>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </table>
+                    </td>
+                </form>
                 <td><a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a></td>
             </tr>
         {% endfor %}

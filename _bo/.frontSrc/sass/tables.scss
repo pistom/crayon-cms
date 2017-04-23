@@ -68,4 +68,17 @@ table {
       }
     }
   }
+  .lang {
+    &__translations {
+      tr {
+        td {
+          border-bottom: none;
+          padding:0;
+          &:last-child {
+            text-align:inherit;
+          }
+        }
+      }
+    }
+  }
 }
