@@ -5,9 +5,11 @@
 .sass-cache
 .vscode
 .idea
-/data/config.json
-/views/pages/*
-!/views/pages/index.html
+/data/*.json
+/data/blog/*.json
+/data/blog/articles/*.html.twig
+/data/pages/*.json
+/views/pages/*.html.twig
 
 
 /_bo/node_modules
