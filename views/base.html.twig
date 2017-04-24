@@ -32,7 +32,7 @@
         <div class="mainHeader__brand"></div>
         <div class="mainHeader__title">{{ settings['site_name'] }}</div>
         <div class="mainHeader__lang">
-            <a href="{{ routes['blog'].path }}">EN</a> | <a href="{{ routes['blog_pl'].path }}">PL</a>
+            {% include 'languageSwitcher.html.twig' with {'languages':languages} %}
         </div>
     </div>
 

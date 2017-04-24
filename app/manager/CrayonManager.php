@@ -162,4 +162,10 @@ class CrayonManager {
         $this->mailer->FromName = $this->config['site_name'];
         $this->mailer->CharSet = 'UTF-8';
     }
+
+    public function getLanguagesList(){
+        $json_data = file_get_contents('data/languages.json');
+        $languages = json_decode($json_data, true);
+        return $languages;
+    }
 }

@@ -17,8 +17,6 @@
 /views/tmp/pages/*.html.twig
 /images/*
 !/images/index.html
-
-
 /_bo/node_modules
 /_bo/.sass-cache
 /_bo/.vscode

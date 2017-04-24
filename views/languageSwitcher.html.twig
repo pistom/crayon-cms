@@ -1,0 +1,3 @@
+{% for code,lang in languages  %}
+    <a href="{{ routes[lang[1]].path }}">{{ code|upper }}</a>
+{% endfor %}

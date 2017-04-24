@@ -6,7 +6,7 @@
     <input name="menu-name" type="text" value="{{ menuName }}">
     <select class="input--narrow" name="menu-lang" type="text" value="{{ menu.lang }}">
         {% for key,lang in languages  %}
-            <option value="{{ key }}" {{ key == menu.lang ? 'selected' : '' }}>{{ lang }}</option>
+            <option value="{{ key }}" {{ key == menu.lang ? 'selected' : '' }}>{{ lang[0] }}</option>
         {% endfor %}
     </select>
     <table>

@@ -14,6 +14,7 @@ class SiteController
         $this->request = $ctrlParams['request'];
         $this->manager = new \Crayon\CrayonManager();
         $this->siteConfig = $ctrlParams['settings'];
+        $this->twig->addGlobal('languages',$this->manager->getLanguagesList());
     }
 
     /**

@@ -5,12 +5,17 @@ $manager = $app->getManager();
 
 $languages = array();
 $code = '';
-$i=1;
+$name = '';
+$home = '';
+$i=0;
 foreach ($_POST as $item){
-    if($i%2 == 1)
+    if($i%3 == 0)
         $code = $item;
-    if($i%2 == 0){
-        $languages[$code] = $item;
+    if($i%3 == 1)
+        $name = $item;
+    if($i%3 == 2){
+        $home = $item;
+        $languages[$code] = array($name,$home);
     }
     $i++;
 }

@@ -360,3 +360,19 @@ blockquote.citation:before, blockquote.citation:after {
   top: 0;
   right: 0;
 }
+/* line 6, ../sass/mixins/_clearfix.scss */
+.mainHeader__lang:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 54, ../sass/header.scss */
+.mainHeader__lang a {
+  float: left;
+  padding: 2px 10px;
+  border-left: 1px solid #222f3c;
+}
+/* line 58, ../sass/header.scss */
+.mainHeader__lang a:first-child {
+  border-left: none;
+}

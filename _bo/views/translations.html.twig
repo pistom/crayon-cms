@@ -32,7 +32,7 @@
                                     {% for code,lang in languages  %}
                                         <div class="row">
                                             <div class="col-t-25">
-                                                <label for="{{ loop.parent.loop.index }}_translate_{{ code }}">{{ lang }} ({{ code }})</label>
+                                                <label for="{{ loop.parent.loop.index }}_translate_{{ code }}">{{ lang[0] }} ({{ code }})</label>
                                             </div>
                                             <div class="col-t-75">
                                                 <input name="{{ code }}" id="{{ loop.parent.loop.index }}_translate_{{ code }}" class="input--narrow" type="text" value="{{ translate[code] }}"/>
