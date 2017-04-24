@@ -9,11 +9,11 @@
                     <div class="blog__articlesListItemFirst text-center" style="background-image:url(/images/pages/{{ article.main_image }})">
                         <p class="blog__articlesListItemFirstDate" style="color:{{ article.title_color }}">{{ article.publication_date|date("d/m/Y") }}</p>
                         <h1 class="title">
-                            <a style="color:{{ article.title_color }}" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a>
+                            <a style="color:{{ article.title_color }}" href="/blog/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a>
                         </h1>
                         <div class="blog__articlesListItemFirstIntro">
                             <p>{{ article.intro }}</p>
-                            <a class="btn btn--blue" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ t.read_article }}</a>
+                            <a class="btn btn--blue" href="/blog/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ t.read_article }}</a>
                         </div>
                     </div>
                 {% elseif loop.index <= 4 %}
@@ -22,18 +22,18 @@
                             <img class="img--responsive" src="/images/pages/{{ article.intro_image }}" alt="">
                         </div>
                         <div class="col-t-66 col-d-75">
-                            <h3 class="title title--2 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
+                            <h3 class="title title--2 title--blue"><a href="/blog/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
                             <span class="blog__articlesListItemDate">{{ article.publication_date|date("d/m/Y") }}</span>
                             <p>{{ article.intro }}</p>
                             <p class="blog__articlesListItemMore">
-                                <a class="btn btn--blue btn--small" href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ t.read_article }}</a>
+                                <a class="btn btn--blue btn--small" href="/blog/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ t.read_article }}</a>
                             </p>
                         </div>
                     </div>
                     {% else %}
                     <div class="row">
                         <div class="">
-                            <h3 class="title title--3 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
+                            <h3 class="title title--3 title--blue"><a href="/blog/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
                         </div>
                         <div class="blog__articlesListItemImageIntro">
                             <span class="blog__articlesListItemDate">{{ article.publication_date|date("d/m/Y") }}</span>
@@ -44,7 +44,7 @@
             {% else %}
                 <div class="row row-d-o1">
                     <div>
-                        <h3 class="title title--3 title--blue"><a href="/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
+                        <h3 class="title title--3 title--blue"><a href="/blog/{{ article.slug }}" title="{{ article.title }}" data-ajax="true">{{ article.title }}</a></h3>
                     </div>
                     <div class="blog__articlesListItemImageIntro">
                         <span class="blog__articlesListItemDate">{{ article.publication_date|date("d/m/Y") }}</span>

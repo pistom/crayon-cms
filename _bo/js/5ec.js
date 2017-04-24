@@ -188,6 +188,9 @@ var validateInput = function(input,pattern){
                     select[0].selected = 'selected';
                     var oldName = select.name;
                     select.name = oldName.replace(/r\d+-/,'r'+(lastItemNumber+1)+'-');
+                    [].forEach.call(select.getElementsByTagName('optgroup'),function(item){
+                        item.style.display = 'block';
+                    })
                 });
                 currentTableBody.appendChild(cln);
             }

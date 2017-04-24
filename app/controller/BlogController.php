@@ -48,13 +48,21 @@ class BlogController extends SiteController {
 
     public function article($sp,$dp){
         $article = $this->manager->getArticle($dp['article']);
-        try {
-            $category = $this->manager->getCategory($article['category_id']);
-            $menu = $this->manager->getMenu($category['menu']);
-            $translations = $this->manager->getTranslations($menu['lang']);
-        } catch(\ErrorException $e){
-            header($_SERVER["SERVER_PROTOCOL"].' 404 Not Found');
-            $this->error404();
+        $menu = $this->manager->getMenu();
+        if($article['content']){
+            try {
+                $category = $this->manager->getCategory($article['category_id']);
+                $menu = $this->manager->getMenu($category['menu']);
+                $translations = $this->manager->getTranslations($menu['lang']);
+            } catch(\ErrorException $e){
+                header($_SERVER["SERVER_PROTOCOL"].' 404 Not Found');
+                $this->error404();
+                die();
+            }
+        } else {
+            echo $this->twig->render('404.html.twig', array(
+                'menu' => $menu
+            ));
             die();
         }
 

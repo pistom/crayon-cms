@@ -2,3 +2,8 @@
 .text--right {
   text-align: right;
 }
+
+/* line 10, ../sass/fonts.scss */
+.text--small {
+  font-size: .75em;
+}

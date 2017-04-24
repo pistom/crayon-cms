@@ -6,6 +6,8 @@
 .vscode
 .idea
 /data/config.json
+/views/pages/*
+!/views/pages/index.html
 
 
 /_bo/node_modules

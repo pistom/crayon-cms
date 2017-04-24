@@ -15,6 +15,11 @@
   text-align: right;
 }
 
+/* line 10, ../sass/fonts.scss */
+.text--small {
+  font-size: .75em;
+}
+
 /* line 22, ../sass/pages.scss */
 .page__block {
   min-height: 45px;

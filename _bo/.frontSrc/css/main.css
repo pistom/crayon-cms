@@ -80,6 +80,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-align: right;
 }
 
+/* line 10, ../sass/fonts.scss */
+.text--small {
+  font-size: .75em;
+}
+
 /* line 22, ../sass/main.scss */
 body {
   background-color: white;

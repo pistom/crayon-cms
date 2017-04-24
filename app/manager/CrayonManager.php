@@ -105,10 +105,10 @@ class CrayonManager {
         return $category;
     }
 
-    public function getMenu($menuName){
+    public function getMenu($menuName=null){
         $menu_data = file_get_contents('data/menus.json');
         $menu = json_decode($menu_data, true);
-        return $menu[$menuName];
+        return ($menuName) ? $menu[$menuName] : array_shift($menu);
     }
 
     public function getTranslations($lang){

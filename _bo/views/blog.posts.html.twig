@@ -10,16 +10,19 @@
         <thead>
         <tr>
             <th>#</th>
+            <th>Publication</th>
             <th>Post</th>
+            <th>Category</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
         {% for post in posts.results %}
             <tr>
-
                 <td>{{ loop.index+(articlesPerPage*(currentPage-1)) }}.</td>
+                <td><span class="text--small">{{ post.publication_date|date("d/m/Y H:i") }}</span></td>
                 <td><a href="blog.post.edit.php?postId={{ post.id }}">{{ post.title }}</a></td>
+                <td>{{ categories[post.category_id].name }} </td>
                 <td>
                     <a href="blog.post.edit.php?postId={{ post.id }}" class="btn btn--green btn--small">Edit</a>
                     <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ post.id }}">Delete</a>
@@ -29,7 +32,7 @@
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="3"></td>
+            <td colspan="4"></td>
         </tr>
         </tfoot>
     </table>

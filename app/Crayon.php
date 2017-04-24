@@ -71,7 +71,9 @@ class Crayon {
                 $route,
                 $option['name']
             );
+            $routes[$route]['path'] = preg_replace('/\[.*:.*\]\?*\//','',$option['path']);
         }
+        $this->loadAdditionalRoutes();
         return $routes;
     }
 
@@ -94,12 +96,16 @@ class Crayon {
             $this->settings['twig_cache'] = 'cache';
             $this->settings['twig_debug'] = false;
         }
-
     }
 
     protected function loadTwig(){
         $loader = new \Twig_Loader_Filesystem('views');
         $this->twig = new \Twig_Environment($loader, array('cache' => $this->settings['twig_cache'],'debug' => $this->settings['twig_debug']));
         $this->twig->addExtension(new \Twig_Extension_Debug());
+    }
+
+    private function loadAdditionalRoutes(){
+        $this->router->map('POST','/contact/send','SiteController#contactSend','contact_send','Sending contact form');
+        $this->router->map('GET','/js/translation.js','SiteController#jsTranslation','js_translation','Getting translation for JS');
     }
 }

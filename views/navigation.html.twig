@@ -1,8 +1,7 @@
 <ul class="mainNavigation__list">
-
     {% set iterator = 1 %}
     {% for key,item in menu.items %}
-
+    {% spaceless %}
         <li class="mainNavigation__listItem{{ (currentMatch == routes[key].controller~'#'~routes[key].function~'#'~routes[key].variables) ? " active" : ""  }}">
             {% if routes[key].blind == 'true' %}
                 <span class="mainNavigation__listItemLink">{{ routes[key].name }}</span>
@@ -27,5 +26,6 @@
         {% endif %}
         </li>
         {% set iterator = iterator+1 %}
+    {% endspaceless %}
     {% endfor %}
 </ul>
