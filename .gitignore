@@ -15,6 +15,8 @@
 /data/pages/*.json
 /views/pages/*.html.twig
 /views/tmp/pages/*.html.twig
+/images/*
+!/images/index.html
 
 
 /_bo/node_modules
