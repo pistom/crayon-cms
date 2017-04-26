@@ -5,12 +5,12 @@
     RewriteBase /
     RewriteRule ^_bo/ - [L,NC]
 
-    #To force www header
-    RewriteCond %{HTTP_HOST} !^$
-    RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-    RewriteCond %{HTTPS} !on
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    #To force www header and ssl
+#    RewriteCond %{HTTP_HOST} !^$
+#    RewriteCond %{HTTP_HOST} !^www\. [NC]
+#    RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#    RewriteCond %{HTTPS} !on
+#    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]

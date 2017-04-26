@@ -5,7 +5,8 @@
     "require": {
         "phpmailer/phpmailer": "^5.2",
         "altorouter/altorouter": "^1.2",
-        "twig/twig": "~1.0"
+        "twig/twig": "~1.0",
+        "eventviva/php-image-resize": "^1.6"
     },
     "autoload": {
         "psr-4": {

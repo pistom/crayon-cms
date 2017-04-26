@@ -1,0 +1,56 @@
+/* line 13, ../sass/mixins/_clearfix.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 6, ../sass/mixins/_clearfix.scss */
+.clearfix2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, ../sass/fonts.scss */
+.text--right {
+  text-align: right;
+}
+
+/* line 10, ../sass/fonts.scss */
+.text--small {
+  font-size: .75em;
+}
+
+/* line 23, ../sass/files.scss */
+.files__manager .col-m-25 {
+  max-width: 120px;
+}
+@media (min-width: 768px) {
+  /* line 26, ../sass/files.scss */
+  .files__manager .col-t-25 {
+    max-width: 200px;
+  }
+}
+/* line 31, ../sass/files.scss */
+.files__managerWrapper {
+  padding: 0 5px 5px 0;
+}
+@media (min-width: 768px) {
+  /* line 31, ../sass/files.scss */
+  .files__managerWrapper {
+    padding: 0 15px 15px 0;
+  }
+}
+/* line 37, ../sass/files.scss */
+.files__managerImage {
+  height: 120px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-size: cover;
+  background-position: center center;
+}
+@media (min-width: 768px) {
+  /* line 37, ../sass/files.scss */
+  .files__managerImage {
+    height: 170px;
+  }
+}

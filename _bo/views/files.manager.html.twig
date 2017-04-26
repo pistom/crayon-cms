@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Manager</h1>
+    <a href="/_bo/files.manager.php?dir={{ upDir }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <ul>
+    {% for dir in dirs  %}
+        <li><h2><a href="/_bo/files.manager.php?dir={{ dir }}/"><i class="fa fa-folder" aria-hidden="true"></i> {{ dir }}</a></h2></li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <div class="row files__manager">
+        {% for file in files %}
+            <div class="col-m-50 col-t-25">
+                <div class="files__managerWrapper">
+                    <div class="files__managerImage" style="background-image:url('../images/pages/{{ file }}');"></div>
+                    <div class="files__managerFileName"><p class="text--small">{{ file }}</p></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

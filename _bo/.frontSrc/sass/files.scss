@@ -1,0 +1,48 @@
+@import "compass";
+@import "mixins/breakpoint";
+@import "mixins/mixins";
+@import "mixins/clearfix";
+@import "colors";
+@import "fonts";
+
+//@import "sprites/*.png"; // Create sprites with src/images/sprites/*.png
+//$sprites: sprite-map("sprites/*.png");
+//$disable-magic-sprite-selectors: true;
+
+// @import "icons/*.png"; 			// Sprites - img in src/images
+// @include icons-sprite(home);
+// @include squish-text; 			// Hide text
+// @include inline-block; 			// Inline block
+// @include breakpoint ($tablet) 	// Breakpoints
+// @include containerRwd;			// Element has width definied in mixins/breakpoint/_devices.scss
+// @include clearfix;				// Set clear to both;
+// @include clearfix2;				// Add :after selector width clear:both;
+
+.files {
+  &__manager {
+    .col-m-25 {
+      max-width:120px;
+    }
+    .col-t-25 {
+      @include breakpoint ($tablet) {
+        max-width:200px;
+      }
+    }
+    &Wrapper {
+      padding: 0 5px 5px 0;
+      @include breakpoint ($tablet) {
+        padding: 0 15px 15px 0;
+      }
+    }
+    &Image {
+      height: 120px;
+
+      box-sizing: border-box;
+      background-size: cover;
+      background-position: center center;
+      @include breakpoint ($tablet) {
+        height: 170px;
+      }
+    }
+  }
+}

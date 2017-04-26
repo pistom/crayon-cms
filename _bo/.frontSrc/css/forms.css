@@ -119,3 +119,8 @@ textarea.pageContent {
 textarea.code {
   font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }
+
+/* line 90, ../sass/forms.scss */
+fieldset {
+  padding: 10px 0;
+}

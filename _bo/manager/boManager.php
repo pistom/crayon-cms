@@ -293,4 +293,10 @@ class boManager {
         fclose($fp);
     }
 
+    public function getFilesConfig(){
+        $json_data = file_get_contents('../data/files.config.json');
+        $config = json_decode($json_data, true);
+        return $config;
+    }
+
 }

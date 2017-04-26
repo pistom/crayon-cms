@@ -1,0 +1,72 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Files configuration</h1>
+    <div class="page">
+        <form action="" method="post" id="settingsForm">
+            <h2>Images sizes</h2>
+            <table>
+                <colgroup>
+                    <col style="width: 120px">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Width / Height</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for type,sizes in config.images_sizes %}
+                    <tr data-index="{{ loop.index }}">
+                        <td><input class="input--narrow" type="text" name="r{{ loop.index }}-type" value="{{ type }}"></td>
+                        <td>
+                            <input class="input--narrow" type="text" name="r{{ loop.index }}-width" value="{{ sizes[0] }}"><span class="text--small"> px</span>&nbsp;&nbsp;
+                            <input class="input--narrow" type="text" name="r{{ loop.index }}-height" value="{{ sizes[1] }}"><span class="text--small"> px</span>
+                        </td>
+                        <td>
+                            <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ key }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="3">
+                        <a href="" class="btn btn--azure" data-action="add"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="3">
+                        <a href="" class="btn btn--green" data-action="save"><i class="fa fa-save" aria-hidden="true"></i> Save</a>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var changeData = function(e){
+            if(e.target.dataset.action == 'save-settings' || e.target.parentNode.dataset.action == 'save-settings'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('settingsForm'));
+                atomic.post('files.config.save.php',data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+            }
+        };
+        document.body.addEventListener("click",changeData,false);
+    </script>
+{% endblock %}

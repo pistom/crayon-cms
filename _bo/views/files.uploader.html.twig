@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Upload files</h1>
+    <form enctype="multipart/form-data" id="uploadForm" method="POST">
+        <div class="page">
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageName">File</label>
+                <div class="page__blockInput">
+                    <fieldset>
+                        <input name="file" id="uploadFormFile" type="file" />
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageName">Image size</label>
+                <div class="page__blockInput">
+                    <fieldset>
+                    {% for type,size in config.images_sizes %}
+                        <label for="imageSize{{ loop.index }}">
+                            <input id="imageSize{{ loop.index }}" {{ loop.index == 1 ? 'checked' : '' }} type="radio" name="image_size" value="{{ type }}"> {{ size[0]~'x'~size[1] }}
+                        </label>
+                    {% endfor %}
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="directory">Directory</label>
+                <div class="page__blockInput">
+                    /<input type="text" class="input--narrow" id="directory" name="directory" value="blog">
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="pageName">&nbsp;</label>
+                <div class="page__blockInput">
+                    <input type="button" class="btn btn--azure" id="uploadFormSubmit" value="Upload" /><br>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var uploadForm = document.getElementById('uploadForm');
+        var uploadFormFile = document.getElementById('uploadFormFile');
+        var uploadFormSubmit = document.getElementById('uploadFormSubmit');
+        uploadFormFile.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (file.size > 1024*1024*10) {
+                alert('max upload size is 10M')
+            }
+        });
+        uploadFormSubmit.addEventListener('click', function() {
+            var r = new XMLHttpRequest();
+            r.open("POST", "/_bo/file.upload.php", true);
+            r.onreadystatechange = function(){
+                if (r.readyState != 4 || r.status != 200) return;
+                var res = JSON.parse(r.responseText);
+                if(res.status === 'success')
+                    showMessage('success','Done',res.message);
+                else if (res.status === 'error')
+                    showMessage('error','Error',res.message);
+            };
+            r.send(new FormData(uploadForm));
+
+        });
+
+    </script>
+
+{% endblock %}
