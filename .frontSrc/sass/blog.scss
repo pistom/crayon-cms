@@ -68,6 +68,43 @@ $disable-magic-sprite-selectors: true;
       }
     }
   }
+  &__article {
+    &Author {
+      @include clearfix2;
+      margin-top:30px;
+      padding-top:15px;
+      border-top:1px solid lighten($cl-gray,40);
+      border-bottom:1px solid lighten($cl-gray,40);
+      &Photo {
+        float: right;
+        margin-left:15px;
+        font-size: .75rem;
+        height: 120px;
+        width: 120px;
+      }
+      &Name {
+        text-align: right;
+        font-family: $font-tertiary;
+        margin-bottom: 0;
+        font-size: 2rem;
+        display: block;
+        @include breakpoint ($tablet) {
+          margin-top:40px;
+        }
+      }
+      &Desc {
+        font-size: .85rem;
+        float: right;
+        text-align: right;
+        display: block;
+        max-width:240px;
+      }
+    }
+    &AfterContent {
+      margin-top:30px;
+    }
+  }
+
   &__intro {
     font-size: 1.2em;
     font-family: $font-secondary;
@@ -174,4 +211,5 @@ $disable-magic-sprite-selectors: true;
       }
     }
   }
+
 }

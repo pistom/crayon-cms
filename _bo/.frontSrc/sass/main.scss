@@ -158,11 +158,11 @@ hr {
       max-height:0;
     }
     &SubItem {
-      padding:5px 15px 5px 40px;
+      padding:5px 15px 5px 50px;
       font-size: .85em;
       display: inline-block;
       box-sizing: border-box;
-      width: 100%;
+      width: 240px;
       position: relative;
       transition: all .25s ease;
       &.active {

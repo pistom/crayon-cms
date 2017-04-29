@@ -31,10 +31,14 @@ $disable-magic-sprite-selectors: true;
         }
         &Link {
           display: block;
-          padding:15px 30px;
+          padding:4px 8px;
           font-family: $font-secondary;
-          font-size: 1.2rem;
+          font-size: 1rem;
           color: $cl-blue;
+          @include breakpoint ($tablet) {
+            padding:15px 30px;
+            font-size: 1.2rem;
+          }
         }
       }
     }
@@ -42,7 +46,10 @@ $disable-magic-sprite-selectors: true;
       position: absolute;
       z-index: 2;
       transition: all .5s ease;
-      top: 54px;
+      top: 32px;
+      @include breakpoint ($tablet) {
+        top: 54px;
+      }
       transform: translateX(-50%);
       left: 50%;
       width: 140px;
@@ -61,6 +68,10 @@ $disable-magic-sprite-selectors: true;
           padding:8px 15px;
           color: lighten($cl-blue,5);
           line-height: 1.2em;
+          font-size: .85rem;
+          @include breakpoint ($tablet) {
+            font-size: 1rem;
+          }
           &:hover {
             color: darken($cl-blue,20);
           }

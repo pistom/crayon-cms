@@ -10,6 +10,27 @@
                     <input type="number" id="articles_per_page" value="{{ config['articles_per_page'] }}" name="articles_per_page">
                 </div>
             </div>
+            <h2>Author</h2>
+            <div class="page__block">
+                <label class="page__blockLabel" for="author_name">Name</label>
+                <div class="page__blockInput">
+                    <input type="text" id="author_name" value="{{ config['author_name'] }}" name="author_name">
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="author_desc">Description</label>
+                <div class="page__blockInput">
+                    <textarea id="author_desc" name="author_desc">{{ config['author_desc'] }}</textarea>
+                </div>
+            </div>
+
+            <div class="page__block">
+                <label class="page__blockLabel" for="author_photo">Photo</label>
+                <div class="page__blockInput">
+                    <input type="text" id="author_photo" value="{{ config['author_photo'] }}" name="author_photo">
+                </div>
+            </div>
 
             <div class="page__block">
                 <label class="page__blockLabel"></label>

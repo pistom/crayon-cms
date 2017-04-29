@@ -1,10 +1,19 @@
-{% extends "base.html.twig" %}
+{% extends template %}
+{% block style %}
+    <style>
+        section.content {
+            padding:15px;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <h1>Manager</h1>
-    <a href="/_bo/files.manager.php?dir={{ upDir }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-    <ul>
+    {% if upDir is not null %}
+        <a href="/_bo/files.manager.php?{{ inner ? 'inner=true&amp;' }}dir={{ upDir }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    {% endif %}
+    <ul class="files__directoriesList">
     {% for dir in dirs  %}
-        <li><h2><a href="/_bo/files.manager.php?dir={{ dir }}/"><i class="fa fa-folder" aria-hidden="true"></i> {{ dir }}</a></h2></li>
+        <li class="files__directoriesItem"><a href="/_bo/files.manager.php?{{ inner ? 'inner=true&amp;' }}dir={{ dir }}/"><i class="fa fa-folder" aria-hidden="true"></i> {{ dir }}</a></li>
     {% endfor %}
     </ul>
     <hr>
@@ -12,10 +21,68 @@
         {% for file in files %}
             <div class="col-m-50 col-t-25">
                 <div class="files__managerWrapper">
-                    <div class="files__managerImage" style="background-image:url('../images/pages/{{ file }}');"></div>
-                    <div class="files__managerFileName"><p class="text--small">{{ file }}</p></div>
+                    <span class="files__managerFileRemove"><i data-action="removeFile" data-file="{{ file.name }}" class="fa fa-times" aria-hidden="true"></i></span>
+                    <div class="files__managerImage"
+                        {% if file.type == 'image/jpeg' or file.type == 'image/jpg' or file.type == 'image/png' %}
+                         style="background-image:url('../images/pages/{{ file.name }}');"
+                        {% endif %}
+                         data-file="{{ file.name }}">
+                        <span class="files__managerFileInfo">
+                        {% if file.type == 'image/jpeg' or file.type == 'image/jpg' or file.type == 'image/png' %}
+                            <i class="fa fa-2x fa-file-image-o" aria-hidden="true"></i> {{ file.dimensions[0] }}&times;{{ file.dimensions[1] }} px
+                        {% elseif file.type == 'application/pdf' %}
+                            <i class="fa fa-2x fa-file-pdf-o" aria-hidden="true"></i>
+                        {% elseif file.type == 'audio/mpeg' %}
+                            <i class="fa fa-2x fa-file-audio-o" aria-hidden="true"></i>
+                        {% elseif file.type == 'application/msword' or file.type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' %}
+                            <i class="fa fa-2x fa-file-word-o" aria-hidden="true"></i>
+                        {% elseif file.type == 'application/vnd.ms-excel' or file.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' %}
+                            <i class="fa fa-2x fa-file-excel-o" aria-hidden="true"></i>
+                        {% elseif file.type == 'application/zip' %}
+                            <i class="fa fa-2x fa-file-archive-o" aria-hidden="true"></i>
+                        {% elseif file.type == 'application/vnd.ms-powerpoint' or file.type == 'application/vnd.openxmlformats-officedocument.presentationml.presentation' %}
+                            <i class="fa fa-2x fa-file-powerpoint-o" aria-hidden="true"></i>
+                        {% else %}
+                            <i class="fa fa-2x fa-file-o" aria-hidden="true"></i>
+                        {% endif %}
+                        </span>
+                    </div>
+                    <div class="files__managerFileName"><p class="text--small">{{ file.name }}</p></div>
                 </div>
             </div>
         {% endfor %}
     </div>
+{% endblock %}
+{% block iframeScripts %}
+    <script>
+        var filesManagerImages = document.getElementsByClassName("files__manager")[0];
+        filesManagerImages.addEventListener("click",function(e){
+            if(e.target.dataset.file){
+                window.parent.getFileNameFromManager(e.target.dataset.file);
+            }
+        },false);
+    </script>
+{% endblock %}
+{% block scripts %}
+    <script>
+        document.body.addEventListener("click",function(e){
+            if(e.target.dataset.action == 'removeFile'){
+                var fileName = e.target.dataset.file;
+                if(confirm('Are you sure?')){
+                atomic.post('/_bo/file.remove.php','filename='+fileName)
+                    .success(function(data){
+                        if(data.status == 'success'){
+                            showMessage('success','Done',data.message);
+                            e.target.parentNode.parentNode.parentNode.style.display = 'none';
+                        }
+                        if(data.status == 'error')
+                            showMessage('error','Error',data.message);
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+                }
+            }
+        },false)
+    </script>
 {% endblock %}

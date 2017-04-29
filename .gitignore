@@ -7,12 +7,12 @@
 .idea
 /data/*.json
 /data/blog/*.json
-/data/blog/articles/*.html.twig
 /data/tmp/*.json
 /data/tmp/blog/*.json
-/data/tmp/blog/articles/*.html.twig
 /data/tmp/pages/*.json
 /data/pages/*.json
+/views/blog/articles/*.html.twig
+/views/tmp/blog/articles/*.html.twig
 /views/pages/*.html.twig
 /views/tmp/pages/*.html.twig
 /images/*

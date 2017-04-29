@@ -226,3 +226,38 @@ img {
   }
 }
 
+
+figure{
+  &.image {
+    text-align: center;
+    img {
+      max-width:100%;
+      height: auto;
+    }
+    &.align-left {
+      margin: 0 auto;
+      display: block;
+      @include breakpoint ($tablet) {
+        float: left;
+        margin-right: 15px;
+      }
+    }
+    &.align-right {
+      margin: 0 auto;
+      display: block;
+      @include breakpoint ($tablet) {
+        float: right;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+figure.image figcaption {
+  text-align: center;
+  margin: -5px 0 8px 0;
+  font-size: .75rem;
+  @include breakpoint ($tablet) {
+    text-align: left;
+  }
+}

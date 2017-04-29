@@ -40,7 +40,7 @@ if($_FILES["file"]["size"] < $sizeLimit*MB ){
     $tmpFile = FILES_DIRECTORY.$directory.$filename;
     move_uploaded_file($_FILES["file"]["tmp_name"],$tmpFile);
 
-    if(getimagesize($tmpFile)){
+    if(getimagesize($tmpFile) && $app->getManager()->testString($_POST['image_size']) !== 'origin'){
         $imageDimensions = $app->getManager()->getFilesConfig()['images_sizes'][$app->getManager()->testString($_POST['image_size'])];
         $image = new \Eventviva\ImageResize($tmpFile);
         $image->resizeToBestFit($imageDimensions[0], $imageDimensions[1]);

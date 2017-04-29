@@ -264,12 +264,12 @@ hr {
 }
 /* line 160, ../sass/main.scss */
 .aside__navSubItem {
-  padding: 5px 15px 5px 40px;
+  padding: 5px 15px 5px 50px;
   font-size: .85em;
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
+  width: 240px;
   position: relative;
   -webkit-transition: all .25s ease;
           transition: all .25s ease;

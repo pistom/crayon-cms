@@ -30,6 +30,7 @@
       margin-top:8px;
     }
     &Input {
+      position: relative;
       @include breakpoint ($tablet) {
         float: left;
         width: 85%;

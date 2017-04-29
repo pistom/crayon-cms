@@ -108,7 +108,12 @@ $font-tertiary: 'reenie_beanieregular','Lora', serif;
 
 
 sup {
-  font-size: .85em;
+  font-size: .75em;
+  vertical-align: super;
+}
+sub {
+  font-size: .75em;
+  vertical-align: sub;
 }
 
 a {
@@ -200,7 +205,7 @@ blockquote {
         color: lighten($cl-text,60);
         content: close-quote;
       }
-      &.author {
+      &.quote__author {
         &:before, &:after {
           display: none;
         }
@@ -208,7 +213,7 @@ blockquote {
         margin-bottom:0;
         font-style: normal;
       }
-      &.url {
+      &.quote__url {
         text-align: right;
         margin-bottom:0;
         font-size: .85em;
@@ -221,6 +226,14 @@ blockquote {
       }
     }
     &:before,&:after {
+      display: none;
+    }
+  }
+  &.no-qm {
+    p {
+      display: block;
+    }
+    &:after,&:before {
       display: none;
     }
   }

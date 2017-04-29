@@ -154,6 +154,14 @@ var validateInput = function(input,pattern){
     return newValue;
 };
 
+var getFileNameFromManager = function(file){
+    var iframeWrapper = document.getElementById("iframeWrapper");
+    var inputName = iframeWrapper.dataset.parentinput;
+    iframeWrapper.parentNode.removeChild(iframeWrapper);
+    var currentInput = document.getElementsByName(inputName)[0];
+    currentInput.value = file;
+};
+
 (function(){
     // DYNAMIC TABLES
     var addDeleteTableRow = function(e){
@@ -269,4 +277,7 @@ var validateInput = function(input,pattern){
             })
         })
     }
+
+
+
 })();

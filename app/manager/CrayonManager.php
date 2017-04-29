@@ -81,7 +81,7 @@ class CrayonManager {
         );
     }
 
-    public function getArticle($slug){
+    public function getArticle($slug,$twig){
         $article = array();
         $articles_data = file_get_contents('data/blog/articles.json');
         $articles = json_decode($articles_data, true);
@@ -89,7 +89,9 @@ class CrayonManager {
             if ($a['slug'] == $slug)
                 $article = $a;
         }
-        $article['content'] = @file_get_contents('data/blog/articles/'.$article['id'].'.html.twig');
+        $article['content'] = $twig->render('blog/articles/'.$article['id'].'.html.twig',array(
+            'blog_config' => $this->getBlogConfig()
+        ));
         return $article;
     }
 

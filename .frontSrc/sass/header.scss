@@ -39,12 +39,15 @@ $disable-magic-sprite-selectors: true;
     font-family:$font-tertiary;
     position: relative;
     z-index: auto;
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
     margin: 0;
     padding:0 15px 15px 15px;
     display: inline-block;
     border-top: 0 solid $cl-text;
+    @include breakpoint ($tablet) {
+      font-size: 4rem;
+    }
   }
   &__lang {
     position: absolute;

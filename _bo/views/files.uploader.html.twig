@@ -16,11 +16,14 @@
                 <label class="page__blockLabel" for="pageName">Image size</label>
                 <div class="page__blockInput">
                     <fieldset>
-                    {% for type,size in config.images_sizes %}
-                        <label for="imageSize{{ loop.index }}">
-                            <input id="imageSize{{ loop.index }}" {{ loop.index == 1 ? 'checked' : '' }} type="radio" name="image_size" value="{{ type }}"> {{ size[0]~'x'~size[1] }}
+                        <label for="imageSizeOrigin">
+                            <input id="imageSizeOrigin" checked type="radio" name="image_size" value="origin"> Original size
                         </label>
-                    {% endfor %}
+                        {% for type,size in config.images_sizes %}
+                            <label for="imageSize{{ loop.index }}">
+                                <input id="imageSize{{ loop.index }}" type="radio" name="image_size" value="{{ type }}"> {{ size[0]~'x'~size[1] }}
+                            </label>
+                        {% endfor %}
                     </fieldset>
                 </div>
             </div>

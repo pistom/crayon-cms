@@ -1,0 +1,8 @@
+{% block content %}
+
+{% endblock %}
+{% include 'blog/author.html.twig' with {'blog_config':blog_config} %}
+<div class="blog__articleAfterContent">
+{% block afterContent %}
+{% endblock %}
+</div>

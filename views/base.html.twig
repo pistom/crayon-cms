@@ -7,7 +7,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta charset="utf-8">
     <title>{{ settings['site_name'] }}{{ pageTitle }}</title>
+    {% block pageDescription %}
     <meta name="description" content="{{ pageDescription }}">
+    {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="{{ settings['site_color'] }}">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">

@@ -41,6 +41,10 @@
     float: left;
   }
 }
+/* line 32, ../sass/pages.scss */
+.page__blockInput {
+  position: relative;
+}
 @media (min-width: 768px) {
   /* line 32, ../sass/pages.scss */
   .page__blockInput {

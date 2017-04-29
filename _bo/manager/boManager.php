@@ -202,7 +202,15 @@ class boManager {
         foreach ($posts as $key=>$p)
             if($p['id'] == $id)
                 $post = $p;
-        $post['content'] = @file_get_contents('../data/blog/articles/'.$id.'.html.twig');
+        $fileContent = file_get_contents('../views/blog/articles/'.$id.'.html.twig');
+        $contentStartsAt = strpos($fileContent, "{% block content %}") + strlen("{% block content %}");
+        $contentEndsAt = strpos($fileContent, "{% endblock %}{# end content #}", $contentStartsAt);
+        $contentResult = substr($fileContent, $contentStartsAt, $contentEndsAt - $contentStartsAt);
+        $afterContentStartsAt = strpos($fileContent, "{% block afterContent %}") + strlen("{% block afterContent %}");
+        $afterContentEndsAt = strpos($fileContent, "{% endblock %}{# end afterContent #}", $afterContentStartsAt);
+        $afterContentResult = substr($fileContent, $afterContentStartsAt, $afterContentEndsAt - $afterContentStartsAt);
+        $post['content'] = $contentResult;
+        $post['after_content'] = $afterContentResult;
         return $post;
     }
 
@@ -216,11 +224,13 @@ class boManager {
 
     public function saveBlogPost($post){
         $message = '';
-        @copy('../data/blog/articles/'.$post['id'].'.html.twig', '../data/tmp/blog/articles/'.$post['id'].'-tmp-'.date('YmdHis').'.html.twig');
-        $fp = fopen('../data/blog/articles/'.$post['id'].'.html.twig', 'w');
-        fwrite($fp, $post['content']);
+        @copy('../views/blog/articles/'.$post['id'].'.html.twig', '../views/tmp/blog/articles/'.$post['id'].'-tmp-'.date('YmdHis').'.html.twig');
+        $fp = fopen('../views/blog/articles/'.$post['id'].'.html.twig', 'w');
+        $content = "{% extends 'blog/article.content.html.twig' %}{% block content %}".$post['content']."{% endblock %}{# end content #}{% block afterContent %}".$post['after_content']."{% endblock %}{# end afterContent #}";
+        fwrite($fp, $content);
         fclose($fp);
         unset($post['content']);
+        unset($post['after_content']);
         $posts = $this->getAllBlogPosts();
         $posts[$post['id']] = $post;
         $message .= $this->saveBlogPosts($posts);
@@ -228,8 +238,8 @@ class boManager {
     }
 
     public function deleteBlogPost($id){
-        copy('../data/blog/articles/'.$id.'.html.twig', '../data/tmp/blog/articles/'.$id.'-tmp-'.date('YmdHis').'.html.twig');
-        unlink('../data/blog/articles/'.$id.'.html.twig');
+        copy('../views/blog/articles/'.$id.'.html.twig', '../views/tmp/blog/articles/'.$id.'-tmp-'.date('YmdHis').'.html.twig');
+        unlink('../views/blog/articles/'.$id.'.html.twig');
         $posts = $this->getAllBlogPosts();
         unset($posts[$id]);
         $this->saveBlogPosts($posts);
@@ -297,6 +307,13 @@ class boManager {
         $json_data = file_get_contents('../data/files.config.json');
         $config = json_decode($json_data, true);
         return $config;
+    }
+
+    public function saveFilesConfig($config){
+        copy('../data/files.config.json', '../data/tmp/files.config-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/files.config.json', 'w');
+        fwrite($fp, json_encode($config));
+        fclose($fp);
     }
 
 }

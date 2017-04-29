@@ -47,7 +47,7 @@ class BlogController extends SiteController {
     }
 
     public function article($sp,$dp){
-        $article = $this->manager->getArticle($dp['article']);
+        $article = $this->manager->getArticle($dp['article'],$this->twig);
         $menu = $this->manager->getMenu();
         if($article['content']){
             try {

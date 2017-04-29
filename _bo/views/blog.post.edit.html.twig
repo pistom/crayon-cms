@@ -5,7 +5,7 @@
 {% block content %}
     <h1>Post</h1>
     <form action="" id="postForm">
-        <div class="page">
+        <div class="page" style="padding-bottom: 350px;">
             <div class="page__block">
                 <label class="page__blockLabel" for="post_id">Id</label>
                 <div class="page__blockInput">
@@ -16,6 +16,12 @@
                 <label class="page__blockLabel" for="post_title">Title</label>
                 <div class="page__blockInput">
                     <input type="text" name="post_title" value="{{ post.title }}" id="post_title">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="post_description">Description</label>
+                <div class="page__blockInput">
+                    <input type="text" name="post_description" value="{{ post.description }}" id="post_description">
                 </div>
             </div>
             <div class="page__block">
@@ -59,15 +65,21 @@
                 </div>
             </div>
             <div class="page__block">
+                <label class="page__blockLabel" for="post_after_content">Content</label>
+                <div class="page__blockInput">
+                    <textarea type="text" name="post_after_content" id="post_after_content">{{ post.after_content }}</textarea>
+                </div>
+            </div>
+            <div class="page__block">
                 <label class="page__blockLabel" for="post_intro_image">Intro image</label>
                 <div class="page__blockInput">
-                    <input type="text" name="post_intro_image" value="{{ post.intro_image }}" id="post_intro_image">
+                    <input class="filesManager" type="text" name="post_intro_image" value="{{ post.intro_image }}" id="post_intro_image">
                 </div>
             </div>
             <div class="page__block">
                 <label class="page__blockLabel" for="post_main_image">Main image</label>
                 <div class="page__blockInput">
-                    <input type="text" name="post_main_image" value="{{ post.main_image }}" id="post_main_image">
+                    <input class="filesManager" type="text" name="post_main_image" value="{{ post.main_image }}" id="post_main_image">
                 </div>
             </div>
             <div class="page__block">
@@ -90,12 +102,14 @@
                     tinymce.triggerSave();
                 });
             },
-            height : "480",
+            height : "300",
             force_br_newlines : false,
             force_p_newlines : true,
             forced_root_block : '',
-            plugins: "code textcolor lists advlist",
-            toolbar: "undo redo | bold italic underline alignleft aligncenter alignright | bullist numlist | forecolor | styleselect fontsizeselect | bullist numlist outdent indent",
+            plugins: "code textcolor lists advlist image link hr",
+            toolbar: "undo redo | bold italic underline alignleft aligncenter alignright | bullist numlist hr | forecolor | styleselect fontsizeselect subscript superscript | bullist numlist outdent indent | image link",
+            image_caption: true,
+            image_prepend_url: "/images/pages/",
             textcolor_map: [
                 "0DC3CA", "Niebieski",
                 "4D4F4F", "Szary",
@@ -108,11 +122,13 @@
                 { title: 'Heaer 3', block: 'h3', classes: 'title title--3'},
                 { title: 'Paragraph', block: 'p'},
                 { title: 'Blockquotes', items: [
-                    { title: 'Citation block 1', block: 'blockquote', wrapper: true},
+                    { title: 'Citation block 1 qm', block: 'blockquote', wrapper: true},
+                    { title: 'Citation block 1', block: 'blockquote', wrapper: true, classes: 'no-qm'},
                     { title: 'Citation block 2', selector: 'blockquote', classes: 'citation'},
-                    { title: 'Author', selector: 'blockquote p', classes: 'author'},
-                    { title: 'Link', selector: 'blockquote p', classes: 'url'}
-                ]}
+                    { title: 'Author', selector: 'blockquote p', classes: 'quote__author'},
+                    { title: 'Link', selector: 'blockquote p', classes: 'quote__url'}
+                ]},
+                { title: 'Text small', selector: 'p, ol, ul, li, span, div', classes: 'text--small'}
             ]
         });
     };
@@ -140,6 +156,30 @@
         }
     };
     document.body.addEventListener("click",saveData,false);
+
+
+    var inputsFilesManager = postForm.getElementsByClassName('filesManager');
+    var getFilesManager = function(e){
+        var iframeWrapper = document.createElement('div');
+        iframeWrapper.id ='iframeWrapper';
+        iframeWrapper.dataset.parentinput = e.target.name;
+        var iframe = document.createElement('iframe');
+        iframe.src = '/_bo/files.manager.php?inner=true';
+        iframeWrapper.appendChild(iframe);
+        e.target.parentNode.appendChild(iframeWrapper);
+    };
+    [].forEach.call(inputsFilesManager,function(input){
+        input.addEventListener('focus',getFilesManager,false);
+    });
+    document.body.addEventListener("click",function(e){
+        if(!e.target.classList.contains('filesManager')){
+            var fileManager = document.getElementById('iframeWrapper');
+            if(fileManager) {
+                fileManager.parentNode.removeChild(fileManager);
+            }
+        }
+    },false);
+
 
 </script>
 {% endblock %}
