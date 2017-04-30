@@ -2,6 +2,7 @@
 /node_modules
 /cache/*
 /css/fonts/
+.frontSrc/
 .sass-cache
 .vscode
 .idea
@@ -18,6 +19,7 @@
 /images/*
 !/images/index.html
 /_bo/node_modules
+/_bo/.frontSrc/
 /_bo/.sass-cache
 /_bo/.vscode
 /_bo/.idea
