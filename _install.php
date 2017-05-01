@@ -41,12 +41,13 @@ makeDir($directories);
 
 
 // Main config
+$main_dir = str_replace('/_install.php','',$_SERVER["REQUEST_URI"]);
 $config = array(
     'site_name'=>'Crayon CMS',
     'dev_mode'=>true,
     'twig_cache'=>'cache',
     'site_color'=>'#ffffff',
-    'main_dir'=>str_replace('_install.php','',$_SERVER["SCRIPT_NAME"])
+    'main_dir'=>$main_dir
 );
 createFile('data/config.json', json_encode($config));
 
@@ -72,7 +73,8 @@ $menus_config = array(
             "home"=>array(
                 "order"=>1
             )
-        )
+        ),
+        "lang"=>"en"
     )
 );
 createFile('data/menus.json', json_encode($menus_config));
@@ -110,6 +112,15 @@ $users = array(
 createFile('data/users.json', json_encode($users));
 
 // Homepage
+$homepage = array(
+    "title"=>"Homepage",
+    "description"=>"Homepage",
+    "menu"=>"main"
+);
+
+createFile('data/pages/home.json', json_encode($homepage));
+
+// Homepage content
 $content = "{% extends template %}
 {% block content %}
 <h1>Homepage</h1>
@@ -118,15 +129,57 @@ $content = "{% extends template %}
 {% endblock %}{# end scripts #}";
 createFile('views/pages/home.html.twig', $content);
 
-echo '---';
+// Blog articles
+$articles = array(
+    array(
+        "0"=>array(
+            "id"=>0,
+            "title"=>"First article",
+            "slug"=>"first-article",
+            "title_color"=>"#ffffff",
+            "category_id"=>"0",
+            "intro"=>"Intro",
+            "intro_image"=>"",
+            "main_image"=>"",
+            "publication_date"=>date('Y-m-d H:i', time())
+        )
+    )
+);
+createFile('data/blog/articles.json', json_encode($articles));
+
+// Blog categories
+$categories = array(
+    array(
+        "0"=>array(
+            "id"=>0,
+            "name"=>"First category",
+            "menu"=>"main",
+        )
+    )
+);
+createFile('data/blog/categories.json', json_encode($categories));
+
+// Blog categories
+$blog_config = array(
+    "articles_per_page"=>5,
+    "author_name"=>"Author",
+    "author_desc"=>"",
+    "author_photo"=>"",
+);
+createFile('data/blog/config.json', json_encode($blog_config));
+
+
+
+echo '---<br>';
 // Remove _install.php
- if(unlink('_install.php'))
-     echo "<strong>_install.php</strong> deleted<br>";
+if(unlink('_install.php'))
+  echo "<strong>_install.php</strong> deleted<br>";
+echo '---<br>';
 
 echo "</pre>";
 ?>
 <pre>
-<a href="">Homepage</a>
+<a href="<?php echo $main_dir ?>">Homepage</a>
 <a href="_bo">Back office</a> (login: admin, password: admin);
 <span style="color:#d0024f"><b>Change admin password!</b></span>
 <span style="color:#990000">Change .htaccess RewriteBase if necessary.</span>
