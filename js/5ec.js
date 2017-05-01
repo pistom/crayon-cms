@@ -179,7 +179,7 @@ var initContactForm = function(){
 // Navigation
 (function(){
     var brand = document.getElementsByClassName("mainHeader__brand")[0];
-    brand.addEventListener("click",function(){window.location = '/'},false);
+    brand.addEventListener("click",function(){window.location = _root_+'/'},false);
     var navigation = document.getElementById('mainNavigation');
     var navigationLinks = navigation.getElementsByTagName('a');
 

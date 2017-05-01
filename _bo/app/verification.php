@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION['UserData']['username'])){
-    header("location:login.php");
+    header("location:".$this->settings['main_dir']."/_bo/login.php");
     exit;
 }
 else {

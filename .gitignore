@@ -1,3 +1,5 @@
+Gruntfile.js
+package.json
 /vendor
 /node_modules
 /cache/*
@@ -18,9 +20,12 @@
 /views/tmp/pages/*.html.twig
 /images/*
 !/images/index.html
+/_bo/Gruntfile.js
+/_bo/package.json
 /_bo/node_modules
 /_bo/.frontSrc/
 /_bo/.sass-cache
 /_bo/.vscode
 /_bo/.idea
 /_bo/cache/*
+

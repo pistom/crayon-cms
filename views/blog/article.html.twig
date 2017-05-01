@@ -5,7 +5,7 @@
     <meta name="description" content="{{ article.description }}">
 {% endblock %}
 {% block contentTitle %}
-    <div class="mainContentTitle" style="background-image:url(/images/pages/{{ article.main_image }})">
+    <div class="mainContentTitle" style="background-image:url({{ root }}/images/pages/{{ article.main_image }})">
         <div class="container text-center">
             <h1 class="title" style="color:{{ article.title_color }}">
                 {{ article.title }}

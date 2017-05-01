@@ -9,13 +9,17 @@ class CrayonBo {
     public $twig;
 
     function __construct() {
-        session_start();
-        include_once 'verification.php';
-        require_once 'manager/boManager.php';
-        $this->loadConfig();
-        $this->userRole = $userRole;
-        $this->loadTwig();
-        $this->manager = new \boManager();
+        if($this->systemIsInstalled()){
+            $this->loadConfig();
+            session_start();
+            include_once 'verification.php';
+            require_once 'app/manager/CrayonBoManager.php';
+            $this->userRole = $userRole;
+            $this->loadTwig();
+            $this->manager = new \CrayonBoManager();
+        } else {
+            header('location:../_install.php');
+        }
     }
 
     protected function loadTwig(){
@@ -24,7 +28,12 @@ class CrayonBo {
         $this->twig->addExtension(new \Twig_Extension_Debug());
         $this->twig->addGlobal('settings',$this->settings);
         $this->twig->addGlobal('userRole',$this->userRole);
+        $this->twig->addGlobal('root',$this->settings['main_dir']);
         return $this->twig;
+    }
+
+    protected function systemIsInstalled(){
+        return file_exists('../_install.php') ? false : true;
     }
 
     public function isAdmin(){

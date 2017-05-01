@@ -97,6 +97,7 @@
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 }
+var _root_ = _root_ || '';
 // Page Messages
 var msgWindow = document.getElementsByClassName('msgWindow')[0];
 var msgTitle = msgWindow.getElementsByClassName('msgWindowTitle')[0];
@@ -218,15 +219,13 @@ var getFileNameFromManager = function(file){
     if(loginForm) {
         loginForm.addEventListener("submit",function(e){
             e.preventDefault();
-            console.log(this);
             var data = serializeFormData(this);
-            atomic.post('/_bo/login.php',data)
+            atomic.post(_root_+'/_bo/login.php',data)
                 .success(function (data, xhr) {
-                    console.log(data);
                     if(data.status === 'success'){
                         showMessage('success','Great!','You are logged in');
                         setTimeout(function(){
-                            window.location = '/_bo/';
+                            window.location = _root_+'/_bo/';
                         },1000)
                     }
                     else{

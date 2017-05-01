@@ -28,7 +28,8 @@ else :
     $twig = new Twig_Environment($loader, array('cache' => false,'debug' => false));
     echo $twig->render('login.html.twig', array(
         'siteName' => $settings['site_name'],
-        'siteColor' => $settings['site_color']
+        'siteColor' => $settings['site_color'],
+        'root' => $settings['main_dir']
     ));
 endif;
 

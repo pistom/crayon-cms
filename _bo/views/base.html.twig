@@ -7,9 +7,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#222f3c">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/_bo/css/5ec.min.css">
+    <link rel="apple-touch-icon" href="{{ root }}/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="{{ root }}/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ root }}/_bo/css/5ec.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lora|Muli:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{{ settings['fontawesome_cdn'] ? settings['fontawesome_cdn'] : 'https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css' }}">
 
@@ -71,7 +71,7 @@
         <span class="header__userRole">{{ userRole }}</span><a href="logout.php" class="btn btn--red"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
     </div>
     <div class="header__front">
-        <a href="/" class="btn btn--azure" target="_blank"><i class="fa fa-share" aria-hidden="true"></i> <span class="header__frontTxt">Go to homepage</span></a>
+        <a href="{{ root }}/" class="btn btn--azure" target="_blank"><i class="fa fa-share" aria-hidden="true"></i> <span class="header__frontTxt">Go to homepage</span></a>
     </div>
 </header>
 <section class="content {{ contentClass }}">
@@ -79,7 +79,7 @@
 </section>
 
 <div class="msgWindow"><span class="msgWindowClose"></span><div class="msgWindowTitle"></div><div class="msgWindowContent"></div></div>
-<script src="/_bo/js/5ec.js"></script>
+<script src="{{ root }}/_bo/js/5ec.js"></script>
 {% block scripts %}
 {% endblock %}
 

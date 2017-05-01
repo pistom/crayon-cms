@@ -1,5 +1,5 @@
 <?php
-class boManager {
+class CrayonBoManager {
 
 
 
