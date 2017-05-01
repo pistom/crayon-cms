@@ -131,30 +131,32 @@ createFile('views/pages/home.html.twig', $content);
 
 // Blog articles
 $articles = array(
-    array(
-        "0"=>array(
-            "id"=>0,
-            "title"=>"First article",
-            "slug"=>"first-article",
-            "title_color"=>"#ffffff",
-            "category_id"=>"0",
-            "intro"=>"Intro",
-            "intro_image"=>"",
-            "main_image"=>"",
-            "publication_date"=>date('Y-m-d H:i', time())
-        )
+    "0"=>array(
+        "id"=>0,
+        "title"=>"First article",
+        "slug"=>"first-article",
+        "title_color"=>"#ffffff",
+        "category_id"=>"0",
+        "intro"=>"Intro",
+        "intro_image"=>"",
+        "main_image"=>"",
+        "publication_date"=>date('Y-m-d H:i', time())
     )
 );
 createFile('data/blog/articles.json', json_encode($articles));
 
+// Blog articles content
+$content = "{% extends 'blog/article.content.html.twig' %}
+{% block content %}Article{% endblock %}{# end content #}
+{% block afterContent %}{% endblock %}{# end afterContent #}";
+createFile('views/blog/articles/0.html.twig', $content);
+
 // Blog categories
 $categories = array(
-    array(
-        "0"=>array(
-            "id"=>0,
-            "name"=>"First category",
-            "menu"=>"main",
-        )
+    "0"=>array(
+        "id"=>0,
+        "name"=>"First category",
+        "menu"=>"main",
     )
 );
 createFile('data/blog/categories.json', json_encode($categories));

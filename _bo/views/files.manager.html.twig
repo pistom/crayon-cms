@@ -13,7 +13,7 @@
     {% endif %}
     <ul class="files__directoriesList">
     {% for dir in dirs  %}
-        <li class="files__directoriesItem"><a href="/_bo/files.manager.php?{{ inner ? 'inner=true&amp;' }}dir={{ dir }}/"><i class="fa fa-folder" aria-hidden="true"></i> {{ dir }}</a></li>
+        <li class="files__directoriesItem"><a href="{{ root }}/_bo/files.manager.php?{{ inner ? 'inner=true&amp;' }}dir={{ dir }}/"><i class="fa fa-folder" aria-hidden="true"></i> {{ dir }}</a></li>
     {% endfor %}
     </ul>
     <hr>
@@ -69,7 +69,7 @@
             if(e.target.dataset.action == 'removeFile'){
                 var fileName = e.target.dataset.file;
                 if(confirm('Are you sure?')){
-                atomic.post('/_bo/file.remove.php','filename='+fileName)
+                atomic.post(_root_+'/_bo/file.remove.php','filename='+fileName)
                     .success(function(data){
                         if(data.status == 'success'){
                             showMessage('success','Done',data.message);

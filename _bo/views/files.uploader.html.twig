@@ -59,7 +59,7 @@
         });
         uploadFormSubmit.addEventListener('click', function() {
             var r = new XMLHttpRequest();
-            r.open("POST", "/_bo/file.upload.php", true);
+            r.open("POST", _root_+"/_bo/file.upload.php", true);
             r.onreadystatechange = function(){
                 if (r.readyState != 4 || r.status != 200) return;
                 var res = JSON.parse(r.responseText);

@@ -109,7 +109,7 @@
             plugins: "code textcolor lists advlist image link hr",
             toolbar: "undo redo | bold italic underline alignleft aligncenter alignright | bullist numlist hr | forecolor | styleselect fontsizeselect subscript superscript | bullist numlist outdent indent | image link",
             image_caption: true,
-            image_prepend_url: "/images/pages/",
+            image_prepend_url: _root_+"/images/pages/",
             textcolor_map: [
                 "0DC3CA", "Niebieski",
                 "4D4F4F", "Szary",
@@ -164,7 +164,7 @@
         iframeWrapper.id ='iframeWrapper';
         iframeWrapper.dataset.parentinput = e.target.name;
         var iframe = document.createElement('iframe');
-        iframe.src = '/_bo/files.manager.php?inner=true';
+        iframe.src = _root_+'/_bo/files.manager.php?inner=true';
         iframeWrapper.appendChild(iframe);
         e.target.parentNode.appendChild(iframeWrapper);
     };

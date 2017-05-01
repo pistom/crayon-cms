@@ -95,17 +95,33 @@
                         tinymce.triggerSave();
                     });
                 },
-                height : "480",
+                height : "300",
                 force_br_newlines : false,
                 force_p_newlines : true,
                 forced_root_block : '',
-                plugins: "code textcolor lists advlist",
-                toolbar: "undo redo | bold italic underline alignleft aligncenter alignright | bullist numlist | forecolor | styleselect fontsizeselect | bullist numlist outdent indent",
+                plugins: "code textcolor lists advlist image link hr",
+                toolbar: "undo redo | bold italic underline alignleft aligncenter alignright | bullist numlist hr | forecolor | styleselect fontsizeselect subscript superscript | bullist numlist outdent indent | image link",
+                image_caption: true,
+                image_prepend_url: _root_+"/images/pages/",
                 textcolor_map: [
                     "0DC3CA", "Niebieski",
                     "4D4F4F", "Szary",
                     "FD0864", "Czerwony",
                     "8ABE2B", "Zielony"
+                ],
+                style_formats: [
+                    { title: 'Heaer 1', block: 'h1', classes: 'title title--1'},
+                    { title: 'Heaer 2', block: 'h2', classes: 'title title--2'},
+                    { title: 'Heaer 3', block: 'h3', classes: 'title title--3'},
+                    { title: 'Paragraph', block: 'p'},
+                    { title: 'Blockquotes', items: [
+                        { title: 'Citation block 1 qm', block: 'blockquote', wrapper: true},
+                        { title: 'Citation block 1', block: 'blockquote', wrapper: true, classes: 'no-qm'},
+                        { title: 'Citation block 2', selector: 'blockquote', classes: 'citation'},
+                        { title: 'Author', selector: 'blockquote p', classes: 'quote__author'},
+                        { title: 'Link', selector: 'blockquote p', classes: 'quote__url'}
+                    ]},
+                    { title: 'Text small', selector: 'p, ol, ul, li, span, div', classes: 'text--small'}
                 ]
             });
         };
