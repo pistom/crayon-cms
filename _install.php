@@ -1,21 +1,38 @@
+<html>
+<head>
+    <title>Crayon CMS</title>
+</head>
+<body>
+<pre>
+<span style="color:slategray">
+  ____                                ____ __  __ ____
+ / ___|_ __ __ _ _   _  ___  _ __    / ___|  \/  / ___|
+| |   | '__/ _` | | | |/ _ \| '_ \  | |   | |\/| \___ \
+| |___| | | (_| | |_| | (_) | | | | | |___| |  | |___) |
+ \____|_|  \__,_|\__, |\___/|_| |_|  \____|_|  |_|____/
+                 |___/
+</span>
+<span style="color:lightslategray">________________________________________________________</span><br>
 <?php
-echo "<pre>";
 // Create directories
 function makeDir($dir_arr){
     foreach($dir_arr as $dir=>$mod){
         if(!is_dir($dir)){
             mkdir($dir);
             chmod($dir, ($mod===0)?0755:0777);
-            echo "Directory <strong>".$dir."</strong> created<br>";
+            echo "<span style='color:green'>Directory <strong>".$dir."</strong> created<br></span>";
         }
     }
 }
 // Create json file
 function createFile($file,$content){
-    $fp = fopen($file, 'w');
-    fwrite($fp, $content);
-    fclose($fp);
-    echo "File <strong>".$file."</strong> created<br>";
+    if(!file_exists($file)){
+        $fp = fopen($file, 'w');
+        fwrite($fp, $content);
+        fclose($fp);
+        echo "<span style='color:green'>File <strong>".$file."</strong> created</span><br>";
+    } else
+        echo "<span style='color:slategray'>File <strong>".$file."</strong> exists</span><br>";
 }
 
 $directories = array(
@@ -172,17 +189,16 @@ createFile('data/blog/config.json', json_encode($blog_config));
 
 
 
-echo '---<br>';
+echo '<span style="color:lightslategray">________________________________________________________</span><br><br>';
 // Remove _install.php
 if(unlink('_install.php'))
-  echo "<strong>_install.php</strong> deleted<br>";
-echo '---<br>';
-
-echo "</pre>";
+  echo "<span style='color:tomato'>File <strong>_install.php</strong> deleted</span><br>";
 ?>
 <pre>
-<a href="<?php echo $main_dir ?>">Homepage</a>
-<a href="_bo">Back office</a> (login: admin, password: admin);
-<span style="color:#d0024f"><b>Change admin password!</b></span>
-<span style="color:#990000">Change .htaccess RewriteBase if necessary.</span>
+<span style="color:slategray"><a href="<?php echo ($main_dir !== '') ? $main_dir : '/' ?>"><span style="color:dodgerblue">Homepage</span></a></span>
+<span style="color:slategray"><a href="<?php echo ($main_dir !== '') ? $main_dir.'/_bo' : '/_bo' ?>"><span style="color:dodgerblue">Back office</span></a> (login: admin, password: admin);</span>
+<span style="color:crimson"><b>Change admin password!</b></span>
+<span style="color:slategray">Change .htaccess RewriteBase if necessary.</span>
 </pre>
+</body>
+</html>
