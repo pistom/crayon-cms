@@ -3,10 +3,10 @@ A simple CMS, which requires no database. All data are stored in twig and json f
 
 Demo: [cms.crayon.pro](http://cms.crayon.pro)
 
-##Routing
+## Routing
 Crayon CMS uses the [altorouter](http://altorouter.com/) routing class.
-###Path
-####Blog
+### Path
+#### Blog
 ```
 | function     | variable       | example                |
 |--------------|----------------|------------------------|
@@ -14,16 +14,16 @@ Crayon CMS uses the [altorouter](http://altorouter.com/) routing class.
 | article      | [slug:article] | blog/[slug:article]?/` |
 ```
 Variables in url are passed to the controller in a `$dp` array.
-###Variables
+### Variables
 Variables are divided by `|` character. They are passed to the controller in a `$sp` array.
-####SiteController
+#### SiteController
 ```
 | function | 1st variable  | 2nd variable |
 |----------|---------------|--------------|
 | page     | alias of page | -            |
 | contact  | menu name     | -            |
 ```
-####BlogController
+#### BlogController
 ```
 | function     | 1st variable                 | 2nd variable |
 |--------------|------------------------------|--------------|
@@ -31,21 +31,20 @@ Variables are divided by `|` character. They are passed to the controller in a `
 |              | categories assigned to menu) |              |
 | article      | -                            | -            |
 ```
-##Twig
-###Global variables
-####`root`
+## Twig
+### Global variables
+#### `root`
 Site main directory.
-####`routes`
+#### `routes`
 Array of created routes.
 Examples:
 Generate link: 
 ```html
 <a href="{{ root~routes['home'].path }}">{{ routes['home'].name }}</a>
 ```
-####`settings`
+#### `settings`
 Array of settings.
 Examples:
 ```html
 <title>{{ settings['site_name'] }}</title>
 ```
-
