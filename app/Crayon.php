@@ -22,8 +22,24 @@ class Crayon {
         }
     }
 
-    protected function systemIsInstalled(){
-        return file_exists('_install.php') ? false : true;
+    public static function systemIsInstalled(){
+        $installFileExists = file_exists('_install.php') ? true : false;
+        $vendorExists = is_dir('vendor') ? true : false;
+        $altorouterInstalled = is_dir('vendor/altorouter') ? true : false;
+        $phpmailerInstalled = is_dir('vendor/phpmailer') ? true : false;
+        $twigInstalled = is_dir('vendor/twig') ? true : false;
+        if( !$vendorExists ||
+            !$altorouterInstalled ||
+            !$phpmailerInstalled ||
+            !$twigInstalled ){
+            echo '<pre><span style="color:crimson">No dependencies found</span><br>';
+            echo '<span style="color:slategray">Use composer or download a package containing dependencies</span></pre>';
+            die();
+        } elseif ($installFileExists) {
+            header('location:_install.php');
+            die();
+        }
+        return true;
     }
 
     public function run() {

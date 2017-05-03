@@ -9,17 +9,13 @@ class CrayonBo {
     public $twig;
 
     function __construct() {
-        if($this->systemIsInstalled()){
-            $this->loadConfig();
-            session_start();
-            include_once 'verification.php';
-            require_once 'app/manager/CrayonBoManager.php';
-            $this->userRole = $userRole;
-            $this->loadTwig();
-            $this->manager = new \CrayonBoManager();
-        } else {
-            header('location:../_install.php');
-        }
+        $this->loadConfig();
+        session_start();
+        include_once 'verification.php';
+        require_once 'app/manager/CrayonBoManager.php';
+        $this->userRole = $userRole;
+        $this->loadTwig();
+        $this->manager = new \CrayonBoManager();
     }
 
     protected function loadTwig(){
