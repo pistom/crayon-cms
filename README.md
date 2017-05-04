@@ -41,20 +41,24 @@ Variables are divided by `|` character. They are passed to the controller in the
 #### `root`
 Site main directory.
 #### `routes`
-Array of created routes.
-Examples:
+Array with created routes.
+
+**Examples:**
+
 Generate link: 
 ```html
 <a href="{{ root~routes['home'].path }}">{{ routes['home'].name }}</a>
 ```
 #### `settings`
-Array of settings.
-Examples:
+Array with site settings.
+
+**Examples:**
+
 ```html
 <title>{{ settings['site_name'] }}</title>
 ```
 ## Templates
-You can create your own twig templates by overwriting the base template.
+You can create your own twig templates by overloading the base template.
 Place your files in `/views/_templates/{name of template}` directory.
 The directory structure should be the same as the main view directory.
 Example:
