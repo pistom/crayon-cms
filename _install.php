@@ -5,6 +5,7 @@
 <body>
 <pre>
 <span style="color:slategray">
+
   ____                                ____ __  __ ____
  / ___|_ __ __ _ _   _  ___  _ __    / ___|  \/  / ___|
 | |   | '__/ _` | | | |/ _ \| '_ \  | |   | |\/| \___ \
@@ -195,14 +196,24 @@ createFile('data/blog/config.json', json_encode($blog_config));
 
 
 
-echo '<span style="color:lightslategray">________________________________________________________</span><br><br>';
 // Remove _install.php
 if(unlink('_install.php')):?>
-<span style='color:yellowgreen'>File <strong>_install.php</strong> deleted</span><br>
+<span style="color:slategray">
+┌ <b>SUCCESS!</b> ────────────────────────────────────────────╖
+│ <span style='color:yellowgreen'>File <strong>_install.php</strong> deleted</span>                            ║
+╘══════════════════════════════════════════════════════╝</span>
+<span style="color:slategray">
+┌ <b>IMPORTANT!</b> ──────────────────────────────────────────╖
+│ <span style="color:crimson">Change admin password!</span>                               ║
+╘══════════════════════════════════════════════════════╝</span>
+<span style="color:slategray">
+┌ <b>REMEMBER!</b> ───────────────────────────────────────────╖
+│ All data are stored in twig and json files excluded  ║
+│ from the GIT repository.                             ║
+│ <span style="color:crimson">Make sure you back up your data!</span>                     ║
+╘══════════════════════════════════════════════════════╝</span>
 <span style="color:slategray"><a href="<?php echo ($main_dir !== '') ? $main_dir : '/' ?>"><span style="color:dodgerblue">Homepage</span></a></span>
 <span style="color:slategray"><a href="<?php echo ($main_dir !== '') ? $main_dir.'/_bo' : '/_bo' ?>"><span style="color:dodgerblue">Back office</span></a> (login: admin, password: admin);</span>
-<span style="color:crimson"><b>Change admin password!</b></span>
-<span style="color:slategray">Change .htaccess RewriteBase if necessary.</span>
 <?php else: ?>
 <span style='color:crimson'>File <strong>_install.php</strong> not deleted</span><br>
 <span style='color:slategray'>Script does not have proper permissions</span><br>

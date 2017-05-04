@@ -14,6 +14,7 @@ package.json
 /data/tmp/blog/*.json
 /data/tmp/pages/*.json
 /data/pages/*.json
+/views/_templates
 /views/blog/articles/*.html.twig
 /views/tmp/blog/articles/*.html.twig
 /views/pages/*.html.twig

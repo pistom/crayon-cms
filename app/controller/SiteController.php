@@ -17,6 +17,14 @@ class SiteController
         $this->twig->addGlobal('languages',$this->manager->getLanguagesList());
     }
 
+    protected function getTemplate($tmpl){
+        $template = $tmpl;
+        if(array_key_exists('template',$this->siteConfig) && $this->siteConfig['template'] !== '')
+            if(file_exists('views/_templates/'.$this->siteConfig['template'].'/'.$tmpl))
+                $template = '_templates/'.$this->siteConfig['template'].'/'.$tmpl;
+        return $template;
+    }
+
     /**
      * Static page
      */
@@ -35,7 +43,7 @@ class SiteController
             echo json_encode($res);
         } else {
             echo $this->twig->render('pages/'.$sp[0].'.html.twig', array(
-                'template' => 'base.html.twig',
+                'template' => $this->getTemplate('base.html.twig'),
                 'pageTitle' => $page['title'],
                 'pageDescription' => $page['description'],
                 'menu' => $menu,
@@ -60,7 +68,7 @@ class SiteController
             echo json_encode($res);
         } else {
             echo $this->twig->render('contact.html.twig', array(
-                'template' => 'base.html.twig',
+                'template' => $this->getTemplate('base.html.twig'),
                 'menu' => $menu,
                 't' => $translations
             ));
@@ -117,6 +125,8 @@ class SiteController
      * 404
      */
     public function error404() {
-        echo $this->twig->render('404.html.twig', array());
+        echo $this->twig->render($this->getTemplate('404.html.twig'), array(
+            'template' => $this->getTemplate('base.html.twig')
+        ));
     }
 }

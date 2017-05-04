@@ -36,6 +36,17 @@
                     <input type="color" id="site_color" value="{{ settings['site_color'] }}" name="site_color">
                 </div>
             </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="template">Template</label>
+                <div class="page__blockInput">
+                    <select name="template" id="template" class="input--narrow">
+                        <option value="">basic</option>
+                        {% for tmpl in templates %}
+                            <option value="{{ tmpl }}" {{ tmpl == settings['template'] ? 'selected' : '' }}>{{ tmpl }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
 
             <div class="page__block">
                 <label class="page__blockLabel" for="site_email">Site email</label>

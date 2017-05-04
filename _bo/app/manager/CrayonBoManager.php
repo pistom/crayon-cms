@@ -1,8 +1,6 @@
 <?php
 class CrayonBoManager {
 
-
-
     public function getRoutesList(){
         $json_data = file_get_contents('../data/routing.json');
         $routes = json_decode($json_data, true);
@@ -314,6 +312,16 @@ class CrayonBoManager {
         $fp = fopen('../data/files.config.json', 'w');
         fwrite($fp, json_encode($config));
         fclose($fp);
+    }
+
+    public function getTemplatesList(){
+        $files = glob("../views/_templates/*");
+        $templates = array();
+        foreach ($files as $file) {
+            if(is_dir($file))
+                array_push($templates,basename($file));
+        }
+        return $templates;
     }
 
 }

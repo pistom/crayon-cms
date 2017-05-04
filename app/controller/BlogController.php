@@ -20,7 +20,7 @@ class BlogController extends SiteController {
 
 
         if($this->request['isAjax']){
-            $res['content'] = $this->twig->render('blog/articles.html.twig', array(
+            $res['content'] = $this->twig->render($this->getTemplate('blog/articles.html.twig'), array(
                 'currentPageNumber' => $page,
                 'template' => 'ajax.content.html.twig',
                 'articles' => $articles['results'],
@@ -32,9 +32,9 @@ class BlogController extends SiteController {
             echo json_encode($res);
         }
         else {
-            echo $this->twig->render('blog/articles.html.twig', array(
+            echo $this->twig->render($this->getTemplate('blog/articles.html.twig'), array(
                 'currentPageNumber' => $page,
-                'template' => 'base.html.twig',
+                'template' => $this->getTemplate('base.html.twig'),
                 'articles' => $articles['results'],
                 'pageTitle' => 'Blog',
                 'pageDescription' => 'Desc',
@@ -67,12 +67,12 @@ class BlogController extends SiteController {
         }
 
         if($this->request['isAjax']){
-            $res['contentTitle'] = $this->twig->render('blog/article.html.twig', array(
+            $res['contentTitle'] = $this->twig->render($this->getTemplate('blog/article.html.twig'), array(
                 'template' => 'ajax.contentTitle.html.twig',
                 'article' => $article,
                 't' => $translations
             ));
-            $res['content'] = $this->twig->render('blog/article.html.twig', array(
+            $res['content'] = $this->twig->render($this->getTemplate('blog/article.html.twig'), array(
                 'template' => 'ajax.content.html.twig',
                 'article' => $article,
                 'category' => $category,
@@ -83,7 +83,7 @@ class BlogController extends SiteController {
             echo json_encode($res);
         }
         else {
-            echo $this->twig->render('blog/article.html.twig', array(
+            echo $this->twig->render($this->getTemplate('blog/article.html.twig'), array(
                 'template' => 'base.html.twig',
                 'article' => $article,
                 'pageTitle' => 'Blog',
