@@ -397,13 +397,17 @@ hr {
 .content__menu {
   min-width: 480px;
 }
+/* line 254, ../sass/main.scss */
+.content__640 {
+  min-width: 640px;
+}
 
-/* line 255, ../sass/main.scss */
+/* line 258, ../sass/main.scss */
 .pagination {
   display: block;
   margin-bottom: 30px;
 }
-/* line 259, ../sass/main.scss */
+/* line 262, ../sass/main.scss */
 .pagination a {
   padding: 5px 15px;
   margin-top: 6px;
@@ -413,16 +417,16 @@ hr {
   border-color: #e1e8ef;
   color: #0079cd;
 }
-/* line 267, ../sass/main.scss */
+/* line 270, ../sass/main.scss */
 .pagination a:first-child {
   border-left-width: 1px;
 }
-/* line 270, ../sass/main.scss */
+/* line 273, ../sass/main.scss */
 .pagination a.active {
   color: #222f3c;
   background: #e1e8ef;
 }
-/* line 274, ../sass/main.scss */
+/* line 277, ../sass/main.scss */
 .pagination a:hover {
   background: #0079cd;
   color: white;
@@ -1294,35 +1298,36 @@ table colgroup col:first-child {
 /* line 32, ../sass/tables.scss */
 table tr td, table tr th {
   padding: 5px;
+  line-height: 1.2;
 }
 /* line 33, ../sass/tables.scss */
 table tr td:last-child, table tr th:last-child {
   text-align: right;
 }
-/* line 41, ../sass/tables.scss */
+/* line 42, ../sass/tables.scss */
 table thead tr th {
   font-family: "Lora", serif;
   color: #222f3c;
   border-bottom: 2px solid #9eb5cc;
 }
-/* line 51, ../sass/tables.scss */
+/* line 52, ../sass/tables.scss */
 table tbody tr:hover td {
   background-color: #f2f5f8;
 }
-/* line 55, ../sass/tables.scss */
+/* line 56, ../sass/tables.scss */
 table tbody tr td {
   font-family: "Muli", sans-serif;
   font-size: .9rem;
   border-bottom: 1px solid #e1e8ef;
 }
-/* line 64, ../sass/tables.scss */
+/* line 65, ../sass/tables.scss */
 table tfoot tr td {
   font-family: "Muli", sans-serif;
   border-bottom: none;
   font-size: .9rem;
 }
 
-/* line 76, ../sass/tables.scss */
+/* line 77, ../sass/tables.scss */
 .lang__translations tr td:last-child {
   text-align: inherit;
 }

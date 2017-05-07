@@ -3420,7 +3420,7 @@ figure.image img {
 }
 /* line 237, ../sass/grid.scss */
 figure.image.align-left {
-  margin: 0 auto;
+  margin: 0 auto 15px;
   display: block;
 }
 @media (min-width: 768px) {
@@ -3428,29 +3428,34 @@ figure.image.align-left {
   figure.image.align-left {
     float: left;
     margin-right: 15px;
+    padding-right: 15px;
+    border-right: 2px solid #0dc3ca;
   }
 }
-/* line 245, ../sass/grid.scss */
+/* line 247, ../sass/grid.scss */
 figure.image.align-right {
-  margin: 0 auto;
+  margin: 0 auto 15px;
   display: block;
 }
 @media (min-width: 768px) {
-  /* line 245, ../sass/grid.scss */
+  /* line 247, ../sass/grid.scss */
   figure.image.align-right {
     float: right;
     margin-left: 15px;
+    padding-left: 15px;
+    border-left: 2px solid #0dc3ca;
   }
 }
 
-/* line 256, ../sass/grid.scss */
+/* line 260, ../sass/grid.scss */
 figure.image figcaption {
   text-align: center;
-  margin: -5px 0 8px 0;
+  line-height: 1;
   font-size: .75rem;
+  color: gray;
 }
 @media (min-width: 768px) {
-  /* line 256, ../sass/grid.scss */
+  /* line 260, ../sass/grid.scss */
   figure.image figcaption {
     text-align: left;
   }

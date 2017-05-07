@@ -16,7 +16,7 @@ Crayon CMS uses the [altorouter](http://altorouter.com/) routing class.
 | function     | variable       | example                |
 |--------------|----------------|------------------------|
 | articlesList | [i:page]?      | blog/[i:page]?/        |
-| article      | [slug:article] | blog/[slug:article]?/  |
+| article      | [slug:article] | blog/[slug:article]    |
 ```
 Variables of the path are passed to the controller in the `$dp` array.
 ### Variables
@@ -67,3 +67,22 @@ Example:
 /views/_templates/new_template/blog/article.html.twig
 ```
 The folder name with the new template appears in the settings.
+
+## Translations
+You can use the twig global variable `t` for rendering strings.
+
+Example:
+```html
+<p>{{ t.message }}</p>
+```
+Add this line:
+```html
+<scipt src="{{ root }}/js/translation.js?lang={{ menu.lang }}"></script>
+```
+to your template for generate an js global object with current language's translations.
+You can use this object in your js.
+Exaple:
+```js
+alert(translate.thank_you);
+```
+

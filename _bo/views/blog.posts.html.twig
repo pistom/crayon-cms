@@ -31,9 +31,14 @@
         {% endfor %}
         </tbody>
         <tfoot>
-        <tr>
-            <td colspan="4"></td>
-        </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="pagination">
+                        {% for page in posts.paginator %}<a href="/_bo/blog.posts.php?page={{ page.page }}" class="{{ currentPage == page.page ? 'active' : '' }}">{{ page.page }}</a>{% endfor %}
+                    </div>
+                </td>
+                <td colspan="3"><a href="blog.post.edit.php" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
+            </tr>
         </tfoot>
     </table>
 

@@ -1,6 +1,9 @@
 {% extends "base.html.twig" %}
 {% block content %}
-    <h1>Pages</h1>
+    <h1>
+        Pages
+        {% if userRole == 'admin' %}<a class="btn btn--azure btn--right " href="page.edit.php"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>{% endif %}
+    </h1>
 
     <table>
         <colgroup>

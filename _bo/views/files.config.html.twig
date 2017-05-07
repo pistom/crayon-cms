@@ -1,4 +1,5 @@
 {% extends "base.html.twig" %}
+{% set contentClass = 'content__640' %}
 {% block content %}
     <h1>Files configuration</h1>
     <div class="page">
@@ -33,19 +34,18 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="2"></td>
                     <td colspan="3">
-                        <a href="" class="btn btn--azure" data-action="add"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
+                        <a href="" class="btn btn--azure btn--small" data-action="add"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"></td>
                     <td colspan="3">
                         <a href="" class="btn btn--green" data-action="save-settings"><i data-action="save-settings" class="fa fa-save" aria-hidden="true"></i> Save</a>
                     </td>
                 </tr>
                 </tfoot>
             </table>
+        </form>
     </div>
 {% endblock %}
 

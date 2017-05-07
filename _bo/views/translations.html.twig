@@ -1,7 +1,6 @@
 {% extends "base.html.twig" %}
 {% block content %}
     <h1>Translations</h1>
-
     <table class="lang__translations">
         <colgroup>
             <col style="width: 20px">
@@ -9,11 +8,11 @@
             <col>
         </colgroup>
         <thead>
-            <tr>
-                <th>#</th>
-                <th>Translation</th>
-                <th>Action</th>
-            </tr>
+        <tr>
+            <th>#</th>
+            <th>Translation</th>
+            <th>Action</th>
+        </tr>
         </thead>
         <tbody>
         {% for key,translate in translations %}
@@ -22,9 +21,9 @@
                 <td colspan="2">
                     <form action="" id="form_{{ loop.index }}">
                         <div class="row">
-                            <div class="col-t-25">
+                            <div class="col-t-25" style="padding-right:15px;">
                                 <label for="input_{{ key }}">Key</label>
-                                <input name="key" id="input_{{ key }}" class="input--narrow" type="text" value="{{ key }}"/>
+                                <input name="key" id="input_{{ key }}" class="" type="text" value="{{ key }}"/>
                                 <input name="old_key" type="hidden" value="{{ key }}">
                             </div>
                             <div class="col-t-50">
@@ -35,7 +34,7 @@
                                                 <label for="{{ loop.parent.loop.index }}_translate_{{ code }}">{{ lang[0] }} ({{ code }})</label>
                                             </div>
                                             <div class="col-t-75">
-                                                <input name="{{ code }}" id="{{ loop.parent.loop.index }}_translate_{{ code }}" class="input--narrow" type="text" value="{{ translate[code] }}"/>
+                                                <input name="{{ code }}" id="{{ loop.parent.loop.index }}_translate_{{ code }}" class="" type="text" value="{{ translate[code] }}"/>
                                             </div>
                                         </div>
                                     {% endfor %}
@@ -52,9 +51,9 @@
         {% endfor %}
         </tbody>
         <tfoot>
-            <tr>
-                <td colspan="3"><a data-action="add" href="#" class="btn btn--azure" style="float:right"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
-            </tr>
+        <tr>
+            <td colspan="3"><a data-action="add" href="#" class="btn btn--azure" style="float:right"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
+        </tr>
         </tfoot>
     </table>
 
