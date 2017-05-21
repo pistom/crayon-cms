@@ -6,7 +6,7 @@ Demo: [cms.crayon.pro](http://cms.crayon.pro)
 ## Installation
 1. Clone or download the CMS source.
 2. Run composer to download dependencies.
-3. Go to Back Office (`youdomain/_bo`) and change admin password.
+3. Go to Back Office (`yourdomain/_bo`) and change admin password.
 
 ## Routing
 Crayon CMS uses the [altorouter](http://altorouter.com/) routing class.

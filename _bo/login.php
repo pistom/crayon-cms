@@ -1,10 +1,12 @@
 <?php session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
-    $json_data = file_get_contents('../data/users.json');
-    $logins = json_decode($json_data, true);
+    $json_data_users = file_get_contents('../data/users.json');
+    $logins = json_decode($json_data_users, true);
+    $json_data_config = file_get_contents('../data/config.json');
+    $config = json_decode($json_data_config, true);
 
     $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? md5($_POST['password']) : '';
+    $password = isset($_POST['password']) ? crypt($_POST['password'],$config['salt']) : '';
 
     $res = array();
     if (isset($logins[$username]) && $logins[$username]['pwd'] === $password){

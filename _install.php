@@ -71,7 +71,8 @@ $config = array(
 'dev_mode'=>true,
 'twig_cache'=>'cache',
 'site_color'=>'#ffffff',
-'main_dir'=>$main_dir
+'main_dir'=>$main_dir,
+'salt'=>uniqid(mt_rand(), true)
 );
 createFile('data/config.json', json_encode($config));
 
@@ -130,7 +131,7 @@ createFile('data/translations.json', json_encode($translations));
 $users = array(
 "admin"=>array(
     "role"=>"admin",
-    "pwd"=>"21232f297a57a5a743894a0e4a801fc3"
+    "pwd"=>crypt('admin',$config['salt'])
 )
 );
 createFile('data/users.json', json_encode($users));
@@ -141,7 +142,6 @@ $homepage = array(
 "description"=>"Homepage",
 "menu"=>"main"
 );
-
 createFile('data/pages/home.json', json_encode($homepage));
 
 // Homepage content
@@ -185,7 +185,7 @@ $categories = array(
 );
 createFile('data/blog/categories.json', json_encode($categories));
 
-// Blog categories
+// Blog config
 $blog_config = array(
 "articles_per_page"=>5,
 "author_name"=>"Author",
@@ -197,7 +197,7 @@ createFile('data/blog/config.json', json_encode($blog_config));
 
 
 // Remove _install.php
-if(unlink('_install.php')):?>
+if(rename('_install.php','_install.tmp')):?>
 <span style="color:slategray">
 ┌ <b>SUCCESS!</b> ────────────────────────────────────────────╖
 │ <span style='color:yellowgreen'>File <strong>_install.php</strong> deleted</span>                            ║
