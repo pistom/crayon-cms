@@ -1,4 +1,7 @@
 {% extends "base.html.twig" %}
 {% block content %}
     <h1>Dashboard</h1>
+    {% if changePwd == true %}
+        <a class="btn btn--red" href="user.edit.php?user=admin">Change admin password</a>
+    {% endif %}
 {% endblock %}
