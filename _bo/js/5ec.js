@@ -277,6 +277,54 @@ var getFileNameFromManager = function(file){
         })
     }
 
-
-
 })();
+
+Pageconsole.prototype.lang = function(args){
+    switch (args[0]){
+
+        case 'add':
+            var code = args[1];
+            var name = args[2] || args[1];
+            var page = args[3] || 'home';
+            atomic.get(_root_+'/_bo/languages.php')
+                .success(function (languages, xhr) {
+                    var data = "";
+                    for(var key in languages){
+                        data += 'code_'+key+'='+key+'&' +
+                                'lang_'+key+'='+languages[key][0]+'&' +
+                                'page_'+key+'='+languages[key][1]+'&';
+                    }
+                    data += 'code_new='+code+'&' +
+                            'lang_new='+name+'&' +
+                            'page_new='+page;
+
+                    atomic.post(_root_+'/_bo/languages.save.php',data)
+                        .success(function (data) {
+                            if(data.status === 'success'){
+                                this.print('[0;32]Language added ('+code+')');
+                            }
+                            else{
+                                this.print('[0;31]An error occured');
+                            }
+                        }.bind(this))
+                        .error(function () {
+                            this.print('[0;31]Can not connect to server');
+                        }.bind(this));
+                }.bind(this))
+                .error(function () {
+                    this.print('[0;31]Can not connect to server');
+                }.bind(this));
+            break;
+
+        case 'delete':
+            atomic.post(_root_+'/_bo/language.delete.php','code='+args[1])
+                .success(function (res) {
+                    this.print(res.message);
+                }.bind(this))
+                .error(function () {
+                    this.print('[0;31]Can not connect to server');
+                }.bind(this));
+            break;
+    }
+
+};

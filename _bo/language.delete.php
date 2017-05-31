@@ -6,12 +6,18 @@ $manager = $app->getManager();
 $languages = $manager->getLanguagesList();
 
 $code = $manager->testString($_POST['code']);
-unset($languages[$code]);
+$res = array();
+if(array_key_exists($code,$languages)){
+    unset($languages[$code]);
+    $res['status'] = 'success';
+    $res['message'] = 'Data saved';
+} else {
+    $res['status'] = 'error';
+    $res['message'] = 'Language is not defined';
+};
 
 $manager->saveLanguages($languages);
 
-
 header('Content-Type: application/json');
-$res['status'] = 'success';
-$res['message'] = 'Data saved';
+
 echo json_encode($res);

@@ -69,4 +69,8 @@ class CrayonBo {
         fwrite($fp, json_encode($settings));
         fclose($fp);
     }
+
+    public static function isAjaxRequest(){
+        return (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') ? true : false;
+    }
 }

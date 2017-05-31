@@ -27,3 +27,4 @@ header('Content-Type: application/json');
 $res['status'] = 'success';
 $res['message'] = 'Data saved';
 echo json_encode($res);
+
