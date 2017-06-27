@@ -326,5 +326,10 @@ Pageconsole.prototype.lang = function(args){
                 }.bind(this));
             break;
     }
-
 };
+Pageconsole.prototype.lang.man = "[1;32]LANG Manual:\n" +
+                                 "[1;32]Adding and deleting languages:\n" +
+                                 "[1;37]lang [0;37][action] [1;32][code] [1;34][name] [1;36][page]\n" +
+                                 "[1;37]Examples:\n" +
+                                 "[1;37]lang [0;37]add [1;32]fr [1;34]Français [1;36]home\n" +
+                                 "[1;37]lang [0;37]delete [1;32]fr";

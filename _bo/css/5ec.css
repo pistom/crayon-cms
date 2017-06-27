@@ -433,6 +433,11 @@ hr {
   border-color: #34acff;
 }
 
+/* line 284, ../sass/main.scss */
+.pageconsole-input {
+  font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+}
+
 /* line 13, ../sass/mixins/_clearfix.scss */
 .clearfix {
   clear: both;
