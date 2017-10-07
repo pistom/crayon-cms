@@ -1,0 +1,7 @@
+@mixin block($bgColor:$cl-bg, $bgOpacity:.25, $borderColor:lighten($cl-secondary,15), $padding:15px) {
+	padding: $padding;
+    @include border-radius(1px);
+    background:transparentize($bgColor, $bgOpacity);
+    border:1px solid $borderColor;
+    box-sizing:border-box;
+}

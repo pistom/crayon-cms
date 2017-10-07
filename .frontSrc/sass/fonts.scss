@@ -1,0 +1,240 @@
+@import "colors";
+@import "mixins/breakpoint";
+@font-face {
+  font-family: 'reenie_beanieregular';
+  src: url('fonts/ReenieBeanie.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-primary: 'Muli', sans-serif;
+$font-secondary: 'Lora', serif;
+$font-tertiary: 'reenie_beanieregular','Lora', serif;
+
+
+.marginTop-1 {
+  margin-top: 1em!important;
+}
+.marginTop-2 {
+  margin-top: 2em!important;;
+}
+.marginTop-3 {
+  margin-top: 3em!important;;
+}
+
+.marginBottom-1 {
+  margin-bottom: 1em!important;;
+}
+.marginBottom-2 {
+  margin-bottom: 2em!important;;
+}
+.marginBottom-3 {
+  margin-bottom: 3em!important;;
+}
+
+.text--center {
+  text-align: center;
+}
+.text--left {
+  text-align: left!important;
+}
+.text--right {
+  text-align: right!important;
+}
+.text--bold, strong {
+  font-weight: 700;
+}
+.text--red {
+  color: $cl-red;
+}
+.text--blue {
+  color: $cl-blue;
+}
+.text--green {
+  color: $cl-green;
+}
+.text--gray {
+  color: $cl-gray;
+}
+.text--coursive, em {
+  font-style: italic;
+}
+.text--small {
+  font-size: .8rem;
+  line-height: 1.5em;
+}
+
+.title {
+  line-height: 1.2em;
+}
+.title--1, h1 {
+  line-height: 1.2em;
+  color: $cl-blue;
+  margin:30px 0 20px;
+  font-family: $font-secondary;
+  font-size: 2rem;
+  text-align: center;
+  @include breakpoint($tablet) {
+    font-size: 3rem;
+  }
+}
+.title--2, h2 {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  @include breakpoint($tablet) {
+    font-size: 1.8rem;
+  }
+}
+.title--3, h3 {
+  line-height: 1.2em;
+  font-size: 1rem;
+  font-weight: 700;
+  @include breakpoint($tablet) {
+    font-size: 1.2rem;
+  }
+}
+.title--red {
+  color: $cl-red;
+}
+.title--blue {
+  color: $cl-blue;
+}
+.title--gray {
+  color: $cl-gray;
+}
+.title--green {
+  color: $cl-green;
+}
+
+
+sup {
+  font-size: .75em;
+  vertical-align: super;
+}
+sub {
+  font-size: .75em;
+  vertical-align: sub;
+}
+
+a {
+  text-decoration: none;
+  color: $cl-blue;
+  transition: all .5s ease;
+  &.active {
+    color: $cl-red;
+  }
+  &:hover {
+    color: darken($cl-blue,10);
+  }
+  &:active {
+    color: $cl-bg!important;
+    background-color: $cl-red;
+  }
+}
+strong {
+  font-weight: 600;
+}
+
+.mainContent,.mainContentTitle{
+  p {
+    margin-bottom: 15px;
+  }
+
+  ul,ol {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    li {
+
+    }
+  }
+  ul {
+    list-style: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+}
+
+blockquote {
+  border-left: 2px solid $cl-green;
+  border-right: 2px solid $cl-green;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: $font-secondary;
+  font-size: 1.5rem;
+  color: lighten($cl-text,20);
+  @include breakpoint ($tablet) {
+    font-size: 2rem;
+  }
+  @include breakpoint ($desktop) {
+    margin:1.5em 60px;
+  }
+  line-height: 1.5em;
+  font-style: italic;
+  quotes: '\00AB' '\00BB';
+  &:before {
+    color: lighten($cl-text,60);
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.15em;
+    vertical-align: -0.2em;
+  }
+  &:after {
+    color: lighten($cl-text,60);
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-left: 0.15em;
+    vertical-align: -0.2em;
+  }
+  p {
+    display: inline;
+  }
+  &.citation {
+    font-size: 1rem;
+    padding: 0 15px;
+    p {
+      display: block;
+      quotes: '\00AB' '\00BB';
+      &:before {
+        color: lighten($cl-text,60);
+        content: open-quote;
+      }
+      &:after {
+        color: lighten($cl-text,60);
+        content: close-quote;
+      }
+      &.quote__author {
+        &:before, &:after {
+          display: none;
+        }
+        text-align: right;
+        margin-bottom:0;
+        font-style: normal;
+      }
+      &.quote__url {
+        text-align: right;
+        margin-bottom:0;
+        font-size: .85em;
+        &:before, &:after {
+          display: none;
+        }
+        a {
+          color: $cl-green;
+        }
+      }
+    }
+    &:before,&:after {
+      display: none;
+    }
+  }
+  &.no-qm {
+    p {
+      display: block;
+    }
+    &:after,&:before {
+      display: none;
+    }
+  }
+}

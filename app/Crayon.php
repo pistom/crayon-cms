@@ -43,9 +43,7 @@ class Crayon {
     }
 
     public function run() {
-        $this->twig->addGlobal('routes',$this->routes);
-        $this->twig->addGlobal('settings',$this->settings);
-        $this->twig->addGlobal('root',$this->settings['main_dir']);
+        $this->setTwigGlobals();
         $ctrlParams = array(
             'lang'=>$this->lang,
             'twig'=>$this->twig,
@@ -132,5 +130,23 @@ class Crayon {
     private function loadAdditionalRoutes(){
         $this->router->map('POST',$this->settings['main_dir'].'/contact/send','SiteController#contactSend','contact_send','Sending contact form');
         $this->router->map('GET',$this->settings['main_dir'].'/js/translation.js','SiteController#jsTranslation','js_translation','Getting translation for JS');
+    }
+
+    private function getAssets()
+    {
+        try {
+            return file_exists($this->settings['main_dir'].'dist/manifest.json') ?
+                json_decode(file_get_contents($this->settings['main_dir'].'dist/manifest.json'), true) : null;
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    protected function setTwigGlobals()
+    {
+        $this->twig->addGlobal('assets', $this->getAssets());
+        $this->twig->addGlobal('routes', $this->routes);
+        $this->twig->addGlobal('settings', $this->settings);
+        $this->twig->addGlobal('root', $this->settings['main_dir']);
     }
 }

@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "comma-dangle": ["off"],
+    "no-extra-semi": ["warn"],
+    "no-console": ["warn"],
+    "import/extensions": 0,
+    "no-unused-vars": ["warn"],
+    "object-curly-spacing": ["off"],
+    "padded-blocks": ["off"],
+    "no-underscore-dangle": [ "error", { "allowAfterThis": true }]
+  }
+}

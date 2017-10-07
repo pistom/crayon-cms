@@ -1,3 +1,8 @@
-import scss from '../css/styles.scss';
+import LoadContent from './CrayonCms/LoadContent';
 
-test('aaa');
+new LoadContent({
+  bodyIsLoaded: true,
+  ajaxLinksClass: 'ajaxLink',
+  contentContainerId: 'mainContent',
+  beforeContentId: 'mainContentTitle'
+});

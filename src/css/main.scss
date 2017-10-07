@@ -1,0 +1,23 @@
+body {
+  font-family: $font-primary;
+  background-color: $cl-bg;
+  line-height: 1.5em;
+  color: $cl-text;
+  overflow-y: scroll;
+}
+.container {
+  @include containerRwd;
+  padding: 0 15px;
+  @include breakpoint($tablet){
+    padding: 0;
+  }
+}
+
+hr {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: lighten($cl-gray,40);
+  height: 0;
+  margin-top: 20px;
+  margin-bottom:20px;
+}
