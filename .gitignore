@@ -1,5 +1,6 @@
 .idea
 .sass-cache
+.frontSrc
 /dist
 /vendor
 /node_modules
