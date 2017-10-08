@@ -9,11 +9,13 @@
       &Item {
         position: relative;
         display: inline-block;
-        &.active {
-          .mainNavigation__listItemLink {
+        .mainNavigation__listItemLink {
+
+          &.active {
             color: $cl-red;
           }
         }
+
         &:hover {
           .mainNavigation__subList {
             max-height: 300px;

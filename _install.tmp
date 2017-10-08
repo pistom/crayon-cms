@@ -72,7 +72,15 @@ $config = array(
 'twig_cache'=>'cache',
 'site_color'=>'#ffffff',
 'main_dir'=>$main_dir,
-'salt'=>uniqid(mt_rand(), true)
+'salt'=>uniqid(mt_rand(), true),
+'admin_email'=>'admin@admin.com,
+'mail_is_smtp'=>true,
+'mail_host'=>"",
+'mail_smtp_auth'=>false,
+'mail_username'=>"admin",
+'mail_password'=>"admin",
+'mail_smtp_secure'=>"",
+'mail_port'=>""
 );
 createFile('data/config.json', json_encode($config));
 

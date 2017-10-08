@@ -2,21 +2,21 @@
     {% set iterator = 1 %}
     {% for key,item in menu.items %}
     {% spaceless %}
-        <li class="mainNavigation__listItem{{ (currentMatch == routes[key].controller~'#'~routes[key].function~'#'~routes[key].variables) ? " active" : ""  }}">
+        <li class="mainNavigation__listItem">
             {% if routes[key].blind == 'true' %}
                 <span class="mainNavigation__listItemLink">{{ routes[key].name }}</span>
             {% else %}
-                <a class="mainNavigation__listItemLink ajaxLink" href="{{ root~routes[key].path }}" data-ajax="true" title="{{ routes[key].name }}">{{ routes[key].name }}</a>
+                <a class="mainNavigation__listItemLink ajaxLink{{ (currentMatch == routes[key].controller~'#'~routes[key].function~'#'~routes[key].variables) ? " active" : ""  }}" href="{{ root~routes[key].path }}" data-ajax="true" title="{{ routes[key].name }}">{{ routes[key].name }}</a>
             {% endif %}
         {% if item|length > 1 %}
             <ul class="mainNavigation__subList">
             {% for key2,item2 in item %}
                 {% if loop.index > 1 %}
-                    <li class="mainNavigation__subListItem{{ (currentMatch == routes[key].controller~'#'~routes[key].function~'#'~routes[key].variables) ? " active" : ""  }}">
+                    <li class="mainNavigation__subListItem">
                         {% if routes[key2].blind == 'true' %}
                             <span class="mainNavigation__subListItemLink">{{ routes[key2].name }}</span>
                         {% else %}
-                            <a class="mainNavigation__subListItemLink ajaxLink" href="{{ root~routes[key2].path }}" data-ajax="true" title="{{ routes[key2].name }}">{{ routes[key2].name }}</a>
+                            <a class="mainNavigation__subListItemLink ajaxLink{{ (currentMatch == routes[key].controller~'#'~routes[key].function~'#'~routes[key].variables) ? " active" : ""  }}" href="{{ root~routes[key2].path }}" data-ajax="true" title="{{ routes[key2].name }}">{{ routes[key2].name }}</a>
                         {% endif %}
                     </li>
                 {% endif %}
