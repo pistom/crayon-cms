@@ -12,6 +12,7 @@ Demo: [cms.crayon.pro](http://cms.crayon.pro)
    * Develop `npm run dev`
    * Production `npm run prod`
 6. Go to Back Office (`yourdomain/_bo`) and change admin password.
+7. Configure site (`yourdomain/_bo/settings.php`).
 
 ## Routing
 Crayon CMS uses the [altorouter](http://altorouter.com/) routing class.
