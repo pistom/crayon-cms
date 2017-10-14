@@ -213,7 +213,7 @@ createFile('data/blog/config.json', json_encode($blog_config));
 
 
 // Remove _install.php
-if(rename('_install.php','_install.tmp')):?>
+if(rename('_install.php','_install.dist')):?>
 <span style="color:slategray">
 ┌ <b>SUCCESS!</b> ────────────────────────────────────────────╖
 │ <span style='color:yellowgreen'>File <strong>_install.php</strong> deleted</span>                            ║
