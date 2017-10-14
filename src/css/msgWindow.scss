@@ -1,4 +1,4 @@
-.msgWindow {
+#msgWindow {
   max-height: 0;
   transition: all .5s ease;
   opacity: 0;
@@ -23,24 +23,27 @@
     overflow: hidden;
   }
   &.success {
-    .msgWindowTitle {
+    border-color: $cl-green;
+    .alertTitle {
       color: $cl-green;
       border-color: $cl-green;
     }
   }
   &.info {
-    .msgWindowTitle {
+    border-color: $cl-blue;
+    .alertTitle {
       color: $cl-blue;
       border-color: $cl-blue;
     }
   }
   &.error {
-    .msgWindowTitle {
+    border-color: $cl-red;
+    .alertTitle {
       color: $cl-red;
       border-color: $cl-red;
     }
   }
-  &Title {
+  .alertTitle {
     font-size: 1.5rem;
     line-height: 1.5em;
     font-family: $font-secondary;
@@ -48,17 +51,29 @@
     padding: 0 0 10px;
     margin: 15px 30px 15px;
   }
-  &Content {
+  .alertContent {
     font-size: 15px;
     line-height: 1.4;
     overflow: auto;
     padding: 0 20px 20px 20px;
   }
-  &Close {
-    //@include icon(btn-close,30px,30px,false);
+  .alertClose {
+    height: 30px;
+    width: 30px;
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
+    &:before {
+      content: 'x';
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }

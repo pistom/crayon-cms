@@ -190,6 +190,8 @@ var getFileNameFromManager = function(file){
                         input.value = "";
                     if(input.type == 'checkbox')
                         input.checked = '';
+                    if(input.name && input.name == 'old_key')
+                        input.value = '';
                     var oldName = input.name;
                     input.name = oldName.replace(/r\d+-/,'r'+(lastItemNumber+1)+'-');
                 });

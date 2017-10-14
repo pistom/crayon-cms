@@ -1,15 +1,3 @@
-@import "compass";
-@import "mixins/breakpoint";
-@import "mixins/mixins";
-@import "mixins/clearfix";
-@import "colors";
-@import "fonts";
-
-//@import "sprites/*.png"; // Create sprites with src/images/sprites/*.png
-//$sprites: sprite-map("sprites/*.png");
-$disable-magic-sprite-selectors: true;
-
-
 .blog {
   .mainContentTitle {
     background-color: $cl-gray;

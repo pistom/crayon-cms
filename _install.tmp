@@ -129,9 +129,17 @@ createFile('data/routing.json', json_encode($routing_config));
 
 // Translations
 $translations = array(
-"contact"=>array(
-    "en"=>"Contact",
-)
+"contact"=>array("en"=>"Contact"),
+"email"=>array("en"=>"Email"),
+"message"=>array("en"=>"Message"),
+"error"=>array("en"=>"Error"),
+"sending"=>array("en"=>"Sending"),
+"read_article"=>array("en"=>"Read article"),
+"email_not_blank"=>array("en"=>"Email can't be empty."),
+"email_not_valid"=>array("en"=>"Email doesn't look like a valid email."),
+"message_not_blank"=>array("en"=>"Message can't be empty."),
+"message_too_short"=>array("en"=>"Message is too short"),
+"message_sent"=>array("en"=>"Your message has been sent"),
 );
 createFile('data/translations.json', json_encode($translations));
 

@@ -9,6 +9,7 @@
     <hr>
     <h2>{{ t.contact_form }}</h2>
     <form action="{{ root }}/contact/send" id="mainContactForm">
+        <div class="row" id="mainContactFormMessage"></div>
         <div class="row row-d-o1">
             <div class="col-t-33 col-t-pr1">
                 <label for="email">{{ t.email }}:</label>
@@ -22,7 +23,7 @@
                 <label for="email">{{ t.message }}:</label>
             </div>
             <div class="col-t-66">
-                <textarea name="message" id="" cols="30" rows="10" placeholder="enter your message"></textarea>
+                <textarea name="message" title="acb" id="" cols="30" rows="10" placeholder="enter your message"></textarea>
             </div>
         </div>
         <div class="row row-d-o1">

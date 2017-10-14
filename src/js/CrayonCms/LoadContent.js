@@ -3,12 +3,13 @@ import Promise from 'babel-runtime/core-js/promise'
 export default class LoadContent {
 
   constructor (params) {
-    this.bodyIsLoaded = params.bodyIsLoaded ? 'true' : 'false'
-    this.ajaxLinks = document.getElementsByClassName(params.ajaxLinksClass)
-    this.contentContainer = document.getElementById(params.contentContainerId)
-    this.beforeContent = document.getElementById(params.beforeContentId)
-    this.listenAjaxLinks()
-    this.listenPopState()
+    this.bodyIsLoaded = params.bodyIsLoaded ? 'true' : 'false';
+    this.ajaxLinks = document.getElementsByClassName(params.ajaxLinksClass);
+    this.contentContainer = document.getElementById(params.contentContainerId);
+    this.beforeContent = document.getElementById(params.beforeContentId);
+    this.loadingAnimation = document.getElementById(params.loadingAnimationId);
+    this.listenAjaxLinks();
+    this.listenPopState();
   }
 
   listenAjaxLinks () {
@@ -37,14 +38,19 @@ export default class LoadContent {
   }
 
   fetchPage (url) {
+    this.showLoadingAnimation(true);
     fetch(this.prepareUrl(url), {headers: this.setHeaders()})
       .then(response => this.checkResponseStatus(response))
       .then(response => response.json())
       .then(json => {
+        this.showLoadingAnimation(false);
         this.appendResult(json)
         this.setActiveMenu()
       })
-      .catch(error => {this.appendResult({'content': `<h1 class="not-found">${error.message}</h1>`})})
+      .catch(error => {
+        this.appendResult({'content': `<h1 class="not-found">${error.message}</h1>`});
+        this.showLoadingAnimation(false);
+      })
   }
 
   checkResponseStatus (response) {
@@ -90,7 +96,13 @@ export default class LoadContent {
           this.ajaxLinks[link].classList.add('active'):
           this.ajaxLinks[link].classList.remove('active');
       }
-
     }
   }
+
+  showLoadingAnimation(show) {
+    show ?
+      this.loadingAnimation.classList.remove('isHidden') :
+      this.loadingAnimation.classList.add('isHidden');
+  }
+
 }

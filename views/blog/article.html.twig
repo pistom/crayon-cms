@@ -1,9 +1,8 @@
 {% extends template %}
 
 {% set bodyClass = 'blog' %}
-{% block pageDescription %}
-    <meta name="description" content="{{ article.description }}">
-{% endblock %}
+{% set pageDescription = article.description %}
+
 {% block contentTitle %}
     <div class="mainContentTitle" style="background-image:url({{ root }}/images/pages/{{ article.main_image }})">
         <div class="container text-center">

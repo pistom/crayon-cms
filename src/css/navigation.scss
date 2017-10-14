@@ -1,4 +1,3 @@
-
 .mainNavigation {
   border-width: 1px 0;
   border-style: solid;
@@ -10,7 +9,6 @@
         position: relative;
         display: inline-block;
         .mainNavigation__listItemLink {
-
           &.active {
             color: $cl-red;
           }

@@ -1,13 +1,4 @@
-@import "compass";
-@import "mixins/breakpoint";
-@import "mixins/mixins";
 @import "mixins/clearfix";
-@import "colors";
-@import "fonts";
-
-//@import "sprites/*.png"; // Create sprites with src/images/sprites/*.png
-//$sprites: sprite-map("sprites/*.png");
-//$disable-magic-sprite-selectors: true;
 
 .mainHeader {
   text-align: center;
@@ -28,11 +19,18 @@
     left: 0;
   }
   &__brand {
-    //@include icon(logo-crayon,134px,200px,false);
+    background-image: url(../images/logo-crayon.svg);
+    background-size: cover;
+    width: 50px;
+    height: 75px;
     margin: 0 auto -12px;
     cursor: pointer;
     position: relative;
     z-index: 1;
+    @include breakpoint($tablet) {
+      width: 134px;
+      height: 200px;
+    }
   }
   &__title {
     background: $cl-bg;

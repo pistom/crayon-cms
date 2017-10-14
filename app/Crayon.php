@@ -135,8 +135,8 @@ class Crayon {
     private function getAssets()
     {
         try {
-            return file_exists($this->settings['main_dir'].'dist/manifest.json') ?
-                json_decode(file_get_contents($this->settings['main_dir'].'dist/manifest.json'), true) : null;
+            return file_exists('./dist/manifest.json') ?
+                json_decode(file_get_contents('./dist/manifest.json'), true) : null;
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
