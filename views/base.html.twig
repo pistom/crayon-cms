@@ -7,9 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta charset="utf-8">
     <title>{{ settings['site_name'] }}{{ pageTitle }}</title>
-    {% block pageDescription %}
     <meta name="description" content="{{ pageDescription }}">
-    {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ root }}/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ root }}/images/favicon-32x32.png">
@@ -20,7 +18,9 @@
     <meta name="msapplication-config" content="{{ root }}/images/browserconfig.xml">
     <meta name="theme-color" content="{{ settings['site_color'] }}">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Muli:400,600&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="{{ root }}/css/5ec.min.css">
+    {% if assets %}
+    <link rel="stylesheet" href="{{ root }}/dist/{{ assets['app.css'] }}">
+    {% endif %}
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="{{ root }}/css/5ec-ie8.css">
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,14 +29,10 @@
 </head>
 
 <body class="{{ bodyClass }}">
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-
 <section class="mainHeader">
     <div class="mainHeader__bg"></div>
     <div class="container">
-        <div class="mainHeader__brand"></div>
+        <div id="brand" data-url="{{ root }}/" class="mainHeader__brand"></div>
         <div class="mainHeader__title">{{ settings['site_name'] }}</div>
         <div class="mainHeader__lang">
             {% include 'languageSwitcher.html.twig' with {'languages':languages} %}
@@ -75,16 +71,16 @@
     </div>
 </section>
 
-<div class="msgWindow"><span class="msgWindowClose"></span><div class="msgWindowTitle"></div><div class="msgWindowContent"></div></div>
-
-
-<script src="{{ root }}/js/drawshapes.js"></script>
 <script src="{{ root }}/js/translation.js?lang={{ menu.lang }}"></script>
 <script>
     var _root_ = "{{ root }}";
     var bodyIsLoaded = true;
 </script>
-<script src="{{ root }}/js/5ec.js"></script>
+{% if assets %}
+    <script src="{{ root }}/dist/{{ assets['app.js'] }}"></script>
+{% else %}
+    <script src="http://localhost:8080/dist/app.js"></script>
+{% endif %}
 
 <script class="mainScripts">
     {% block scripts %}{% endblock %}

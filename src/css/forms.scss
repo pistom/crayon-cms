@@ -1,0 +1,84 @@
+form {
+  &.isDisabled {
+    input,textarea,select {
+    }
+  }
+}
+label {
+  color: $cl-gray;
+  font-size: .75rem;
+  line-height:1.5rem;
+  @include breakpoint ($tablet) {
+    font-size: 1em;
+    text-align: right;
+    display: block;
+    padding-top: 5px;
+  }
+}
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="time"],
+input[type="password"],
+input[type="number"],
+input[type="color"],
+select {
+  transition: all .5s ease;
+  border: 0 solid $cl-blue;
+  border-bottom-width: 2px;
+  color: $cl-text;
+  line-height:1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 0;
+  font-size: 1rem;
+  margin:4px 0 8px;
+  &.code {
+    font-family:"Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  }
+  &.input{
+    &--narrow {
+      width: auto;
+    }
+  }
+}
+input[type="color"] {
+  min-height: 30px;
+  width: 70px;
+  padding: 5px;
+  background: transparent;
+}
+input[disabled],textarea[disabled],select[disabled],button[disabled] {
+  background: lighten($cl-gray,47);
+  border-color: lighten($cl-gray,30) lighten($cl-gray,30) lighten($cl-gray,30) lighten($cl-gray,30);
+  color:lighten($cl-gray,30);
+}
+table input[type="text"],
+table input[type="password"],
+table input[type="date"],
+table input[type="datetime"],
+table input[type="time"],
+table input[type="number"],
+table select {
+  font-size: 0.9rem;
+}
+textarea {
+  transition: all .5s ease;
+  border: 0 solid $cl-blue;
+  border-bottom-width: 2px;
+  font-family: $font-primary;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 0;
+  font-size: 1rem;
+  margin:4px 0 8px;
+  height: 100px;
+  &.pageContent{
+    height: 500px;
+  }
+  &.code {
+    font-family:"Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  }
+}

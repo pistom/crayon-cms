@@ -72,7 +72,15 @@ $config = array(
 'twig_cache'=>'cache',
 'site_color'=>'#ffffff',
 'main_dir'=>$main_dir,
-'salt'=>uniqid(mt_rand(), true)
+'salt'=>uniqid(mt_rand(), true),
+'admin_email'=>'admin@admin.com,
+'mail_is_smtp'=>true,
+'mail_host'=>"",
+'mail_smtp_auth'=>false,
+'mail_username'=>"admin",
+'mail_password'=>"admin",
+'mail_smtp_secure'=>"",
+'mail_port'=>""
 );
 createFile('data/config.json', json_encode($config));
 
@@ -121,9 +129,17 @@ createFile('data/routing.json', json_encode($routing_config));
 
 // Translations
 $translations = array(
-"contact"=>array(
-    "en"=>"Contact",
-)
+"contact"=>array("en"=>"Contact"),
+"email"=>array("en"=>"Email"),
+"message"=>array("en"=>"Message"),
+"error"=>array("en"=>"Error"),
+"sending"=>array("en"=>"Sending"),
+"read_article"=>array("en"=>"Read article"),
+"email_not_blank"=>array("en"=>"Email can't be empty."),
+"email_not_valid"=>array("en"=>"Email doesn't look like a valid email."),
+"message_not_blank"=>array("en"=>"Message can't be empty."),
+"message_too_short"=>array("en"=>"Message is too short"),
+"message_sent"=>array("en"=>"Your message has been sent"),
 );
 createFile('data/translations.json', json_encode($translations));
 
@@ -197,7 +213,7 @@ createFile('data/blog/config.json', json_encode($blog_config));
 
 
 // Remove _install.php
-if(rename('_install.php','_install.tmp')):?>
+if(rename('_install.php','_install.dist')):?>
 <span style="color:slategray">
 ┌ <b>SUCCESS!</b> ────────────────────────────────────────────╖
 │ <span style='color:yellowgreen'>File <strong>_install.php</strong> deleted</span>                            ║

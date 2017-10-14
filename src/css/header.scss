@@ -1,0 +1,64 @@
+@import "mixins/clearfix";
+
+.mainHeader {
+  text-align: center;
+  padding: 15px;
+  overflow: hidden;
+  position: relative;
+  span.tHide {
+    opacity: 0;
+  }
+  .container {
+    position: relative;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &__brand {
+    background-image: url(../images/logo-crayon.svg);
+    background-size: cover;
+    width: 50px;
+    height: 75px;
+    margin: 0 auto -12px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    @include breakpoint($tablet) {
+      width: 134px;
+      height: 200px;
+    }
+  }
+  &__title {
+    background: $cl-bg;
+    font-family:$font-tertiary;
+    position: relative;
+    z-index: auto;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    padding:0 15px 15px 15px;
+    display: inline-block;
+    border-top: 0 solid $cl-text;
+    @include breakpoint ($tablet) {
+      font-size: 4rem;
+    }
+  }
+  &__lang {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include clearfix2;
+    a {
+      float: left;
+      padding:2px 10px;
+      border-left: 1px solid $cl-text;
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+}
