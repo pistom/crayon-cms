@@ -1,7 +1,7 @@
 # Crayon CMS
 A simple CMS, which requires no database. All data are stored in twig and json files.
 
-Demo: [cms.crayon.pro](http://cms.crayon.pro)
+Demo: [cms.cinquiemecrayon.eu](http://cms.cinquiemecrayon.eu/)
 
 ## Installation
 1. Clone or download the CMS source.
