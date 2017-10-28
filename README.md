@@ -7,7 +7,7 @@ Demo: [cms.cinquiemecrayon.eu](http://cms.cinquiemecrayon.eu/)
 1. Clone or download the CMS source.
 2. Run composer to download dependencies.
 3. Change file name `_install.dist` to `_install.php`
-4. Run `yarn install`.
+4. Run `yarn`.
 5. Generate assets:
    * Develop `npm run dev`
    * Production `npm run prod`
