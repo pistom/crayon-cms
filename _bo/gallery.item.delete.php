@@ -1,7 +1,8 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("gallery.item.delete");
+
 $manager = new \Crayon\CrayonManager();
 
 $itemId = $app->getManager()->testString($_POST['itemId']);

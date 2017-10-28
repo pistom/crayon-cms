@@ -1,7 +1,8 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("user.save");
+
 $settings = $app->getConfig();
 $users = $app->getManager()->getUsersList();
 $oldUserName = (isset($_GET['user'])) ? $app->getManager()->testString($_GET['user']) : null;

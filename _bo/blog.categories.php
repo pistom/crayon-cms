@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("blog.categories");
 $categories = $app->getManager()->getBlogCategories();
 
 echo $app->twig->render('blog.categories.html.twig', array(

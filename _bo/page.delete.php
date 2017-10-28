@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("page.delete");
 
 $pageName = $app->getManager()->testString($_POST['page']);
 $app->getManager()->deletePage($pageName);

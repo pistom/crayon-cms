@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("files.config.save");
 $config = $app->getManager()->getFilesConfig();
 $config['images_sizes'] = array();
 if($_SERVER['REQUEST_METHOD'] === 'POST') {

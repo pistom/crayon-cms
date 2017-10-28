@@ -5,4 +5,5 @@ if(!isset($_SESSION['UserData']['username'])){
 }
 else {
     $userRole = $_SESSION['UserData']['role'];
+    $userName = $_SESSION['UserData']['username'];
 }

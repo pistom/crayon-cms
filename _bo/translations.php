@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("translations");
 
 $translations = $app->getManager()->getTranslations();
 $languages = $app->getManager()->getLanguagesList();

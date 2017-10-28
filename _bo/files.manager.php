@@ -2,6 +2,8 @@
 require_once '../vendor/autoload.php';
 
 $app = new \CrayonBo\CrayonBo();
+$app->dieIfUserNotAllowed("files.manager");
+
 $mainDir = '../images/pages/';
 $dir = $mainDir;
 $upDir = null;

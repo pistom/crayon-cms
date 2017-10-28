@@ -2,7 +2,7 @@
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
 $manager = new \Crayon\CrayonManager();
-
+$app->dieIfUserNotAllowed("blog.posts");
 $page = (isset($_GET['page'])) ? $app->getManager()->testString($_GET['page']) : 1;
 $articlesPerPage = 10;
 

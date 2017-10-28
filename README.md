@@ -92,3 +92,29 @@ Exaple:
 alert(translate.thank_you);
 ```
 
+## Users
+You can create new users in admin panel.
+To give the user permission to edit content in the admin panel 
+you need to add the appropriate permissions in `data/users.json` file.
+Example: 
+
+```json
+{
+  "123": {
+    "role": "",
+    "pwd": "password",
+    "permissions": [
+      "pages",
+      "files",
+      "files.manager",
+      "files.uploader",
+      "file.upload",
+      "file.remove",
+      "gallery",
+      "gallery.items"
+    ]
+  }
+ }
+```
+
+Permission names are filenames in the `_bo` directory.

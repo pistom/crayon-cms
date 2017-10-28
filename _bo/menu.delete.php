@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("menu.delete");
 
 $menus = $app->getManager()->getMenusList();
 $menuName = $app->getManager()->testString($_POST['menu']);

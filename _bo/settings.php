@@ -1,7 +1,8 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("settings");
+
 $settings = $app->getConfig();
 $templates = $app->getManager()->getTemplatesList();
 echo $app->twig->render('settings.html.twig', array(

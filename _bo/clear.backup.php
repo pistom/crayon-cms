@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("clear.backup");
 
 $app->getManager()->clearDirectory('../data/tmp');
 $app->getManager()->clearDirectory('../data/tmp/pages');

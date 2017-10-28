@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
+$app->dieIfUserNotAllowed("gallery.items");
 $manager = new \Crayon\CrayonManager();
 
 $page = (isset($_GET['page'])) ? $app->getManager()->testString($_GET['page']) : 1;

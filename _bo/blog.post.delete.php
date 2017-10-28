@@ -1,7 +1,8 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("blog.post.delete");
+
 $manager = new \Crayon\CrayonManager();
 
 $postId = $app->getManager()->testString($_POST['postId']);
