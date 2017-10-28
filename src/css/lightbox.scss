@@ -1,0 +1,79 @@
+.lb-album{
+  width: 900px;
+  margin: 0 auto;
+  font-family: $font-primary;
+}
+.lb-overlay{
+  width: 0px;
+  height: 0px;
+  position: fixed;
+  overflow: hidden;
+  left: 0px;
+  top: 0px;
+  padding: 0px;
+  z-index: 99;
+  text-align: center;
+  background: transparentize($cl-bg,.05);
+}
+
+.lb-overlay a.lb-close{
+  z-index: 1001;
+  color: $cl-red;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  &:before {
+    content: 'x';
+    font-size: 2rem;
+  }
+}
+.lb-overlay img{
+  max-height: 80%;
+  max-width: 80%;
+  position: relative;
+  opacity: 0;
+  filter: alpha(opacity=0); /* internet explorer */
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  -ms-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+}
+.lb-prev, .lb-next{
+  font-size: 2rem;
+  padding: 0 10px;
+}
+.lb-prev:hover, .lb-next:hover{
+  color: $cl-red;
+}
+.lb-prev{
+  &:before {
+    content: '<';
+  }
+}
+.lb-next{
+  &:before {
+    content: '>';
+  }
+}
+.lb-overlay:target {
+  width: auto;
+  height: auto;
+  bottom: 0px;
+  right: 0px;
+  padding: 40px 10px 10px;
+}
+.lb-overlay:target img,
+.lb-overlay:target a.lb-close{
+  opacity: 1;
+  filter: alpha(opacity=99); /* internet explorer */
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+}
+/*
+	100% Height for Opera as the max-height seems to be ignored, not optimal for large screens
+	http://bricss.net/post/11230266445/css-hack-to-target-opera
+*/
+x:-o-prefocus, .lb-overlay img {
+  height: 100%;
+}

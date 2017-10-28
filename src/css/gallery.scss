@@ -1,0 +1,21 @@
+.gallery {
+  &__itemsList {
+
+  }
+  &__item {
+    padding: 15px;
+    img {
+      max-width: 240px;
+    }
+    @include breakpoint($tablet) {
+      &:nth-child(2n+1){clear:left;}
+      img {
+        max-width: 100%;
+      }
+    }
+    @include breakpoint($desktop) {
+      &:nth-child(2n+1){clear:none;}
+      &:nth-child(3n+1){clear:left;}
+    }
+  }
+}

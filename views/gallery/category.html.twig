@@ -1,0 +1,38 @@
+{% extends template %}
+{% set bodyClass = 'gallery' %}
+{% set pageDescription = 'Gallery' %}
+{% block content %}
+    <div class="gallery__itemsList">
+        <div class="row lb-album">
+            {% for item in items %}
+
+                <div class="gallery__item col-m-100 col-t-50 col-d-33 text--center ">
+                    <p class="title title--3 text--center">{{ item.title }}</p>
+                    <a href="#image-{{ item.id }}"><img src="{{ root }}/images/pages/{{ item.image }}" class="img--responsive" alt=""></a>
+                </div>
+
+                <div class="lb-overlay" id="image-{{ item.id }}">
+                    <img src="{{ root }}/images/pages/{{ item.image }}" alt="{{ item.title }}" />
+                    <div>
+                        <h3>{{ item.title }}</h3>
+                        {{ item.description }}
+                        <hr>
+                        <p class="text--center">
+                            <a href="#image-{{ items[loop.index-2].id }}" class="lb-prev"></a>
+                            <a href="#image-{{ items[loop.index].id }}" class="lb-next"></a>
+                        </p>
+                    </div>
+                    <a href="#" class="lb-close"></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="blog__pagination">
+        {% if pagination|length > 1 %}
+            {% for page in pagination %}
+                <a href="{{ page.url }}" data-ajax="true" title="{{ article.id }}" class="{{ currentPageNumber == page.page ? 'active' : '' }}">{{ page.page }}</a>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}

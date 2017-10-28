@@ -44,6 +44,15 @@
             </ul>
         </li>
         <li>
+            <label for="menu_gallery" class="aside__navItem {{ menuPage == 'gallery.i' or menuPage == 'gallery.c' or menuPage == 'gallery.s' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-photo" aria-hidden="true"></i></span> Gallery</label>
+            <input name="menu_submenu" type="radio" id="menu_gallery">
+            <ul class="aside__navSubMenu">
+                <li><a href="gallery.items.php" class="aside__navSubItem {{ menuPage == 'gallery.i' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></span> Photos</a></li>
+                <li><a href="gallery.categories.php" class="aside__navSubItem {{ menuPage == 'gallery.c' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-list-ul" aria-hidden="true"></i></span> Categories</a></li>
+                <li><a href="gallery.config.php" class="aside__navSubItem {{ menuPage == 'gallery.s' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-cog" aria-hidden="true"></i></span> Configuration</a></li>
+            </ul>
+        </li>
+        <li>
             <label for="menu_files" class="aside__navItem {{ menuPage == 'files.m' or menuPage == 'files.u' or menuPage == 'files.c' ? 'active' : '' }}"><span class="aside__navIco"><i class="fa fa-folder" aria-hidden="true"></i></span> Files manager</label>
             <input name="menu_submenu" type="radio" id="menu_files">
             <ul class="aside__navSubMenu">

@@ -31,8 +31,10 @@ if($_FILES["file"]["size"] < $sizeLimit*MB ){
     $filename = $_FILES["file"]["name"];
     $filename = preg_replace('/[^A-Za-z0-9_\-\.]/','',str_replace(' ', '-', $filename));
 
-    if(file_exists(FILES_DIRECTORY.$directory.$filename))
-        $filename = basename(pathinfo($_FILES["file"]["name"])['basename'],'.'.pathinfo($_FILES["file"]["name"])['extension']).'-'.rand(1000,9999).'.'.pathinfo($_FILES["file"]["name"])['extension'];
+    if(file_exists(FILES_DIRECTORY.$directory.$filename)) {
+        $filename = basename(pathinfo($_FILES["file"]["name"])['basename'], '.' . pathinfo($_FILES["file"]["name"])['extension']) . '-' . rand(1000, 9999) . '.' . pathinfo($_FILES["file"]["name"])['extension'];
+        $filename = preg_replace('/[^A-Za-z0-9_\-\.]/', '', str_replace(' ', '-', $filename));
+    }
 
     if(!is_dir(FILES_DIRECTORY.$directory))
         mkdir(FILES_DIRECTORY.$directory);

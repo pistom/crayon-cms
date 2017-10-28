@@ -26,7 +26,6 @@ export default class LoadContent {
         this.fetchPage(e.state.url)
         this.setDocumentTitle(e.state.title)
       }
-      else window.history.back()
     })
   }
 
@@ -34,7 +33,7 @@ export default class LoadContent {
     e.preventDefault()
     this.fetchPage(e.target.href)
     this.setDocumentTitle(e.target.title)
-    this.phushHistoryState(e.target)
+    this.phushHistoryState(e.target);
   }
 
   fetchPage (url) {

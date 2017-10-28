@@ -47,9 +47,11 @@ $directories = array(
 'cache'=>1,
 'data'=>1,
 'data/blog'=>1,
+'data/gallery'=>1,
 'data/pages'=>1,
 'data/tmp'=>1,
 'data/tmp/blog'=>1,
+'data/tmp/gallery'=>1,
 'data/tmp/pages'=>1,
 'images'=>0,
 'images/pages'=>0,
@@ -58,6 +60,7 @@ $directories = array(
 'views/tmp'=>1,
 'views/tmp/pages'=>1,
 'views/tmp/blog'=>1,
+'views/tmp/gallery'=>1,
 'views/tmp/blog/articles'=>1
 );
 
@@ -210,13 +213,28 @@ $blog_config = array(
 );
 createFile('data/blog/config.json', json_encode($blog_config));
 
+// Gallery categories
+$gallery_categories = array(
+"1"=>array(
+    "id"=>1,
+    "name"=>"First category",
+    "menu"=>"main",
+)
+);
+createFile('data/gallery/categories.json', json_encode($gallery_categories));
+
+// Gallery config
+$gallery_config = array(
+"items_per_page"=>5
+);
+createFile('data/gallery/config.json', json_encode($gallery_config));
 
 
 // Remove _install.php
 if(rename('_install.php','_install.dist')):?>
 <span style="color:slategray">
 ┌ <b>SUCCESS!</b> ────────────────────────────────────────────╖
-│ <span style='color:yellowgreen'>File <strong>_install.php</strong> deleted</span>                            ║
+│ <span style='color:yellowgreen'>File <strong>_install.php</strong> renamed</span>                            ║
 ╘══════════════════════════════════════════════════════╝</span>
 <span style="color:slategray">
 ┌ <b>IMPORTANT!</b> ──────────────────────────────────────────╖
