@@ -1,4 +1,7 @@
 <?php
+
+namespace CrayonBo\manager;
+
 class CrayonBoManager {
 
     public function getRoutesList(){

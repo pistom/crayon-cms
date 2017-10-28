@@ -2,6 +2,8 @@
 
 namespace CrayonBo;
 
+use CrayonBo\manager\CrayonBoManager;
+
 class CrayonBo
 {
 
@@ -14,12 +16,12 @@ class CrayonBo
     {
         $this->loadConfig();
         session_start();
-        include_once 'verification.php';
-        require_once 'app/manager/CrayonBoManager.php';
-        $this->userRole = $userRole;
-        $this->userName = $userName;
+        $v = new Verification($this->settings['main_dir']);
+        $verification = $v->verify();
+        $this->userRole = $verification['userRole'];
+        $this->userName = $verification['userName'];
         $this->loadTwig();
-        $this->manager = new \CrayonBoManager();
+        $this->manager = new CrayonBoManager();
     }
 
     protected function loadTwig()
@@ -48,7 +50,7 @@ class CrayonBo
     {
         $json_data = file_get_contents('../data/users.json');
         $users = json_decode($json_data, true);
-        return $users[$this->userName]['permissions'];
+        return (array_key_exists('permissions', $users[$this->userName])) ? $users[$this->userName]['permissions'] : array();
     }
 
     public function dieIfUserNotAllowed($resource)

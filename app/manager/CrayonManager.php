@@ -206,11 +206,11 @@ class CrayonManager
         return $category;
     }
 
-    public function getGalleryCategoryItems($categoryId, $page, $menuName, $itemsPerPage, $publishedOnly = false)
+    public function getGalleryCategoryItems($categoryId, $page, $menuName, $itemsPerPage)
     {
         $file = (file_exists('data/gallery/items.json')) ? 'data/gallery/items.json' : '../data/gallery/items.json';
         $items_data = file_get_contents($file);
-        $items = ($items_data) ? json_decode($items_data, true): [];
+        $items = ($items_data) ? json_decode($items_data, true): array();
         $allResults = array();
         foreach ($items as $item) {
             if ($categoryId) {
