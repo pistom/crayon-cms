@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
+$app->dieIfUserNotAllowed("blog.post.save");
 
 $post = array();
 if($_POST['post_id']) {

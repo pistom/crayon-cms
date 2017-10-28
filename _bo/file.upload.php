@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
+$app->dieIfUserNotAllowed("file.upload");
 
 define("FILES_DIRECTORY",'../images/pages/');
 define('MB', 1048576);

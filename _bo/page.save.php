@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
+$app->dieIfUserNotAllowed("page.save");
 
 $oldPageName = (isset($_GET['page'])) ? $app->getManager()->testString($_GET['page']) : null;
 if($_POST) {

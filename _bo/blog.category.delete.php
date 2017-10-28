@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("blog.category.delete");
 
 $app->getManager()->deleteBlogCategory($app->getManager()->testString($_POST['category']));
 

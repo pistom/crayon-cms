@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
+$app->dieIfUserNotAllowed("gallery.item.save");
 
 $item = array();
 if(key_exists('item_id', $_POST)) {

@@ -2,6 +2,8 @@
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
 $manager = $app->getManager();
+$app->dieIfUserNotAllowed("translation.save");
+
 $languages = $manager->getLanguagesList();
 
 $translation = array();

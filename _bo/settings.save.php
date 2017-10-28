@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("settings.save");
 
 $settings = $app->getConfig();
 

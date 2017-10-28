@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("blog.config");
 $config = $app->getManager()->getBlogConfig();
 
 echo $app->twig->render('blog.config.html.twig', array(

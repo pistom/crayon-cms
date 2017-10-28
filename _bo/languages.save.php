@@ -2,6 +2,7 @@
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
 $manager = $app->getManager();
+$app->dieIfUserNotAllowed("languages.save");
 
 $languages = array();
 $code = '';

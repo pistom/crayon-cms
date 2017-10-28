@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 $app = new \CrayonBo\CrayonBo();
-$app->dieIfNotAdmin();
+$app->dieIfUserNotAllowed("user.delete");
 
 $users = $app->getManager()->getUsersList();
 $userName = $app->getManager()->testString($_POST['user']);
