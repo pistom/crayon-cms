@@ -321,7 +321,7 @@ class CrayonBoManager {
     public function deleteGalleryItem($id){
         $items = $this->getAllGalleryItems();
         unset($items[$id]);
-        $this->saveBlogPosts($items);
+        $this->saveGalleryItems($items);
     }
 
     public function testString($data){

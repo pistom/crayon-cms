@@ -56,10 +56,10 @@
 
 {% block scripts %}
     <script>
-        document.body.addEventListener("click",function(e){
+        document.body.addEventListener("click", function(e){
             if(e.target.dataset.action == 'delete'){
                 if(confirm("Are you sure?")){
-                    atomic.item('gallery.item.delete.php','itemId='+e.target.dataset.item)
+                    atomic.post('gallery.item.delete.php','itemId='+e.target.dataset.item)
                         .success(function(data){
                             if(data.status == 'success')
                                 showMessage('success','Done','Data has been saved');

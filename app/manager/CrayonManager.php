@@ -210,7 +210,7 @@ class CrayonManager
     {
         $file = (file_exists('data/gallery/items.json')) ? 'data/gallery/items.json' : '../data/gallery/items.json';
         $items_data = file_get_contents($file);
-        $items = json_decode($items_data, true);
+        $items = ($items_data) ? json_decode($items_data, true): [];
         $allResults = array();
         foreach ($items as $item) {
             if ($categoryId) {
