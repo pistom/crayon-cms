@@ -7,7 +7,7 @@ class SiteController
     protected $request;
     protected $siteConfig;
 
-    function __construct($ctrlParams)
+    function __construct(array $ctrlParams)
     {
         $this->lang = $ctrlParams['lang'];
         $this->twig = $ctrlParams['twig'];

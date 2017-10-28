@@ -1,6 +1,9 @@
 <?php
 namespace Crayon;
 
+use Twig_Environment;
+use Twig_Loader_Filesystem;
+
 class Crayon {
 
     protected $router;
@@ -122,8 +125,8 @@ class Crayon {
     }
 
     protected function loadTwig(){
-        $loader = new \Twig_Loader_Filesystem('views');
-        $this->twig = new \Twig_Environment($loader, array('cache' => $this->settings['twig_cache'],'debug' => $this->settings['twig_debug']));
+        $loader = new Twig_Loader_Filesystem('views');
+        $this->twig = new Twig_Environment($loader, array('cache' => $this->settings['twig_cache'],'debug' => $this->settings['twig_debug']));
         $this->twig->addExtension(new \Twig_Extension_Debug());
     }
 

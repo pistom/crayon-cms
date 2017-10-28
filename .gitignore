@@ -7,8 +7,8 @@
 /cache
 /data
 /views/blog/articles/*.html.twig
-/views/tmp/
-/views/_templates/
+/views/tmp
+/views/_templates
 /views/pages/*.html.twig
 /images/*
 /_bo/Gruntfile.js

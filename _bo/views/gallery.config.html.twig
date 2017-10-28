@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Galleries configuration</h1>
+    <div class="page">
+        <form action="" method="post" id="settingsForm">
+            <h2>Category</h2>
+            <div class="page__block">
+                <label class="page__blockLabel" for="items_per_page">Photos per page</label>
+                <div class="page__blockInput">
+                    <input type="number" id="items_per_page" value="{{ config['items_per_page'] }}" name="items_per_page">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel"></label>
+                <div class="page__blockInput">
+                    <a href="" class="btn btn--green" data-action="save-settings"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var changeData = function(e){
+            if(e.target.dataset.action == 'save-settings' || e.target.parentNode.dataset.action == 'save-settings'){
+                e.preventDefault();
+                var data = serializeFormData(document.getElementById('settingsForm'));
+                atomic.post('gallery.config.save.php',data)
+                    .success(function(data){
+                        if(data.status == 'success')
+                            showMessage('success','Done','Data has been saved');
+                        if(data.status == 'error')
+                            showMessage('error','Error','Data not saved');
+                    })
+                    .error(function(data){
+                        showMessage('error','Error','Server error');
+                    })
+            }
+        };
+        document.body.addEventListener("click",changeData,false);
+    </script>
+{% endblock %}

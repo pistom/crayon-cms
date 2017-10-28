@@ -8,4 +8,5 @@ try {
     }
 } catch(Error $e){
     echo "<pre>It does not work :(</pre>";
+    var_dump($e);
 }

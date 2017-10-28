@@ -1,0 +1,169 @@
+{% extends "base.html.twig" %}
+{% block head %}
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey={{ settings.tinymce_api_key }}"></script>
+{% endblock %}
+{% block content %}
+    <h1>Image</h1>
+    <form action="" id="itemForm">
+        <div class="page" style="padding-bottom: 350px;">
+            <div class="page__block">
+                <label class="page__blockLabel" for="item_id">Id</label>
+                <div class="page__blockInput">
+                    <input readonly disabled type="text" name="item_id" value="{{ item.id }}" id="item_id">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="item_title">Title</label>
+                <div class="page__blockInput">
+                    <input type="text" name="item_title" value="{{ item.title }}" id="item_title">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="item_description">Description</label>
+                <div class="page__blockInput">
+                    <textarea type="text" class="tinymce" name="item_description" id="post_content">{{ post.content }}</textarea>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="item_description">Order</label>
+                <div class="page__blockInput">
+                    <input type="number" name="item_order" value="{{ item.order }}" id="item_description">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="item_slug">Slug</label>
+                <div class="page__blockInput">
+                    <input type="text" name="item_slug" value="{{ item.slug }}" id="item_slug">
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="item_category_id">Category</label>
+                <div class="page__blockInput">
+                    <select name="item_category_id" id="item_category_id">
+                        <option value="-">-- select category --</option>
+                        {% for key,category in categories %}
+                            <option value="{{ category.id }}" {{ category.id==item.category_id ? 'selected' : '' }}>{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="page__block">
+                <label class="page__blockLabel" for="item_intro_image">Image</label>
+                <div class="page__blockInput">
+                    <input class="filesManager" type="text" name="item_image" value="{{ item.image }}" id="item_intro_image">
+                    <img id="image_preview" src="" style="max-width:300px;" alt="">
+                </div>
+            </div>
+            <div class="page__block">
+                <a href="" class="btn btn--green btn--right" data-action="save"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</a>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // TINY MCE
+  var loadTinyMCE = function(){
+    tinymce.init({
+      selector:'textarea.tinymce',
+      setup: function (editor) {
+        editor.on('change', function () {
+          tinymce.triggerSave();
+        });
+      },
+      height : "300",
+      force_br_newlines : false,
+      force_p_newlines : true,
+      forced_root_block : '',
+      plugins: "code textcolor lists advlist link hr",
+      toolbar: "undo redo | bold italic | image link",
+      image_caption: true,
+      image_prepend_url: _root_+"/images/pages/",
+      textcolor_map: [
+        "0DC3CA", "Niebieski",
+        "4D4F4F", "Szary",
+        "FD0864", "Czerwony",
+        "8ABE2B", "Zielony"
+      ],
+      style_formats: [
+        { title: 'Heaer 1', block: 'h1', classes: 'title title--1'},
+        { title: 'Heaer 2', block: 'h2', classes: 'title title--2'},
+        { title: 'Heaer 3', block: 'h3', classes: 'title title--3'},
+        { title: 'Paragraph', block: 'p'},
+        { title: 'Blockquotes', items: [
+          { title: 'Citation block 1 qm', block: 'blockquote', wrapper: true},
+          { title: 'Citation block 1', block: 'blockquote', wrapper: true, classes: 'no-qm'},
+          { title: 'Citation block 2', selector: 'blockquote', classes: 'citation'},
+          { title: 'Author', selector: 'blockquote p', classes: 'quote__author'},
+          { title: 'Link', selector: 'blockquote p', classes: 'quote__url'}
+        ]},
+        { title: 'Text small', selector: 'p, ol, ul, li, span, div', classes: 'text--small'}
+      ]
+    });
+  };
+  loadTinyMCE();
+
+    var itemForm = document.getElementById('itemForm');
+    itemForm.item_slug.addEventListener('keyup',function(e){
+        e.target.value = validateInput(e.target,/^[a-z]$/i);
+    },false);
+
+    var saveData = function(e){
+        if(e.target.dataset.action == 'save' || e.target.parentNode.dataset.action == 'save'){
+            e.preventDefault();
+            var data = serializeFormData(itemForm);
+            atomic.post('gallery.item.save.php',data)
+                .success(function(data){
+                    if(data.status == 'success')
+                        showMessage('success','Done',data.message);
+                    if(data.status == 'error')
+                        showMessage('error','Error',data.message);
+                })
+                .error(function(data){
+                    showMessage('error','Error','Server error');
+                })
+        }
+    };
+    document.body.addEventListener("click",saveData,false);
+
+
+    var inputsFilesManager = itemForm.getElementsByClassName('filesManager');
+    var getFilesManager = function(e){
+        var iframeWrapper = document.createElement('div');
+        iframeWrapper.id ='iframeWrapper';
+        iframeWrapper.dataset.parentinput = e.target.name;
+        var iframe = document.createElement('iframe');
+        iframe.src = _root_+'/_bo/files.manager.php?inner=true';
+        iframeWrapper.appendChild(iframe);
+        e.target.parentNode.appendChild(iframeWrapper);
+    };
+    [].forEach.call(inputsFilesManager,function(input){
+        input.addEventListener('focus',getFilesManager,false);
+    });
+    document.body.addEventListener("click",function(e){
+        if(!e.target.classList.contains('filesManager')){
+            var fileManager = document.getElementById('iframeWrapper');
+            if(fileManager) {
+                fileManager.parentNode.removeChild(fileManager);
+            }
+        }
+    },false);
+
+    function loadImagePreview(){
+      var imagePreview = document.getElementById('image_preview');
+      setTimeout(function(){
+        if(inputImage.value){
+            imagePreview.src = '../images/pages/'+inputImage.value;
+        }
+      },250);
+    }
+    var inputImage = document.getElementById('item_intro_image');
+    inputImage.addEventListener('blur', loadImagePreview);
+    loadImagePreview();
+
+
+</script>
+{% endblock %}

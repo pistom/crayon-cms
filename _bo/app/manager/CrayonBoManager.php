@@ -243,6 +243,87 @@ class CrayonBoManager {
         $this->saveBlogPosts($posts);
     }
 
+    public function getGalleryConfig(){
+        $json_data = file_get_contents('../data/gallery/config.json');
+        $config = json_decode($json_data, true);
+        return $config;
+    }
+    public function saveGalleryConfig($config){
+        copy('../data/gallery/config.json', '../data/tmp/gallery/config-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/gallery/config.json', 'w');
+        fwrite($fp, json_encode($config));
+        fclose($fp);
+    }
+    public function getGalleryCategories(){
+        $json_data = file_get_contents('../data/gallery/categories.json');
+        $categories = json_decode($json_data, true);
+        return $categories;
+    }
+    public function getGalleryCategory($id){
+        $categories = $this->getGalleryCategories();
+        $category = null;
+        foreach ($categories as $c){
+            if ($c['id'] == $id)
+                $category = $c;
+        }
+        return $category;
+    }
+
+    public function saveGalleryCategory($category){
+        copy('../data/gallery/categories.json', '../data/tmp/gallery/categories-tmp-'.date('YmdHis').'.json');
+        $categories = $this->getGalleryCategories();
+        $categories[$category['id']] = $category;
+        $fp = fopen('../data/gallery/categories.json', 'w');
+        fwrite($fp, json_encode($categories));
+        fclose($fp);
+    }
+    public function deleteGalleryCategory($category){
+        copy('../data/gallery/categories.json', '../data/tmp/gallery/categories-tmp-'.date('YmdHis').'.json');
+        $categories = $this->getGalleryCategories();
+        $k = null;
+        foreach ($categories as $key=>$c) {
+            if ($c['id'] == $category)
+                $k=$key;
+        }
+        unset($categories[$k]);
+        $fp = fopen('../data/gallery/categories.json', 'w');
+        fwrite($fp, json_encode($categories));
+        fclose($fp);
+    }
+
+    public function getAllGalleryItems(){
+        $json_data = file_get_contents('../data/gallery/items.json');
+        $items = json_decode($json_data, true);
+        return $items;
+    }
+
+    public function getGalleryItem($id){
+        $items = $this->getAllGalleryItems();
+        foreach ($items as $key=>$i)
+            if($i['id'] == $id)
+                return $i;
+    }
+
+    public function saveGalleryItems($items){
+        copy('../data/gallery/items.json', '../data/tmp/gallery/items-tmp-'.date('YmdHis').'.json');
+        $fp = fopen('../data/gallery/items.json', 'w');
+        fwrite($fp, json_encode($items));
+        fclose($fp);
+        return 'Photos saved';
+    }
+
+    public function saveGalleryItem($item){
+        $items = $this->getAllGalleryItems();
+        $items[$item['id']] = $item;
+        return $this->saveGalleryItems($items);
+    }
+
+    public function deleteGalleryItem($id){
+        $items = $this->getAllGalleryItems();
+        unset($items[$id]);
+        $this->saveBlogPosts($items);
+    }
+
     public function testString($data){
         $data = trim($data);
         $data = stripslashes($data);

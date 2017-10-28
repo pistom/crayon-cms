@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <h1>Photos <a href="gallery.item.edit.php" class="btn btn--azure btn--right "><i class="fa fa-plus" aria-hidden="true"></i> Add</a></h1>
+    <table>
+        <colgroup>
+            <col style="width: 20px">
+            <col style="width: 100px">
+            <col>
+            <col>
+            <col style="width: 20px">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Order</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items.results %}
+            <tr>
+                <td>{{ loop.index+(articlesPerPage*(currentPage-1)) }}.</td>
+                <td>
+                    <a href="gallery.item.edit.php?itemId={{ item.id }}"><img src="../images/pages/{{ item.image }}" style="max-width: 100px; max-height:100px" alt=""></a>
+                </td>
+                <td><a href="gallery.item.edit.php?itemId={{ item.id }}">{{ item.title }}</a></td>
+                <td>{{ categories[item.category_id].name }}</td>
+                <td style="text-align: center;">{{ item.order }}</td>
+                <td>
+                    <a href="gallery.item.edit.php?itemId={{ item.id }}" class="btn btn--green btn--small">Edit</a>
+                    <a href="" data-action="delete" class="btn btn--red btn--small" data-item="{{ item.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+
+                </td>
+                <td colspan="3"><a href="gallery.item.edit.php" class="btn btn--azure"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="pagination">
+        {% for page in items.paginator %}<a href="/_bo/gallery.items.php?page={{ page.page }}" class="{{ currentPage == page.page ? 'active' : '' }}">{{ page.page }}</a>{% endfor %}
+    </div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script>
+        document.body.addEventListener("click",function(e){
+            if(e.target.dataset.action == 'delete'){
+                if(confirm("Are you sure?")){
+                    atomic.item('gallery.item.delete.php','itemId='+e.target.dataset.item)
+                        .success(function(data){
+                            if(data.status == 'success')
+                                showMessage('success','Done','Data has been saved');
+                            if(data.status == 'error')
+                                showMessage('error','Error','Data not saved');
+                        })
+                        .error(function(data){
+                            showMessage('error','Error','Server error');
+                        });
+                } else {
+                    location.reload();
+                }
+            }
+        },false);
+    </script>
+{% endblock %}
