@@ -2,7 +2,7 @@
 {% block content %}
     <h1>
         Pages
-        {% if userRole == 'admin' %}<a class="btn btn--azure btn--right " href="page.edit.php"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>{% endif %}
+        <a class="btn btn--azure btn--right " href="page.edit.php"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
     </h1>
 
     <table>
@@ -13,12 +13,12 @@
             <col>
         </colgroup>
         <thead>
-            <tr>
-                <th>#</th>
-                <th>Page</th>
-                <th>Title</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>#</th>
+            <th>Page</th>
+            <th>Title</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for key,page in pages %}
@@ -28,18 +28,18 @@
                 <td>{{ page.title }}</td>
                 <td>
                     <a href="page.edit.php?page={{ key }}" class="btn btn--green btn--small">Edit</a>
-                    {% if userRole == 'admin' %}<a href="" class="btn btn--red btn--small" data-action="delete" data-item="{{ key }}">Delete</a>{% endif %}
+                    <a href="" class="btn btn--red btn--small" data-action="delete" data-item="{{ key }}">Delete</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
         <tfoot>
-            <tr>
-                <td colspan="2"></td>
-                <td colspan="2">
-                    {% if userRole == 'admin' %}<a class="btn btn--azure" href="page.edit.php"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>{% endif %}
-                </td>
-            </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td colspan="2">
+                <a class="btn btn--azure" href="page.edit.php"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
+            </td>
+        </tr>
         </tfoot>
     </table>
 
@@ -51,23 +51,23 @@
 
 {% block scripts %}
     <script>
-        document.body.addEventListener("click",function(e){
-            if(e.target.dataset.action == 'delete'){
-                if(confirm('Are you sure?')){
-                    atomic.post('page.delete.php','page='+e.target.dataset.item)
-                        .success(function(data){
-                            if(data.status == 'success')
-                                showMessage('success','Done','Data has been saved');
-                            if(data.status == 'error')
-                                showMessage('error','Error','Data not saved');
-                        })
-                        .error(function(data){
-                            showMessage('error','Error','Server error');
-                        });
-                } else {
-                    location.reload();
-                }
-            }
-        },false);
+      document.body.addEventListener("click",function(e){
+        if(e.target.dataset.action == 'delete'){
+          if(confirm('Are you sure?')){
+            atomic.post('page.delete.php','page='+e.target.dataset.item)
+              .success(function(data){
+                if(data.status == 'success')
+                  showMessage('success','Done','Data has been saved');
+                if(data.status == 'error')
+                  showMessage('error','Error','Data not saved');
+              })
+              .error(function(data){
+                showMessage('error','Error','Server error');
+              });
+          } else {
+            location.reload();
+          }
+        }
+      },false);
     </script>
 {% endblock %}

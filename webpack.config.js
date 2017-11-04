@@ -115,13 +115,13 @@ let config = {
     }),
     new CleanWebpackPlugin(['dist/*'], cleanOptions)
   ]
-}
+};
 
 if (!dev) {
   config.plugins.push(new UglifyJSPlugin({
     sourceMap: false
-  }))
+  }));
   config.plugins.push(new ManifestPlugin())
 }
 
-module.exports = config
+module.exports = config;
